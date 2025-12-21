@@ -1,0 +1,15 @@
+/*
+Theme Name: Jardin
+Description: Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel avec typographie accessible, variations sombres/claires, et approche theme.json-first.
+Requires at least: 6.5
+Tested up to: 6.9
+Requires PHP: 8.1
+Version: 0.1.0
+Author: Jason Rouet
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jardin
+*/
+
+/* This file is required for WordPress theme recognition but styles are managed via theme.json */
+
