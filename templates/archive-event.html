@@ -1,0 +1,58 @@
+<!--
+	Archive des événements pour le thème Jardin.
+	Deux sections : Prochains événements / Événements passés.
+-->
+
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+	<!-- wp:heading {"level":1} -->
+	<h1>Événements</h1>
+	<!-- /wp:heading -->
+
+	<!-- wp:separator {"className":"is-style-wide"} -->
+	<hr class="wp-block-separator is-style-wide" />
+	<!-- /wp:separator -->
+
+	<!-- wp:heading {"level":2} -->
+	<h2>Prochains événements</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"query":{"perPage":3,"postType":"event","order":"asc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:group {"className":"jardin-events-item","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group jardin-events-item">
+			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
+			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+
+	<!-- wp:heading {"level":2} -->
+	<h2>Événements passés</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"query":{"perPage":10,"postType":"event","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:group {"className":"jardin-events-item jardin-events-item--past","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group jardin-events-item jardin-events-item--past">
+			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
+			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination -->
+		<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination-numbers /-->
+		<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+

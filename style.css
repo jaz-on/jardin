@@ -11,5 +11,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jardin
 */
 
-/* This file is required for WordPress theme recognition but styles are managed via theme.json */
+/*
+ * This file is required for WordPress theme recognition.
+ * All styles are now managed via theme.json for better FSE integration.
+ */
 

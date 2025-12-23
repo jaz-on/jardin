@@ -1,0 +1,16 @@
+{
+  "name": "jaz-on/jardin",
+  "description": "Thème Jardin (block theme)",
+  "type": "wordpress-theme",
+  "require-dev": {
+    "jaz-on/jardin-event": "^0.1"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/jaz-on/jardin-event.git"
+    }
+  ]
+}
+
+

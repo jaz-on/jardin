@@ -1,0 +1,68 @@
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+.wp-block-site-title.is-style-butter-effect,
+.wp-block-site-title.is-style-butter-effect a {
+	display: inline-block;
+	text-shadow:
+		5px 5px 0px var(--wp--preset--color--logo),
+		10px 10px 0px var(--wp--preset--color--accent-hover),
+		15px 15px 0px var(--wp--preset--color--accent),
+		20px 20px 0px var(--wp--preset--color--accent),
+		25px 25px 0px var(--wp--preset--color--background),
+		30px 30px 0px var(--wp--preset--color--muted);
+}
+
+.wp-block-site-title.is-style-butter-effect a:hover,
+.wp-block-site-title.is-style-butter-effect a:focus {
+	transform: scale(1.02);
+	transition: transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-site-title.is-style-butter-effect a:hover,
+	.wp-block-site-title.is-style-butter-effect a:focus {
+		transform: none;
+		transition: none;
+	}
+}
+
+.jardin-toc__list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.jardin-toc__sublist {
+	list-style: none;
+	padding-left: var(--wp--preset--spacing--4);
+	margin-top: var(--wp--preset--spacing--2);
+}
+
+.jardin-toc__item {
+	margin-bottom: var(--wp--preset--spacing--2);
+}
+
+.jardin-toc__link {
+	text-decoration: none;
+}
+
+.jardin-toc__link:hover {
+	text-decoration: underline;
+}
+
+

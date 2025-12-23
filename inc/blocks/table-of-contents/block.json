@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jardin/table-of-contents",
+	"title": "Table of Contents",
+	"category": "text",
+	"description": "Display a table of contents generated from post headings.",
+	"keywords": ["toc", "table", "contents", "navigation"],
+	"textdomain": "jardin",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"attributes": {
+		"headingLevels": {
+			"type": "array",
+			"default": [2, 3, 4, 5, 6]
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"customTitle": {
+			"type": "string",
+			"default": "Table of Contents"
+		},
+		"listStyle": {
+			"type": "string",
+			"default": "ul"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	}
+}
+
