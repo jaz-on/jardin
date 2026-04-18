@@ -219,6 +219,13 @@ add_action( 'after_switch_theme', 'jardin_theme_activated' );
  * Affiche une notice suggérant l'installation du plugin Jardin Events.
  */
 function jardin_events_admin_notice() {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	// Uniquement sur la liste des thèmes (site ou réseau), pas sur tout l’admin.
+	$theme_screens = array( 'themes', 'themes-network' );
+	if ( ! $screen || ! in_array( $screen->id, $theme_screens, true ) ) {
+		return;
+	}
+
 	// Ne rien faire si la notice est désactivée.
 	if ( ! get_option( 'jardin_show_events_notice' ) ) {
 		return;
@@ -239,6 +246,7 @@ function jardin_events_admin_notice() {
 	<?php
 }
 add_action( 'admin_notices', 'jardin_events_admin_notice' );
+add_action( 'network_admin_notices', 'jardin_events_admin_notice' );
 
 /**
  * Charger les classes PHP.

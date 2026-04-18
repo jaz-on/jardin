@@ -1,0 +1,49 @@
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+.directory
+
+# Env
+.env
+.env.*
+!.env.example
+
+# PHP / Composer
+/vendor/
+composer.phar
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+*.log
+debug.log
+
+# WordPress
+*.mo
+
+# Tooling
+.phpunit.result.cache
+.phpcs.cache
+phpstan.neon.cache
+.psalm/cache/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# IDE
+.idea/
