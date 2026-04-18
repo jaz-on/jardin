@@ -1,0 +1,50 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "841c2b362c6b8da0a1243da703f330aa",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "jaz-on/jardin-event",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaz-on/jardin-event.git",
+                "reference": "9b90fdbb5569ae52efd25453f5055d3c63767229"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jaz-on/jardin-event/zipball/9b90fdbb5569ae52efd25453f5055d3c63767229",
+                "reference": "9b90fdbb5569ae52efd25453f5055d3c63767229",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "license": [
+                "MIT"
+            ],
+            "description": "Mini plugin CPT Events pour le site Jardin",
+            "support": {
+                "source": "https://github.com/jaz-on/jardin-event/tree/main",
+                "issues": "https://github.com/jaz-on/jardin-event/issues"
+            },
+            "time": "2025-12-23T17:27:53+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "jaz-on/jardin-event": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

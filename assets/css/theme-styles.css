@@ -65,4 +65,9 @@ html {
 	text-decoration: underline;
 }
 
+/* Archive événements : variante « passés » (plugin + gabarit thème). */
+.jardin-events-item--past {
+	opacity: 0.88;
+}
+
 

@@ -199,58 +199,9 @@ if ( ! function_exists( 'jardin_register_block_styles' ) ) {
 add_action( 'init', 'jardin_register_block_styles' );
 
 /**
- * Vérifie si le plugin Jardin Events est disponible.
- *
- * @return bool
- */
-function jardin_events_available() {
-	return function_exists( 'jardin_events_is_active' ) && jardin_events_is_active();
-}
-
-/**
- * Marque le thème comme récemment activé pour afficher une notice d'information.
- */
-function jardin_theme_activated() {
-	update_option( 'jardin_show_events_notice', 1 );
-}
-add_action( 'after_switch_theme', 'jardin_theme_activated' );
-
-/**
- * Affiche une notice suggérant l'installation du plugin Jardin Events.
- */
-function jardin_events_admin_notice() {
-	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-	// Uniquement sur la liste des thèmes (site ou réseau), pas sur tout l’admin.
-	$theme_screens = array( 'themes', 'themes-network' );
-	if ( ! $screen || ! in_array( $screen->id, $theme_screens, true ) ) {
-		return;
-	}
-
-	// Ne rien faire si la notice est désactivée.
-	if ( ! get_option( 'jardin_show_events_notice' ) ) {
-		return;
-	}
-
-	// Si le plugin est actif, on supprime la notice.
-	if ( jardin_events_available() ) {
-		delete_option( 'jardin_show_events_notice' );
-		return;
-	}
-	?>
-	<div class="notice notice-info is-dismissible">
-		<p>
-			<strong><?php esc_html_e( 'Thème Jardin', 'jardin' ); ?></strong>
-			<?php esc_html_e( 'Pour activer le système d’événements, installez et activez le plugin Jardin Events.', 'jardin' ); ?>
-		</p>
-	</div>
-	<?php
-}
-add_action( 'admin_notices', 'jardin_events_admin_notice' );
-add_action( 'network_admin_notices', 'jardin_events_admin_notice' );
-
-/**
  * Charger les classes PHP.
  */
+require_once get_template_directory() . '/inc/jardin-events-integration.php';
 require_once get_template_directory() . '/inc/class-jardin-blocks.php';
 require_once get_template_directory() . '/inc/class-jardin-toc.php';
 
