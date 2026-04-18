@@ -49,11 +49,23 @@ function jardin_events_render_missing_plugin_notice() {
 		delete_option( 'jardin_show_events_notice' );
 		return;
 	}
+
+	$events_plugin_url = 'https://github.com/jaz-on/jardin-event';
 	?>
 	<div class="notice notice-info is-dismissible">
 		<p>
 			<strong><?php esc_html_e( 'Thème Jardin', 'jardin' ); ?></strong>
-			<?php esc_html_e( 'Pour activer les événements, installez et activez le plugin Jardin Events.', 'jardin' ); ?>
+			<?php
+			printf(
+				/* translators: %s: HTML link to the Jardin Events plugin repository */
+				wp_kses_post( __( 'Pour activer les événements, installez et activez %s.', 'jardin' ) ),
+				sprintf(
+					'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+					esc_url( $events_plugin_url ),
+					esc_html__( 'le plugin Jardin Events', 'jardin' )
+				)
+			);
+			?>
 		</p>
 	</div>
 	<?php
