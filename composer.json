@@ -2,6 +2,7 @@
 	"name": "jaz-on/jardin",
 	"description": "Thème Jardin (block theme)",
 	"type": "wordpress-theme",
+	"license": "GPL-2.0-or-later",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require-dev": {
