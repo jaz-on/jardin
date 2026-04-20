@@ -26,6 +26,10 @@ Ce guide contient toutes les informations nécessaires pour développer le thèm
 
 **Note** : Ces couleurs sont extraites directement du CSS de jasonnade.fr pour garantir un alignement parfait.
 
+#### Contraste et vérification
+
+Les ratios indiqués dans le tableau ci‑dessus sont des **repères** (souvent texte sur fond principal). Lors d’un changement de palette ou d’un nouvel usage (gros titres, petites mentions, boutons), **revérifier** avec un calculateur WCAG au minimum : lien (**accent** / **accent-hover**) sur **background**, texte **foreground** sur **background**, libellés de bouton (**background** sur **accent**), et **logo** sur fond clair si le jaune sert au texte. Ajuster les hex ou introduire un rôle sémantique supplémentaire seulement si une paire échoue clairement aux objectifs visés (AA / AAA selon le contexte).
+
 #### Configuration theme.json - Couleurs (Mode Sombre)
 
 ```json
@@ -48,6 +52,7 @@ Ce guide contient toutes les informations nécessaires pour développer le thèm
             "background": "#ffffff",
             "foreground": "#1a1a1a",
             "accent": "#2563eb",
+            "accent-hover": "#1d4ed8",
             "logo": "#fcae11",
             "muted": "#6b7280",
             "surface": "#f9fafb"
@@ -56,6 +61,7 @@ Ce guide contient toutes les informations nécessaires pour développer le thèm
             "background": "#0a0a19",
             "foreground": "#f9f0ff",
             "accent": "#c7abe3",
+            "accent-hover": "#d9c8f0",
             "logo": "#fcae11",
             "muted": "#b8a8d9",
             "surface": "#1a1a2e"
@@ -200,14 +206,7 @@ Ce guide contient toutes les informations nécessaires pour développer le thèm
 **Content Size** : `800px` (max-width, comme jasonnade.fr)  
 **Wide Size** : `1000px`
 
-**Espacement** : Système basé sur jasonnade.fr (système 8px)
-- `--spacing-sm`: `1rem` (16px)
-- `--spacing-md`: `1.5rem` (24px)
-- `--spacing-lg`: `2rem` (32px)
-- `--spacing-xl`: `3rem` (48px)
-- `--spacing-section`: `4rem` (64px) - Espacement entre sections
-
-**Note** : Pour WordPress, utiliser le système core (0-8) en complément pour compatibilité.
+**Espacement** : Presets définis dans `theme.json` (`settings.spacing.spacingSizes`), avec `defaultSpacingSizes: false` pour n’exposer que l’échelle du thème. Slugs utilisés dans les gabarits : **`2`** (`0.5rem`), **`4`** (`1rem`), **`6`** (`1.5rem`), **`8`** (`2rem`) — alignés avec les usages ToC / paragraphes (`var:preset|spacing|4`, etc.).
 
 ```json
 {
@@ -217,6 +216,13 @@ Ce guide contient toutes les informations nécessaires pour développer le thèm
       "wideSize": "1000px"
     },
     "spacing": {
+      "defaultSpacingSizes": false,
+      "spacingSizes": [
+        { "name": "2", "size": "0.5rem", "slug": "2" },
+        { "name": "4", "size": "1rem", "slug": "4" },
+        { "name": "6", "size": "1.5rem", "slug": "6" },
+        { "name": "8", "size": "2rem", "slug": "8" }
+      ],
       "units": ["px", "em", "rem", "vh", "vw", "%"]
     }
   }
@@ -427,7 +433,7 @@ Demande :
    - Configuration des couleurs (palette jasonnade.fr)
    - Variantes de couleurs dans custom.theme-variants (light, dark-blue, etc.)
    - Configuration typographique (Inter + Calligraffitti + Fira Code)
-   - Système d'espacement (WordPress core 0-8 + custom spacing jasonnade)
+   - Système d'espacement (spacingSizes dédiés, defaultSpacingSizes false)
    - Layout (contentSize: 800px, wideSize: 1000px)
    - Configuration des blocs de base (heading, paragraph, link)
    - Styles H1 avec Calligraffitti et text-shadow multi-couches

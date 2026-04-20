@@ -9,6 +9,18 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 782px) {
+	body {
+		border-width: 6px;
+	}
+}
+
+@media (max-width: 480px) {
+	body {
+		border-width: 0;
+	}
+}
+
 /* Liens : indication visuelle pour nouvel onglet (décoratif). */
 a[target="_blank"]::after {
 	content: " \2197";
@@ -72,6 +84,23 @@ html {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 	}
+
+	main h2.wp-block-heading:not(.jardin-toc__title) {
+		text-shadow: 1px 1px 0 var(--wp--preset--color--logo);
+	}
+
+	.wp-block-site-title.is-style-butter-effect,
+	.wp-block-site-title.is-style-butter-effect a {
+		text-shadow:
+			2px 2px 0 var(--wp--preset--color--logo),
+			4px 4px 0 var(--wp--preset--color--accent);
+	}
+
+	.wp-block-site-title.is-style-butter-effect a:hover,
+	.wp-block-site-title.is-style-butter-effect a:focus {
+		transform: none;
+		transition: none;
+	}
 }
 
 .wp-block-site-title.is-style-butter-effect,
@@ -90,14 +119,6 @@ html {
 .wp-block-site-title.is-style-butter-effect a:focus {
 	transform: scale(1.02);
 	transition: transform 0.2s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.wp-block-site-title.is-style-butter-effect a:hover,
-	.wp-block-site-title.is-style-butter-effect a:focus {
-		transform: none;
-		transition: none;
-	}
 }
 
 .jardin-toc__list {

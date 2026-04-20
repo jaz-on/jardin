@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-20T07:02:13+00:00\n"
+"POT-Creation-Date: 2026-04-20T15:57:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
@@ -18,12 +18,20 @@ msgstr ""
 msgid "Jardin"
 msgstr ""
 
+#. Theme URI of the theme
+msgid "https://github.com/jaz-on/jardin"
+msgstr ""
+
 #. Description of the theme
-msgid "Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel, mode sombre par défaut, typographie accessible, approche theme.json-first (voir docs/05-design-tokens-jasonnade.md pour l’alignement visuel avec jasonnade.fr)."
+msgid "Minimal block theme for a personal digital garden: dark-first palette, accessible typography, and theme.json-first styling aligned with the Jardin design tokens."
 msgstr ""
 
 #. Author of the theme
 msgid "Jason Rouet"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://jasonrouet.com"
 msgstr ""
 
 #: functions.php:123
@@ -134,6 +142,26 @@ msgstr ""
 #: theme.json
 msgctxt "Color name"
 msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "6"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "8"
 msgstr ""
 
 #: theme.json

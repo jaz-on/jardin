@@ -52,10 +52,6 @@ msgstr "le plugin Jardin Events"
 msgid "Jardin"
 msgstr "Jardin"
 
-#. Description of the theme
-msgid "Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel, mode sombre par défaut, typographie accessible, approche theme.json-first (voir docs/05-design-tokens-jasonnade.md pour l’alignement visuel avec jasonnade.fr)."
-msgstr "Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel, mode sombre par défaut, typographie accessible, approche theme.json-first (voir docs/05-design-tokens-jasonnade.md pour l’alignement visuel avec jasonnade.fr)."
-
 #. Author of the theme
 msgid "Jason Rouet"
 msgstr "Jason Rouet"
@@ -108,7 +104,7 @@ msgstr "Arrière-plan"
 #: theme.json
 msgctxt "Color name"
 msgid "Foreground"
-msgstr "Premier plan"
+msgstr "Texte"
 
 #: theme.json
 msgctxt "Color name"
@@ -189,3 +185,35 @@ msgstr "2XL"
 msgctxt "Font size name"
 msgid "H1 Hero"
 msgstr "H1 héros"
+
+#. Theme URI of the theme
+msgid "https://github.com/jaz-on/jardin"
+msgstr ""
+
+#. Description of the theme
+msgid "Minimal block theme for a personal digital garden: dark-first palette, accessible typography, and theme.json-first styling aligned with the Jardin design tokens."
+msgstr "Thème minimaliste pour un jardin numérique personnel : palette sombre par défaut, typographie accessible, styles orientés theme.json alignés sur les tokens Jardin."
+
+#. Author URI of the theme
+msgid "https://jasonrouet.com"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr "2"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr "4"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "6"
+msgstr "6"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "8"
+msgstr "8"

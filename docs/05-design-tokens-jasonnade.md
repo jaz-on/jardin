@@ -19,7 +19,7 @@ Référence site statique : [jasonnade](https://github.com/jaz-on/jasonnade) (`s
 | Élément | jasonnade | Jardin |
 |---------|-----------|--------|
 | Largeur contenu | `800px` max | `theme.json` → `contentSize: 800px` |
-| Cadre page | `border: 12px` couleur lien | `assets/css/theme-styles.css` → `body` |
+| Cadre page | `border: 12px` couleur lien (6px ≤782px, 0 ≤480px) | `assets/css/theme-styles.css` → `body` |
 
 ## Typographie
 
@@ -38,6 +38,10 @@ Référence site statique : [jasonnade](https://github.com/jaz-on/jasonnade) (`s
 - **Titres de section (h2)** : ombre deux couches (logo + accent) sur les `h2` du contenu principal, hors titre de la ToC.
 - **Skip link** : `jardin_skip_link()` dans `functions.php` (hook `wp_body_open`), chaîne traduisible `Skip to content` (domaine `jardin`) + `.jardin-skip-link` dans `theme-styles.css` ; cible `#main` (ancre des groupes `main` des gabarits).
 
-## Variantes clair / sombre dans `theme.json`
+## Variantes notées dans `theme.json`
 
-Les objets sous `settings.color.custom.theme-variants` sont des **notes de palette** pour travaux futurs, pas des style variations FSE actives. Le thème reste **sombre par défaut** jusqu’à implémentation explicite (style variations ou autre).
+Les objets sous `settings.color.custom.theme-variants` (**variant-light**, **variant-dark-blue**) sont des **notes de palette** pour référence ou travaux futurs (y compris `accent-hover` pour chaque variante). Ce ne sont **pas** des style variations FSE : la palette **active** du site est uniquement celle définie dans `settings.color.palette` (mode sombre jasonnade par défaut). Aucune bascule automatique clair / sombre n’est prévue tant qu’on n’expose pas ces couleurs autrement (par ex. style variations ou CSS).
+
+## Contraste (vérification)
+
+À revérifier avec un outil de contraste (WCAG) lors des changements de palette, notamment : **accent** sur **background** (liens dans le corps), **foreground** sur **background**, **texte des boutons** (`background` sur **accent** / **accent-hover**), et **logo** si utilisé comme texte petit sur fond clair. Les notes du guide de développement restent indicatives ; un échec sur une paire peut justifier un token dédié ou un ajustement de teinte.
