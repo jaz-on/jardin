@@ -1,11 +1,13 @@
 /*
 Theme Name: Jardin
-Description: Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel, mode sombre par défaut, typographie accessible, approche theme.json-first (voir docs/05-design-tokens-jasonnade.md pour l’alignement visuel avec jasonnade.fr).
+Theme URI: https://github.com/jaz-on/jardin
+Description: Minimal block theme for a personal digital garden: dark-first palette, accessible typography, and theme.json-first styling aligned with the Jardin design tokens.
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 8.1
 Version: 0.1.0
 Author: Jason Rouet
+Author URI: https://jasonrouet.com
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jardin
