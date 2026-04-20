@@ -33,7 +33,7 @@ Ce document définit précisément le périmètre du Minimum Viable Product (MVP
 - [x] Palette de couleurs (mode clair uniquement)
 - [x] Système typographique (Inter hébergé localement)
 - [x] Système d'espacement (WordPress core 0-8)
-- [x] Layout (contentSize: 620px, wideSize: 1000px)
+- [x] Layout (contentSize: 800px, wideSize: 1000px)
 
 #### 1.2 Structure de Base
 - [x] Templates HTML (index, single, page, archive, 404)
@@ -140,25 +140,31 @@ jardin/
 ├── docs/
 │   ├── 01-vision-principes.md
 │   ├── 02-guide-developpement.md
-│   └── 03-mvp-specifications.md
+│   ├── 03-mvp-specifications.md
+│   ├── 04-evenements-specifications.md
+│   └── 05-design-tokens-jasonnade.md
 ├── inc/
+│   ├── jardin-events-integration.php
+│   ├── jardin-toc-helpers.php
 │   ├── class-jardin-blocks.php
 │   ├── class-jardin-toc.php
 │   └── blocks/
 │       └── table-of-contents/
 │           ├── block.json
-│           ├── render.php
-│           └── view.js (optionnel)
+│           └── render.php
 ├── templates/
 │   ├── index.html
 │   ├── single.html
 │   ├── page.html
 │   ├── archive.html
+│   ├── archive-event.html
 │   └── 404.html
 ├── parts/
 │   ├── header.html
 │   └── footer.html
 ├── assets/
+│   ├── css/
+│   │   └── theme-styles.css
 │   └── fonts/
 │       ├── inter/
 │       └── fira-code/

@@ -7,7 +7,6 @@
 	"description": "Display a table of contents generated from post headings.",
 	"keywords": ["toc", "table", "contents", "navigation"],
 	"textdomain": "jardin",
-	"viewScript": "file:./view.js",
 	"render": "file:./render.php",
 	"attributes": {
 		"headingLevels": {

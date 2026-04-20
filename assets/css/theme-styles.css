@@ -1,3 +1,61 @@
+/**
+ * Cadre page et typo section (aligné jasonnade.fr, variables theme.json).
+ */
+body {
+	border: 12px solid var(--wp--preset--color--accent);
+	box-sizing: border-box;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Liens : indication visuelle pour nouvel onglet (décoratif). */
+a[target="_blank"]::after {
+	content: " \2197";
+	font-size: 0.85em;
+	opacity: 0.85;
+}
+
+/* Titres de section (h2) dans le contenu — pas la ToC. */
+main h2.wp-block-heading:not(.jardin-toc__title) {
+	display: inline-block;
+	font-weight: 700;
+	line-height: 1.2;
+	text-shadow:
+		2px 2px 0 var(--wp--preset--color--logo),
+		4px 4px 0 var(--wp--preset--color--accent);
+}
+
+/* Skip link (cf. parts/header.html). */
+.jardin-skip-link {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	background-color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border: 2px solid var(--wp--preset--color--accent);
+	border-radius: 4px;
+	text-decoration: none;
+	font-size: var(--wp--preset--font-size--xs, 0.75rem);
+	z-index: 100000;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.jardin-skip-link:focus-visible {
+	clip: auto;
+	clip-path: none;
+	height: auto;
+	width: auto;
+	outline: 3px solid var(--wp--preset--color--accent);
+	outline-offset: 3px;
+}
+
 html {
 	scroll-behavior: smooth;
 }

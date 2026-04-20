@@ -94,7 +94,7 @@ if ( ! function_exists( 'jardin_check_assets' ) ) {
 	 * Vérifie la présence des assets critiques.
 	 */
 	function jardin_check_assets() {
-		$theme_dir = get_template_directory();
+		$theme_dir      = get_template_directory();
 		$required_fonts = array(
 			'/assets/fonts/inter/InterVariable.woff2',
 			'/assets/fonts/inter/InterVariable-Italic.woff2',
@@ -106,17 +106,17 @@ if ( ! function_exists( 'jardin_check_assets' ) ) {
 			'/assets/fonts/atkinson-hyperlegible/AtkinsonHyperlegible-Italic.woff2',
 			'/assets/fonts/atkinson-hyperlegible/AtkinsonHyperlegible-BoldItalic.woff2',
 		);
-		
+
 		foreach ( $required_fonts as $font ) {
 			if ( ! file_exists( $theme_dir . $font ) ) {
 				// Log error for developers
 				error_log( sprintf( 'Jardin Theme: Missing font file - %s', $font ) );
-				
+
 				// Add admin notice for logged-in users
 				if ( current_user_can( 'manage_options' ) ) {
 					add_action(
 						'admin_notices',
-						function() use ( $font ) {
+						function () use ( $font ) {
 							?>
 							<div class="notice notice-warning">
 								<p>
@@ -151,12 +151,12 @@ if ( ! function_exists( 'jardin_styles' ) ) {
 		$theme_dir  = get_template_directory();
 		$style_file = $theme_dir . '/style.css';
 		$css_file   = $theme_dir . '/assets/css/theme-styles.css';
-		
+
 		// Use file modification time for better cache busting.
 		$version = file_exists( $style_file )
 			? filemtime( $style_file )
 			: JARDIN_VERSION;
-		
+
 		wp_enqueue_style(
 			'jardin-style',
 			get_template_directory_uri() . '/style.css',
@@ -189,9 +189,9 @@ if ( ! function_exists( 'jardin_register_block_styles' ) ) {
 		register_block_style(
 			'core/site-title',
 			array(
-				'name'         => 'butter-effect',
-				'label'        => __( 'Butter Effect', 'jardin' ),
-				'is_default'   => true,
+				'name'       => 'butter-effect',
+				'label'      => __( 'Butter Effect', 'jardin' ),
+				'is_default' => true,
 			)
 		);
 	}
@@ -199,9 +199,32 @@ if ( ! function_exists( 'jardin_register_block_styles' ) ) {
 add_action( 'init', 'jardin_register_block_styles' );
 
 /**
+ * Lien « aller au contenu » (cible #main). Texte traduisible, rendu au wp_body_open (thèmes blocs).
+ */
+if ( ! function_exists( 'jardin_skip_link' ) ) {
+	/**
+	 * Affiche le skip link tout en haut du body.
+	 */
+	function jardin_skip_link() {
+		/* translators: Skip-navigation link; targets the main content landmark (#main). */
+		$label = esc_html__( 'Skip to content', 'jardin' );
+		printf(
+			'<a class="jardin-skip-link" href="%1$s">%2$s</a>',
+			esc_url( '#main' ),
+			$label
+		);
+	}
+}
+add_action( 'wp_body_open', 'jardin_skip_link', 5 );
+
+/**
  * Charger les classes PHP.
  */
 require_once get_template_directory() . '/inc/jardin-events-integration.php';
+require_once get_template_directory() . '/inc/jardin-toc-helpers.php';
 require_once get_template_directory() . '/inc/class-jardin-blocks.php';
 require_once get_template_directory() . '/inc/class-jardin-toc.php';
+
+new Jardin_Blocks();
+new Jardin_TOC();
 

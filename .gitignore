@@ -31,8 +31,9 @@ pnpm-debug.log*
 *.log
 debug.log
 
-# WordPress
+# WordPress (catalogues compilés du thème versionnés sous languages/)
 *.mo
+!languages/*.mo
 
 # Tooling
 .phpunit.result.cache

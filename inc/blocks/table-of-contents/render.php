@@ -15,97 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Génère la table des matières à partir du contenu du post.
- *
- * @param array $heading_levels Niveaux de titres à inclure (ex: [2, 3, 4]).
- * @return array Table des matières structurée.
- */
-function jardin_generate_toc( $heading_levels ) {
-	global $post;
-
-	if ( ! $post ) {
-		return array();
-	}
-
-	$content = $post->post_content;
-	$toc     = array();
-
-	// Pattern pour matcher les titres avec leurs IDs.
-	$pattern = '/<h([2-6])([^>]*id=["\']([^"\']+)["\'][^>]*)>(.*?)<\/h[2-6]>/i';
-
-	preg_match_all( $pattern, $content, $matches, PREG_SET_ORDER );
-
-	foreach ( $matches as $match ) {
-		$level = (int) $match[1];
-		$id    = $match[3];
-		$text  = wp_strip_all_tags( $match[4] );
-
-		// Inclure seulement les niveaux demandés.
-		if ( in_array( $level, $heading_levels, true ) ) {
-			$toc[] = array(
-				'level' => $level,
-				'id'    => $id,
-				'text'  => $text,
-			);
-		}
-	}
-
-	return $toc;
-}
-
-/**
- * Rend la liste de la table des matières.
- *
- * @param array  $toc Table des matières.
- * @param string $tag Tag HTML (ul ou ol).
- * @return string HTML de la liste.
- */
-function jardin_render_toc_list( $toc, $tag = 'ul' ) {
-	if ( empty( $toc ) ) {
-		return '';
-	}
-
-	$output       = '';
-	$current_level = 0;
-
-	foreach ( $toc as $item ) {
-		$level = $item['level'];
-		$id    = esc_attr( $item['id'] );
-		$text  = esc_html( $item['text'] );
-
-		// Fermer les listes imbriquées si nécessaire.
-		if ( $current_level > 0 && $level > $current_level ) {
-			// Ouvrir une nouvelle liste imbriquée.
-			$output .= '<' . $tag . ' class="jardin-toc__sublist">';
-		} elseif ( $current_level > 0 && $level < $current_level ) {
-			// Fermer les listes imbriquées.
-			$diff = $current_level - $level;
-			for ( $i = 0; $i < $diff; $i++ ) {
-				$output .= '</' . $tag . '>';
-			}
-		} elseif ( $current_level > 0 && $level === $current_level ) {
-			// Même niveau, fermer l'élément précédent.
-			$output .= '</li>';
-		}
-
-		// Ouvrir un nouvel élément de liste.
-		$output .= '<li class="jardin-toc__item jardin-toc__item--level-' . $level . '">';
-		$output .= '<a href="#' . $id . '" class="jardin-toc__link">' . $text . '</a>';
-
-		$current_level = $level;
-	}
-
-	// Fermer toutes les listes ouvertes.
-	while ( $current_level > 0 ) {
-		$output .= '</li>';
-		$output .= '</' . $tag . '>';
-		$current_level--;
-	}
-
-	return $output;
-}
-
 // Récupérer et valider les attributs.
 $heading_levels = isset( $attributes['headingLevels'] ) && is_array( $attributes['headingLevels'] ) ? $attributes['headingLevels'] : array( 2, 3, 4, 5, 6 );
 
@@ -113,7 +22,7 @@ $heading_levels = isset( $attributes['headingLevels'] ) && is_array( $attributes
 $heading_levels = array_values(
 	array_filter(
 		$heading_levels,
-		static function( $level ) {
+		static function ( $level ) {
 			$level = (int) $level;
 			return $level >= 2 && $level <= 6;
 		}
@@ -135,8 +44,13 @@ $list_style = isset( $attributes['listStyle'] ) && in_array( $attributes['listSt
 	? $attributes['listStyle']
 	: 'ul';
 
-// Générer la table des matières.
-$toc = jardin_generate_toc( $heading_levels );
+global $post;
+
+if ( ! $post ) {
+	return;
+}
+
+$toc = jardin_toc_extract_from_html( $post->post_content, $heading_levels );
 
 if ( empty( $toc ) ) {
 	return;
@@ -203,4 +117,3 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		</ol>
 	<?php endif; ?>
 </div>
-

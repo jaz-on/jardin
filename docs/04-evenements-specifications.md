@@ -46,7 +46,7 @@ Détail fonctionnel inchangé : CPT `event`, supports titre / éditeur / extrait
 
 ## 4. Archive `/events/`
 
-- Avec le thème Jardin actif : mise en page à partir de `templates/archive-event.html` du thème (sections prochains / passés).
+- Avec le thème Jardin actif : mise en page à partir de `templates/archive-event.html` du thème (sections prochains / passés). Les blocs Query Loop du gabarit utilisent `orderBy: meta_value` et `metaKey: event_date` pour se rapprocher de la logique métier ; le plugin peut encore affiner via `pre_get_posts` ou filtres dédiés.
 - Sans ce gabarit : repli sur le template du plugin.
 
 ---

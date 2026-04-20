@@ -13,12 +13,14 @@ Les deux projets partagent la même vision (« jardin » numérique) mais ne viv
 | **Installation** | `wp-content/themes/` (dossier du thème) | `wp-content/plugins/jardin-event/` |
 | **Activation** | **Apparence** → Thèmes | **Extensions** |
 
-En développement local, le plugin est aussi tiré via **Composer** comme dépendance de développement (`composer.json` → dépôt VCS `jaz-on/jardin-event`), ce qui permet de travailler sur les deux bases de code ensemble (`composer install`).
+Pour travailler sur le thème et le plugin dans le même environnement, clonez aussi [jardin-event](https://github.com/jaz-on/jardin-event) dans `wp-content/plugins/` (ou un workspace multi-dossiers). Les outils PHP du thème (**PHPCS**) s’installent avec `composer install` à la racine du thème uniquement.
 
 ## Installation (thème)
 
 1. Placez le dossier du thème dans `wp-content/themes/`
 2. Activez-le via **Apparence** → **Thèmes**
+
+Les chaînes du thème sont dans le domaine `jardin` ; un catalogue français d’exemple est fourni (`languages/jardin-fr_FR.po` / `.mo`). Pour régénérer le binaire après édition du `.po` : `msgfmt -o languages/jardin-fr_FR.mo languages/jardin-fr_FR.po`.
 
 ## Licence
 

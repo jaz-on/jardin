@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Jardin 0.1.0\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: jardin\n"
+
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+msgid "Jardin Theme:"
+msgstr "Thème Jardin :"
+
+msgid "Missing font file: %s"
+msgstr "Fichier de police manquant : %s"
+
+msgid "Butter Effect"
+msgstr "Effet beurre"
+
+msgid "Table of Contents"
+msgstr "Table des matières"
+
+msgid "Thème Jardin"
+msgstr "Thème Jardin"
+
+msgid "Pour activer les événements, installez et activez %s."
+msgstr "Pour activer les événements, installez et activez %s."
+
+msgid "le plugin Jardin Events"
+msgstr "le plugin Jardin Events"

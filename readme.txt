@@ -36,6 +36,7 @@ Il met l'accent sur :
 * Palette de couleurs personnalisée alignée sur jasonnade.fr.
 * Polices locales (Inter, Atkinson Hyperlegible, Calligraffitti, Fira Code) avec licences incluses.
 * Styles de focus et support `prefers-reduced-motion`.
+* Lien « Skip to content » (skip link, traduisible) vers la zone `#main`, inséré via `wp_body_open`.
 
 == Frequently Asked Questions ==
 
