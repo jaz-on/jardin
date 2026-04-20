@@ -1,10 +1,11 @@
 <!--
 	Gabarit archive « event » — thème Jardin.
-	Remplace le gabarit minimal fourni par le plugin Jardin Events.
+	Les classes jardin-events-query--upcoming / --past activent le filtre du plugin Jardin Events
+	(tri sur event_date, futur vs passé, y compris event_end_date).
 -->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"tagName":"main","anchor":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
 	<!-- wp:heading {"level":1} -->
 	<h1>Événements</h1>
 	<!-- /wp:heading -->
@@ -17,30 +18,15 @@
 	<h2>Prochains événements</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:query {"query":{"perPage":3,"postType":"event","order":"asc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
+	<!-- wp:query {"className":"jardin-events-query--upcoming","query":{"perPage":10,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template -->
 		<!-- wp:group {"className":"jardin-events-item","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group jardin-events-item">
 			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
 			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
-		</div>
-		<!-- /wp:group -->
-		<!-- /wp:post-template -->
-	</div>
-	<!-- /wp:query -->
-
-	<!-- wp:heading {"level":2} -->
-	<h2>Événements passés</h2>
-	<!-- /wp:heading -->
-
-	<!-- wp:query {"query":{"perPage":10,"postType":"event","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
-	<div class="wp-block-query">
-		<!-- wp:post-template -->
-		<!-- wp:group {"className":"jardin-events-item jardin-events-item--past","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group jardin-events-item jardin-events-item--past">
-			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
-			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
+			<!-- wp:post-meta {"key":"event_date","className":"jardin-events-item-meta"} /-->
+			<!-- wp:post-meta {"key":"event_location","className":"jardin-events-item-meta"} /-->
 		</div>
 		<!-- /wp:group -->
 		<!-- /wp:post-template -->
@@ -50,9 +36,44 @@
 		<!-- wp:query-pagination-numbers /-->
 		<!-- wp:query-pagination-next /-->
 		<!-- /wp:query-pagination -->
+
+		<!-- wp:query-no-results -->
+		<!-- wp:paragraph -->
+		<p></p>
+		<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
 	</div>
 	<!-- /wp:query -->
-</div>
+
+	<!-- wp:heading {"level":2} -->
+	<h2>Événements passés</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"className":"jardin-events-query--past","query":{"perPage":10,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:group {"className":"jardin-events-item jardin-events-item--past","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group jardin-events-item jardin-events-item--past">
+			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
+			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
+			<!-- wp:post-meta {"key":"event_date","className":"jardin-events-item-meta"} /-->
+			<!-- wp:post-meta {"key":"event_location","className":"jardin-events-item-meta"} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination -->
+		<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination-numbers /-->
+		<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+
+		<!-- wp:query-no-results -->
+		<!-- wp:paragraph -->
+		<p></p>
+		<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
+</main>
 <!-- /wp:group -->
-
-

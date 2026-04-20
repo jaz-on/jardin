@@ -3,9 +3,9 @@
  * Liaison avec le plugin Jardin Events (dépôt jaz-on/jardin-event).
  *
  * Périmètre thème : détection du plugin et message admin si le CPT `event` n’est pas disponible.
- * Données événements (CPT, métas, motif de blocs par défaut, gabarit archive minimal du plugin) :
- * côté plugin uniquement.
- * Présentation FSE riche : gabarits et styles dans ce thème.
+ * Données et logique de requête (CPT, métas, filtre Query Loop futur/passé) : plugin Jardin Events.
+ * Gabarit `archive-event` et pattern `patterns/events-upcoming.php` : classes CSS sur le bloc Query
+ * `jardin-events-query--upcoming` et `jardin-events-query--past` pour activer le filtre côté plugin.
  *
  * @package Jardin
  */
@@ -35,7 +35,7 @@ add_action( 'after_switch_theme', 'jardin_events_flag_notice_on_theme_switch' );
  * Notice d’admin si le plugin événements n’est pas installé (écran des thèmes uniquement).
  */
 function jardin_events_render_missing_plugin_notice() {
-	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	$screen        = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 	$theme_screens = array( 'themes', 'themes-network' );
 	if ( ! $screen || ! in_array( $screen->id, $theme_screens, true ) ) {
 		return;
