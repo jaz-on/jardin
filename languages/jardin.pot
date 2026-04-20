@@ -1,29 +1,47 @@
+# Copyright (C) 2026 Jason Rouet
+# This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Jardin 0.1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-18 12:00+0000\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Manual\n"
+"POT-Creation-Date: 2026-04-20T07:02:13+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
 
-#. translators: Skip-navigation link; targets the main content landmark (#main).
-#: functions.php:210
-msgid "Skip to content"
+#. Theme Name of the theme
+msgid "Jardin"
+msgstr ""
+
+#. Description of the theme
+msgid "Un thème WordPress minimaliste pour cultiver ses idées sur le web. Digital garden personnel, mode sombre par défaut, typographie accessible, approche theme.json-first (voir docs/05-design-tokens-jasonnade.md pour l’alignement visuel avec jasonnade.fr)."
+msgstr ""
+
+#. Author of the theme
+msgid "Jason Rouet"
 msgstr ""
 
 #: functions.php:123
 msgid "Jardin Theme:"
 msgstr ""
 
+#. translators: %s: font file name.
 #: functions.php:127
 msgid "Missing font file: %s"
 msgstr ""
 
 #: functions.php:193
 msgid "Butter Effect"
+msgstr ""
+
+#. translators: Skip-navigation link; targets the main content landmark (#main).
+#: functions.php:210
+msgid "Skip to content"
 msgstr ""
 
 #: inc/blocks/table-of-contents/render.php:41
@@ -34,10 +52,141 @@ msgstr ""
 msgid "Thème Jardin"
 msgstr ""
 
+#. translators: %s: HTML link to the Jardin Events plugin repository
 #: inc/jardin-events-integration.php:61
 msgid "Pour activer les événements, installez et activez %s."
 msgstr ""
 
 #: inc/jardin-events-integration.php:65
 msgid "le plugin Jardin Events"
+msgstr ""
+
+#: patterns/events-upcoming.php
+msgctxt "Pattern title"
+msgid "Prochains événements"
+msgstr ""
+
+#: patterns/events-upcoming.php
+msgctxt "Pattern description"
+msgid "Liste des prochains événements (plugin Jardin Events — classe jardin-events-query--upcoming)."
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block title"
+msgid "Table of Contents"
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block description"
+msgid "Display a table of contents generated from post headings."
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block keyword"
+msgid "toc"
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block keyword"
+msgid "table"
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block keyword"
+msgid "contents"
+msgstr ""
+
+#: inc/blocks/table-of-contents/block.json
+msgctxt "block keyword"
+msgid "navigation"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Hover"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Logo"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Body Text"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Headings"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Calligraffitti"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Code"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Atkinson Hyperlegible"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H1 Hero"
 msgstr ""
