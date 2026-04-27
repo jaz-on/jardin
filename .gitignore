@@ -48,3 +48,6 @@ phpstan.neon.cache
 
 # IDE
 .idea/
+
+# Local Cursor rules (product docs live in ../jardin-docs — see jardin-docs README)
+.cursor/rules/local-*.mdc
