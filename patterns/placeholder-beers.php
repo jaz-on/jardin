@@ -9,6 +9,6 @@
  */
 
 ?>
-<!-- wp:shortcode -->
-[jardin_placeholder type="beers"]
-<!-- /wp:shortcode -->
+<!-- wp:paragraph {"textColor":"text-muted"} -->
+<p class="has-text-muted-color has-text-color"><?php echo esc_html( jardin_get_placeholder_message( 'beers' ) ); ?></p>
+<!-- /wp:paragraph -->

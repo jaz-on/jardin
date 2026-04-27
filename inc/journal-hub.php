@@ -110,3 +110,43 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 	return $query;
 }
 add_filter( 'query_loop_block_query_vars', 'jardin_query_loop_block_query_vars', 10, 2 );
+
+/**
+ * Relative filter links for the journal hub (?kind=).
+ *
+ * @return string Raw HTML for a core/html block (nav + links already escaped).
+ */
+function jardin_get_journal_filters_markup(): string {
+	$label = esc_attr__( 'Journal filters', 'jardin' );
+	$links = array(
+		array( 'href' => '?', 'label' => __( 'All', 'jardin' ) ),
+		array( 'href' => '?kind=note', 'label' => __( 'Notes', 'jardin' ) ),
+		array( 'href' => '?kind=like', 'label' => __( 'Likes', 'jardin' ) ),
+		array( 'href' => '?kind=bookmark', 'label' => __( 'Bookmarks', 'jardin' ) ),
+		array( 'href' => '?kind=quote', 'label' => __( 'Quotes', 'jardin' ) ),
+		array( 'href' => '?kind=til', 'label' => __( 'TIL', 'jardin' ) ),
+		array( 'href' => '?kind=jam', 'label' => __( 'Jams', 'jardin' ) ),
+		array( 'href' => '?kind=review', 'label' => __( 'Reviews', 'jardin' ) ),
+		array( 'href' => '?kind=event', 'label' => __( 'Events', 'jardin' ) ),
+	);
+
+	$parts = array();
+	foreach ( $links as $i => $item ) {
+		if ( $i > 0 ) {
+			$parts[] = '<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>';
+		}
+		$parts[] = sprintf(
+			'<a class="jardin-journal-filters__link" href="%1$s">%2$s</a>',
+			esc_url( $item['href'] ),
+			esc_html( $item['label'] )
+		);
+	}
+
+	$inner = implode( '', $parts );
+
+	return sprintf(
+		'<nav class="jardin-journal-filters" aria-label="%1$s"><p class="jardin-journal-filters__inner has-text-muted-color has-sm-font-size">%2$s</p></nav>',
+		$label,
+		$inner // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — built from esc_url/esc_html above.
+	);
+}

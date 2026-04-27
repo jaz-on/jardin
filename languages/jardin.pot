@@ -3,13 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jardin 0.1.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
+"Report-Msgid-Bugs-To: https://github.com/jason/jardin-theme/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-27T16:01:43+00:00\n"
+"POT-Creation-Date: 2026-04-27T18:37:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
@@ -32,6 +32,11 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "https://jasonrouet.com"
+msgstr ""
+
+#. translators: 1: four-digit year, 2: site name
+#: blocks/copyright/render.php:13
+msgid "© %1$s %2$s"
 msgstr ""
 
 #: inc/block-styles.php:15
@@ -126,10 +131,64 @@ msgstr ""
 msgid "Tabs"
 msgstr ""
 
+#: inc/journal-hub.php:120
+msgid "Journal filters"
+msgstr ""
+
+#: inc/journal-hub.php:122
+msgid "All"
+msgstr ""
+
+#: inc/journal-hub.php:123
+msgid "Notes"
+msgstr ""
+
+#: inc/journal-hub.php:124
+msgid "Likes"
+msgstr ""
+
+#: inc/journal-hub.php:125
+msgid "Bookmarks"
+msgstr ""
+
+#: inc/journal-hub.php:126
+msgid "Quotes"
+msgstr ""
+
+#: inc/journal-hub.php:127
+msgid "TIL"
+msgstr ""
+
+#: inc/journal-hub.php:128
+msgid "Jams"
+msgstr ""
+
+#: inc/journal-hub.php:129
+msgid "Reviews"
+msgstr ""
+
+#: inc/journal-hub.php:130
+msgid "Events"
+msgstr ""
+
+#: inc/placeholder-copy.php:19
+msgid "Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content."
+msgstr ""
+
+#: inc/placeholder-copy.php:21
+msgid "Recent check-ins and beer grids from beer-journal will appear here in a later phase. Use the page content for any introductory copy."
+msgstr ""
+
+#: inc/placeholder-copy.php:23
+msgid "The blogroll grid powered by feed-journal will appear here in a later phase. Use the page content for notes in the meantime."
+msgstr ""
+
+#: inc/placeholder-copy.php:25
+msgid "Content for this section will appear here once the related features are connected."
+msgstr ""
+
 #: inc/search-block-i18n.php:23
 #: inc/search-block-i18n.php:25
-#: inc/template-shortcodes.php:144
-#: inc/template-shortcodes.php:200
 msgid "Search"
 msgstr ""
 
@@ -193,105 +252,49 @@ msgstr ""
 msgid "Change color theme"
 msgstr ""
 
-#: inc/template-shortcodes.php:16
-msgid "A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind."
+#: patterns/404-intro.php
+msgctxt "Pattern title"
+msgid "404 — title and message"
 msgstr ""
 
-#: inc/template-shortcodes.php:27
-msgid "Journal filters"
-msgstr ""
-
-#: inc/template-shortcodes.php:29
-msgid "All"
-msgstr ""
-
-#: inc/template-shortcodes.php:30
-msgid "Notes"
-msgstr ""
-
-#: inc/template-shortcodes.php:31
-msgid "Likes"
-msgstr ""
-
-#: inc/template-shortcodes.php:32
-msgid "Bookmarks"
-msgstr ""
-
-#: inc/template-shortcodes.php:33
-msgid "Quotes"
-msgstr ""
-
-#: inc/template-shortcodes.php:34
-msgid "TIL"
-msgstr ""
-
-#: inc/template-shortcodes.php:35
-msgid "Jams"
-msgstr ""
-
-#: inc/template-shortcodes.php:36
-msgid "Reviews"
-msgstr ""
-
-#: inc/template-shortcodes.php:37
-msgid "Events"
-msgstr ""
-
-#: inc/template-shortcodes.php:68
-msgid "No journal items yet."
-msgstr ""
-
-#: inc/template-shortcodes.php:79
-msgid "No posts yet."
-msgstr ""
-
-#: inc/template-shortcodes.php:90
-msgid "Reactions & discussion"
-msgstr ""
-
-#: inc/template-shortcodes.php:100
-msgid "Comments and reactions from readers appear below when enabled for this content type."
-msgstr ""
-
-#: inc/template-shortcodes.php:111
-msgid "Site"
-msgstr ""
-
-#: inc/template-shortcodes.php:121
-msgid "Explore"
-msgstr ""
-
-#. translators: 1: four-digit year, 2: site name
-#: inc/template-shortcodes.php:133
-msgid "© %1$s %2$s"
-msgstr ""
-
-#: inc/template-shortcodes.php:172
-msgid "Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content."
-msgstr ""
-
-#: inc/template-shortcodes.php:175
-msgid "Recent check-ins and beer grids from beer-journal will appear here in a later phase. Use the page content for any introductory copy."
-msgstr ""
-
-#: inc/template-shortcodes.php:178
-msgid "The blogroll grid powered by feed-journal will appear here in a later phase. Use the page content for notes in the meantime."
-msgstr ""
-
-#: inc/template-shortcodes.php:181
-msgid "Content for this section will appear here once the related features are connected."
-msgstr ""
-
-#: inc/template-shortcodes.php:195
+#: patterns/404-intro.php:13
 msgid "Page not found"
 msgstr ""
 
-#: inc/template-shortcodes.php:196
+#: patterns/404-intro.php:17
 msgid "The page you are looking for does not exist or has moved."
 msgstr ""
 
-#: inc/template-shortcodes.php:213
-msgid "No results found."
+#: patterns/footer-heading-explore.php
+msgctxt "Pattern title"
+msgid "Footer heading — Explore"
+msgstr ""
+
+#: patterns/footer-heading-explore.php:13
+msgid "Explore"
+msgstr ""
+
+#: patterns/footer-heading-site.php
+msgctxt "Pattern title"
+msgid "Footer heading — Site"
+msgstr ""
+
+#: patterns/footer-heading-site.php:13
+msgid "Site"
+msgstr ""
+
+#: patterns/journal-hub-top.php
+msgctxt "Pattern title"
+msgid "Journal hub — intro and filters"
+msgstr ""
+
+#: patterns/journal-hub-top.php
+msgctxt "Pattern description"
+msgid "Intro paragraph and ?kind= filter links for the journal page template."
+msgstr ""
+
+#: patterns/journal-hub-top.php:14
+msgid "A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind."
 msgstr ""
 
 #: patterns/placeholder-beers.php
@@ -332,6 +335,46 @@ msgstr ""
 #: patterns/post-meta-bar.php
 msgctxt "Pattern description"
 msgid "Published date, modified date, author, categories, and tags in one row. Insert in single templates or per-post in the editor."
+msgstr ""
+
+#: patterns/query-empty-home.php
+msgctxt "Pattern title"
+msgid "Home query — empty state"
+msgstr ""
+
+#: patterns/query-empty-home.php:13
+msgid "No posts yet."
+msgstr ""
+
+#: patterns/query-empty-journal.php
+msgctxt "Pattern title"
+msgid "Journal query — empty state"
+msgstr ""
+
+#: patterns/query-empty-journal.php:13
+msgid "No journal items yet."
+msgstr ""
+
+#: patterns/query-empty-search.php
+msgctxt "Pattern title"
+msgid "Search query — empty state"
+msgstr ""
+
+#: patterns/query-empty-search.php:13
+msgid "No results found."
+msgstr ""
+
+#: patterns/single-footer-intro.php
+msgctxt "Pattern title"
+msgid "Single — reactions section intro"
+msgstr ""
+
+#: patterns/single-footer-intro.php:13
+msgid "Reactions & discussion"
+msgstr ""
+
+#: patterns/single-footer-intro.php:17
+msgid "Comments and reactions from readers appear below when enabled for this content type."
 msgstr ""
 
 #: assets/js/block-variations.js:27
@@ -388,6 +431,26 @@ msgstr ""
 
 #: assets/js/block-variations.js:149
 msgid "Posts in the now-updates category."
+msgstr ""
+
+#: blocks/copyright/block.json
+msgctxt "block title"
+msgid "Copyright line"
+msgstr ""
+
+#: blocks/copyright/block.json
+msgctxt "block description"
+msgid "Site name and current year."
+msgstr ""
+
+#: blocks/theme-toggle/block.json
+msgctxt "block title"
+msgid "Theme palette"
+msgstr ""
+
+#: blocks/theme-toggle/block.json
+msgctxt "block description"
+msgid "Color theme switcher (Rosé Pine, Catppuccin, Brewery)."
 msgstr ""
 
 #: theme.json

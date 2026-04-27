@@ -33,11 +33,11 @@ function jardin_skip_link(): void {
 add_action( 'wp_body_open', 'jardin_skip_link', 5 );
 
 /**
- * Theme palette toggle markup (FSE-friendly: use shortcode in header template part).
+ * Theme palette toggle markup (used by the jardin/theme-toggle block).
  *
  * @return string
  */
-function jardin_render_theme_toggle_shortcode(): string {
+function jardin_get_theme_toggle_markup(): string {
 	$themes = array(
 		array(
 			'label' => __( 'Rosé Pine', 'jardin' ),
@@ -91,7 +91,6 @@ function jardin_render_theme_toggle_shortcode(): string {
 	<?php
 	return (string) ob_get_clean();
 }
-add_shortcode( 'jardin_theme_toggle', 'jardin_render_theme_toggle_shortcode' );
 
 /**
  * Inline boot script to reduce theme FOUC (runs before body).

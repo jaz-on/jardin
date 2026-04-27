@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jardin/theme-toggle",
+	"title": "Theme palette",
+	"category": "widgets",
+	"icon": "admin-appearance",
+	"description": "Color theme switcher (Rosé Pine, Catppuccin, Brewery).",
+	"textdomain": "jardin",
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
