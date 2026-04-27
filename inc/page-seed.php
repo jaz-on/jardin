@@ -455,16 +455,21 @@ function jardin_page_seed_manifest_paths_deepest_first(): array {
  * @return int Count removed.
  */
 function jardin_page_seed_clean_manifest_slugs( bool $force = false ): int {
-	$removed = 0;
-	foreach ( jardin_page_seed_manifest_paths_deepest_first() as $path ) {
-		$post = get_page_by_path( $path, OBJECT, 'page' );
-		if ( ! $post instanceof WP_Post ) {
-			continue;
+	jardin_page_seed_pll_suppress_meta_sync_enter();
+	try {
+		$removed = 0;
+		foreach ( jardin_page_seed_manifest_paths_deepest_first() as $path ) {
+			$post = get_page_by_path( $path, OBJECT, 'page' );
+			if ( ! $post instanceof WP_Post ) {
+				continue;
+			}
+			wp_delete_post( (int) $post->ID, $force );
+			++$removed;
 		}
-		wp_delete_post( (int) $post->ID, $force );
-		++$removed;
+		return $removed;
+	} finally {
+		jardin_page_seed_pll_suppress_meta_sync_leave();
 	}
-	return $removed;
 }
 
 /**
@@ -474,26 +479,30 @@ function jardin_page_seed_clean_manifest_slugs( bool $force = false ): int {
  * @return int Count removed.
  */
 function jardin_page_seed_clean_tagged_only( bool $force = false ): int {
-	$query = new WP_Query(
-		array(
-			'post_type'              => 'page',
-			'post_status'            => array( 'publish', 'draft', 'pending', 'private' ),
-			'posts_per_page'         => -1,
-			'fields'                 => 'ids',
-			'no_found_rows'          => true,
-			'update_post_meta_cache' => false,
-			'update_post_term_cache' => false,
-			'meta_key'               => JARDIN_SEED_CREATED_META,
-			'meta_value'             => '1',
-			'update_post_term_cache' => false,
-		)
-	);
-	$removed = 0;
-	foreach ( $query->posts as $post_id ) {
-		wp_delete_post( (int) $post_id, $force );
-		++$removed;
+	jardin_page_seed_pll_suppress_meta_sync_enter();
+	try {
+		$query = new WP_Query(
+			array(
+				'post_type'              => 'page',
+				'post_status'            => array( 'publish', 'draft', 'pending', 'private' ),
+				'posts_per_page'         => -1,
+				'fields'                 => 'ids',
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'meta_key'               => JARDIN_SEED_CREATED_META,
+				'meta_value'             => '1',
+			)
+		);
+		$removed = 0;
+		foreach ( $query->posts as $post_id ) {
+			wp_delete_post( (int) $post_id, $force );
+			++$removed;
+		}
+		return $removed;
+	} finally {
+		jardin_page_seed_pll_suppress_meta_sync_leave();
 	}
-	return $removed;
 }
 
 /**
@@ -540,31 +549,36 @@ function jardin_page_seed_count_fse_posts( string $post_type ): int {
  * @return int Number of posts deleted.
  */
 function jardin_page_seed_reset_fse_customizations(): int {
-	$removed = 0;
-	foreach ( array( 'wp_template_part', 'wp_template' ) as $post_type ) {
-		$query = new WP_Query(
-			array(
-				'post_type'              => $post_type,
-				'post_status'            => array( 'publish', 'draft', 'auto-draft', 'trash' ),
-				'posts_per_page'         => -1,
-				'fields'                 => 'ids',
-				'no_found_rows'          => true,
-				'update_post_meta_cache' => false,
-				'update_term_meta_cache' => false,
-			)
-		);
-		foreach ( $query->posts as $post_id ) {
-			if ( wp_delete_post( (int) $post_id, true ) ) {
-				++$removed;
+	jardin_page_seed_pll_suppress_meta_sync_enter();
+	try {
+		$removed = 0;
+		foreach ( array( 'wp_template_part', 'wp_template' ) as $post_type ) {
+			$query = new WP_Query(
+				array(
+					'post_type'              => $post_type,
+					'post_status'            => array( 'publish', 'draft', 'auto-draft', 'trash' ),
+					'posts_per_page'         => -1,
+					'fields'                 => 'ids',
+					'no_found_rows'          => true,
+					'update_post_meta_cache' => false,
+					'update_term_meta_cache' => false,
+				)
+			);
+			foreach ( $query->posts as $post_id ) {
+				if ( wp_delete_post( (int) $post_id, true ) ) {
+					++$removed;
+				}
 			}
 		}
+		if ( function_exists( 'wp_cache_flush_group' ) ) {
+			wp_cache_flush_group( 'theme_json' );
+			wp_cache_flush_group( 'theme_files' );
+		}
+		if ( class_exists( 'WP_Theme_JSON_Resolver' ) && method_exists( 'WP_Theme_JSON_Resolver', 'clean_cached_data' ) ) {
+			WP_Theme_JSON_Resolver::clean_cached_data();
+		}
+		return $removed;
+	} finally {
+		jardin_page_seed_pll_suppress_meta_sync_leave();
 	}
-	if ( function_exists( 'wp_cache_flush_group' ) ) {
-		wp_cache_flush_group( 'theme_json' );
-		wp_cache_flush_group( 'theme_files' );
-	}
-	if ( class_exists( 'WP_Theme_JSON_Resolver' ) && method_exists( 'WP_Theme_JSON_Resolver', 'clean_cached_data' ) ) {
-		WP_Theme_JSON_Resolver::clean_cached_data();
-	}
-	return $removed;
 }
