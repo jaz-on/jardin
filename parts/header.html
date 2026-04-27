@@ -1,16 +1,14 @@
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|4","bottom":"var:preset|spacing|4"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--4)">
-	<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
-	<div class="wp-block-group">
+<!-- wp:group {"className":"site-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"0"}},"border":{"bottom":{"color":"var:preset|color|accent","width":"2px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group site-header">
+
+	<!-- wp:group {"className":"site-row-brand","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4","padding":{"bottom":"var:preset|spacing|3"}}}} -->
+	<div class="wp-block-group site-row-brand">
 		<!-- wp:pattern {"slug":"jardin/site-brand"} /-->
-		<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","setCascadingProperties":true,"justifyContent":"right","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
-		<div class="wp-block-group">
-			<!-- wp:search {"className":"jardin-header-search","showLabel":false,"placeholder":"Search…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside"} /-->
-			<!-- wp:jardin/theme-toggle /-->
-			<!-- wp:navigation {"className":"jardin-primary-nav","overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} /-->
-		</div>
-		<!-- /wp:group -->
+		<!-- wp:pattern {"slug":"jardin/site-toolbar"} /-->
 	</div>
 	<!-- /wp:group -->
+
+	<!-- wp:navigation {"className":"jardin-primary-nav","overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
+
 </div>
 <!-- /wp:group -->
