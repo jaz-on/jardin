@@ -3,7 +3,7 @@
  *
  * Namespace `jardin/journal-mixed` (?kind=) plus `jardin/now-updates-feed`,
  * `jardin/events-upcoming`, and `jardin/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
- * Phase 2 shipped template uses journal-mixed with post types post + IndieBlocks only.
+ * Phase 2 shipped post + IndieBlocks only; Phase 4 extends journal-mixed with plugin CPTs.
  * Namespaces `jardin/notes-by-kind`, `jardin/articles-pinned`, and `jardin/blogroll-grid`
  * are editor presets until matching filters exist (plugins / theme follow-up).
  *
@@ -13,7 +13,15 @@
 	const { registerBlockVariation } = wp.blocks;
 	const { __ } = wp.i18n;
 
-	const mixedTypes = [ 'post', 'iwcpt_note', 'iwcpt_like' ];
+	const mixedTypes = [
+		'post',
+		'iwcpt_note',
+		'iwcpt_like',
+		'favorite',
+		'event',
+		'beer_checkin',
+		'listen',
+	];
 
 	registerBlockVariation( 'core/query', {
 		name: 'journal-mixed',

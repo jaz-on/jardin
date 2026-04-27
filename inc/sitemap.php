@@ -20,7 +20,7 @@ function jardin_sitemaps_post_types( array $post_types ): array {
 	 *
 	 * @param bool $exclude Whether to exclude listen CPT.
 	 */
-	if ( apply_filters( 'jardin_sitemap_exclude_listen', false ) && isset( $post_types['listen'] ) ) {
+	if ( apply_filters( 'jardin_sitemap_exclude_listen', true ) && isset( $post_types['listen'] ) ) {
 		unset( $post_types['listen'] );
 	}
 

@@ -160,3 +160,44 @@
 	margin-top: var(--wp--preset--spacing--5);
 	max-width: min(28rem, 100%);
 }
+
+/* Post-engage: POSSE + webmention list (Phase 4) */
+.jardin-post-engage {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--4);
+}
+.jardin-post-engage__head--replies {
+	margin-top: var(--wp--preset--spacing--4);
+}
+.jardin-post-engage__card {
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--4);
+	border-radius: var(--wp--custom--radius--md);
+	border: 1px solid var(--wp--preset--color--border);
+}
+.jardin-post-engage__card.is-bluesky {
+	border-color: #0085ff;
+	background: color-mix(in srgb, #0085ff 6%, var(--wp--preset--color--bg));
+}
+.jardin-post-engage__card.is-mastodon {
+	border-color: #6364ff;
+	background: color-mix(in srgb, #6364ff 6%, var(--wp--preset--color--bg));
+}
+.jardin-post-engage__cta {
+	font-weight: 600;
+	text-decoration: none;
+}
+.jardin-post-engage__cta:hover {
+	text-decoration: underline;
+}
+.jardin-wm__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--3);
+}
+.jardin-wm__li {
+	margin: 0;
+}
