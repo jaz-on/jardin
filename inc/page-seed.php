@@ -17,6 +17,58 @@ defined( 'ABSPATH' ) || exit;
 const JARDIN_SEED_CREATED_META = '_jardin_seed_created';
 
 /**
+ * Write post meta without invoking `update_metadata` / `updated_post_meta`.
+ *
+ * Polylang (meta sync to translations) combined with plugins that assume a non-null
+ * `WP_Post` in those hooks can fatally error. Direct write + cache flush matches
+ * storage while skipping that chain. Note: Polylang will not auto-copy this meta
+ * to translations from this write alone — run import per language or set templates
+ * on linked pages if needed.
+ *
+ * @param int                $post_id    Post ID.
+ * @param string             $meta_key   Meta key.
+ * @param string|int|float|bool $meta_value Scalar value (stored like core meta).
+ */
+function jardin_page_seed_write_post_meta_silent( int $post_id, string $meta_key, $meta_value ): void {
+	if ( $post_id < 1 || '' === $meta_key ) {
+		return;
+	}
+	global $wpdb;
+	$meta_value_db = maybe_serialize( wp_slash( $meta_value ) );
+	$mid           = (int) $wpdb->get_var(
+		$wpdb->prepare(
+			"SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = %s LIMIT 1",
+			$post_id,
+			$meta_key
+		)
+	);
+	if ( $mid > 0 ) {
+		$wpdb->update(
+			$wpdb->postmeta,
+			array( 'meta_value' => $meta_value_db ),
+			array(
+				'post_id'  => $post_id,
+				'meta_key' => $meta_key,
+			),
+			array( '%s' ),
+			array( '%d', '%s' )
+		);
+	} else {
+		$wpdb->insert(
+			$wpdb->postmeta,
+			array(
+				'post_id'    => $post_id,
+				'meta_key'   => $meta_key,
+				'meta_value' => $meta_value_db,
+			),
+			array( '%d', '%s', '%s' )
+		);
+	}
+	wp_cache_delete( $post_id, 'post_meta' );
+	clean_post_cache( $post_id );
+}
+
+/**
  * Read optional seed HTML from content/seeds/{filename}.
  *
  * @param string $filename Basename, e.g. journal.html.
@@ -194,7 +246,11 @@ function jardin_page_seed_set_page_template( int $post_id, string $template_slug
 	if ( $post_id < 1 || '' === $template_slug ) {
 		return;
 	}
-	update_post_meta( $post_id, '_wp_page_template', $template_slug );
+	$post = get_post( $post_id );
+	if ( ! $post instanceof WP_Post || 'page' !== $post->post_type ) {
+		return;
+	}
+	jardin_page_seed_write_post_meta_silent( $post_id, '_wp_page_template', $template_slug );
 }
 
 /**
@@ -277,7 +333,7 @@ function jardin_page_seed_run( array $args = array() ): array {
 		if ( ! is_wp_error( $new_id ) && $new_id > 0 ) {
 			$new_id = (int) $new_id;
 			$ids_by_slug[ $row['slug'] ] = $new_id;
-			update_post_meta( $new_id, JARDIN_SEED_CREATED_META, '1' );
+			jardin_page_seed_write_post_meta_silent( $new_id, JARDIN_SEED_CREATED_META, '1' );
 			if ( (bool) $args['assign_templates'] ) {
 				jardin_page_seed_set_page_template( $new_id, $row['template'] );
 			}
