@@ -1,0 +1,11 @@
+/**
+ * Global CSS not covered by theme.json (Phase 2.1 bootstrap).
+ *
+ * @package Jardin
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}

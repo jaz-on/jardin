@@ -1,15 +1,19 @@
-# jardin-theme
+# Jardin (WordPress block theme)
 
-WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com) — **repository reset** on branch `dev` to start implementation from a clean tree (previous experiments removed from Git history on this branch going forward via this commit).
+FSE theme for [jasonrouet.com](https://jasonrouet.com). **Product specs and roadmap** live in the sibling folder **`../jardin-docs`** (local-only documentation tree; do not duplicate long `.md` files into this repo).
 
-## Where the specs live
+## Doc entry points
 
-Product and theme specifications are in the local sibling folder **`jardin-docs`** (not versioned inside this repo). From this clone: **`../jardin-docs/`** — start with `roadmap.md` and `theme/theme-json-spec.md`.
+- [roadmap.md](../jardin-docs/roadmap.md) — phases and progress
+- [theme/theme-json-spec.md](../jardin-docs/theme/theme-json-spec.md)
+- [theme/blocks_inventory.md](../jardin-docs/theme/blocks_inventory.md)
+- [integration/permalinks-rewrites.md](../jardin-docs/integration/permalinks-rewrites.md)
 
-## Current contents
+## Install
 
-This branch intentionally holds only **`.gitignore`**, **`LICENSE`**, and this **`README.md`** until the Phase 2 bootstrap is re-applied on top of this empty base.
+1. Clone or copy this repository under `wp-content/themes/`. The production folder name is expected to be `jardin` (you may symlink `jardin` → `jardin-theme`).
+2. In WordPress admin: **Appearance → Themes** → activate **Jardin**.
 
-## If the editor still shows old folders
+## Development
 
-Run `git pull origin dev` in this folder, then **reload the Cursor / VS Code window** (or re-open the workspace) so the file explorer refreshes. A full clean match to remote is: `git fetch origin && git reset --hard origin/dev && git clean -fd` (avoid `git clean -x` unless you intend to delete ignored local files such as under `.cursor/rules/`).
+Work on branch `dev`. Text domain: **`jardin`**.
