@@ -17,6 +17,11 @@ defined( 'ABSPATH' ) || exit;
 const JARDIN_SEED_CREATED_META = '_jardin_seed_created';
 
 /**
+ * Option: post ID of the wp_navigation post built by the seed tool (header block ref).
+ */
+const JARDIN_SEED_NAVIGATION_OPTION = 'jardin_seed_navigation_post_id';
+
+/**
  * Write post meta without invoking `update_metadata` / `updated_post_meta`.
  *
  * Polylang (meta sync to translations) combined with plugins that assume a non-null
@@ -297,9 +302,11 @@ function jardin_page_seed_set_page_template( int $post_id, string $template_slug
  * Create or update manifest pages.
  *
  * @param array<string, bool> $args {
- *     @type bool $sync_content       Overwrite post_content from seed files for existing pages.
- *     @type bool $assign_templates   Set _wp_page_template for every matched page (default true).
- *     @type bool $set_reading_home   If a page with slug `home` exists after run, set as static front page.
+ *     @type bool $sync_content        Overwrite post_content from seed files for existing pages.
+ *     @type bool $assign_templates    Set _wp_page_template for every matched page (default true).
+ *     @type bool $set_reading_home    If a page with slug `home` exists after run, set as static front page.
+ *     @type bool $set_reading_posts   If Reading is already static, set posts page to slug `blog` when it exists.
+ *     @type bool $create_navigation   Build wp_navigation `jardin-dev-nav` and link header Navigation block via option.
  * }
  * @return array<string, int> Slug => page ID.
  */
@@ -322,9 +329,11 @@ function jardin_page_seed_run_inner( array $args = array() ): array {
 	$args = wp_parse_args(
 		$args,
 		array(
-			'sync_content'     => false,
-			'assign_templates' => true,
-			'set_reading_home' => false,
+			'sync_content'       => false,
+			'assign_templates'   => true,
+			'set_reading_home'   => false,
+			'set_reading_posts'  => false,
+			'create_navigation'  => false,
 		)
 	);
 
@@ -398,6 +407,12 @@ function jardin_page_seed_run_inner( array $args = array() ): array {
 	if ( ! empty( $args['set_reading_home'] ) ) {
 		jardin_page_seed_ensure_home_front( $ids_by_slug );
 	}
+	if ( ! empty( $args['set_reading_posts'] ) ) {
+		jardin_page_seed_ensure_reading_posts_page( $ids_by_slug );
+	}
+	if ( ! empty( $args['create_navigation'] ) ) {
+		jardin_page_seed_upsert_wp_navigation( $ids_by_slug );
+	}
 
 	return $ids_by_slug;
 }
@@ -428,6 +443,194 @@ function jardin_page_seed_ensure_home_front( array $ids_by_slug ): void {
 	update_option( 'show_on_front', 'page' );
 	update_option( 'page_on_front', $home_id );
 }
+
+/**
+ * Set the posts page to the published page with slug `blog` when Reading is already static.
+ *
+ * @param array<string, int> $ids_by_slug Slug => page ID from last import.
+ */
+function jardin_page_seed_ensure_reading_posts_page( array $ids_by_slug ): void {
+	if ( 'page' !== (string) get_option( 'show_on_front' ) ) {
+		return;
+	}
+	$blog_id = 0;
+	if ( ! empty( $ids_by_slug['blog'] ) ) {
+		$blog_id = (int) $ids_by_slug['blog'];
+	}
+	if ( $blog_id < 1 ) {
+		$by_path = get_page_by_path( 'blog', OBJECT, 'page' );
+		if ( $by_path instanceof WP_Post ) {
+			$blog_id = (int) $by_path->ID;
+		}
+	}
+	if ( $blog_id < 1 ) {
+		return;
+	}
+	$post = get_post( $blog_id );
+	if ( ! $post instanceof WP_Post || 'page' !== $post->post_type || 'publish' !== $post->post_status ) {
+		return;
+	}
+	$front_id = (int) get_option( 'page_on_front', 0 );
+	if ( $front_id === $blog_id ) {
+		return;
+	}
+	update_option( 'page_for_posts', $blog_id );
+}
+
+/**
+ * Resolve a manifest page ID after import (ids map or path lookup).
+ *
+ * @param string               $slug        Page slug.
+ * @param string               $parent_slug Parent slug or empty.
+ * @param array<string, int>   $ids_by_slug Slug => ID from current run.
+ */
+function jardin_page_seed_resolve_page_id( string $slug, string $parent_slug, array $ids_by_slug ): int {
+	if ( ! empty( $ids_by_slug[ $slug ] ) ) {
+		return (int) $ids_by_slug[ $slug ];
+	}
+	$path = jardin_page_seed_page_path( $slug, $parent_slug );
+	$post = get_page_by_path( $path, OBJECT, 'page' );
+	return $post instanceof WP_Post ? (int) $post->ID : 0;
+}
+
+/**
+ * Ordered page IDs for the dev navigation: home, manifest pages, blog.
+ *
+ * @param array<string, int> $ids_by_slug Slug => page ID from last import.
+ * @return list<int>
+ */
+function jardin_page_seed_collect_nav_page_ids( array $ids_by_slug ): array {
+	$out   = array();
+	$seen  = array();
+	$push  = static function ( int $pid ) use ( &$out, &$seen ): void {
+		if ( $pid < 1 || isset( $seen[ $pid ] ) ) {
+			return;
+		}
+		$seen[ $pid ] = true;
+		$out[]        = $pid;
+	};
+	$home = jardin_page_seed_resolve_page_id( 'home', '', $ids_by_slug );
+	if ( $home > 0 ) {
+		$push( $home );
+	}
+	foreach ( jardin_page_seed_get_manifest() as $row ) {
+		if ( in_array( $row['slug'], array( 'home', 'blog' ), true ) ) {
+			continue;
+		}
+		$pid = jardin_page_seed_resolve_page_id( $row['slug'], $row['parent_slug'], $ids_by_slug );
+		if ( $pid > 0 ) {
+			$push( $pid );
+		}
+	}
+	$blog = jardin_page_seed_resolve_page_id( 'blog', '', $ids_by_slug );
+	if ( $blog > 0 ) {
+		$push( $blog );
+	}
+	return $out;
+}
+
+/**
+ * Create or update a wp_navigation post and store its ID for the header block filter.
+ *
+ * @param array<string, int> $ids_by_slug Slug => page ID from last import.
+ */
+function jardin_page_seed_upsert_wp_navigation( array $ids_by_slug ): void {
+	$page_ids = jardin_page_seed_collect_nav_page_ids( $ids_by_slug );
+	$blocks   = array();
+	foreach ( $page_ids as $pid ) {
+		$post = get_post( $pid );
+		if ( ! $post instanceof WP_Post || 'page' !== $post->post_type ) {
+			continue;
+		}
+		$label = html_entity_decode( wp_strip_all_tags( get_the_title( $post ) ), ENT_QUOTES, 'UTF-8' );
+		$url   = get_permalink( $post );
+		if ( ! is_string( $url ) || '' === $url ) {
+			continue;
+		}
+		$blocks[] = array(
+			'blockName'    => 'core/navigation-link',
+			'attrs'        => array(
+				'label' => $label,
+				'type'  => 'page',
+				'id'    => (int) $pid,
+				'url'   => $url,
+				'kind'  => 'post-type',
+			),
+			'innerBlocks'  => array(),
+			'innerHTML'    => '',
+			'innerContent' => array(),
+		);
+	}
+	if ( empty( $blocks ) || ! function_exists( 'serialize_blocks' ) ) {
+		delete_option( JARDIN_SEED_NAVIGATION_OPTION );
+		return;
+	}
+	$content = serialize_blocks( $blocks );
+
+	$existing = get_posts(
+		array(
+			'name'             => 'jardin-dev-nav',
+			'post_type'        => 'wp_navigation',
+			'post_status'      => 'any',
+			'posts_per_page'   => 1,
+			'suppress_filters' => true,
+			'fields'           => 'ids',
+		)
+	);
+	$nav_id = ! empty( $existing[0] ) ? (int) $existing[0] : 0;
+
+	$postarr = array(
+		'post_title'   => __( 'Jardin dev menu', 'jardin' ),
+		'post_name'    => 'jardin-dev-nav',
+		'post_type'    => 'wp_navigation',
+		'post_status'  => 'publish',
+		'post_content' => wp_slash( $content ),
+	);
+	if ( $nav_id > 0 ) {
+		$postarr['ID'] = $nav_id;
+		$r             = wp_update_post( $postarr, true );
+	} else {
+		$r = wp_insert_post( $postarr, true );
+	}
+	if ( is_wp_error( $r ) || ! $r ) {
+		delete_option( JARDIN_SEED_NAVIGATION_OPTION );
+		return;
+	}
+	update_option( JARDIN_SEED_NAVIGATION_OPTION, (int) $r );
+}
+
+/**
+ * Inject wp_navigation ref into the theme header Navigation block when it has no ref yet.
+ *
+ * @param array<string, mixed>      $parsed_block Parsed block.
+ * @param array<string, mixed>|null $source_block Source (unused).
+ * @param mixed                     $parent_block Parent (unused).
+ * @return array<string, mixed>
+ */
+function jardin_page_seed_inject_navigation_ref( $parsed_block, $source_block = null, $parent_block = null ) {
+	if ( ! is_array( $parsed_block ) || empty( $parsed_block['blockName'] ) || 'core/navigation' !== $parsed_block['blockName'] ) {
+		return $parsed_block;
+	}
+	if ( ! empty( $parsed_block['attrs']['ref'] ) ) {
+		return $parsed_block;
+	}
+	$class = isset( $parsed_block['attrs']['className'] ) ? (string) $parsed_block['attrs']['className'] : '';
+	if ( ! str_contains( $class, 'jardin-primary-nav' ) ) {
+		return $parsed_block;
+	}
+	$ref = (int) get_option( JARDIN_SEED_NAVIGATION_OPTION, 0 );
+	if ( $ref < 1 ) {
+		return $parsed_block;
+	}
+	$nav = get_post( $ref );
+	if ( ! $nav instanceof WP_Post || 'wp_navigation' !== $nav->post_type ) {
+		return $parsed_block;
+	}
+	$parsed_block['attrs']['ref'] = $ref;
+	return $parsed_block;
+}
+
+add_filter( 'render_block_data', 'jardin_page_seed_inject_navigation_ref', 10, 3 );
 
 /**
  * Paths deepest-first for hierarchical deletes.

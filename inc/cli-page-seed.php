@@ -23,9 +23,11 @@ WP_CLI::add_command(
 			case 'import':
 				$ids = jardin_page_seed_run(
 					array(
-						'sync_content'     => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
-						'assign_templates' => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
-						'set_reading_home' => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'sync_content'       => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
+						'assign_templates'   => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
+						'set_reading_home'   => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'set_reading_posts'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-blog', false ),
+						'create_navigation'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'create-nav', false ),
 					)
 				);
 				WP_CLI::success( sprintf( 'Jardin import finished (%d slugs).', count( $ids ) ) );
@@ -64,9 +66,11 @@ WP_CLI::add_command(
 				jardin_page_seed_reset_reading_after_clean();
 				$ids = jardin_page_seed_run(
 					array(
-						'sync_content'     => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
-						'assign_templates' => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
-						'set_reading_home' => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'sync_content'       => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
+						'assign_templates'   => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
+						'set_reading_home'   => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'set_reading_posts'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-blog', false ),
+						'create_navigation'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'create-nav', false ),
 					)
 				);
 				WP_CLI::success( sprintf( 'Safe reset: cleaned %d, processed %d slug(s).', $cleaned, count( $ids ) ) );
@@ -78,9 +82,11 @@ WP_CLI::add_command(
 				jardin_page_seed_reset_reading_after_clean();
 				$ids = jardin_page_seed_run(
 					array(
-						'sync_content'     => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
-						'assign_templates' => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
-						'set_reading_home' => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'sync_content'       => \WP_CLI\Utils\get_flag_value( $assoc_args, 'sync', false ),
+						'assign_templates'   => ! \WP_CLI\Utils\get_flag_value( $assoc_args, 'no-templates', false ),
+						'set_reading_home'   => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-home', false ),
+						'set_reading_posts'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'set-blog', false ),
+						'create_navigation'  => \WP_CLI\Utils\get_flag_value( $assoc_args, 'create-nav', false ),
 					)
 				);
 				WP_CLI::success( sprintf( 'Manifest reset: cleaned %d, processed %d slug(s).', $cleaned, count( $ids ) ) );
@@ -92,7 +98,7 @@ WP_CLI::add_command(
 				break;
 
 			default:
-				WP_CLI::error( 'Usage: wp jardin-seed import|assign-templates|clean-safe|clean-manifest|reset-safe|reset-manifest|reset-fse [--sync] [--no-templates] [--set-home] [--force]' );
+				WP_CLI::error( 'Usage: wp jardin-seed import|assign-templates|clean-safe|clean-manifest|reset-safe|reset-manifest|reset-fse [--sync] [--no-templates] [--set-home] [--set-blog] [--create-nav] [--force]' );
 		}
 	},
 	array(
@@ -118,6 +124,16 @@ WP_CLI::add_command(
 				'type'        => 'flag',
 				'name'        => 'set-home',
 				'description' => 'With import/reset-*: set static front page to page slug "home" if it exists.',
+			),
+			array(
+				'type'        => 'flag',
+				'name'        => 'set-blog',
+				'description' => 'With import/reset-*: set posts page to slug "blog" when Reading is already static.',
+			),
+			array(
+				'type'        => 'flag',
+				'name'        => 'create-nav',
+				'description' => 'With import/reset-*: build wp_navigation jardin-dev-nav and wire header Navigation block.',
 			),
 			array(
 				'type'        => 'flag',

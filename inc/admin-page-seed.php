@@ -57,9 +57,11 @@ function jardin_page_seed_handle_admin_post(): void {
 		case 'import':
 			$ids = jardin_page_seed_run(
 				array(
-					'sync_content'     => ! empty( $_POST['jardin_sync_content'] ),
-					'assign_templates' => ! empty( $_POST['jardin_assign_templates'] ),
-					'set_reading_home' => ! empty( $_POST['jardin_set_reading_home'] ),
+					'sync_content'      => ! empty( $_POST['jardin_sync_content'] ),
+					'assign_templates'  => ! empty( $_POST['jardin_assign_templates'] ),
+					'set_reading_home'  => ! empty( $_POST['jardin_set_reading_home'] ),
+					'set_reading_posts' => ! empty( $_POST['jardin_set_reading_posts'] ),
+					'create_navigation' => ! empty( $_POST['jardin_create_navigation'] ),
 				)
 			);
 			$count = is_array( $ids ) ? count( $ids ) : 0;
@@ -127,9 +129,11 @@ function jardin_page_seed_handle_admin_post(): void {
 			jardin_page_seed_reset_reading_after_clean();
 			$ids = jardin_page_seed_run(
 				array(
-					'sync_content'     => ! empty( $_POST['jardin_reset_sync'] ),
-					'assign_templates' => ! empty( $_POST['jardin_reset_assign_templates'] ),
-					'set_reading_home' => ! empty( $_POST['jardin_reset_reading_home'] ),
+					'sync_content'      => ! empty( $_POST['jardin_reset_sync'] ),
+					'assign_templates'  => ! empty( $_POST['jardin_reset_assign_templates'] ),
+					'set_reading_home'  => ! empty( $_POST['jardin_reset_reading_home'] ),
+					'set_reading_posts' => ! empty( $_POST['jardin_reset_reading_blog'] ),
+					'create_navigation' => ! empty( $_POST['jardin_reset_create_nav'] ),
 				)
 			);
 			$count = is_array( $ids ) ? count( $ids ) : 0;
@@ -150,9 +154,11 @@ function jardin_page_seed_handle_admin_post(): void {
 			jardin_page_seed_reset_reading_after_clean();
 			$ids = jardin_page_seed_run(
 				array(
-					'sync_content'     => ! empty( $_POST['jardin_reset_manifest_sync'] ),
-					'assign_templates' => ! empty( $_POST['jardin_reset_manifest_assign'] ),
-					'set_reading_home' => ! empty( $_POST['jardin_reset_manifest_reading'] ),
+					'sync_content'      => ! empty( $_POST['jardin_reset_manifest_sync'] ),
+					'assign_templates'  => ! empty( $_POST['jardin_reset_manifest_assign'] ),
+					'set_reading_home'  => ! empty( $_POST['jardin_reset_manifest_reading'] ),
+					'set_reading_posts' => ! empty( $_POST['jardin_reset_manifest_blog'] ),
+					'create_navigation' => ! empty( $_POST['jardin_reset_manifest_nav'] ),
 				)
 			);
 			$count = is_array( $ids ) ? count( $ids ) : 0;
@@ -297,7 +303,7 @@ function jardin_page_seed_render_admin_page(): void {
 			<?php esc_html_e( 'Default import does not overwrite existing page bodies—safe when you cloned production content. Enable “Sync body from theme seeds” only to replace content from content/seeds/*.html.', 'jardin' ); ?>
 		</p>
 		<p class="description">
-			<?php esc_html_e( 'CLI: wp jardin-seed import|assign-templates|clean-safe|clean-manifest|reset-safe|reset-manifest|reset-fse (see wp help jardin-seed).', 'jardin' ); ?>
+			<?php esc_html_e( 'CLI: wp jardin-seed import|… (flags: --sync, --no-templates, --set-home, --set-blog, --create-nav; see wp help jardin-seed).', 'jardin' ); ?>
 		</p>
 		<p class="description">
 			<?php esc_html_e( 'Polylang: run imports in each language admin context, or duplicate pages manually—this tool matches pages by slug/path only.', 'jardin' ); ?>
@@ -328,6 +334,18 @@ function jardin_page_seed_render_admin_page(): void {
 				<label>
 					<input type="checkbox" name="jardin_set_reading_home" value="1" />
 					<?php esc_html_e( 'Set static front page to the published page with slug “home” if it exists', 'jardin' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_set_reading_posts" value="1" />
+					<?php esc_html_e( 'Set posts page to the published page with slug “blog” when Reading is already “A static page” (use with the option above or after configuring Reading manually)', 'jardin' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_create_navigation" value="1" />
+					<?php esc_html_e( 'Create or update FSE navigation “Jardin dev menu” (wp_navigation) and wire the header Navigation block (class jardin-primary-nav) to it', 'jardin' ); ?>
 				</label>
 			</p>
 			<?php submit_button( __( 'Run import', 'jardin' ), 'primary' ); ?>
@@ -408,6 +426,18 @@ function jardin_page_seed_render_admin_page(): void {
 					<?php esc_html_e( 'Set static front page to “home” if present', 'jardin' ); ?>
 				</label>
 			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_reset_reading_blog" value="1" />
+					<?php esc_html_e( 'Set posts page to “blog” when Reading is static', 'jardin' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_reset_create_nav" value="1" />
+					<?php esc_html_e( 'Create / update FSE “Jardin dev menu” and wire header Navigation', 'jardin' ); ?>
+				</label>
+			</p>
 			<?php submit_button( __( 'Run safe reset', 'jardin' ), 'primary' ); ?>
 		</form>
 
@@ -438,6 +468,18 @@ function jardin_page_seed_render_admin_page(): void {
 				<label>
 					<input type="checkbox" name="jardin_reset_manifest_reading" value="1" />
 					<?php esc_html_e( 'Set static front page to “home” if present', 'jardin' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_reset_manifest_blog" value="1" />
+					<?php esc_html_e( 'Set posts page to “blog” when Reading is static', 'jardin' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="jardin_reset_manifest_nav" value="1" />
+					<?php esc_html_e( 'Create / update FSE “Jardin dev menu” and wire header Navigation', 'jardin' ); ?>
 				</label>
 			</p>
 			<?php submit_button( __( 'Run full manifest reset', 'jardin' ), 'primary' ); ?>

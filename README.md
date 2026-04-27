@@ -22,7 +22,7 @@ Fonts are **self-hosted** under `assets/fonts/` as `.woff2` files, with `fontFac
 
 ## Dev pages (manifest import)
 
-On staging or a **dev clone** of production: **Appearance → Jardin dev pages** creates missing manifest pages, assigns FSE page templates, and by default **does not overwrite** existing page bodies (so cloned content stays). Optional HTML lives in `content/seeds/` (see that folder’s README). CLI parity: `wp jardin-seed import`, `wp jardin-seed reset-safe`, etc. (see `wp jardin-seed` help).
+On staging or a **dev clone** of production: **Appearance → Jardin dev pages** creates missing manifest pages, assigns FSE page templates, and by default **does not overwrite** existing page bodies (so cloned content stays). Optional HTML lives in `content/seeds/` (see that folder’s README). Import can also set **Reading** (front page = slug `home`, posts page = slug `blog` when Reading is already static) and build an FSE **`wp_navigation`** post (`jardin-dev-nav`) linked to the header **Navigation** block (`jardin-primary-nav`) via the `jardin_seed_navigation_post_id` option. CLI: `wp jardin-seed import --set-home --set-blog --create-nav` (see `wp jardin-seed` help).
 
 During **Import**, Polylang’s bulk meta copy on save is temporarily disabled (`pll_copy_post_metas` forced empty) so `wp_update_post` / `wp_insert_post` do not enqueue `update_metadata` chains that break with strict third-party listeners (e.g. MediaPapa Pro). Template and seed-marker meta are also written without `update_post_meta`. Linked translations do not receive those metas from this run alone—run import per language admin context or assign templates manually where needed.
 
