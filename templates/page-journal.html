@@ -3,32 +3,12 @@
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|6","margin":{"top":"0","bottom":"0"}}}} -->
 <div id="main" class="wp-block-group">
 	<!-- wp:post-title {"level":1} /-->
-	<!-- wp:paragraph {"fontSize":"sm","textColor":"text-muted"} -->
-	<p class="has-text-muted-color has-text-color has-sm-font-size">A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:html -->
-	<nav class="jardin-journal-filters" aria-label="Journal filters">
-		<p class="jardin-journal-filters__inner has-text-muted-color has-sm-font-size">
-			<a class="jardin-journal-filters__link" href="?">All</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=note">Notes</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=like">Likes</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=bookmark">Bookmarks</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=quote">Quotes</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=til">TIL</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=jam">Jams</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=review">Reviews</a>
-			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
-			<a class="jardin-journal-filters__link" href="?kind=event">Events</a>
-		</p>
-	</nav>
-	<!-- /wp:html -->
+	<!-- wp:shortcode -->
+	[jardin_journal_intro]
+	<!-- /wp:shortcode -->
+	<!-- wp:shortcode -->
+	[jardin_journal_filters]
+	<!-- /wp:shortcode -->
 	<!-- wp:query {"queryId":10,"namespace":"jardin/journal-mixed","query":{"perPage":12,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1}} -->
@@ -47,9 +27,9 @@
 			<!-- wp:query-pagination-next /-->
 		<!-- /wp:query-pagination -->
 		<!-- wp:query-no-results -->
-			<!-- wp:paragraph -->
-			<p>No journal items yet.</p>
-			<!-- /wp:paragraph -->
+			<!-- wp:shortcode -->
+			[jardin_journal_empty]
+			<!-- /wp:shortcode -->
 		<!-- /wp:query-no-results -->
 	</div>
 	<!-- /wp:query -->

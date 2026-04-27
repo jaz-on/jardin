@@ -14,6 +14,8 @@ FSE theme for [jasonrouet.com](https://jasonrouet.com). **Product specs and road
 
 Fonts are **self-hosted** under `assets/fonts/` as `.woff2` files, with `fontFace` entries in `theme.json` (see [theme-json-spec.md](../jardin-docs/theme/theme-json-spec.md)). Origins and licenses are summarized in `assets/fonts/README.txt`.
 
+Only **one** custom page template is shipped (`page-journal.html`) because it has a unique Query Loop and filters. Other pages use the default `templates/page.html` plus **block patterns** under `patterns/` (placeholders, meta rows, etc.). **Singles, archives, categories, and tags** use the default `single.html`, `archive.html`, and `category.html` files so WordPress does not need per–post-type duplicates unless a layout truly diverges later.
+
 ## Install
 
 1. Clone or copy this repository under `wp-content/themes/`. The production folder name is expected to be `jardin` (you may symlink `jardin` → `jardin-theme`).

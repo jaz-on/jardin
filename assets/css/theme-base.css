@@ -120,3 +120,43 @@
 	opacity: 0.65;
 	white-space: pre;
 }
+
+.jardin-header-search {
+	flex: 1 1 10rem;
+	max-width: min(18rem, 100%);
+}
+
+.jardin-header-search .search-form,
+.jardin-header-search form {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--2);
+	width: 100%;
+}
+
+.jardin-header-search .search-field {
+	flex: 1;
+	min-width: 0;
+	padding: 0.35rem 0.5rem;
+	font: inherit;
+	font-size: var(--wp--preset--font-size--sm);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--bg);
+	color: var(--wp--preset--color--text);
+}
+
+.jardin-header-search .search-submit {
+	font-size: var(--wp--preset--font-size--xs);
+	padding: 0.35rem 0.65rem;
+	border-radius: var(--wp--custom--radius--soft);
+	border: 1px solid var(--wp--preset--color--border);
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--text);
+	cursor: pointer;
+}
+
+.jardin-404-search {
+	margin-top: var(--wp--preset--spacing--5);
+	max-width: min(28rem, 100%);
+}

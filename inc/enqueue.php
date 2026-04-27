@@ -42,5 +42,13 @@ function jardin_enqueue_assets(): void {
 		$ver,
 		true
 	);
+
+	wp_enqueue_script(
+		'jardin-filter-tabs',
+		get_template_directory_uri() . '/assets/js/filter-tabs.js',
+		array(),
+		$ver,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'jardin_enqueue_assets' );

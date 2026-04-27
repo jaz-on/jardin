@@ -445,19 +445,7 @@
 		}
 	},
 	"customTemplates": [
-		{ "name": "page-journal", "title": "Journal hub", "postTypes": [ "page" ] },
-		{ "name": "page-maintenant", "title": "Now page", "postTypes": [ "page" ] },
-		{ "name": "page-bieres", "title": "Beers page", "postTypes": [ "page" ] },
-		{ "name": "page-blogroll", "title": "Blogroll page", "postTypes": [ "page" ] },
-		{ "name": "page-styleguide", "title": "Styleguide", "postTypes": [ "page" ] },
-		{ "name": "page-colophon", "title": "Colophon", "postTypes": [ "page" ] },
-		{ "name": "page-coffee", "title": "Coffee", "postTypes": [ "page" ] },
-		{ "name": "page-dlc", "title": "DLC", "postTypes": [ "page" ] },
-		{ "name": "page-licence", "title": "Licence", "postTypes": [ "page" ] },
-		{ "name": "page-privacy", "title": "Privacy", "postTypes": [ "page" ] },
-		{ "name": "page-ai", "title": "AI stance", "postTypes": [ "page" ] },
-		{ "name": "page-changelog", "title": "Changelog", "postTypes": [ "page" ] },
-		{ "name": "page-uses", "title": "Uses", "postTypes": [ "page" ] }
+		{ "name": "page-journal", "title": "Journal hub", "postTypes": [ "page" ] }
 	],
 	"templateParts": [
 		{ "name": "header", "title": "Header", "area": "header" },

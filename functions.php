@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
 $jardin_inc = get_template_directory() . '/inc/';
 
 require_once $jardin_inc . 'setup.php';
+require_once $jardin_inc . 'template-shortcodes.php';
+require_once $jardin_inc . 'search-block-i18n.php';
 require_once $jardin_inc . 'enqueue.php';
 require_once $jardin_inc . 'block-styles.php';
 require_once $jardin_inc . 'block-variations.php';
