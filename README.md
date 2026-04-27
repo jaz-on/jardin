@@ -24,7 +24,7 @@ Fonts are **self-hosted** under `assets/fonts/` as `.woff2` files, with `fontFac
 
 On staging or a **dev clone** of production: **Appearance → Jardin dev pages** creates missing manifest pages, assigns FSE page templates, and by default **does not overwrite** existing page bodies (so cloned content stays). Optional HTML lives in `content/seeds/` (see that folder’s README). CLI parity: `wp jardin-seed import`, `wp jardin-seed reset-safe`, etc. (see `wp jardin-seed` help).
 
-Template and seed-marker meta are written in a way that avoids `update_post_meta` hook chains that break with **Polylang meta sync** plus strict third-party listeners (e.g. MediaPapa Pro). If you rely on Polylang copying `_wp_page_template` across translations, run **Import** (or `wp jardin-seed import`) once per language admin context, or assign templates on linked pages in the editor.
+During **Import**, Polylang’s bulk meta copy on save is temporarily disabled (`pll_copy_post_metas` forced empty) so `wp_update_post` / `wp_insert_post` do not enqueue `update_metadata` chains that break with strict third-party listeners (e.g. MediaPapa Pro). Template and seed-marker meta are also written without `update_post_meta`. Linked translations do not receive those metas from this run alone—run import per language admin context or assign templates manually where needed.
 
 ## Internationalization (theme strings)
 

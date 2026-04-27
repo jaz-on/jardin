@@ -69,6 +69,46 @@ function jardin_page_seed_write_post_meta_silent( int $post_id, string $meta_key
 }
 
 /**
+ * While seeding: Polylang must not bulk-copy metas on `save_post` (`PLL_Sync_Metas::copy`).
+ * That path calls `update_metadata` on translations and triggers MediaPapa Pro with a null post.
+ *
+ * @param list<string> $keys   Meta keys Polylang gathered to sync.
+ * @param bool         $sync   True when synchronizing.
+ * @param int          $from   Source post ID.
+ * @param int          $to     Target post ID.
+ * @param string       $lang   Target language slug.
+ * @return list<string>
+ */
+function jardin_page_seed_pll_copy_post_metas_empty( $keys, $sync = false, $from = 0, $to = 0, $lang = '' ) {
+	return array();
+}
+
+/**
+ * Begin suppressing Polylang post meta sync (supports nested seed runs).
+ */
+function jardin_page_seed_pll_suppress_meta_sync_enter(): void {
+	global $jardin_page_seed_pll_meta_suspend;
+	$jardin_page_seed_pll_meta_suspend = (int) ( $jardin_page_seed_pll_meta_suspend ?? 0 ) + 1;
+	if ( 1 === $jardin_page_seed_pll_meta_suspend ) {
+		add_filter( 'pll_copy_post_metas', 'jardin_page_seed_pll_copy_post_metas_empty', PHP_INT_MAX, 5 );
+	}
+}
+
+/**
+ * End suppressing Polylang post meta sync.
+ */
+function jardin_page_seed_pll_suppress_meta_sync_leave(): void {
+	global $jardin_page_seed_pll_meta_suspend;
+	if ( empty( $jardin_page_seed_pll_meta_suspend ) ) {
+		return;
+	}
+	$jardin_page_seed_pll_meta_suspend = ( (int) $jardin_page_seed_pll_meta_suspend ) - 1;
+	if ( 0 === (int) $jardin_page_seed_pll_meta_suspend ) {
+		remove_filter( 'pll_copy_post_metas', 'jardin_page_seed_pll_copy_post_metas_empty', PHP_INT_MAX, 5 );
+	}
+}
+
+/**
  * Read optional seed HTML from content/seeds/{filename}.
  *
  * @param string $filename Basename, e.g. journal.html.
@@ -264,6 +304,21 @@ function jardin_page_seed_set_page_template( int $post_id, string $template_slug
  * @return array<string, int> Slug => page ID.
  */
 function jardin_page_seed_run( array $args = array() ): array {
+	jardin_page_seed_pll_suppress_meta_sync_enter();
+	try {
+		return jardin_page_seed_run_inner( $args );
+	} finally {
+		jardin_page_seed_pll_suppress_meta_sync_leave();
+	}
+}
+
+/**
+ * Core manifest import (Polylang meta bulk sync is suspended by {@see jardin_page_seed_run()}).
+ *
+ * @param array<string, bool> $args Import options.
+ * @return array<string, int> Slug => page ID.
+ */
+function jardin_page_seed_run_inner( array $args = array() ): array {
 	$args = wp_parse_args(
 		$args,
 		array(
