@@ -67,17 +67,28 @@ add_filter( 'webmention_post_types', 'jardin_webmention_post_types' );
 
 /**
  * Sensible Open Graph types per CPT.
+ * The Open Graph plugin may call `opengraph_type` with only `$type` (no post); resolve from the main query.
+ *
+ * @param string        $type Default og:type.
+ * @param int|\WP_Post|null $post Optional post (when the filter passes it).
+ * @return string
  */
-function jardin_opengraph_type( $type, $post ) {
-	$post = get_post( $post );
-	if ( ! $post ) {
-		return $type;
+function jardin_opengraph_type( $type, $post = null ) {
+	if ( $post ) {
+		$res = get_post( $post );
+	} else {
+		$q   = get_queried_object();
+		$res = ( $q instanceof WP_Post ) ? $q : null;
 	}
-	return match ( (string) $post->post_type ) {
+	if ( ! $res ) {
+		return is_string( $type ) ? $type : (string) $type;
+	}
+	$pt = (string) $res->post_type;
+	return match ( $pt ) {
 		'event'        => 'event',
 		'beer_checkin' => 'product',
 		'listen'       => 'music.song',
-		default        => $type,
+		default        => is_string( $type ) ? $type : (string) $type,
 	};
 }
 add_filter( 'opengraph_type', 'jardin_opengraph_type', 12, 2 );
