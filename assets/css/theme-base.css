@@ -201,3 +201,176 @@
 .jardin-wm__li {
 	margin: 0;
 }
+
+/* ============================================================
+   Site brand / mark (JR SVG)
+   ============================================================ */
+
+.site-mark {
+	display: inline-flex;
+	align-items: center;
+	color: inherit;
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+/* ============================================================
+   Home — Section headings with inline links
+   ============================================================ */
+
+.section-with-link {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.4em var(--wp--preset--spacing--3);
+}
+
+.section-link {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 400;
+	font-family: var(--wp--preset--font-family--mono);
+	letter-spacing: 0.01em;
+}
+
+.section-link a,
+a.section-link {
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+	opacity: 0.75;
+}
+
+.section-link a:hover,
+a.section-link:hover {
+	opacity: 1;
+}
+
+/* ============================================================
+   Home — Bio
+   ============================================================ */
+
+.bio {
+	font-size: var(--wp--preset--font-size--lg);
+	line-height: 1.65;
+}
+
+/* ============================================================
+   Home — Events upcoming
+   ============================================================ */
+
+.events-upcoming {
+	padding: var(--wp--preset--spacing--4);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, 0.5rem);
+}
+
+.events-upcoming h3,
+.events-upcoming .wp-block-heading {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.4em;
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--3);
+}
+
+.events-upcoming-link,
+a.events-upcoming-link {
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--mono);
+	font-weight: 400;
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+	opacity: 0.75;
+}
+
+.events-upcoming-link:hover,
+a.events-upcoming-link:hover {
+	opacity: 1;
+}
+
+.event-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--3);
+	align-items: baseline;
+	padding: var(--wp--preset--spacing--2) 0;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+
+.event-row + .event-row {
+	margin-top: 0;
+}
+
+.entry-when,
+.wp-block-post-date.entry-when {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.events-upcoming-footer {
+	margin-top: var(--wp--preset--spacing--3);
+	margin-bottom: 0;
+}
+
+/* ============================================================
+   Home — Feed (Mon flux)
+   ============================================================ */
+
+.feed-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--2);
+	align-items: center;
+}
+
+.ff-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	padding: 0.2rem 0.65rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 999px;
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--sans);
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	background: transparent;
+	cursor: pointer;
+	line-height: 1.4;
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.ff-btn:hover,
+.ff-btn.active {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+}
+
+.ff-icon {
+	width: 0.85em;
+	height: 0.85em;
+	flex-shrink: 0;
+	vertical-align: -0.1em;
+}
+
+/* ============================================================
+   Home — Projects grid
+   ============================================================ */
+
+.project-card .status {
+	display: inline-block;
+	font-size: var(--wp--preset--font-size--xs);
+	font-family: var(--wp--preset--font-family--mono);
+	font-weight: 400;
+	color: var(--wp--preset--color--text-muted);
+	margin-left: 0.5em;
+}
+
+.project-card .desc {
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+	margin: 0;
+}
