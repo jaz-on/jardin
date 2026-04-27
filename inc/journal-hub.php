@@ -15,6 +15,8 @@ defined( 'ABSPATH' ) || exit;
  * @return array
  */
 function jardin_journal_query_for_kind( array $query, string $kind ): array {
+	// Phase 2: hub matches page-journal Query Loop — post, iwcpt_note, iwcpt_like only.
+	// Plugin CPT kinds (bookmark, event, …) ship in Phase 4+; see integration/kinds-mapping.md.
 	switch ( $kind ) {
 		case 'note':
 			$query['post_type'] = 'iwcpt_note';
@@ -22,24 +24,9 @@ function jardin_journal_query_for_kind( array $query, string $kind ): array {
 		case 'like':
 			$query['post_type'] = 'iwcpt_like';
 			break;
-		case 'bookmark':
-		case 'quote':
-			$query['post_type'] = 'favorite';
-			break;
 		case 'til':
-			$query['post_type']   = 'post';
+			$query['post_type']      = 'post';
 			$query['category_name'] = 'til';
-			break;
-		case 'listen':
-		case 'jam':
-			$query['post_type'] = 'listen';
-			break;
-		case 'tasting':
-		case 'review':
-			$query['post_type'] = 'beer_checkin';
-			break;
-		case 'event':
-			$query['post_type'] = 'event';
 			break;
 		default:
 			break;
@@ -70,6 +57,7 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 		$query = jardin_journal_query_for_kind( $query, $kind );
 	}
 
+	// Presets for Phase 4+ (CPTs from plugins). Safe when types are absent (empty loop).
 	if ( 'jardin/now-updates-feed' === $namespace ) {
 		$query['post_type'] = 'post';
 		$query['tax_query']  = array(
@@ -122,12 +110,7 @@ function jardin_get_journal_filters_markup(): string {
 		array( 'href' => '?', 'label' => __( 'All', 'jardin' ) ),
 		array( 'href' => '?kind=note', 'label' => __( 'Notes', 'jardin' ) ),
 		array( 'href' => '?kind=like', 'label' => __( 'Likes', 'jardin' ) ),
-		array( 'href' => '?kind=bookmark', 'label' => __( 'Bookmarks', 'jardin' ) ),
-		array( 'href' => '?kind=quote', 'label' => __( 'Quotes', 'jardin' ) ),
 		array( 'href' => '?kind=til', 'label' => __( 'TIL', 'jardin' ) ),
-		array( 'href' => '?kind=jam', 'label' => __( 'Jams', 'jardin' ) ),
-		array( 'href' => '?kind=review', 'label' => __( 'Reviews', 'jardin' ) ),
-		array( 'href' => '?kind=event', 'label' => __( 'Events', 'jardin' ) ),
 	);
 
 	$parts = array();

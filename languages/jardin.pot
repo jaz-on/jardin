@@ -3,13 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jardin 0.1.1\n"
-"Report-Msgid-Bugs-To: https://github.com/jason/jardin-theme/issues\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-27T18:37:46+00:00\n"
+"POT-Creation-Date: 2026-04-27T18:47:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
@@ -131,44 +131,24 @@ msgstr ""
 msgid "Tabs"
 msgstr ""
 
-#: inc/journal-hub.php:120
+#: inc/journal-hub.php:108
 msgid "Journal filters"
 msgstr ""
 
-#: inc/journal-hub.php:122
+#: inc/journal-hub.php:110
 msgid "All"
 msgstr ""
 
-#: inc/journal-hub.php:123
+#: inc/journal-hub.php:111
 msgid "Notes"
 msgstr ""
 
-#: inc/journal-hub.php:124
+#: inc/journal-hub.php:112
 msgid "Likes"
 msgstr ""
 
-#: inc/journal-hub.php:125
-msgid "Bookmarks"
-msgstr ""
-
-#: inc/journal-hub.php:126
-msgid "Quotes"
-msgstr ""
-
-#: inc/journal-hub.php:127
+#: inc/journal-hub.php:113
 msgid "TIL"
-msgstr ""
-
-#: inc/journal-hub.php:128
-msgid "Jams"
-msgstr ""
-
-#: inc/journal-hub.php:129
-msgid "Reviews"
-msgstr ""
-
-#: inc/journal-hub.php:130
-msgid "Events"
 msgstr ""
 
 #: inc/placeholder-copy.php:19
@@ -294,7 +274,7 @@ msgid "Intro paragraph and ?kind= filter links for the journal page template."
 msgstr ""
 
 #: patterns/journal-hub-top.php:14
-msgid "A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind."
+msgid "A mixed timeline of long posts, notes, likes, and TIL articles—newest first. Use the filters to narrow by kind. (More post types join this hub after the custom plugins ship.)"
 msgstr ""
 
 #: patterns/placeholder-beers.php
@@ -377,59 +357,59 @@ msgstr ""
 msgid "Comments and reactions from readers appear below when enabled for this content type."
 msgstr ""
 
-#: assets/js/block-variations.js:27
+#: assets/js/block-variations.js:20
 msgid "Journal hub (mixed)"
 msgstr ""
 
-#: assets/js/block-variations.js:28
+#: assets/js/block-variations.js:21
 msgid "Recent items across journal post types."
 msgstr ""
 
-#: assets/js/block-variations.js:50
+#: assets/js/block-variations.js:43
 msgid "Notes (IndieBlocks)"
 msgstr ""
 
-#: assets/js/block-variations.js:51
+#: assets/js/block-variations.js:44
 msgid "Notes CPT only."
 msgstr ""
 
-#: assets/js/block-variations.js:71
+#: assets/js/block-variations.js:64
 msgid "Events (upcoming)"
 msgstr ""
 
-#: assets/js/block-variations.js:72
+#: assets/js/block-variations.js:65
 msgid "Events ordered by event date meta (ascending)."
 msgstr ""
 
-#: assets/js/block-variations.js:93
+#: assets/js/block-variations.js:86
 msgid "Events (by role meta)"
 msgstr ""
 
-#: assets/js/block-variations.js:94
+#: assets/js/block-variations.js:87
 msgid "Events CPT; refine with filters in the inspector."
 msgstr ""
 
-#: assets/js/block-variations.js:111
+#: assets/js/block-variations.js:104
 msgid "Pinned articles"
 msgstr ""
 
-#: assets/js/block-variations.js:112
+#: assets/js/block-variations.js:105
 msgid "Sticky posts only."
 msgstr ""
 
-#: assets/js/block-variations.js:130
+#: assets/js/block-variations.js:123
 msgid "Blogroll grid"
 msgstr ""
 
-#: assets/js/block-variations.js:131
+#: assets/js/block-variations.js:124
 msgid "Blogroll CPT from feed-journal."
 msgstr ""
 
-#: assets/js/block-variations.js:148
+#: assets/js/block-variations.js:141
 msgid "Now updates (category)"
 msgstr ""
 
-#: assets/js/block-variations.js:149
+#: assets/js/block-variations.js:142
 msgid "Posts in the now-updates category."
 msgstr ""
 

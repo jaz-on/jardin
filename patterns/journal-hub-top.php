@@ -11,7 +11,7 @@
 
 ?>
 <!-- wp:paragraph {"fontSize":"sm","textColor":"text-muted"} -->
-<p class="has-text-muted-color has-text-color has-sm-font-size"><?php echo esc_html__( 'A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind.', 'jardin' ); ?></p>
+<p class="has-text-muted-color has-text-color has-sm-font-size"><?php echo esc_html__( 'A mixed timeline of long posts, notes, likes, and TIL articles—newest first. Use the filters to narrow by kind. (More post types join this hub after the custom plugins ship.)', 'jardin' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
