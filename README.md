@@ -29,3 +29,10 @@ The repository keeps `**languages/jardin.pot`** as the translation template (sou
 ## Development
 
 Work on branch `dev`. Text domain: `jardin`.
+
+### E2E (Playwright) — phase 5
+
+- Doc des parcours : [`jardin-docs/tests-strategy.md`](../jardin-docs/tests-strategy.md) (dossier local, hors dépôt Git pour la doc jardin en général : si tu n’as pas le clone, ouvre le fichier depuis l’arbo partagée).
+- Installation : `npm ci` (racine du thème), `npx playwright install chromium` (ou `npx playwright install` pour les trois navigateurs).
+- Variables : copie `e2e/.env.example` en **`.env`** à la racine du thème et définis `E2E_BASE_URL` (ex. `https://dev.jasonrouet.com`) ; `E2E_SKIP_EN=1` si `/en/` n’est pas encore en place.
+- Lancer : `npm run e2e` (depuis `jardin-theme/`) ; le rapport est dans `playwright-report/` (non versionné).

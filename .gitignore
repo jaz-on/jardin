@@ -41,6 +41,12 @@ debug.log
 phpstan.neon.cache
 .psalm/cache/
 
+# Playwright (e2e/)
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/blob-report/
+
 # Archives
 *.zip
 *.tar
