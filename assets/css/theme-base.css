@@ -1,5 +1,5 @@
 /**
- * Global CSS not covered by theme.json (Phase 2.1 bootstrap).
+ * Global CSS not covered by theme.json (skip-link, layout helpers, journal filters).
  *
  * @package Jardin
  */
@@ -94,4 +94,29 @@
 .jardin-theme-toggle__btn[aria-pressed="true"] {
 	border-color: var(--wp--preset--color--accent);
 	box-shadow: 0 0 0 1px var(--wp--preset--color--accent);
+}
+
+.jardin-journal-filters {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.jardin-journal-filters__inner {
+	margin: 0;
+	line-height: 1.5;
+}
+
+.jardin-journal-filters__link {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.jardin-journal-filters__link:hover {
+	color: var(--wp--preset--color--accent);
+}
+
+.jardin-journal-filters__sep {
+	opacity: 0.65;
+	white-space: pre;
 }

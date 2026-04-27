@@ -1,5 +1,5 @@
 /**
- * Optional enhancements for core Navigation overlay (Phase 2.2+).
+ * Accessibility tweaks for the core Navigation responsive overlay (dialog semantics).
  *
  * @package Jardin
  */

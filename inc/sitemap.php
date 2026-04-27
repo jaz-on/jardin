@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Allow disabling listen CPT in sitemaps via filter (default: keep for Phase 2).
+ * Allow disabling listen CPT in sitemaps via filter (default: keep in sitemap).
  *
  * @param array   $post_types Post types in sitemap.
  * @param string  $sitemap    Sitemap name.

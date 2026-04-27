@@ -44,17 +44,58 @@
 				{
 					"slug": "serif",
 					"name": "Source Serif",
-					"fontFamily": "'Source Serif Pro', 'Source Serif 4', Georgia, 'Times New Roman', serif"
+					"fontFamily": "'Source Serif Pro', Georgia, 'Times New Roman', serif",
+					"fontFace": [
+						{
+							"fontFamily": "Source Serif Pro",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/source-serif-pro-regular.woff2" ]
+						},
+						{
+							"fontFamily": "Source Serif Pro",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/source-serif-pro-semibold.woff2" ]
+						},
+						{
+							"fontFamily": "Source Serif Pro",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/source-serif-pro-italic.woff2" ]
+						}
+					]
 				},
 				{
 					"slug": "sans",
 					"name": "Inter",
-					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/inter-variable.woff2" ]
+						}
+					]
 				},
 				{
 					"slug": "mono",
 					"name": "JetBrains Mono",
-					"fontFamily": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace"
+					"fontFamily": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"fontFace": [
+						{
+							"fontFamily": "JetBrains Mono",
+							"fontWeight": "400 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/jetbrains-mono-variable.woff2" ]
+						}
+					]
 				}
 			],
 			"fontSizes": [
@@ -421,7 +462,6 @@
 	"templateParts": [
 		{ "name": "header", "title": "Header", "area": "header" },
 		{ "name": "footer", "title": "Footer", "area": "footer" },
-		{ "name": "single-footer", "title": "Single footer (engagement)", "area": "uncategorized" },
-		{ "name": "sidebar-toc", "title": "Sidebar TOC", "area": "uncategorized" }
+		{ "name": "single-footer", "title": "Single footer (engagement)", "area": "uncategorized" }
 	]
 }

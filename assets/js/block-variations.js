@@ -1,6 +1,11 @@
 /**
  * Query Loop variations (jardin-docs theme/blocks_inventory.md § E).
  *
+ * Namespaces `jardin/journal-mixed`, `jardin/now-updates-feed`, `jardin/events-upcoming`,
+ * and `jardin/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
+ * Namespaces `jardin/notes-by-kind`, `jardin/articles-pinned`, and `jardin/blogroll-grid`
+ * are editor presets until matching filters exist (plugins / theme follow-up).
+ *
  * @package Jardin
  */
 ( function ( wp ) {

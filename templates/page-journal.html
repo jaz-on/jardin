@@ -4,8 +4,31 @@
 <div id="main" class="wp-block-group">
 	<!-- wp:post-title {"level":1} /-->
 	<!-- wp:paragraph {"fontSize":"sm","textColor":"text-muted"} -->
-	<p class="has-text-muted-color has-text-color has-sm-font-size">Mixed feed for posts, notes, likes, and other journal kinds. Use Query Loop variations and <code>?kind=</code> filters on dev.</p>
+	<p class="has-text-muted-color has-text-color has-sm-font-size">A mixed timeline of long posts, notes, likes, bookmarks, listens, check-ins, and events—newest first. Use the filters to narrow by kind.</p>
 	<!-- /wp:paragraph -->
+	<!-- wp:html -->
+	<nav class="jardin-journal-filters" aria-label="Journal filters">
+		<p class="jardin-journal-filters__inner has-text-muted-color has-sm-font-size">
+			<a class="jardin-journal-filters__link" href="?">All</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=note">Notes</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=like">Likes</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=bookmark">Bookmarks</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=quote">Quotes</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=til">TIL</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=jam">Jams</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=review">Reviews</a>
+			<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>
+			<a class="jardin-journal-filters__link" href="?kind=event">Events</a>
+		</p>
+	</nav>
+	<!-- /wp:html -->
 	<!-- wp:query {"queryId":10,"namespace":"jardin/journal-mixed","query":{"perPage":12,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1}} -->
