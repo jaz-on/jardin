@@ -20,6 +20,10 @@ Fonts are **self-hosted** under `assets/fonts/` as `.woff2` files, with `fontFac
 2. In WordPress admin: **Appearance → Themes** → activate **Jardin**.
 3. After theme updates that touch rewrite rules, visit **Settings → Permalinks** once (or use `wp rewrite flush`).
 
+## Dev pages (manifest import)
+
+On staging or a **dev clone** of production: **Appearance → Jardin dev pages** creates missing manifest pages, assigns FSE page templates, and by default **does not overwrite** existing page bodies (so cloned content stays). Optional HTML lives in `content/seeds/` (see that folder’s README). CLI parity: `wp jardin-seed import`, `wp jardin-seed reset-safe`, etc. (see `wp jardin-seed` help).
+
 ## Internationalization (theme strings)
 
 The repository keeps **`languages/jardin.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment.

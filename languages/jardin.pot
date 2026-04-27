@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-27T14:06:40+00:00\n"
+"POT-Creation-Date: 2026-04-27T14:19:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
@@ -32,6 +32,229 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "https://jasonrouet.com"
+msgstr ""
+
+#: inc/admin-page-seed.php:26
+#: inc/admin-page-seed.php:27
+msgid "Jardin dev pages"
+msgstr ""
+
+#: inc/admin-page-seed.php:48
+msgid "You do not have permission to do that."
+msgstr ""
+
+#. translators: %d: number of manifest slugs touched
+#: inc/admin-page-seed.php:217
+msgid "Jardin import finished (%d slug)."
+msgid_plural "Jardin import finished (%d slugs)."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: pages updated
+#: inc/admin-page-seed.php:224
+msgid "Assigned templates on %d existing page."
+msgid_plural "Assigned templates on %d existing pages."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: pages removed
+#: inc/admin-page-seed.php:231
+msgid "Removed %d page created by Jardin seed (tagged only)."
+msgid_plural "Removed %d pages created by Jardin seed (tagged only)."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: pages removed
+#: inc/admin-page-seed.php:238
+msgid "Removed %d page matching manifest slugs."
+msgid_plural "Removed %d pages matching manifest slugs."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: removed tagged pages, 2: slugs re-imported
+#: inc/admin-page-seed.php:245
+msgid "Safe reset: removed %1$d tagged page(s), then processed %2$d manifest slug(s)."
+msgstr ""
+
+#. translators: 1: manifest pages removed, 2: slugs re-imported
+#: inc/admin-page-seed.php:253
+msgid "Full manifest reset: removed %1$d page(s) by slug, then processed %2$d slug(s)."
+msgstr ""
+
+#. translators: %d: template posts removed
+#: inc/admin-page-seed.php:261
+msgid "Site Editor DB overrides removed (%d post)."
+msgid_plural "Site Editor DB overrides removed (%d posts)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/admin-page-seed.php:294
+msgid "Create or refresh the pages expected by the Jardin theme (journal hub, placeholders, etc.), assign FSE page templates, and reset Site Editor overrides on a disposable dev site."
+msgstr ""
+
+#: inc/admin-page-seed.php:297
+msgid "Default import does not overwrite existing page bodies—safe when you cloned production content. Enable “Sync body from theme seeds” only to replace content from content/seeds/*.html."
+msgstr ""
+
+#: inc/admin-page-seed.php:300
+msgid "CLI: wp jardin-seed import|assign-templates|clean-safe|clean-manifest|reset-safe|reset-manifest|reset-fse (see wp help jardin-seed)."
+msgstr ""
+
+#: inc/admin-page-seed.php:303
+msgid "Polylang: run imports in each language admin context, or duplicate pages manually—this tool matches pages by slug/path only."
+msgstr ""
+
+#: inc/admin-page-seed.php:306
+msgid "Manifest slugs"
+msgstr ""
+
+#: inc/admin-page-seed.php:311
+msgid "Import"
+msgstr ""
+
+#: inc/admin-page-seed.php:318
+msgid "Sync body from theme seeds (overwrites post_content for existing pages when a seed file exists)"
+msgstr ""
+
+#: inc/admin-page-seed.php:324
+msgid "Assign / update FSE page template for every manifest page found or created"
+msgstr ""
+
+#: inc/admin-page-seed.php:330
+msgid "Set static front page to the published page with slug “home” if it exists"
+msgstr ""
+
+#: inc/admin-page-seed.php:333
+msgid "Run import"
+msgstr ""
+
+#: inc/admin-page-seed.php:336
+msgid "Templates only"
+msgstr ""
+
+#: inc/admin-page-seed.php:337
+msgid "Assigns templates from the manifest to existing pages without creating pages or changing bodies."
+msgstr ""
+
+#: inc/admin-page-seed.php:341
+msgid "Assign templates only"
+msgstr ""
+
+#: inc/admin-page-seed.php:346
+msgid "Remove"
+msgstr ""
+
+#: inc/admin-page-seed.php:348
+msgid "Safe remove (tagged pages only)"
+msgstr ""
+
+#: inc/admin-page-seed.php:349
+msgid "Trashes pages this tool created (meta _jardin_seed_created). Does not remove production-cloned pages."
+msgstr ""
+
+#: inc/admin-page-seed.php:350
+msgid "Trash pages created by Jardin seed?"
+msgstr ""
+
+#: inc/admin-page-seed.php:356
+#: inc/admin-page-seed.php:372
+msgid "Delete permanently instead of trash"
+msgstr ""
+
+#: inc/admin-page-seed.php:359
+msgid "Remove tagged pages"
+msgstr ""
+
+#: inc/admin-page-seed.php:362
+msgid "Remove by manifest slugs (destructive)"
+msgstr ""
+
+#: inc/admin-page-seed.php:364
+msgid "Trashes every published page whose path matches the manifest (e.g. “journal”). This will remove production-cloned pages with the same slugs. Use only on disposable dev."
+msgstr ""
+
+#: inc/admin-page-seed.php:366
+msgid "Remove ALL pages matching manifest slugs? This may delete cloned production content."
+msgstr ""
+
+#: inc/admin-page-seed.php:375
+msgid "Remove manifest slug pages"
+msgstr ""
+
+#: inc/admin-page-seed.php:380
+msgid "Reset"
+msgstr ""
+
+#: inc/admin-page-seed.php:382
+msgid "Safe reset"
+msgstr ""
+
+#: inc/admin-page-seed.php:383
+msgid "Removes tagged seed pages, then runs import again."
+msgstr ""
+
+#: inc/admin-page-seed.php:384
+msgid "Safe reset: trash tagged seed pages and import again?"
+msgstr ""
+
+#: inc/admin-page-seed.php:390
+msgid "Permanently delete tagged pages when cleaning"
+msgstr ""
+
+#: inc/admin-page-seed.php:396
+#: inc/admin-page-seed.php:428
+msgid "Sync body from seeds on import"
+msgstr ""
+
+#: inc/admin-page-seed.php:402
+#: inc/admin-page-seed.php:434
+msgid "Assign templates on import"
+msgstr ""
+
+#: inc/admin-page-seed.php:408
+#: inc/admin-page-seed.php:440
+msgid "Set static front page to “home” if present"
+msgstr ""
+
+#: inc/admin-page-seed.php:411
+msgid "Run safe reset"
+msgstr ""
+
+#: inc/admin-page-seed.php:414
+msgid "Full manifest reset (destructive)"
+msgstr ""
+
+#: inc/admin-page-seed.php:415
+msgid "Deletes every manifest slug page, then imports again—same risk as “Remove by manifest slugs”."
+msgstr ""
+
+#: inc/admin-page-seed.php:416
+msgid "Delete all manifest slug pages and re-import? This destroys matching pages."
+msgstr ""
+
+#: inc/admin-page-seed.php:422
+msgid "Permanently delete when cleaning"
+msgstr ""
+
+#: inc/admin-page-seed.php:443
+msgid "Run full manifest reset"
+msgstr ""
+
+#: inc/admin-page-seed.php:448
+msgid "Site Editor customizations"
+msgstr ""
+
+#. translators: 1: template parts count, 2: templates count
+#: inc/admin-page-seed.php:453
+msgid "Database overrides: %1$d template part(s), %2$d template(s). Removing them restores files from the theme directory."
+msgstr ""
+
+#: inc/admin-page-seed.php:459
+msgid "Delete all Site Editor template/template-part overrides?"
+msgstr ""
+
+#: inc/admin-page-seed.php:462
+msgid "Reset Site Editor customizations"
 msgstr ""
 
 #: inc/block-styles.php:15
