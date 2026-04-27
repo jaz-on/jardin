@@ -56,7 +56,7 @@ function jardin_journal_query_for_kind( array $query, string $kind ): array {
  * @param int                     $page  Page number.
  * @return array
  */
-function jardin_query_loop_block_query_vars( array $query, $block, int $page ): array { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+function jardin_query_loop_block_query_vars( array $query, $block ): array {
 	if ( ! $block instanceof WP_Block ) {
 		return $query;
 	}
@@ -109,4 +109,4 @@ function jardin_query_loop_block_query_vars( array $query, $block, int $page ): 
 
 	return $query;
 }
-add_filter( 'query_loop_block_query_vars', 'jardin_query_loop_block_query_vars', 10, 3 );
+add_filter( 'query_loop_block_query_vars', 'jardin_query_loop_block_query_vars', 10, 2 );
