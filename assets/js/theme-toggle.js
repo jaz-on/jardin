@@ -1,5 +1,76 @@
 /**
- * Nine-theme toggle (Phase 2.4). Placeholder file.
+ * Front-end theme toggle (pairs with inline boot in inc/setup.php).
  *
  * @package Jardin
  */
+(function () {
+	'use strict';
+
+	var STORAGE_KEY = 'jardin-theme';
+	var VALID = [
+		'rose-pine',
+		'rose-pine-moon',
+		'rose-pine-dawn',
+		'catppuccin-latte',
+		'catppuccin-frappe',
+		'catppuccin-macchiato',
+		'brewery-pale',
+		'brewery-amber',
+		'brewery-stout',
+	];
+
+	function applyTheme(slug) {
+		document.documentElement.setAttribute('data-theme', slug);
+		try {
+			localStorage.setItem(STORAGE_KEY, slug);
+		} catch (e) {
+			// Private mode or blocked storage — ignore.
+		}
+
+		document.querySelectorAll('[data-theme-option]').forEach(function (btn) {
+			var active = btn.getAttribute('data-theme-option') === slug;
+			btn.classList.toggle('is-active', active);
+			btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+		});
+	}
+
+	function getInitialTheme() {
+		try {
+			var saved = localStorage.getItem(STORAGE_KEY);
+			if (saved && VALID.indexOf(saved) !== -1) {
+				return saved;
+			}
+		} catch (e) {
+			// Ignore.
+		}
+
+		var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+		return prefersDark ? 'rose-pine' : 'catppuccin-latte';
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		applyTheme(getInitialTheme());
+
+		document.querySelectorAll('[data-theme-option]').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var slug = btn.getAttribute('data-theme-option');
+				if (slug && VALID.indexOf(slug) !== -1) {
+					applyTheme(slug);
+				}
+			});
+		});
+
+		if (window.matchMedia) {
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+				try {
+					if (localStorage.getItem(STORAGE_KEY)) {
+						return;
+					}
+				} catch (err) {
+					return;
+				}
+				applyTheme(e.matches ? 'rose-pine' : 'catppuccin-latte');
+			});
+		}
+	});
+})();

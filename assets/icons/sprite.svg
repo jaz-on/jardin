@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none" aria-hidden="true">
-	<!-- Lucide sprite: add symbols in Phase 2.x (theme-system-runtime.md). -->
+	<symbol id="i-palette" viewBox="0 0 24 24">
+		<path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.5 5.5 0 0 1-4.31-4.3A9 9 0 0 0 12 3m0 2c3.87 0 7 3.13 7 7 0 .39-.03.77-.1 1.14a3.5 3.5 0 0 0-2.73-2.73A7 7 0 0 0 12 5m-5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m3-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+	</symbol>
 </svg>

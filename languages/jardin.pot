@@ -1,0 +1,524 @@
+# Copyright (C) 2026 Jason Rouet
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Jardin 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/jaz-on/jardin-theme/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-27T13:39:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: jardin\n"
+
+#. Theme Name of the theme
+msgid "Jardin"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://github.com/jaz-on/jardin-theme"
+msgstr ""
+
+#. Description of the theme
+msgid "Full Site Editing theme for the jardin site. Product specs live in the local jardin-docs repository (not shipped with this theme)."
+msgstr ""
+
+#. Author of the theme
+msgid "Jason Rouet"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://jasonrouet.com"
+msgstr ""
+
+#: inc/block-styles.php:15
+msgid "Lead"
+msgstr ""
+
+#: inc/block-styles.php:16
+msgid "Mono label"
+msgstr ""
+
+#: inc/block-styles.php:17
+msgid "Bare list"
+msgstr ""
+
+#: inc/block-styles.php:18
+msgid "Inline list"
+msgstr ""
+
+#: inc/block-styles.php:19
+msgid "Pull quote"
+msgstr ""
+
+#: inc/block-styles.php:20
+msgid "Technical note"
+msgstr ""
+
+#: inc/block-styles.php:21
+msgid "Portrait 3:4"
+msgstr ""
+
+#: inc/block-styles.php:22
+msgid "Square"
+msgstr ""
+
+#: inc/block-styles.php:23
+msgid "Feature hero"
+msgstr ""
+
+#: inc/block-styles.php:24
+msgid "Callout soft"
+msgstr ""
+
+#: inc/block-styles.php:25
+msgid "Callout info"
+msgstr ""
+
+#: inc/block-styles.php:26
+msgid "Card"
+msgstr ""
+
+#: inc/block-styles.php:27
+msgid "Card highlight"
+msgstr ""
+
+#: inc/block-styles.php:28
+msgid "Carousel snap"
+msgstr ""
+
+#: inc/block-styles.php:29
+msgid "Single footer zone"
+msgstr ""
+
+#: inc/block-styles.php:30
+msgid "Asymmetric 30/70"
+msgstr ""
+
+#: inc/block-styles.php:31
+msgid "Three columns"
+msgstr ""
+
+#: inc/block-styles.php:32
+msgid "Dotted"
+msgstr ""
+
+#: inc/block-styles.php:33
+msgid "Faint dashes"
+msgstr ""
+
+#: inc/block-styles.php:34
+msgid "Ghost"
+msgstr ""
+
+#: inc/block-styles.php:35
+msgid "Coffee toggle"
+msgstr ""
+
+#: inc/block-styles.php:36
+msgid "Mono uppercase"
+msgstr ""
+
+#: inc/block-styles.php:37
+msgid "Tabs"
+msgstr ""
+
+#: inc/setup.php:31
+msgid "Skip to main content"
+msgstr ""
+
+#: inc/setup.php:43
+msgid "Rosé Pine"
+msgstr ""
+
+#: inc/setup.php:45
+msgid "Main"
+msgstr ""
+
+#: inc/setup.php:46
+msgid "Moon"
+msgstr ""
+
+#: inc/setup.php:47
+msgid "Dawn"
+msgstr ""
+
+#: inc/setup.php:51
+msgid "Catppuccin"
+msgstr ""
+
+#: inc/setup.php:53
+msgid "Latte"
+msgstr ""
+
+#: inc/setup.php:54
+msgid "Frappé"
+msgstr ""
+
+#: inc/setup.php:55
+msgid "Macchiato"
+msgstr ""
+
+#: inc/setup.php:59
+msgid "Brewery"
+msgstr ""
+
+#: inc/setup.php:61
+msgid "Pale ale"
+msgstr ""
+
+#: inc/setup.php:62
+msgid "Amber"
+msgstr ""
+
+#: inc/setup.php:63
+msgid "Stout"
+msgstr ""
+
+#: inc/setup.php:71
+msgid "Change color theme"
+msgstr ""
+
+#: assets/js/block-variations.js:22
+msgid "Journal hub (mixed)"
+msgstr ""
+
+#: assets/js/block-variations.js:23
+msgid "Recent items across journal post types."
+msgstr ""
+
+#: assets/js/block-variations.js:45
+msgid "Notes (IndieBlocks)"
+msgstr ""
+
+#: assets/js/block-variations.js:46
+msgid "Notes CPT only."
+msgstr ""
+
+#: assets/js/block-variations.js:66
+msgid "Events (upcoming)"
+msgstr ""
+
+#: assets/js/block-variations.js:67
+msgid "Events ordered by event date meta (ascending)."
+msgstr ""
+
+#: assets/js/block-variations.js:88
+msgid "Events (by role meta)"
+msgstr ""
+
+#: assets/js/block-variations.js:89
+msgid "Events CPT; refine with filters in the inspector."
+msgstr ""
+
+#: assets/js/block-variations.js:106
+msgid "Pinned articles"
+msgstr ""
+
+#: assets/js/block-variations.js:107
+msgid "Sticky posts only."
+msgstr ""
+
+#: assets/js/block-variations.js:125
+msgid "Blogroll grid"
+msgstr ""
+
+#: assets/js/block-variations.js:126
+msgid "Blogroll CPT from feed-journal."
+msgstr ""
+
+#: assets/js/block-variations.js:143
+msgid "Now updates (category)"
+msgstr ""
+
+#: assets/js/block-variations.js:144
+msgid "Posts in the now-updates category."
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text faint"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent soft"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Post type — Post"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Post type — Note"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Post type — Event"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Post type — Project"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Post type — Beer"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mastodon (officiel)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Bluesky (officiel)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Heart (officiel)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Source Serif"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Inter"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "JetBrains Mono"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "3XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 1"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 2"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 3"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 4"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 5"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 6"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 7"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Step 8"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Aspect ratio name"
+msgid "Portrait"
+msgstr ""
+
+#: theme.json
+msgctxt "Aspect ratio name"
+msgid "Square"
+msgstr ""
+
+#: theme.json
+msgctxt "Aspect ratio name"
+msgid "Wide"
+msgstr ""
+
+#: theme.json
+msgctxt "Aspect ratio name"
+msgid "Ultrawide"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Journal hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Now page"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Beers page"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blogroll page"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Styleguide"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Colophon"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Coffee"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "DLC"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Licence"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Privacy"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "AI stance"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Changelog"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Uses"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Single footer (engagement)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Sidebar TOC"
+msgstr ""
