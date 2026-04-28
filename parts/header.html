@@ -1,14 +1,20 @@
-<!-- wp:group {"className":"site-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"0"}},"border":{"bottom":{"color":"var:preset|color|accent","width":"2px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group site-header">
+<!-- wp:group {"align":"full","className":"site-header-shell","style":{"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"0"}},"border":{"bottom":{"color":"var:preset|color|accent","width":"2px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull site-header-shell">
 
-	<!-- wp:group {"className":"site-row-brand","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4","padding":{"bottom":"var:preset|spacing|3"}}}} -->
-	<div class="wp-block-group site-row-brand">
-		<!-- wp:pattern {"slug":"jardin/site-brand"} /-->
-		<!-- wp:pattern {"slug":"jardin/site-toolbar"} /-->
+	<!-- wp:group {"align":"wide","className":"site-inner","layout":{"type":"flex","orientation":"vertical","justifyContent":"flex-start","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
+	<div class="wp-block-group alignwide site-inner">
+
+		<!-- wp:group {"className":"site-row site-row-brand","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4","padding":{"bottom":"var:preset|spacing|3"}}}} -->
+		<div class="wp-block-group site-row site-row-brand">
+			<!-- wp:pattern {"slug":"jardin/site-brand"} /-->
+			<!-- wp:pattern {"slug":"jardin/site-toolbar"} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
+
 	</div>
 	<!-- /wp:group -->
-
-	<!-- wp:navigation {"className":"jardin-primary-nav","overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
 
 </div>
 <!-- /wp:group -->

@@ -1,6 +1,9 @@
 /**
  * Global CSS not covered by theme.json (skip-link, layout helpers, journal filters).
  *
+ * Checklist (mockup parity): token/preset d'abord (theme.json) ; ici seulement
+ * sélecteurs mockup, états, DOM block, responsive non couverts par l'API.
+ *
  * @package Jardin
  */
 
@@ -376,25 +379,36 @@ a.events-upcoming-link:hover {
 }
 
 /* ============================================================
-   Site header — 2-row layout
+   Site header — shell (alignfull) + inner (alignwide) mockup parity
    ============================================================ */
 
-.site-header {
+.site-header-shell {
 	position: sticky;
 	top: 0;
 	z-index: 10;
 	background: var(--wp--preset--color--bg, var(--wp--preset--color--base));
 }
 
+.site-inner {
+	min-width: 0;
+}
+
+.site-row.site-row-brand,
 .site-row-brand {
-	/* flex set by FSE block attrs — just tune alignment */
 	min-height: 0;
 }
 
+.site-brand {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+
 /* ============================================================
-   Site toolbar — lang-switch, icon buttons
+   Toolbar (.toolbar) — mockup naming; .site-toolbar kept as alias
    ============================================================ */
 
+.toolbar,
 .site-toolbar {
 	display: flex;
 	align-items: center;
@@ -438,7 +452,7 @@ a.events-upcoming-link:hover {
 	background: var(--wp--preset--color--surface, var(--wp--preset--color--base-2));
 }
 
-/* Generic icon button */
+/* Generic icon button (mockup .icon-btn) */
 .icon-btn {
 	display: inline-flex;
 	align-items: center;
@@ -462,17 +476,25 @@ a.events-upcoming-link:hover {
 	outline: none;
 }
 
-.icon-btn[aria-pressed="true"],
-.icon-btn[aria-expanded="true"] {
+.icon-btn[aria-pressed="true"] {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 }
 
+/* Theme toggle open: mockup softens button border (picker is the focus) */
+.toolbar .jardin-theme-toggle[open] .jardin-theme-toggle__summary,
+.site-toolbar .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+	border-color: transparent;
+	color: var(--wp--preset--color--text-muted);
+}
+
 /* Theme-toggle: wrap the <details> so it fits the icon-btn grid */
+.toolbar .jardin-theme-toggle,
 .site-toolbar .jardin-theme-toggle {
 	position: relative;
 }
 
+.toolbar .jardin-theme-toggle__summary,
 .site-toolbar .jardin-theme-toggle__summary {
 	display: inline-flex;
 	align-items: center;
@@ -488,32 +510,83 @@ a.events-upcoming-link:hover {
 	transition: border-color 0.15s ease, color 0.15s ease;
 }
 
+.toolbar .jardin-theme-toggle__summary::-webkit-details-marker,
 .site-toolbar .jardin-theme-toggle__summary::-webkit-details-marker {
 	display: none;
 }
 
-.site-toolbar .jardin-theme-toggle[open] .jardin-theme-toggle__summary,
+.toolbar .jardin-theme-toggle__summary:hover,
 .site-toolbar .jardin-theme-toggle__summary:hover {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 }
 
-/* ============================================================
-   Primary nav — boxed style (ligne 2 du header)
-   ============================================================ */
-
-.jardin-primary-nav {
-	/* block layout handles flex; override specifics */
-	overflow-x: auto;
-	scrollbar-width: none;
+/* ---- Coffee multi-icon (mockup + slugs jardin theme-toggle) ---- */
+.coffee-toggle {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--accent);
 }
 
-.jardin-primary-nav::-webkit-scrollbar {
+.coffee-toggle:is(:hover, :focus-visible) {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--text);
+}
+
+.coffee-icon {
 	display: none;
 }
 
-/* Navigation block wraps in <ul> — target links inside */
-.jardin-primary-nav .wp-block-navigation__container {
+.coffee-icon-coffee {
+	display: inline-block;
+}
+
+/* Catppuccin family */
+:is(html[data-theme^="catppuccin-"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="catppuccin-"]) .coffee-icon-coffee {
+	display: inline-block;
+}
+
+/* Rosé Pine family */
+:is(html[data-theme^="rose-pine"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="rose-pine"]) .coffee-icon-cherry {
+	display: inline-block;
+}
+
+/* Brewery family */
+:is(html[data-theme^="brewery-"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="brewery-"]) .coffee-icon-beer {
+	display: inline-block;
+}
+
+/* ============================================================
+   Primary nav — boxed (mockup nav.primary), DOM block Navigation
+   ============================================================ */
+
+.primary.jardin-primary-nav,
+.jardin-primary-nav.primary {
+	overflow-x: auto;
+	scrollbar-width: none;
+	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+}
+
+.primary.jardin-primary-nav::-webkit-scrollbar,
+.jardin-primary-nav.primary::-webkit-scrollbar {
+	display: none;
+}
+
+.primary.jardin-primary-nav .wp-block-navigation__container,
+.jardin-primary-nav.primary .wp-block-navigation__container {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: clamp(4px, 0.5vw, 10px);
@@ -524,8 +597,10 @@ a.events-upcoming-link:hover {
 	list-style: none;
 }
 
-.jardin-primary-nav .wp-block-navigation-item__content,
-.jardin-primary-nav a {
+.primary.jardin-primary-nav .wp-block-navigation-item__content,
+.primary.jardin-primary-nav a,
+.jardin-primary-nav.primary .wp-block-navigation-item__content,
+.jardin-primary-nav.primary a {
 	display: inline-block;
 	padding: clamp(6px, 0.75vw, 10px) clamp(10px, 1.5vw, 18px);
 	border: 1px solid var(--wp--preset--color--border);
@@ -539,16 +614,71 @@ a.events-upcoming-link:hover {
 	transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.jardin-primary-nav .wp-block-navigation-item__content:is(:hover, :focus-visible),
-.jardin-primary-nav a:is(:hover, :focus-visible) {
+.primary.jardin-primary-nav .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.primary.jardin-primary-nav a:is(:hover, :focus-visible),
+.jardin-primary-nav.primary .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.jardin-primary-nav.primary a:is(:hover, :focus-visible) {
 	border-color: var(--wp--preset--color--text-muted);
 	color: var(--wp--preset--color--text);
 	outline: none;
 }
 
-.jardin-primary-nav .current-menu-item .wp-block-navigation-item__content,
-.jardin-primary-nav .current-menu-item a,
-.jardin-primary-nav .wp-block-navigation-item.active a {
+.primary.jardin-primary-nav .current-menu-item .wp-block-navigation-item__content,
+.primary.jardin-primary-nav .current-menu-item a,
+.primary.jardin-primary-nav .wp-block-navigation-item.active a,
+.jardin-primary-nav.primary .current-menu-item .wp-block-navigation-item__content,
+.jardin-primary-nav.primary .current-menu-item a,
+.jardin-primary-nav.primary .wp-block-navigation-item.active a {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+}
+
+/* Fallback: nav sans classe .primary (anciens template parts) */
+.jardin-primary-nav:not(.primary) {
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+.jardin-primary-nav:not(.primary)::-webkit-scrollbar {
+	display: none;
+}
+
+.jardin-primary-nav:not(.primary) .wp-block-navigation__container {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: clamp(4px, 0.5vw, 10px);
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.jardin-primary-nav:not(.primary) .wp-block-navigation-item__content,
+.jardin-primary-nav:not(.primary) a {
+	display: inline-block;
+	padding: clamp(6px, 0.75vw, 10px) clamp(10px, 1.5vw, 18px);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft, 4px);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	letter-spacing: 0.03em;
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.jardin-primary-nav:not(.primary) .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.jardin-primary-nav:not(.primary) a:is(:hover, :focus-visible) {
+	border-color: var(--wp--preset--color--text-muted);
+	color: var(--wp--preset--color--text);
+	outline: none;
+}
+
+.jardin-primary-nav:not(.primary) .current-menu-item .wp-block-navigation-item__content,
+.jardin-primary-nav:not(.primary) .current-menu-item a,
+.jardin-primary-nav:not(.primary) .wp-block-navigation-item.active a {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 }
