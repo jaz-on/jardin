@@ -69,9 +69,9 @@ $u = static function ( string $path ): string {
 		<a href="https://xn--sr8hvo.ws/" target="_blank" rel="noopener"><?php esc_html_e( 'IndieWeb webring', 'jardin' ); ?> <span aria-hidden="true">🕸💍</span></a>
 	</span>
 	<span class="webring-nav">
-		<a class="webring-prev" href="https://xn--sr8hvo.ws/"><?php esc_html_e( '← site précédent', 'jardin' ); ?></a>
+		<a class="webring-prev" href="https://xn--sr8hvo.ws/previous"><?php esc_html_e( '← site précédent', 'jardin' ); ?></a>
 		<span class="webring-sep" aria-hidden="true">·</span>
-		<a class="webring-next" href="https://xn--sr8hvo.ws/"><?php esc_html_e( 'site suivant →', 'jardin' ); ?></a>
+		<a class="webring-next" href="https://xn--sr8hvo.ws/next"><?php esc_html_e( 'site suivant →', 'jardin' ); ?></a>
 	</span>
 </div>
 <!-- /wp:html -->
