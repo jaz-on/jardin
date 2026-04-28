@@ -217,13 +217,12 @@ p.bio,
 }
 
 /* ============================================================
-   Site brand / mark (JR SVG)
+   Site brand / mark (JR SVG) — couleur / hover : règles détaillées sous .site-header-shell
    ============================================================ */
 
 .site-mark {
 	display: inline-flex;
 	align-items: center;
-	color: inherit;
 	text-decoration: none;
 	flex-shrink: 0;
 }
@@ -344,8 +343,8 @@ a.events-upcoming-link:hover {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.3em;
-	padding: 0.2rem 0.65rem;
-	border: 1px solid var(--wp--preset--color--border);
+	padding: 0.35rem 0.85rem;
+	border: 1px solid var(--wp--preset--color--accent);
 	border-radius: 999px;
 	font-size: var(--wp--preset--font-size--sm);
 	font-family: var(--wp--preset--font-family--sans);
@@ -354,13 +353,19 @@ a.events-upcoming-link:hover {
 	background: transparent;
 	cursor: pointer;
 	line-height: 1.4;
-	transition: border-color 0.15s ease, color 0.15s ease;
+	transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
 
-.ff-btn:hover,
+.ff-btn:hover {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: transparent;
+}
+
 .ff-btn.active {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
 }
 
 .ff-icon {
@@ -399,8 +404,17 @@ a.events-upcoming-link:hover {
 	top: 0;
 	z-index: 100;
 	background: var(--wp--preset--color--bg, var(--wp--preset--color--base));
-	/* Bordure maquette (accent) — secours si l’attribut bloc est ignoré / surchargé */
 	border-bottom: 2px solid var(--wp--preset--color--accent);
+}
+
+body.admin-bar .site-header-shell {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar .site-header-shell {
+		top: 46px;
+	}
 }
 
 .site-inner {
@@ -447,6 +461,17 @@ a.events-upcoming-link:hover {
 	justify-content: flex-end;
 }
 
+/* Rangée marque + utilitaires : forcer space-between (au cas où le JSON bloc est surchargé) */
+.site-header-shell .wp-block-group.site-row.site-row-brand.is-layout-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	column-gap: var(--wp--preset--spacing--4);
+}
+
 .site-brand {
 	display: flex;
 	align-items: center;
@@ -454,7 +479,8 @@ a.events-upcoming-link:hover {
 	flex-shrink: 0;
 }
 
-.site-mark {
+/* Logo JR : toujours accent (pas l’héritage `text` du body) */
+.site-header-shell .site-brand a.site-mark {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -465,11 +491,19 @@ a.events-upcoming-link:hover {
 		transform var(--wp--custom--transition--fast, 120ms ease);
 }
 
-.site-mark svg {
+.site-header-shell .site-brand a.site-mark svg {
 	display: block;
 }
 
-.site-mark:is(:hover, :focus-visible) {
+.site-header-shell .site-brand a.site-mark svg text {
+	fill: currentColor;
+}
+
+.site-header-shell .site-brand a.site-mark svg rect {
+	stroke: currentColor;
+}
+
+.site-header-shell .site-brand a.site-mark:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--text);
 	transform: rotate(-3deg);
 	outline: none;
@@ -485,7 +519,7 @@ a.events-upcoming-link:hover {
 	align-items: stretch;
 	justify-content: flex-end;
 	flex-wrap: nowrap;
-	gap: var(--wp--preset--spacing--2);
+	gap: var(--wp--preset--spacing--3);
 	min-width: 0;
 	flex-shrink: 1;
 	max-width: 100%;
@@ -778,7 +812,7 @@ a.events-upcoming-link:hover {
 	min-width: 0;
 	max-width: 18rem;
 	text-align: center;
-	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
+	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
 	border: 1px solid var(--wp--preset--color--accent);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
@@ -863,7 +897,7 @@ a.events-upcoming-link:hover {
 	min-width: 0;
 	max-width: 18rem;
 	text-align: center;
-	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
+	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
 	border: 1px solid var(--wp--preset--color--accent);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
@@ -1026,4 +1060,12 @@ a.events-upcoming-link:hover {
 	.site-footer-shell .cols ul li {
 		font-size: var(--wp--preset--font-size--sm);
 	}
+}
+
+/*
+ * Spécificité finale : pastilles nav header (bordure accent toujours visible).
+ */
+.site-header-shell nav.wp-block-navigation.primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+.site-header-shell nav.wp-block-navigation.primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a {
+	border: 1px solid var(--wp--preset--color--accent);
 }
