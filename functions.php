@@ -22,3 +22,4 @@ require_once $jardin_inc . 'microformats.php';
 require_once $jardin_inc . 'syndication-config.php';
 require_once $jardin_inc . 'rewrite-rules.php';
 require_once $jardin_inc . 'sitemap.php';
+require_once $jardin_inc . 'class-styleguide.php';
