@@ -10,39 +10,19 @@
 		var openButtons = document.querySelectorAll( '.wp-block-navigation__responsive-container-open' );
 		var closeButtons = document.querySelectorAll( '.wp-block-navigation__responsive-container-close' );
 		var containers = document.querySelectorAll( '.wp-block-navigation__responsive-container' );
-		var toolbar = document.querySelector( '.site-header-shell .toolbar' );
-		var navHost = document.querySelector( '.site-header-shell .primary.jardin-primary-nav' );
-		var movedButtons = new Set();
-
-		function placeBurgerButton() {
-			if ( ! toolbar || ! navHost || ! openButtons.length ) {
-				return;
-			}
-
-			openButtons.forEach( function (btn) {
-				if ( window.innerWidth <= 560 ) {
-					if ( btn.parentElement !== toolbar ) {
-						toolbar.appendChild( btn );
-						movedButtons.add( btn );
-					}
-				} else if ( movedButtons.has( btn ) && btn.parentElement !== navHost ) {
-					navHost.appendChild( btn );
-					movedButtons.delete( btn );
-				}
-			} );
-		}
+		var proxyBurger = document.querySelector( '#header-burger-proxy' );
 
 		openButtons.forEach( function (btn) {
 			btn.setAttribute( 'aria-haspopup', 'dialog' );
 		} );
 
-		placeBurgerButton();
-		window.addEventListener( 'resize', placeBurgerButton );
-
 		// Keep button states in sync for assistive tech and keyboard users.
 		openButtons.forEach( function (btn) {
 			btn.addEventListener( 'click', function () {
 				btn.setAttribute( 'aria-expanded', 'true' );
+				if ( proxyBurger ) {
+					proxyBurger.setAttribute( 'aria-expanded', 'true' );
+				}
 			} );
 		} );
 
@@ -51,8 +31,21 @@
 				openButtons.forEach( function (openBtn) {
 					openBtn.setAttribute( 'aria-expanded', 'false' );
 				} );
+				if ( proxyBurger ) {
+					proxyBurger.setAttribute( 'aria-expanded', 'false' );
+				}
 			} );
 		} );
+
+		// Mobile toolbar burger proxy drives the native responsive navigation button.
+		if ( proxyBurger && openButtons.length ) {
+			proxyBurger.addEventListener( 'click', function () {
+				if ( window.innerWidth > 560 ) {
+					return;
+				}
+				openButtons[0].click();
+			} );
+		}
 
 		// Auto-close responsive menu after navigation click on mobile.
 		containers.forEach( function (container) {
