@@ -394,10 +394,13 @@ a.events-upcoming-link:hover {
    ============================================================ */
 
 .site-header-shell {
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	z-index: 10;
+	z-index: 100;
 	background: var(--wp--preset--color--bg, var(--wp--preset--color--base));
+	/* Bordure maquette (accent) — secours si l’attribut bloc est ignoré / surchargé */
+	border-bottom: 2px solid var(--wp--preset--color--accent);
 }
 
 .site-inner {
@@ -422,6 +425,7 @@ a.events-upcoming-link:hover {
 .site-row.site-row-brand,
 .site-row-brand {
 	min-height: 0;
+	align-items: center;
 }
 
 /* core/html wraps patterns : garder la rangée header sur une ligne (toolbar à droite) */
@@ -436,12 +440,39 @@ a.events-upcoming-link:hover {
 
 .site-row-brand > .wp-block-html:last-child {
 	margin-left: auto;
+	min-width: 0;
+	flex: 1 1 auto;
+	max-width: 100%;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .site-brand {
 	display: flex;
 	align-items: center;
 	min-width: 0;
+	flex-shrink: 0;
+}
+
+.site-mark {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--wp--preset--color--accent);
+	flex-shrink: 0;
+	transition:
+		color var(--wp--custom--transition--fast, 120ms ease),
+		transform var(--wp--custom--transition--fast, 120ms ease);
+}
+
+.site-mark svg {
+	display: block;
+}
+
+.site-mark:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+	transform: rotate(-3deg);
+	outline: none;
 }
 
 /* ============================================================
@@ -451,12 +482,28 @@ a.events-upcoming-link:hover {
 .toolbar,
 .site-toolbar {
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	justify-content: flex-end;
-	flex-shrink: 0;
+	flex-wrap: nowrap;
+	gap: var(--wp--preset--spacing--2);
+	min-width: 0;
+	flex-shrink: 1;
+	max-width: 100%;
 }
 
-/* Une barre segmentée (bordure unique) : proche rendu « pill » des maquettes */
+/* Bloc langue seul (Polylang : 2+ langues possibles) */
+.site-header-shell .toolbar-lang {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: stretch;
+	max-width: 100%;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, 8px);
+	background: var(--wp--preset--color--surface);
+	overflow: hidden;
+}
+
+/* Barre segmentée : uniquement les icônes (hors langue) */
 .site-header-shell .toolbar-chrome {
 	display: flex;
 	align-items: stretch;
@@ -480,7 +527,7 @@ a.events-upcoming-link:hover {
 	border-left: 1px solid var(--wp--preset--color--border);
 }
 
-/* Language switch — mockup: fs-xs, font inherit, pas de cadre quand dans chrome */
+/* Langue : style par défaut si hors toolbar (éditeur) */
 .lang-switch {
 	display: flex;
 	gap: 0;
@@ -490,9 +537,10 @@ a.events-upcoming-link:hover {
 	flex-shrink: 0;
 }
 
-.site-header-shell .toolbar-chrome .lang-switch {
+.site-header-shell .toolbar-lang .lang-switch {
 	border: none;
 	border-radius: 0;
+	background: transparent;
 	overflow: visible;
 }
 
@@ -683,9 +731,14 @@ a.events-upcoming-link:hover {
 .primary.jardin-primary-nav,
 .jardin-primary-nav.primary {
 	overflow-x: auto;
+	overflow-y: visible;
 	scrollbar-width: none;
-	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
-	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	-webkit-overflow-scrolling: touch;
+	/* Pas de marges négatives : évite le débordement hors du rail à droite */
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	max-width: 100%;
 }
 
 .primary.jardin-primary-nav::-webkit-scrollbar,
@@ -698,29 +751,35 @@ a.events-upcoming-link:hover {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: clamp(4px, 0.5vw, 10px);
-	align-items: center;
+	align-items: stretch;
 	justify-content: flex-start;
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	width: max-content;
+	min-width: 100%;
 }
 
 .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item,
 .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item {
-	flex: 1 1 0;
+	flex: 0 0 auto;
 	min-width: 0;
+	max-width: none;
 }
 
 .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
 .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a,
 .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
 .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > a {
-	display: block;
-	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	box-sizing: border-box;
+	min-width: 0;
+	max-width: 18rem;
 	text-align: center;
 	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
-	border: 1px solid var(--wp--preset--color--border);
+	border: 1px solid var(--wp--preset--color--accent);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	font-family: var(--wp--preset--font-family--mono);
@@ -729,6 +788,8 @@ a.events-upcoming-link:hover {
 	text-decoration: none;
 	color: var(--wp--preset--color--text-muted);
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	transition: color var(--wp--custom--transition--fast, 120ms ease), border-color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
 }
 
@@ -758,7 +819,13 @@ a.events-upcoming-link:hover {
 /* Fallback: nav sans classe .primary (anciens template parts) */
 .jardin-primary-nav:not(.primary) {
 	overflow-x: auto;
+	overflow-y: visible;
 	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	max-width: 100%;
 }
 
 .jardin-primary-nav:not(.primary)::-webkit-scrollbar {
@@ -769,29 +836,35 @@ a.events-upcoming-link:hover {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: clamp(4px, 0.5vw, 10px);
-	align-items: center;
+	align-items: stretch;
 	justify-content: flex-start;
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	width: max-content;
+	min-width: 100%;
 }
 
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item,
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > li {
-	flex: 1 1 0;
+	flex: 0 0 auto;
 	min-width: 0;
+	max-width: none;
 }
 
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > a,
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > li > .wp-block-navigation-item__content,
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > li > a {
-	display: block;
-	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	box-sizing: border-box;
+	min-width: 0;
+	max-width: 18rem;
 	text-align: center;
 	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
-	border: 1px solid var(--wp--preset--color--border);
+	border: 1px solid var(--wp--preset--color--accent);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	font-family: var(--wp--preset--font-family--mono);
@@ -800,6 +873,8 @@ a.events-upcoming-link:hover {
 	text-decoration: none;
 	color: var(--wp--preset--color--text-muted);
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	transition: color var(--wp--custom--transition--fast, 120ms ease), border-color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
 }
 

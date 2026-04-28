@@ -3,7 +3,7 @@
  * Title: Site toolbar
  * Slug: jardin/site-toolbar
  * Categories: hidden
- * Description: Header utilities — language switch, search, theme toggle, LFM demo, coffee (multi-icon). Class `toolbar` matches mockup.
+ * Description: Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome).
  * Inserter: no
  *
  * @package Jardin
@@ -36,7 +36,7 @@ if ( function_exists( 'do_blocks' ) ) {
 	$theme_toggle_html = do_blocks( '<!-- wp:jardin/theme-toggle /-->' );
 }
 
-$search_url  = home_url( '/recherche/' );
+$search_url   = home_url( '/recherche/' );
 $soutenir_url = home_url( '/soutenir/' );
 
 // SVG paths copied from mockup.html (toolbar desktop).
@@ -49,9 +49,14 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 ?>
 <!-- wp:html -->
 <div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Utilitaires du site', 'jardin' ); ?>">
-	<div class="toolbar-chrome">
 
+	<?php if ( '' !== $lang_switch ) : ?>
+	<div class="toolbar-lang">
 		<?php echo $lang_switch; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+	</div>
+	<?php endif; ?>
+
+	<div class="toolbar-chrome">
 
 		<a class="icon-btn"
 		   href="<?php echo esc_url( $search_url ); ?>"
