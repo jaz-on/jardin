@@ -22,6 +22,16 @@ Only **one** custom page template is shipped (`page-journal.html`) because it ha
 2. In WordPress admin: **Appearance → Themes** → activate **Jardin**.
 3. After theme updates that touch rewrite rules, visit **Settings → Permalinks** once (or use `wp rewrite flush`).
 
+### Header (or any template part) not updating on dev
+
+WordPress stores **customized** template parts in the database. If the site editor was used to edit **Header**, the filesystem `parts/header.html` from Git can be ignored until you reset the customized part.
+
+1. **Appearance → Editor → Patterns** (or **Template parts**) → open **Header**.
+2. Menu **⋮** (three dots) → **Restore** / **Clear customizations** / **Reset** (label varies by WP version) so the theme file is used again.
+3. **Save**; hard-refresh or purge CDN cache if applicable.
+
+Without this, only **CSS** and **patterns** that are not overridden in the DB will change — which often looks like “the header never updates.”
+
 ## Internationalization (theme strings)
 
 The repository keeps `**languages/jardin.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment.

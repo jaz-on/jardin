@@ -393,6 +393,21 @@ a.events-upcoming-link:hover {
 	min-width: 0;
 }
 
+/*
+ * Mockup: horizontal padding lives on .alignwide (--maxw-wide centered), not on full-bleed shell.
+ * Ensures wide width even if the editor/synced template omits inline wide rules.
+ */
+.site-inner.alignwide,
+.site-footer-inner.alignwide {
+	max-width: var(--wp--style--wide-size, 56rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--wp--preset--spacing--5);
+	padding-right: var(--wp--preset--spacing--5);
+	width: 100%;
+	box-sizing: border-box;
+}
+
 .site-row.site-row-brand,
 .site-row-brand {
 	min-height: 0;
@@ -706,7 +721,8 @@ a.events-upcoming-link:hover {
 	font-size: var(--wp--preset--font-size--sm);
 	color: var(--wp--preset--color--text-muted);
 	border-top: 1px solid var(--wp--preset--color--border);
-	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--5) var(--wp--preset--spacing--7);
+	padding-top: var(--wp--preset--spacing--8);
+	padding-bottom: var(--wp--preset--spacing--7);
 }
 
 .site-footer-inner {
@@ -812,8 +828,6 @@ a.events-upcoming-link:hover {
 	.site-footer-shell {
 		padding-top: var(--wp--preset--spacing--7);
 		padding-bottom: var(--wp--preset--spacing--6);
-		padding-left: var(--wp--preset--spacing--5);
-		padding-right: var(--wp--preset--spacing--5);
 	}
 
 	.site-footer-shell .cols {
