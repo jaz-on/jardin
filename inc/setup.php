@@ -41,26 +41,29 @@ function jardin_get_theme_toggle_markup(): string {
 	$themes = array(
 		array(
 			'label' => __( 'Rosé Pine', 'jardin' ),
+			'desc'  => __( 'Soho minimaliste', 'jardin' ),
 			'items' => array(
-				'rose-pine'      => __( 'Main', 'jardin' ),
-				'rose-pine-moon' => __( 'Moon', 'jardin' ),
-				'rose-pine-dawn' => __( 'Dawn', 'jardin' ),
+				array( 'slug' => 'rose-pine-dawn', 'name' => __( 'Dawn', 'jardin' ),  'icon' => '🌅', 'swatches' => array( '#faf4ed', '#d7827e', '#575279' ) ),
+				array( 'slug' => 'rose-pine-moon', 'name' => __( 'Moon', 'jardin' ),  'icon' => '🌙', 'swatches' => array( '#232136', '#ea9a97', '#e0def4' ) ),
+				array( 'slug' => 'rose-pine',      'name' => __( 'Main', 'jardin' ),  'icon' => '🌑', 'swatches' => array( '#191724', '#ebbcba', '#e0def4' ) ),
 			),
 		),
 		array(
 			'label' => __( 'Catppuccin', 'jardin' ),
+			'desc'  => __( 'Pastel café', 'jardin' ),
 			'items' => array(
-				'catppuccin-latte'    => __( 'Latte', 'jardin' ),
-				'catppuccin-frappe'   => __( 'Frappé', 'jardin' ),
-				'catppuccin-macchiato' => __( 'Macchiato', 'jardin' ),
+				array( 'slug' => 'catppuccin-latte',     'name' => __( 'Latte', 'jardin' ),     'icon' => '🥛', 'swatches' => array( '#eff1f5', '#df8e1d', '#4c4f69' ) ),
+				array( 'slug' => 'catppuccin-frappe',     'name' => __( 'Frappé', 'jardin' ),    'icon' => '🍮', 'swatches' => array( '#303446', '#e5c890', '#c6d0f5' ) ),
+				array( 'slug' => 'catppuccin-macchiato', 'name' => __( 'Macchiato', 'jardin' ), 'icon' => '☕', 'swatches' => array( '#24273a', '#eed49f', '#cad3f5' ) ),
 			),
 		),
 		array(
 			'label' => __( 'Brewery', 'jardin' ),
+			'desc'  => __( 'Bières artisanales', 'jardin' ),
 			'items' => array(
-				'brewery-pale'  => __( 'Pale ale', 'jardin' ),
-				'brewery-amber' => __( 'Amber', 'jardin' ),
-				'brewery-stout' => __( 'Stout', 'jardin' ),
+				array( 'slug' => 'brewery-pale',  'name' => __( 'Pale ale', 'jardin' ), 'icon' => '🍺', 'swatches' => array( '#FBF6E9', '#B8772A', '#2C2418' ) ),
+				array( 'slug' => 'brewery-amber', 'name' => __( 'Amber', 'jardin' ),    'icon' => '🍺', 'swatches' => array( '#3A2210', '#C87533', '#F0D9B5' ) ),
+				array( 'slug' => 'brewery-stout', 'name' => __( 'Stout', 'jardin' ),    'icon' => '🍻', 'swatches' => array( '#1F1611', '#D9A441', '#F4E4CC' ) ),
 			),
 		),
 	);
@@ -73,25 +76,40 @@ function jardin_get_theme_toggle_markup(): string {
 				<use href="#i-palette"></use>
 			</svg>
 		</summary>
-		<div class="jardin-theme-toggle__menu">
+		<div class="jardin-theme-toggle__menu" role="dialog" aria-label="<?php echo esc_attr__( 'Sélection du thème', 'jardin' ); ?>">
 			<div class="jardin-theme-toggle__header">
 				<h2 class="jardin-theme-toggle__title"><?php echo esc_html__( 'Thème', 'jardin' ); ?></h2>
 				<button type="button" class="jardin-theme-toggle__close" aria-label="<?php echo esc_attr__( 'Fermer', 'jardin' ); ?>">
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
 				</button>
 			</div>
+			<div class="jardin-theme-toggle__body">
 			<?php foreach ( $themes as $group ) : ?>
-				<fieldset class="jardin-theme-toggle__fieldset">
-					<legend class="jardin-theme-toggle__legend"><?php echo esc_html( $group['label'] ); ?></legend>
-					<div class="jardin-theme-toggle__buttons">
-						<?php foreach ( $group['items'] as $slug => $label ) : ?>
-							<button type="button" class="jardin-theme-toggle__btn" data-theme-option="<?php echo esc_attr( $slug ); ?>">
-								<?php echo esc_html( $label ); ?>
+				<fieldset class="jardin-theme-toggle__family">
+					<legend><?php echo esc_html( $group['label'] ); ?> <span class="jardin-theme-toggle__family-desc"><?php echo esc_html( $group['desc'] ); ?></span></legend>
+					<ul class="jardin-theme-toggle__list">
+						<?php foreach ( $group['items'] as $item ) : ?>
+						<li>
+							<button type="button" class="jardin-theme-toggle__option" data-theme-option="<?php echo esc_attr( $item['slug'] ); ?>">
+								<span class="jardin-theme-toggle__option-icon"><?php echo $item['icon']; // phpcs:ignore ?></span>
+								<span class="jardin-theme-toggle__option-name"><?php echo esc_html( $item['name'] ); ?></span>
+								<span class="jardin-theme-toggle__swatches">
+									<?php foreach ( $item['swatches'] as $color ) : ?>
+									<span style="background:<?php echo esc_attr( $color ); ?>"></span>
+									<?php endforeach; ?>
+								</span>
 							</button>
+						</li>
 						<?php endforeach; ?>
-					</div>
+					</ul>
 				</fieldset>
 			<?php endforeach; ?>
+			</div>
+			<div class="jardin-theme-toggle__footer">
+				<button type="button" class="jardin-theme-toggle__system" data-theme-system>
+					<?php echo esc_html__( 'Suivre le système', 'jardin' ); ?>
+				</button>
+			</div>
 		</div>
 	</details>
 	<?php

@@ -251,9 +251,10 @@
 				"color": { "text": "var(--wp--preset--color--text-faint)" }
 			},
 			"link": {
-				"color": { "text": "var(--wp--preset--color--accent)" },
+				"color": { "text": "var(--wp--preset--color--text)" },
+				"typography": { "textDecoration": "underline" },
 				":hover": {
-					"color": { "text": "var(--wp--preset--color--text)" }
+					"color": { "text": "var(--wp--preset--color--accent)" }
 				}
 			},
 			"code": {

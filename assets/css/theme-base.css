@@ -38,6 +38,15 @@
 	outline-offset: 2px;
 }
 
+a {
+	text-decoration-color: var(--wp--preset--color--border, currentColor);
+	text-underline-offset: 3px;
+}
+
+a:is(:hover, :focus-visible) {
+	text-decoration-color: var(--wp--preset--color--accent);
+}
+
 .jardin-theme-toggle {
 	position: relative;
 }
@@ -100,34 +109,131 @@
 	color: var(--wp--preset--color--text);
 }
 
-.jardin-theme-toggle__legend {
-	font-size: var(--wp--preset--font-size--xs);
-	font-weight: 600;
-	margin-bottom: var(--wp--preset--spacing--2);
-}
-
-.jardin-theme-toggle__buttons {
+.jardin-theme-toggle__body {
 	display: flex;
-	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--2);
-	margin-bottom: var(--wp--preset--spacing--4);
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--3);
 }
 
-.jardin-theme-toggle__btn {
-	font: inherit;
+.jardin-theme-toggle__family {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.jardin-theme-toggle__family > legend {
+	padding: 0 0 var(--wp--preset--spacing--1) 0;
+	font-family: var(--wp--preset--font-family--mono);
 	font-size: var(--wp--preset--font-size--xs);
-	padding: 0.25rem 0.5rem;
-	border-radius: var(--wp--custom--radius--soft);
-	border: 1px solid var(--wp--preset--color--border);
-	background: var(--wp--preset--color--bg);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--wp--preset--color--text-muted);
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.jardin-theme-toggle__family-desc {
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+	text-transform: none;
+	letter-spacing: 0;
+	font-family: var(--wp--preset--font-family--sans);
+	font-style: italic;
+}
+
+.jardin-theme-toggle__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--1);
+}
+
+.jardin-theme-toggle__option {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--2);
+	width: 100%;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--wp--custom--radius--soft, 4px);
 	color: var(--wp--preset--color--text);
 	cursor: pointer;
+	text-align: left;
+	transition: all var(--wp--custom--transition--fast, 200ms ease);
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: inherit;
 }
 
-.jardin-theme-toggle__btn.is-active,
-.jardin-theme-toggle__btn[aria-pressed="true"] {
+.jardin-theme-toggle__option:hover {
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--border);
+}
+
+.jardin-theme-toggle__option:focus-visible {
+	background: var(--wp--preset--color--accent-soft);
 	border-color: var(--wp--preset--color--accent);
-	box-shadow: 0 0 0 1px var(--wp--preset--color--accent);
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+.jardin-theme-toggle__option.is-active,
+.jardin-theme-toggle__option[aria-pressed="true"] {
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.jardin-theme-toggle__option-icon {
+	font-size: 1rem;
+	flex-shrink: 0;
+}
+
+.jardin-theme-toggle__option-name {
+	flex-grow: 1;
+}
+
+.jardin-theme-toggle__swatches {
+	display: inline-flex;
+	gap: 2px;
+	flex-shrink: 0;
+}
+
+.jardin-theme-toggle__swatches > span {
+	display: inline-block;
+	width: 0.875rem;
+	height: 0.875rem;
+	border-radius: var(--wp--custom--radius--round, 999px);
+	border: 1px solid var(--wp--preset--color--border);
+}
+
+.jardin-theme-toggle__footer {
+	margin-top: var(--wp--preset--spacing--3);
+	padding-top: var(--wp--preset--spacing--2);
+	border-top: 1px solid var(--wp--preset--color--border);
+	text-align: center;
+}
+
+.jardin-theme-toggle__system {
+	background: transparent;
+	border: 1px solid var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text-muted);
+	font-size: var(--wp--preset--font-size--xs);
+	padding: var(--wp--preset--spacing--1) var(--wp--preset--spacing--3);
+	border-radius: var(--wp--custom--radius--soft, 4px);
+	cursor: pointer;
+	font-family: var(--wp--preset--font-family--mono);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transition: all var(--wp--custom--transition--fast, 200ms ease);
+}
+
+.jardin-theme-toggle__system:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+	border-color: var(--wp--preset--color--text-muted);
 }
 
 .jardin-journal-filters {
@@ -153,6 +259,20 @@
 .jardin-journal-filters__sep {
 	opacity: 0.65;
 	white-space: pre;
+}
+
+/* Inline icons in text (logo badges next to brand names) */
+.inline-icon {
+	display: inline-flex;
+	align-items: center;
+	vertical-align: -0.25em;
+	margin: 0 var(--wp--preset--spacing--1, 0.25rem) 0 var(--wp--preset--spacing--1, 0.125rem);
+	line-height: 0;
+}
+
+.inline-icon svg {
+	display: block;
+	border-radius: var(--wp--custom--radius--soft, 4px);
 }
 
 /* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
