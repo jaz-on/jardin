@@ -16,6 +16,7 @@
 				{ "slug": "text-muted", "color": "#908caa", "name": "Text muted" },
 				{ "slug": "text-faint", "color": "#6e6a86", "name": "Text faint" },
 				{ "slug": "border", "color": "#26233a", "name": "Border" },
+			{ "slug": "border-strong", "color": "#524f67", "name": "Border strong" },
 				{ "slug": "accent", "color": "#ebbcba", "name": "Accent" },
 				{ "slug": "accent-soft", "color": "#403d52", "name": "Accent soft" },
 				{ "slug": "pt-post", "color": "#f6c177", "name": "Post type — Post" },
