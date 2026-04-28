@@ -1116,7 +1116,7 @@ body.admin-bar .site-header-shell {
 	}
 }
 
-@media (min-width: 561px) {
+@media (min-width: 601px) {
 	.site-header-shell .wp-block-navigation__responsive-container-open {
 		display: none;
 	}
@@ -1134,7 +1134,7 @@ body.admin-bar .site-header-shell {
 	border: 1px solid var(--wp--preset--color--border);
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
 	/* Mockup parity: first row = brand + language + burger. */
 	.site-header-shell .site-row.site-row-brand {
 		flex-wrap: nowrap;

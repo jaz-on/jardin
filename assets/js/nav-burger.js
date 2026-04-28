@@ -40,7 +40,7 @@
 		// Mobile toolbar burger proxy drives the native responsive navigation button.
 		if ( proxyBurger && openButtons.length ) {
 			proxyBurger.addEventListener( 'click', function () {
-				if ( window.innerWidth > 560 ) {
+				if ( window.innerWidth > 600 ) {
 					return;
 				}
 				openButtons[0].click();
@@ -55,7 +55,7 @@
 					return;
 				}
 
-				if ( window.innerWidth > 560 ) {
+				if ( window.innerWidth > 600 ) {
 					return;
 				}
 
