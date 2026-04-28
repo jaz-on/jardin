@@ -21,13 +21,13 @@
 <!-- wp:group {"className":"site-row site-row-nav","layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group site-row site-row-nav">
 	<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"}} -->
-		<!-- wp:navigation-link {"label":"/journal","type":"page","url":"/journal/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/articles","type":"page","url":"/articles/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/notes","type":"page","url":"/notes/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/evenements","type":"page","url":"/evenements/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/projets","type":"page","url":"/projets/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/maintenant","type":"page","url":"/maintenant/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/a-propos","type":"page","url":"/a-propos/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/journal","type":"custom","url":"/journal/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/articles","type":"custom","url":"/articles/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/notes","type":"custom","url":"/notes/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/evenements","type":"custom","url":"/evenements/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/projets","type":"custom","url":"/projets/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/maintenant","type":"custom","url":"/maintenant/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"/a-propos","type":"custom","url":"/a-propos/","kind":"custom"} /-->
 	<!-- /wp:navigation -->
 </div>
 <!-- /wp:group -->
