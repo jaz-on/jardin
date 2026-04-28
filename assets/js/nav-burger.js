@@ -8,9 +8,9 @@
 
 	function initNavBurger() {
 		var proxyBurger = document.querySelector( '#header-burger-proxy' );
-		var headerNav = document.querySelector( '.site-header-shell nav.primary.jardin-primary-nav' );
+		var navRow = document.querySelector( '.site-header-shell .site-row-nav' );
 
-		if ( ! proxyBurger || ! headerNav ) {
+		if ( ! proxyBurger || ! navRow ) {
 			return;
 		}
 
@@ -19,7 +19,7 @@
 		}
 
 		function closeMenu() {
-			headerNav.classList.remove( 'is-open-mobile' );
+			navRow.classList.remove( 'is-open-mobile' );
 			proxyBurger.setAttribute( 'aria-expanded', 'false' );
 		}
 
@@ -28,11 +28,11 @@
 				return;
 			}
 
-			var isOpen = headerNav.classList.toggle( 'is-open-mobile' );
+			var isOpen = navRow.classList.toggle( 'is-open-mobile' );
 			proxyBurger.setAttribute( 'aria-expanded', isOpen ? 'true' : 'false' );
 		} );
 
-		headerNav.addEventListener( 'click', function (event) {
+		navRow.addEventListener( 'click', function (event) {
 			if ( ! isMobile() ) {
 				return;
 			}

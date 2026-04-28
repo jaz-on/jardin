@@ -948,16 +948,23 @@ body.admin-bar .site-header-shell {
    Primary nav — boxed (mockup nav.primary), DOM block Navigation
    ============================================================ */
 
+.site-row-nav {
+	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	width: calc(100% + 2 * (clamp(10px, 1.5vw, 18px) + 1px)) !important;
+	max-width: none !important;
+}
+
 .primary.jardin-primary-nav,
 .jardin-primary-nav.primary {
 	overflow-x: auto;
 	overflow-y: visible;
 	scrollbar-width: none;
 	-webkit-overflow-scrolling: touch;
-	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
-	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
-	width: calc(100% + 2 * (clamp(10px, 1.5vw, 18px) + 1px));
+	width: 100%;
 	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .primary.jardin-primary-nav::-webkit-scrollbar,
@@ -994,8 +1001,8 @@ body.admin-bar .site-header-shell {
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
+	width: 100%;
 	min-width: 0;
-	max-width: 18rem;
 	text-align: center;
 	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
 	border: 1px solid var(--wp--preset--color--border);
@@ -1040,9 +1047,7 @@ body.admin-bar .site-header-shell {
 	overflow-y: visible;
 	scrollbar-width: none;
 	-webkit-overflow-scrolling: touch;
-	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
-	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
-	width: calc(100% + 2 * (clamp(10px, 1.5vw, 18px) + 1px));
+	width: 100%;
 	max-width: none;
 }
 
@@ -1077,8 +1082,8 @@ body.admin-bar .site-header-shell {
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
+	width: 100%;
 	min-width: 0;
-	max-width: 18rem;
 	text-align: center;
 	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
 	border: 1px solid var(--wp--preset--color--border);
@@ -1252,6 +1257,10 @@ body.admin-bar .site-header-shell {
 		display: flex !important;
 		flex-direction: row !important;
 	}
+
+	.site-header-shell .site-row-nav {
+		display: flex;
+	}
 }
 
 /*
@@ -1279,18 +1288,25 @@ body.admin-bar .site-header-shell {
 	}
 
 	/* Burger opens inline nav panel for mobile. */
-	.site-header-shell .primary.jardin-primary-nav {
+	.site-header-shell .site-row-nav {
 		display: none !important;
+		margin-left: 0;
+		margin-right: 0;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.site-header-shell .site-row-nav.is-open-mobile {
+		display: block !important;
+	}
+
+	.site-header-shell .primary.jardin-primary-nav {
 		overflow: visible;
-		margin-top: var(--wp--preset--spacing--2);
+		margin-top: 0;
 		margin-left: 0;
 		margin-right: 0;
 		width: 100%;
 		max-width: 100%;
-	}
-
-	.site-header-shell .primary.jardin-primary-nav.is-open-mobile {
-		display: block !important;
 	}
 
 	.site-header-shell .toolbar .icon-btn.burger {

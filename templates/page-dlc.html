@@ -1,10 +1,21 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained","contentSize":"56rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
+<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 <div id="main" class="wp-block-group">
 	<!-- wp:post-title {"level":1} /-->
 	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+	<!-- wp:jardin/lastfm-stats /-->
+
 	<!-- wp:jardin/lastfm-now-playing /-->
+
+	<!-- wp:jardin/recent-jams {"layout":"cards","postsToShow":4} /-->
+
+	<!-- wp:jardin/lastfm-rankings {"showTabs":true,"defaultPeriod":"7day","artistsLimit":10,"albumsLimit":5} /-->
+
+	<!-- wp:jardin/recent-listens {"layout":"scrobbles","postsToShow":15} /-->
+
+	<!-- wp:jardin/lastfm-rankings {"showTabs":false,"defaultPeriod":"overall","artistsLimit":10,"showAlbums":false} /-->
 </div>
 <!-- /wp:group -->
 

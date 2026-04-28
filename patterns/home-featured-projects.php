@@ -10,7 +10,7 @@
  */
 
 ?>
-<!-- wp:heading {"level":2,"className":"section-with-link"} -->
+<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
 <h2 class="section-with-link"><?php
 	echo wp_kses(
 		sprintf(
@@ -23,8 +23,8 @@
 ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:columns {"className":"projects-grid","style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
-<div class="wp-block-columns projects-grid">
+<!-- wp:columns {"align":"wide","className":"projects-grid","style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
+<div class="wp-block-columns alignwide projects-grid">
 
 	<!-- wp:column -->
 	<div class="wp-block-column">

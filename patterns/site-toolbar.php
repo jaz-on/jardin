@@ -39,7 +39,7 @@ if ( '' === trim( wp_strip_all_tags( (string) $theme_toggle_html ) ) && function
 	$theme_toggle_html = jardin_get_theme_toggle_markup();
 }
 
-$search_url   = home_url( '/recherche/' );
+$search_url   = home_url( '/?s=' );
 $soutenir_url = home_url( '/soutenir/' );
 
 // SVG paths copied from mockup.html (toolbar desktop).
