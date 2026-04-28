@@ -292,6 +292,23 @@ a:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--accent);
 }
 
+/*
+ * Liens éditoriaux (posts, pages, CPTs) : même traitement que .inline-brand
+ * (gras, soulignage coloré décalé, couleur accent au hover).
+ * Cible les liens texte dans les blocs de contenu ; exclut boutons, nav, images.
+ */
+.wp-block-post-content :is(p, li, blockquote, td, dd, figcaption, dt, .wp-block-verse) a:not(.wp-block-button__link):not([class*="wp-block-"]) {
+	font-weight: 600;
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--wp--preset--color--accent);
+	padding-bottom: 1px;
+}
+
+.wp-block-post-content :is(p, li, blockquote, td, dd, figcaption, dt, .wp-block-verse) a:not(.wp-block-button__link):not([class*="wp-block-"]):is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
 /* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
 p.bio,
 .bio {
@@ -803,7 +820,6 @@ body.admin-bar .site-header-shell {
 }
 
 .icon-btn:is(:hover, :focus-visible) {
-	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 	outline: none;
@@ -847,7 +863,6 @@ body.admin-bar .site-header-shell {
 
 .site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:hover,
 .site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:focus-visible {
-	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 	outline: none;
@@ -1002,7 +1017,6 @@ body.admin-bar .site-header-shell {
 .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible),
 .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible),
 .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible) {
-	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 	outline: none;
@@ -1086,7 +1100,6 @@ body.admin-bar .site-header-shell {
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible),
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > li > .wp-block-navigation-item__content:is(:hover, :focus-visible),
 .jardin-primary-nav:not(.primary) .wp-block-navigation__container > li > a:is(:hover, :focus-visible) {
-	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 	outline: none;
@@ -1295,7 +1308,6 @@ body.admin-bar .site-header-shell {
 
 	.site-header-shell .toolbar .icon-btn.burger:hover,
 	.site-header-shell .toolbar .icon-btn.burger:focus-visible {
-		border-color: var(--wp--preset--color--accent);
 		color: var(--wp--preset--color--accent);
 		background: var(--wp--preset--color--accent-soft);
 		outline: none;
