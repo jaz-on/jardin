@@ -529,22 +529,21 @@ a.events-upcoming-link:hover {
 	align-items: center;
 	gap: 0.3em;
 	padding: 0.35rem 0.85rem;
-	border: 1px solid var(--wp--preset--color--accent);
-	border-radius: var(--wp--custom--radius--pill, 999px);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
 	font-size: var(--wp--preset--font-size--sm);
 	font-family: var(--wp--preset--font-family--sans);
 	text-decoration: none;
 	color: var(--wp--preset--color--text-muted);
-	background: transparent;
+	background: var(--wp--preset--color--surface);
 	cursor: pointer;
 	line-height: 1.4;
-	transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+	transition: color 0.15s ease, background 0.15s ease;
 }
 
 .ff-btn:hover {
-	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
-	background: transparent;
+	background: var(--wp--preset--color--accent-soft);
 }
 
 .ff-btn.active {
