@@ -838,6 +838,7 @@ body.admin-bar .site-header-shell {
 .jardin-primary-nav.primary .wp-block-navigation__container {
 	display: flex;
 	flex-wrap: nowrap;
+	flex-direction: row;
 	gap: clamp(4px, 0.5vw, 10px);
 	align-items: stretch;
 	justify-content: flex-start;
@@ -1124,6 +1125,27 @@ body.admin-bar .site-header-shell {
 	.site-header-shell .primary.jardin-primary-nav {
 		display: block;
 	}
+
+	/* Prevent responsive container from leaking over desktop/tablet layouts. */
+	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container {
+		display: none !important;
+		visibility: hidden !important;
+		pointer-events: none !important;
+	}
+
+	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open):not(.has-modal-open) {
+		position: absolute !important;
+		inset: auto !important;
+		width: 0 !important;
+		height: 0 !important;
+		overflow: hidden !important;
+		opacity: 0 !important;
+	}
+
+	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container {
+		display: flex !important;
+		flex-direction: row !important;
+	}
 }
 
 /*
@@ -1150,9 +1172,14 @@ body.admin-bar .site-header-shell {
 		display: none;
 	}
 
-	/* Nav row itself is hidden; overlay is still opened via burger button. */
+	/* Keep nav host in DOM for responsive overlay plumbing. */
 	.site-header-shell .primary.jardin-primary-nav {
-		display: none;
+		display: block;
+	}
+
+	/* Hide inline nav row on mobile; burger opens overlay instead. */
+	.site-header-shell .primary.jardin-primary-nav > .wp-block-navigation__container {
+		display: none !important;
 	}
 
 	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container-open {
@@ -1198,6 +1225,19 @@ body.admin-bar .site-header-shell {
 		padding: 0.65rem 0.8rem;
 		background: var(--wp--preset--color--surface);
 		color: var(--wp--preset--color--text-muted);
+	}
+
+	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container {
+		display: none !important;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open,
+	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container.has-modal-open {
+		display: block !important;
+		visibility: visible;
+		pointer-events: auto;
 	}
 }
 
