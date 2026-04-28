@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jardin/event-link-banner",
+	"title": "Event recap banner",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Shows a banner when this post is linked as recap from an event (jardin-events).",
+	"textdomain": "jardin",
+	"supports": {
+		"html": false
+	},
+	"render": "file:./render.php"
+}

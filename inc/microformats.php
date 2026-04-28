@@ -24,6 +24,7 @@ function jardin_mf_post_class( array $classes, $class, $post_id ): array {
 	$pt = (string) $post->post_type;
 	switch ( $pt ) {
 		case 'event':
+			$classes[] = 'h-entry';
 			$classes[] = 'h-event';
 			break;
 		case 'beer_checkin':

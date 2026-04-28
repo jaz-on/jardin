@@ -31,8 +31,13 @@
 		<!-- wp:post-template {"layout":{"type":"default"}} -->
 			<!-- wp:group {"className":"event-row","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 			<div class="wp-block-group event-row">
-				<!-- wp:post-date {"format":"j F Y","className":"entry-when"} /-->
-				<!-- wp:post-title {"isLink":true,"level":0,"className":"entry-title"} /-->
+				<!-- wp:jardin-events/event-inline-date /-->
+				<!-- wp:group {"className":"what","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|1"}}} -->
+				<div class="wp-block-group what">
+					<!-- wp:post-title {"isLink":true,"level":0,"className":"entry-title"} /-->
+					<!-- wp:jardin-events/event-inline-location /-->
+				</div>
+				<!-- /wp:group -->
 			</div>
 			<!-- /wp:group -->
 		<!-- /wp:post-template -->
