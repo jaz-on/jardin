@@ -13,6 +13,11 @@
 	box-sizing: border-box;
 }
 
+a {
+	text-decoration-color: var(--wp--preset--color--border-strong);
+	text-underline-offset: 3px;
+}
+
 .jardin-skip-link {
 	position: absolute;
 	left: -9999px;
@@ -266,13 +271,25 @@ a:is(:hover, :focus-visible) {
 	display: inline-flex;
 	align-items: center;
 	vertical-align: -0.25em;
-	margin: 0 var(--wp--preset--spacing--1, 0.25rem) 0 var(--wp--preset--spacing--1, 0.125rem);
+	margin: 0 var(--wp--preset--spacing--1, 0.25rem) 0 0.125rem;
 	line-height: 0;
 }
 
 .inline-icon svg {
 	display: block;
 	border-radius: var(--wp--custom--radius--soft, 4px);
+}
+
+.inline-brand {
+	font-weight: 600;
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--wp--preset--color--accent);
+	padding-bottom: 1px;
+}
+
+.inline-brand:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
 }
 
 /* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
@@ -413,8 +430,8 @@ a.section-link:hover {
    ============================================================ */
 
 .bio {
-	font-size: var(--wp--preset--font-size--lg);
-	line-height: 1.65;
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.5;
 }
 
 /* ============================================================
@@ -626,10 +643,6 @@ body.admin-bar .site-header-shell {
 	align-items: center;
 	width: 100%;
 	column-gap: var(--wp--preset--spacing--4);
-}
-
-.site-header-shell .site-row.site-row-brand {
-	padding-bottom: var(--wp--preset--spacing--2) !important;
 }
 
 .site-brand {
@@ -993,7 +1006,7 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 	max-width: 18rem;
 	text-align: center;
-	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
+	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
@@ -1077,7 +1090,7 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 	max-width: 18rem;
 	text-align: center;
-	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
+	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
