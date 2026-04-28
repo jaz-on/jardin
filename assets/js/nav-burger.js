@@ -55,7 +55,7 @@
 					return;
 				}
 
-				if ( window.innerWidth > 782 ) {
+				if ( window.innerWidth > 560 ) {
 					return;
 				}
 
