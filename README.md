@@ -32,6 +32,8 @@ WordPress stores **customized** template parts in the database. If the site edit
 
 Without this, only **CSS** and **patterns** that are not overridden in the DB will change — which often looks like “the header never updates.”
 
+The shipped header stacks **`jardin/header-main`** (brand row + primary nav), nested patterns **`jardin/site-brand`** and **`jardin/site-toolbar`** — same idea as **`jardin/footer-main`** for the footer.
+
 ## Internationalization (theme strings)
 
 The repository keeps `**languages/jardin.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment.

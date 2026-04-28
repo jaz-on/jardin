@@ -99,13 +99,14 @@
 				}
 			],
 			"fontSizes": [
-				{ "slug": "xs", "size": "clamp(0.75rem, 0.85vw + 0.6rem, 0.875rem)", "name": "XS" },
-				{ "slug": "sm", "size": "clamp(0.875rem, 0.9vw + 0.7rem, 1rem)", "name": "Small" },
-				{ "slug": "base", "size": "clamp(1rem, 1vw + 0.75rem, 1.125rem)", "name": "Base" },
-				{ "slug": "lg", "size": "clamp(1.125rem, 1.2vw + 0.85rem, 1.25rem)", "name": "Large" },
-				{ "slug": "xl", "size": "clamp(1.25rem, 1.5vw + 1rem, 1.5rem)", "name": "XL" },
-				{ "slug": "2xl", "size": "clamp(1.5rem, 2vw + 1.2rem, 2rem)", "name": "2XL" },
-				{ "slug": "3xl", "size": "clamp(2rem, 3vw + 1.5rem, 2.75rem)", "name": "3XL" }
+				{ "slug": "xs", "size": "0.75rem", "name": "XS" },
+				{ "slug": "sm", "size": "0.875rem", "name": "Small" },
+				{ "slug": "base", "size": "1rem", "name": "Base" },
+				{ "slug": "md", "size": "1.125rem", "name": "MD" },
+				{ "slug": "lg", "size": "1.25rem", "name": "Large" },
+				{ "slug": "xl", "size": "1.5rem", "name": "XL" },
+				{ "slug": "2xl", "size": "1.875rem", "name": "2XL" },
+				{ "slug": "3xl", "size": "2.5rem", "name": "3XL" }
 			],
 			"fluid": true,
 			"lineHeight": true,
@@ -184,9 +185,9 @@
 			"text": "var(--wp--preset--color--text)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--serif)",
-			"fontSize": "var(--wp--preset--font-size--base)",
-			"lineHeight": "1.6"
+			"fontFamily": "var(--wp--preset--font-family--sans)",
+			"fontSize": "16.5px",
+			"lineHeight": "1.7"
 		},
 		"spacing": {
 			"padding": {
@@ -418,10 +419,9 @@
 				}
 			},
 			"core/navigation": {
-				"typography": { "fontWeight": "500" },
 				"elements": {
 					"link": {
-						":hover": { "typography": { "textDecoration": "underline" } }
+						"typography": { "textDecoration": "none" }
 					}
 				}
 			},
