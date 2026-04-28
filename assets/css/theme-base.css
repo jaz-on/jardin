@@ -124,6 +124,17 @@
 	white-space: pre;
 }
 
+/* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
+p.bio,
+.bio {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.5;
+	color: var(--wp--preset--color--text);
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--6);
+}
+
 .jardin-header-search {
 	flex: 1 1 10rem;
 	max-width: min(18rem, 100%);
@@ -434,69 +445,116 @@ a.events-upcoming-link:hover {
 }
 
 /* ============================================================
-   Toolbar (.toolbar) — mockup naming; .site-toolbar kept as alias
+   Toolbar — mockup.html ~1239–1331 ( + segmented chrome pour capture maquette )
    ============================================================ */
 
 .toolbar,
 .site-toolbar {
 	display: flex;
 	align-items: center;
-	gap: var(--wp--preset--spacing--2, 0.5rem);
+	justify-content: flex-end;
 	flex-shrink: 0;
 }
 
-/* Language switch (Polylang) */
-.lang-switch {
+/* Une barre segmentée (bordure unique) : proche rendu « pill » des maquettes */
+.site-header-shell .toolbar-chrome {
 	display: flex;
+	align-items: stretch;
+	flex-wrap: nowrap;
 	gap: 0;
 	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--soft, 4px);
+	border-radius: var(--wp--custom--radius--md, 8px);
+	background: var(--wp--preset--color--surface);
 	overflow: hidden;
 	flex-shrink: 0;
 }
 
+.site-header-shell .toolbar-chrome > * {
+	flex: 0 0 auto;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+}
+
+.site-header-shell .toolbar-chrome > * + * {
+	border-left: 1px solid var(--wp--preset--color--border);
+}
+
+/* Language switch — mockup: fs-xs, font inherit, pas de cadre quand dans chrome */
+.lang-switch {
+	display: flex;
+	gap: 0;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, 8px);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.site-header-shell .toolbar-chrome .lang-switch {
+	border: none;
+	border-radius: 0;
+	overflow: visible;
+}
+
 .lang-switch a {
 	display: inline-block;
-	padding: 0 0.6em;
-	line-height: 2rem;
-	height: 2rem;
-	font-family: var(--wp--preset--font-family--mono);
+	padding: var(--wp--preset--spacing--2);
+	line-height: 1.25;
+	height: auto;
+	font-family: inherit;
 	font-size: var(--wp--preset--font-size--xs);
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
+	text-transform: none;
+	letter-spacing: normal;
 	background: transparent;
 	border: none;
 	color: var(--wp--preset--color--text-muted);
 	text-decoration: none;
-	transition: color 0.15s ease, background 0.15s ease;
+	transition: color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
 }
 
 .lang-switch a + a {
 	border-left: 1px solid var(--wp--preset--color--border);
 }
 
-.lang-switch a[aria-current="true"],
-.lang-switch a:hover {
+.lang-switch a[aria-current="true"] {
+	background: var(--wp--preset--color--accent-soft);
 	color: var(--wp--preset--color--text);
-	background: var(--wp--preset--color--surface, var(--wp--preset--color--base-2));
 }
 
-/* Generic icon button (mockup .icon-btn) */
+.lang-switch a:hover {
+	color: var(--wp--preset--color--text);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+.lang-switch a[aria-current="true"]:hover {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--text);
+}
+
+/* Icon button — mockup: bordure transparente, padding, pas de grille 32×32 */
 .icon-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--soft, 4px);
+	min-height: 2.25rem;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	border: 1px solid transparent;
+	border-radius: var(--wp--custom--radius--md, 8px);
 	background: transparent;
 	color: var(--wp--preset--color--text-muted);
 	cursor: pointer;
-	font: inherit;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: 1;
 	text-decoration: none;
-	transition: border-color 0.15s ease, color 0.15s ease;
+	transition: border-color var(--wp--custom--transition--fast, 120ms ease), color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
 	flex-shrink: 0;
+}
+
+.site-header-shell .toolbar-chrome .icon-btn {
+	min-height: 2.25rem;
+	border: none;
+	border-radius: 0;
 }
 
 .icon-btn:is(:hover, :focus-visible) {
@@ -505,49 +563,65 @@ a.events-upcoming-link:hover {
 	outline: none;
 }
 
+.site-header-shell .toolbar-chrome .icon-btn:is(:hover, :focus-visible) {
+	border: none;
+	color: var(--wp--preset--color--text);
+	box-shadow: inset 0 0 0 1px var(--wp--preset--color--border-strong, var(--wp--preset--color--text-muted));
+}
+
 .icon-btn[aria-pressed="true"] {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 }
 
-/* Theme toggle open: mockup softens button border (picker is the focus) */
-.toolbar .jardin-theme-toggle[open] .jardin-theme-toggle__summary,
-.site-toolbar .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
-	border-color: transparent;
-	color: var(--wp--preset--color--text-muted);
-}
-
-/* Theme-toggle: wrap the <details> so it fits the icon-btn grid */
-.toolbar .jardin-theme-toggle,
-.site-toolbar .jardin-theme-toggle {
+/* Sélecteur de thème dans la chrome : même silhouette que .icon-btn mockup */
+.site-header-shell .toolbar-chrome .jardin-theme-toggle {
 	position: relative;
+	display: flex;
+	align-items: stretch;
 }
 
-.toolbar .jardin-theme-toggle__summary,
-.site-toolbar .jardin-theme-toggle__summary {
+.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--soft, 4px);
+	min-height: 2.25rem;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	width: auto;
+	height: auto;
+	border: none;
+	border-radius: 0;
 	background: transparent;
 	color: var(--wp--preset--color--text-muted);
-	cursor: pointer;
 	list-style: none;
-	transition: border-color 0.15s ease, color 0.15s ease;
+	transition: color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
 }
 
-.toolbar .jardin-theme-toggle__summary::-webkit-details-marker,
-.site-toolbar .jardin-theme-toggle__summary::-webkit-details-marker {
+.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary::-webkit-details-marker {
 	display: none;
 }
 
-.toolbar .jardin-theme-toggle__summary:hover,
-.site-toolbar .jardin-theme-toggle__summary:hover {
-	border-color: var(--wp--preset--color--accent);
-	color: var(--wp--preset--color--accent);
+.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:hover,
+.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:focus-visible {
+	color: var(--wp--preset--color--text);
+	box-shadow: inset 0 0 0 1px var(--wp--preset--color--border-strong, var(--wp--preset--color--text-muted));
+	outline: none;
+}
+
+.site-header-shell .toolbar-chrome .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+	color: var(--wp--preset--color--text-muted);
+	background: transparent;
+}
+
+.site-header-shell .toolbar-chrome .jardin-theme-toggle__icon {
+	width: 14px;
+	height: 14px;
+	color: currentColor;
+}
+
+.jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+	border-color: transparent;
+	color: var(--wp--preset--color--text-muted);
 }
 
 /* ---- Coffee multi-icon (mockup + slugs jardin theme-toggle) ---- */
@@ -559,6 +633,11 @@ a.events-upcoming-link:hover {
 
 .coffee-toggle:is(:hover, :focus-visible) {
 	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--bg);
+}
+
+.site-header-shell .toolbar-chrome .coffee-toggle:is(:hover, :focus-visible) {
+	box-shadow: none;
 	color: var(--wp--preset--color--bg);
 }
 

@@ -49,30 +49,32 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 ?>
 <!-- wp:html -->
 <div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Utilitaires du site', 'jardin' ); ?>">
+	<div class="toolbar-chrome">
 
-	<?php echo $lang_switch; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		<?php echo $lang_switch; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 
-	<a class="icon-btn"
-	   href="<?php echo esc_url( $search_url ); ?>"
-	   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin' ); ?>"
-	   rel="search"
-	><?php echo $svg_search; // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+		<a class="icon-btn"
+		   href="<?php echo esc_url( $search_url ); ?>"
+		   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin' ); ?>"
+		   rel="search"
+		><?php echo $svg_search; // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 
-	<?php echo $theme_toggle_html; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		<?php echo $theme_toggle_html; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 
-	<button class="icon-btn"
-	        type="button"
-	        id="lfm-demo-toggle"
-	        aria-label="<?php echo esc_attr__( 'Simuler lecture Last.fm', 'jardin' ); ?>"
-	        title="Demo LFM"
-	        aria-pressed="false"
-	><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
+		<button class="icon-btn"
+		        type="button"
+		        id="lfm-demo-toggle"
+		        aria-label="<?php echo esc_attr__( 'Simuler lecture Last.fm', 'jardin' ); ?>"
+		        title="Demo LFM"
+		        aria-pressed="false"
+		><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 
-	<a class="icon-btn coffee-toggle"
-	   href="<?php echo esc_url( $soutenir_url ); ?>"
-	   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
-	   title="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
-	><?php echo $svg_coffee . $svg_cherry . $svg_beer; // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+		<a class="icon-btn coffee-toggle"
+		   href="<?php echo esc_url( $soutenir_url ); ?>"
+		   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
+		   title="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
+		><?php echo $svg_coffee . $svg_cherry . $svg_beer; // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 
+	</div>
 </div>
 <!-- /wp:html -->

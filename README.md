@@ -34,6 +34,8 @@ Without this, only **CSS** and **patterns** that are not overridden in the DB wi
 
 The shipped header stacks **`jardin/header-main`** (brand row + primary nav), nested patterns **`jardin/site-brand`** and **`jardin/site-toolbar`** — same idea as **`jardin/footer-main`** for the footer.
 
+**Primary navigation** comes from the WordPress menu assigned to the block. It will not show mockup-style path labels (`/journal`, …) until the menu uses those labels. Remove duplicate utility links (e.g. « Coffee ») if they already exist in the toolbar pattern.
+
 ## Internationalization (theme strings)
 
 The repository keeps `**languages/jardin.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment.
