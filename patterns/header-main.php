@@ -18,4 +18,12 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
+<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
+	<!-- wp:navigation-link {"label":"/journal","type":"page","url":"/journal/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/articles","type":"page","url":"/articles/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/notes","type":"page","url":"/notes/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/evenements","type":"page","url":"/evenements/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/projets","type":"page","url":"/projets/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/maintenant","type":"page","url":"/maintenant/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"/a-propos","type":"page","url":"/a-propos/","kind":"custom"} /-->
+<!-- /wp:navigation -->
