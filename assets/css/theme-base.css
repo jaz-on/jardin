@@ -860,7 +860,7 @@ body.admin-bar .site-header-shell {
 .site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:hover,
 .site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:focus-visible {
 	color: var(--wp--preset--color--text);
-	box-shadow: inset 0 0 0 1px var(--wp--preset--color--border-strong, var(--wp--preset--color--text-muted));
+	background: var(--wp--preset--color--accent-soft);
 	outline: none;
 }
 
