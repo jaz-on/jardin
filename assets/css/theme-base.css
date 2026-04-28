@@ -540,7 +540,7 @@ body.admin-bar .site-header-shell {
 	display: flex;
 	align-items: stretch;
 	max-width: 100%;
-	border: 1px solid var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	overflow: hidden;
@@ -552,7 +552,7 @@ body.admin-bar .site-header-shell {
 	align-items: stretch;
 	flex-wrap: nowrap;
 	gap: 0;
-	border: 1px solid var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	overflow: hidden;
@@ -567,7 +567,7 @@ body.admin-bar .site-header-shell {
 }
 
 .site-header-shell .toolbar-chrome > * + * {
-	border-left: 1px solid var(--wp--preset--color--accent);
+	border-left: 1px solid var(--wp--preset--color--border);
 }
 
 /* Langue : style par défaut si hors toolbar (éditeur) */
@@ -604,7 +604,7 @@ body.admin-bar .site-header-shell {
 }
 
 .lang-switch a + a {
-	border-left: 1px solid var(--wp--preset--color--accent);
+	border-left: 1px solid var(--wp--preset--color--border);
 }
 
 .lang-switch a[aria-current="true"] {
@@ -731,7 +731,7 @@ body.admin-bar .site-header-shell {
 		justify-content: center;
 		min-height: 2.25rem;
 		padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
-		border: 1px solid var(--wp--preset--color--accent);
+		border: 1px solid var(--wp--preset--color--border);
 		border-radius: var(--wp--custom--radius--md, 8px);
 		background: var(--wp--preset--color--surface);
 		color: var(--wp--preset--color--text-muted);
@@ -763,7 +763,7 @@ body.admin-bar .site-header-shell {
 	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content {
 		width: 100%;
 		justify-content: flex-start;
-		border: 1px solid var(--wp--preset--color--accent);
+		border: 1px solid var(--wp--preset--color--border);
 		border-radius: var(--wp--custom--radius--md, 8px);
 		padding: 0.65rem 0.8rem;
 		background: var(--wp--preset--color--surface);
@@ -891,7 +891,7 @@ body.admin-bar .site-header-shell {
 	max-width: 18rem;
 	text-align: center;
 	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
-	border: 1px solid var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	font-family: var(--wp--preset--font-family--mono);
@@ -903,13 +903,6 @@ body.admin-bar .site-header-shell {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	transition: color var(--wp--custom--transition--fast, 120ms ease), border-color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
-}
-
-.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
-.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a,
-.site-header-shell .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
-.site-header-shell .jardin-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > a {
-	border-color: var(--wp--preset--color--accent);
 }
 
 .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible),
@@ -983,7 +976,7 @@ body.admin-bar .site-header-shell {
 	max-width: 18rem;
 	text-align: center;
 	padding: clamp(8px, 1vw, 12px) clamp(12px, 2vw, 22px);
-	border: 1px solid var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--md, 8px);
 	background: var(--wp--preset--color--surface);
 	font-family: var(--wp--preset--font-family--mono);
@@ -1152,7 +1145,41 @@ body.admin-bar .site-header-shell {
  */
 .site-header-shell nav.wp-block-navigation.primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
 .site-header-shell nav.wp-block-navigation.primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a {
-	border: 1px solid var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--border);
+}
+
+@media (max-width: 560px) {
+	/* Mockup parity: first row = brand + language + burger. */
+	.site-header-shell .site-row.site-row-brand {
+		flex-wrap: nowrap;
+		gap: var(--wp--preset--spacing--2);
+	}
+
+	.site-header-shell .toolbar {
+		gap: var(--wp--preset--spacing--2);
+	}
+
+	/* Keep only language + moved burger in top row */
+	.site-header-shell .toolbar-chrome {
+		display: none;
+	}
+
+	/* Nav row itself is hidden; overlay is still opened via burger button. */
+	.site-header-shell .primary.jardin-primary-nav {
+		display: none;
+	}
+
+	.site-header-shell .toolbar .wp-block-navigation__responsive-container-open {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 2.25rem;
+		padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+		border: 1px solid var(--wp--preset--color--border);
+		border-radius: var(--wp--custom--radius--md, 8px);
+		background: var(--wp--preset--color--surface);
+		color: var(--wp--preset--color--text-muted);
+	}
 }
 
 @media (max-width: 782px) {
