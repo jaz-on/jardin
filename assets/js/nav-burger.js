@@ -1,5 +1,5 @@
 /**
- * Header mobile menu toggle (mockup parity <=600px).
+ * Header mobile menu toggle (<=768px).
  *
  * @package Jardin
  */
@@ -15,7 +15,7 @@
 		}
 
 		function isMobile() {
-			return window.innerWidth <= 600;
+			return window.innerWidth <= 768;
 		}
 
 		function closeMenu() {

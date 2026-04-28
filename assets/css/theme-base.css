@@ -692,15 +692,14 @@ body.admin-bar .site-header-shell {
 }
 
 .icon-btn:is(:hover, :focus-visible) {
-	border-color: var(--wp--preset--color--border-strong, var(--wp--preset--color--text-muted));
 	color: var(--wp--preset--color--text);
+	background: var(--wp--preset--color--accent-soft);
 	outline: none;
 }
 
 .site-header-shell .toolbar-chrome .icon-btn:is(:hover, :focus-visible) {
-	border: none;
 	color: var(--wp--preset--color--text);
-	box-shadow: inset 0 0 0 1px var(--wp--preset--color--border-strong, var(--wp--preset--color--text-muted));
+	background: var(--wp--preset--color--accent-soft);
 }
 
 .icon-btn[aria-pressed="true"] {
@@ -847,7 +846,7 @@ body.admin-bar .site-header-shell {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
-	gap: clamp(4px, 0.5vw, 10px);
+	gap: clamp(4px, 0.5vw, 10px) !important;
 	align-items: stretch;
 	justify-content: flex-start;
 	padding: 0;
@@ -1123,7 +1122,7 @@ body.admin-bar .site-header-shell {
 	}
 }
 
-@media (min-width: 601px) {
+@media (min-width: 769px) {
 	.site-header-shell .primary.jardin-primary-nav {
 		display: block;
 	}
@@ -1142,7 +1141,7 @@ body.admin-bar .site-header-shell {
 	border: 1px solid var(--wp--preset--color--border);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 	/* Mockup parity: first row = brand + language + burger. */
 	.site-header-shell .site-row.site-row-brand {
 		flex-wrap: nowrap;
@@ -1188,7 +1187,6 @@ body.admin-bar .site-header-shell {
 	.site-header-shell .toolbar .icon-btn.burger:hover,
 	.site-header-shell .toolbar .icon-btn.burger:focus-visible {
 		color: var(--wp--preset--color--accent);
-		border-color: var(--wp--preset--color--accent);
 		background: var(--wp--preset--color--accent-soft);
 		outline: none;
 	}
@@ -1196,7 +1194,7 @@ body.admin-bar .site-header-shell {
 	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container {
 		display: flex !important;
 		flex-direction: column !important;
-		gap: var(--wp--preset--spacing--2);
+		gap: var(--wp--preset--spacing--2) !important;
 		min-width: 100%;
 		width: 100%;
 	}
