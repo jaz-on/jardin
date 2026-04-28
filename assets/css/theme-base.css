@@ -398,6 +398,20 @@ a.events-upcoming-link:hover {
 	min-height: 0;
 }
 
+/* core/html wraps patterns : garder la rangée header sur une ligne (toolbar à droite) */
+.site-row-brand > .wp-block-html {
+	flex: 0 0 auto;
+	min-width: 0;
+}
+
+.site-row-brand > .wp-block-html:first-child {
+	flex-shrink: 0;
+}
+
+.site-row-brand > .wp-block-html:last-child {
+	margin-left: auto;
+}
+
 .site-brand {
 	display: flex;
 	align-items: center;
@@ -530,7 +544,7 @@ a.events-upcoming-link:hover {
 
 .coffee-toggle:is(:hover, :focus-visible) {
 	background: var(--wp--preset--color--accent);
-	color: var(--wp--preset--color--text);
+	color: var(--wp--preset--color--bg);
 }
 
 .coffee-icon {
@@ -681,4 +695,134 @@ a.events-upcoming-link:hover {
 .jardin-primary-nav:not(.primary) .wp-block-navigation-item.active a {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
+}
+
+/* ============================================================
+   Footer global (mockup footer.site ~7052–7149)
+   ============================================================ */
+
+.site-footer-shell {
+	margin-top: 0;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+	border-top: 1px solid var(--wp--preset--color--border);
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--5) var(--wp--preset--spacing--7);
+}
+
+.site-footer-inner {
+	min-width: 0;
+}
+
+.site-footer-shell .cols {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	gap: var(--wp--preset--spacing--6) var(--wp--preset--spacing--5);
+	margin-bottom: var(--wp--preset--spacing--6);
+}
+
+.site-footer-shell .cols > div {
+	min-width: 0;
+}
+
+.site-footer-shell .cols h4 {
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--wp--preset--color--text-faint);
+	font-weight: 500;
+	margin: 0 0 var(--wp--preset--spacing--3);
+}
+
+.site-footer-shell .cols ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.site-footer-shell .cols li {
+	margin: var(--wp--preset--spacing--2) 0;
+}
+
+.site-footer-shell .cols a {
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+}
+
+.site-footer-shell .cols a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.site-footer-shell .webring {
+	margin-top: var(--wp--preset--spacing--6);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft, 8px);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--3);
+}
+
+.site-footer-shell .webring-label a {
+	color: var(--wp--preset--color--text-muted);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.site-footer-shell .webring-label a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.site-footer-shell .webring-nav {
+	display: flex;
+	gap: var(--wp--preset--spacing--2);
+	align-items: center;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.site-footer-shell .webring-nav a {
+	color: var(--wp--preset--color--text-muted);
+	text-decoration: none;
+}
+
+.site-footer-shell .webring-nav a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.site-footer-shell .webring-sep {
+	color: var(--wp--preset--color--border);
+}
+
+.site-footer-shell .legal {
+	border-top: 1px solid var(--wp--preset--color--border);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.site-footer-shell .legal p {
+	margin: 0;
+	text-align: start;
+}
+
+@media (max-width: 560px) {
+	.site-footer-shell {
+		padding-top: var(--wp--preset--spacing--7);
+		padding-bottom: var(--wp--preset--spacing--6);
+		padding-left: var(--wp--preset--spacing--5);
+		padding-right: var(--wp--preset--spacing--5);
+	}
+
+	.site-footer-shell .cols {
+		grid-template-columns: 1fr 1fr;
+		gap: var(--wp--preset--spacing--5) var(--wp--preset--spacing--4);
+		margin-bottom: var(--wp--preset--spacing--5);
+	}
+
+	.site-footer-shell .cols ul li {
+		font-size: var(--wp--preset--font-size--sm);
+	}
 }
