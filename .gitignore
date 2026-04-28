@@ -58,5 +58,8 @@ phpstan.neon.cache
 # Local dev setup (non versionné)
 _setup/
 
+# Transitional content (markup to paste into WP admin)
+temp/
+
 # Local Cursor rules (product docs live in ../jardin-docs — see jardin-docs README)
 .cursor/rules/local-*.mdc
