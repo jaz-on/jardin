@@ -82,7 +82,7 @@ li.is-style-bullet-row-solid {
 .is-style-quote-card {
 	padding: var(--wp--preset--spacing--4);
 	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--md);
+	border-radius: var(--wp--custom--radius--soft);
 	background: var(--wp--preset--color--surface);
 }
 
@@ -135,7 +135,7 @@ li.is-style-bullet-row-solid {
 
 .is-style-card {
 	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--md);
+	border-radius: var(--wp--custom--radius--soft);
 	padding: var(--wp--preset--spacing--4);
 }
 

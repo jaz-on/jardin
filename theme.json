@@ -171,13 +171,13 @@
 				"muted": "0.7",
 				"soft": "0.5"
 			},
-			"radius": {
-				"sharp": "2px",
-				"soft": "4px",
-				"md": "8px",
-				"lg": "12px",
-				"round": "999px"
-			}
+		"radius": {
+			"sharp": "2px",
+			"soft": "8px",
+			"md": "8px",
+			"pill": "999px",
+			"round": "999px"
+		}
 		}
 	},
 	"styles": {
