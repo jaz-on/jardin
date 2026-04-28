@@ -19,7 +19,7 @@ $icon_wpfr      = '<span class="inline-icon" aria-hidden="true"><svg viewBox="0 
 		/* translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link */
 		esc_html__( 'Jason Rouet, product manager WordPress chez %1$s%2$s, président de l\'asso %3$s%4$s, contributeur open‑web depuis un bon bout de temps. Ici je bidouille, je note, je raconte.', 'jardin' ),
 		$icon_mediapapa, // phpcs:ignore WordPress.Security.EscapeOutput
-		'<a href="https://www.mediapapa.fr" rel="noopener">Mediapapa</a>',
+		'<a href="https://www.wp-mediapapa.com/" rel="noopener">Mediapapa</a>',
 		$icon_wpfr, // phpcs:ignore WordPress.Security.EscapeOutput
 		'<a href="https://wpfr.net" target="_blank" rel="noopener">WordPress Francophone</a>'
 	);
