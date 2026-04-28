@@ -62,7 +62,7 @@ function jardin_get_theme_toggle_markup(): string {
 			'desc'  => __( 'Bières artisanales', 'jardin' ),
 			'items' => array(
 				array( 'slug' => 'brewery-pale',  'name' => __( 'Pale ale', 'jardin' ), 'icon' => '🍺', 'swatches' => array( '#FBF6E9', '#B8772A', '#2C2418' ) ),
-				array( 'slug' => 'brewery-amber', 'name' => __( 'Amber', 'jardin' ),    'icon' => '🍺', 'swatches' => array( '#3A2210', '#C87533', '#F0D9B5' ) ),
+				array( 'slug' => 'brewery-amber', 'name' => __( 'IPA', 'jardin' ),      'icon' => '🍺', 'swatches' => array( '#3A2210', '#C87533', '#F0D9B5' ) ),
 				array( 'slug' => 'brewery-stout', 'name' => __( 'Stout', 'jardin' ),    'icon' => '🍻', 'swatches' => array( '#1F1611', '#D9A441', '#F4E4CC' ) ),
 			),
 		),
