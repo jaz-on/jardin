@@ -304,7 +304,7 @@ msgstr ""
 
 #: patterns/placeholder-now.php
 msgctxt "Pattern description"
-msgid "Temporary notice until scrobble-journal blocks are wired. Insert at the top of the Now page if needed."
+msgid "Temporary notice until jardin-scrobble blocks are wired. Insert at the top of the Now page if needed."
 msgstr ""
 
 #: patterns/post-meta-bar.php

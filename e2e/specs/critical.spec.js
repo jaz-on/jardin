@@ -36,7 +36,7 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 		const r = await request.get( '/feed/listens/' );
 		// 404 possible si le plugin n’est pas actif sur l’environnement de test.
 		if ( r.status() === 404 ) {
-			test.skip( true, 'feed/listens/ 404 — activer scrobble-journal ou rewrites' );
+			test.skip( true, 'feed/listens/ 404 — activer jardin-scrobble ou rewrites' );
 		}
 		expect( r.status() ).toBe( 200 );
 		const ct = r.headers()[ 'content-type' ] || '';

@@ -22,9 +22,9 @@ function jardin_get_main_feed_post_types(): array {
 
 /**
  * Let the theme’s feed query keep the `listen` CPT so we can still publish *jams*
- * (non-empty content). scrobble-journal would otherwise drop every listen from mixed feeds.
+ * (non-empty content). jardin-scrobble would otherwise drop every listen from mixed feeds.
  */
-add_filter( 'scrobble_journal_exclude_from_main_feed', '__return_false' );
+add_filter( 'jardin_scrobble_exclude_from_main_feed', '__return_false' );
 
 /**
  * Main feed: multi-CPT, exclude `now-updates` posts (native category), and flag for SQL.
