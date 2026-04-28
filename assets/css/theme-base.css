@@ -69,6 +69,37 @@
 	box-shadow: var(--wp--preset--shadow--md);
 }
 
+.jardin-theme-toggle__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--wp--preset--spacing--3);
+}
+
+.jardin-theme-toggle__title {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--base, 1rem);
+	font-family: var(--wp--preset--font-family--serif);
+	font-weight: 500;
+}
+
+.jardin-theme-toggle__close {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	color: var(--wp--preset--color--text-muted);
+	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 0 var(--wp--preset--spacing--2);
+	line-height: 1;
+}
+
+.jardin-theme-toggle__close:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+}
+
 .jardin-theme-toggle__legend {
 	font-size: var(--wp--preset--font-size--xs);
 	font-weight: 600;
@@ -726,8 +757,10 @@ body.admin-bar .site-header-shell {
 }
 
 .site-header-shell .toolbar-chrome .jardin-theme-toggle__menu {
+	top: 100%;
 	right: 0;
 	left: auto;
+	margin-top: var(--wp--preset--spacing--2, 0.35rem);
 	min-width: min(20rem, calc(100vw - 2rem));
 }
 

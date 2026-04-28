@@ -60,6 +60,23 @@
 			});
 		});
 
+		document.querySelectorAll('.jardin-theme-toggle__close').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var details = btn.closest('details.jardin-theme-toggle');
+				if (details) {
+					details.removeAttribute('open');
+				}
+			});
+		});
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') {
+				document.querySelectorAll('details.jardin-theme-toggle[open]').forEach(function (d) {
+					d.removeAttribute('open');
+				});
+			}
+		});
+
 		if (window.matchMedia) {
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
 				try {

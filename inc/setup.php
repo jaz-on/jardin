@@ -74,6 +74,12 @@ function jardin_get_theme_toggle_markup(): string {
 			</svg>
 		</summary>
 		<div class="jardin-theme-toggle__menu">
+			<div class="jardin-theme-toggle__header">
+				<h2 class="jardin-theme-toggle__title"><?php echo esc_html__( 'Thème', 'jardin' ); ?></h2>
+				<button type="button" class="jardin-theme-toggle__close" aria-label="<?php echo esc_attr__( 'Fermer', 'jardin' ); ?>">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+				</button>
+			</div>
 			<?php foreach ( $themes as $group ) : ?>
 				<fieldset class="jardin-theme-toggle__fieldset">
 					<legend class="jardin-theme-toggle__legend"><?php echo esc_html( $group['label'] ); ?></legend>
