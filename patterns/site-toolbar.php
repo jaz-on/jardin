@@ -79,9 +79,9 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 
 		<button class="icon-btn"
 		        type="button"
-		        id="lfm-demo-toggle"
-		        aria-label="<?php echo esc_attr__( 'Simuler lecture Last.fm', 'jardin' ); ?>"
-		        title="Demo LFM"
+		        id="lfm-toggle"
+		        aria-label="<?php echo esc_attr__( 'Musique en cours', 'jardin' ); ?>"
+		        title="<?php echo esc_attr__( 'Musique en cours', 'jardin' ); ?>"
 		        aria-pressed="false"
 		><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 
