@@ -723,38 +723,6 @@ body.admin-bar .site-header-shell {
 	min-width: min(20rem, calc(100vw - 2rem));
 }
 
-/* Responsive overlay shell: keep neutral container styles. */
-@media (max-width: 782px) {
-	.site-header-shell .primary.jardin-primary-nav {
-		overflow: visible;
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container {
-		background: var(--wp--preset--color--bg);
-		color: var(--wp--preset--color--text);
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container-content {
-		padding: var(--wp--preset--spacing--5) var(--wp--preset--spacing--4);
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container,
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container.has-modal-open .wp-block-navigation__container {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: var(--wp--preset--spacing--2);
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container-close {
-		color: var(--wp--preset--color--text-muted);
-	}
-
-	.site-header-shell .toolbar-chrome {
-		overflow: visible;
-	}
-}
-
 .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
 	border-color: transparent;
 	color: var(--wp--preset--color--text-muted);
@@ -1118,28 +1086,8 @@ body.admin-bar .site-header-shell {
 }
 
 @media (min-width: 601px) {
-	.site-header-shell .wp-block-navigation__responsive-container-open {
-		display: none;
-	}
-
 	.site-header-shell .primary.jardin-primary-nav {
 		display: block;
-	}
-
-	/* Prevent responsive container from leaking over desktop/tablet layouts. */
-	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container {
-		display: none !important;
-		visibility: hidden !important;
-		pointer-events: none !important;
-	}
-
-	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open):not(.has-modal-open) {
-		position: absolute !important;
-		inset: auto !important;
-		width: 0 !important;
-		height: 0 !important;
-		overflow: hidden !important;
-		opacity: 0 !important;
 	}
 
 	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container {
@@ -1172,18 +1120,15 @@ body.admin-bar .site-header-shell {
 		display: none;
 	}
 
-	/* Keep nav host in DOM for responsive overlay plumbing. */
+	/* Burger opens inline nav panel for mobile. */
 	.site-header-shell .primary.jardin-primary-nav {
-		display: block;
+		display: none !important;
+		overflow: visible;
+		margin-top: var(--wp--preset--spacing--2);
 	}
 
-	/* Hide inline nav row on mobile; burger opens overlay instead. */
-	.site-header-shell .primary.jardin-primary-nav > .wp-block-navigation__container {
-		display: none !important;
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container-open {
-		display: none !important;
+	.site-header-shell .primary.jardin-primary-nav.is-open-mobile {
+		display: block !important;
 	}
 
 	.site-header-shell .toolbar .icon-btn.burger {
@@ -1206,7 +1151,16 @@ body.admin-bar .site-header-shell {
 		outline: none;
 	}
 
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content {
+	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: var(--wp--preset--spacing--2);
+		min-width: 100%;
+		width: 100%;
+	}
+
+	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a {
 		width: 100%;
 		justify-content: flex-start;
 		border: 1px solid var(--wp--preset--color--border);
@@ -1214,30 +1168,6 @@ body.admin-bar .site-header-shell {
 		padding: 0.65rem 0.8rem;
 		background: var(--wp--preset--color--surface);
 		color: var(--wp--preset--color--text-muted);
-	}
-
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content,
-	.site-header-shell .primary.jardin-primary-nav .wp-block-navigation__responsive-container.has-modal-open .wp-block-navigation-item__content {
-		width: 100%;
-		justify-content: flex-start;
-		border: 1px solid var(--wp--preset--color--border);
-		border-radius: var(--wp--custom--radius--md, 8px);
-		padding: 0.65rem 0.8rem;
-		background: var(--wp--preset--color--surface);
-		color: var(--wp--preset--color--text-muted);
-	}
-
-	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container {
-		display: none !important;
-		visibility: hidden;
-		pointer-events: none;
-	}
-
-	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open,
-	.site-header-shell nav.primary.jardin-primary-nav.wp-block-navigation .wp-block-navigation__responsive-container.has-modal-open {
-		display: block !important;
-		visibility: visible;
-		pointer-events: auto;
 	}
 }
 

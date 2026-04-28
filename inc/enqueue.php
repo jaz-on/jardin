@@ -32,7 +32,7 @@ function jardin_enqueue_assets(): void {
 		'jardin-theme-toggle',
 		get_template_directory_uri() . '/assets/js/theme-toggle.js',
 		array(),
-		$ver,
+		filemtime( $tpl_dir . '/assets/js/theme-toggle.js' ) ?: $ver,
 		false
 	);
 
@@ -40,7 +40,7 @@ function jardin_enqueue_assets(): void {
 		'jardin-nav-burger',
 		get_template_directory_uri() . '/assets/js/nav-burger.js',
 		array(),
-		$ver,
+		filemtime( $tpl_dir . '/assets/js/nav-burger.js' ) ?: $ver,
 		true
 	);
 
@@ -48,7 +48,7 @@ function jardin_enqueue_assets(): void {
 		'jardin-filter-tabs',
 		get_template_directory_uri() . '/assets/js/filter-tabs.js',
 		array(),
-		$ver,
+		filemtime( $tpl_dir . '/assets/js/filter-tabs.js' ) ?: $ver,
 		true
 	);
 }

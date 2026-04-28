@@ -18,4 +18,4 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
+<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} /-->
