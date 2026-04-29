@@ -1152,7 +1152,7 @@ body.admin-bar .site-header-shell {
 	font-size: var(--wp--preset--font-size--xs);
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	color: var(--wp--preset--color--text-faint);
+	color: var(--wp--preset--color--text);
 	font-weight: 500;
 	margin: 0 0 var(--wp--preset--spacing--3);
 }
@@ -1169,7 +1169,7 @@ body.admin-bar .site-header-shell {
 
 .site-footer-shell .cols a {
 	text-decoration: none;
-	color: var(--wp--preset--color--text-muted);
+	color: var(--wp--preset--color--text);
 }
 
 .site-footer-shell .cols a:is(:hover, :focus-visible) {
