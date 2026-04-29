@@ -1489,6 +1489,36 @@ body.admin-bar .site-header-shell {
 	border-bottom: 1px dashed var(--wp--preset--color--border);
 }
 
+.entries.is-events .entry {
+	margin: 0;
+	padding: 0;
+	border-left: 2px solid transparent;
+	padding-left: var(--wp--preset--spacing--2);
+	transition: border-color 0.15s ease;
+}
+
+.entries.is-events .entry:focus-within,
+.entries.is-events .entry:hover {
+	border-left-color: var(--wp--preset--color--accent);
+}
+
+.entries.is-events .entry-title,
+.entries.is-events .entry-title a {
+	font-size: var(--wp--preset--font-size--base);
+	line-height: 1.4;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--wp--preset--color--text);
+}
+
+.entries.is-events .entry-title a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.entries.is-events .entry-when.is-upcoming {
+	color: var(--wp--preset--color--accent);
+}
+
 .entries.is-events .event-archive-row .entry-body {
 	min-width: 0;
 }
@@ -1517,6 +1547,22 @@ body.admin-bar .site-header-shell {
 	text-decoration: underline;
 }
 
+.entries.is-events .entry-role--speaker {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-event) 24%, transparent);
+}
+
+.entries.is-events .entry-role--organizer {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-project) 22%, transparent);
+}
+
+.entries.is-events .entry-role--sponsor {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-note) 22%, transparent);
+}
+
+.entries.is-events .entry-role--attendee {
+	background: color-mix(in srgb, var(--wp--preset--color--accent) 18%, transparent);
+}
+
 .entries.is-events .entry-loc::before {
 	content: '· ';
 	opacity: 0.7;
@@ -1531,6 +1577,16 @@ body.admin-bar .site-header-shell {
 .entries.is-events .entry-links {
 	margin-top: 0.35rem;
 	font-size: var(--wp--preset--font-size--sm);
+}
+
+.entries.is-events .entry-links a {
+	color: var(--wp--preset--color--text-muted);
+	text-decoration-color: color-mix(in srgb, var(--wp--preset--color--text-muted) 60%, transparent);
+}
+
+.entries.is-events .entry-links a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+	text-decoration-color: currentColor;
 }
 
 .single.h-event .post-meta {
