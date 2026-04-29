@@ -160,7 +160,7 @@ msgid "Recent check-ins and beer grids from Jardin Beer will appear here in a la
 msgstr ""
 
 #: inc/placeholder-copy.php:23
-msgid "The blogroll grid powered by feed-journal will appear here in a later phase. Use the page content for notes in the meantime."
+msgid "The blogroll grid powered by jardin-feed will appear here in a later phase. Use the page content for notes in the meantime."
 msgstr ""
 
 #: inc/placeholder-copy.php:25
@@ -294,7 +294,7 @@ msgstr ""
 
 #: patterns/placeholder-blogroll.php
 msgctxt "Pattern description"
-msgid "Temporary notice until feed-journal blogroll grid is wired."
+msgid "Temporary notice until jardin-feed blogroll grid is wired."
 msgstr ""
 
 #: patterns/placeholder-now.php
@@ -402,7 +402,7 @@ msgid "Blogroll grid"
 msgstr ""
 
 #: assets/js/block-variations.js:124
-msgid "Blogroll CPT from feed-journal."
+msgid "Blogroll CPT from jardin-feed."
 msgstr ""
 
 #: assets/js/block-variations.js:141

@@ -129,7 +129,7 @@
 	registerBlockVariation( 'core/query', {
 		name: 'blogroll-grid',
 		title: __( 'Blogroll grid', 'jardin' ),
-		description: __( 'Blogroll CPT from feed-journal.', 'jardin' ),
+		description: __( 'Blogroll CPT from jardin-feed.', 'jardin' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/blogroll-grid',
