@@ -41,6 +41,12 @@ debug.log
 phpstan.neon.cache
 .psalm/cache/
 
+# Playwright (e2e/)
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/blob-report/
+
 # Archives
 *.zip
 *.tar
@@ -48,6 +54,12 @@ phpstan.neon.cache
 
 # IDE
 .idea/
+
+# Local dev setup (non versionné)
+_setup/
+
+# Transitional content (markup to paste into WP admin)
+temp/
 
 # Local Cursor rules (product docs live in ../jardin-docs — see jardin-docs README)
 .cursor/rules/local-*.mdc

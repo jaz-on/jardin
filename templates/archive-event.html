@@ -1,79 +1,54 @@
-<!--
-	Gabarit archive « event » — thème Jardin.
-	Les classes jardin-events-query--upcoming / --past activent le filtre du plugin Jardin Events
-	(tri sur event_date, futur vs passé, y compris event_end_date).
--->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","anchor":"main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group">
-	<!-- wp:heading {"level":1} -->
-	<h1>Événements</h1>
-	<!-- /wp:heading -->
-
-	<!-- wp:separator {"className":"is-style-wide"} -->
-	<hr class="wp-block-separator is-style-wide" />
-	<!-- /wp:separator -->
-
-	<!-- wp:heading {"level":2} -->
-	<h2>Prochains événements</h2>
-	<!-- /wp:heading -->
-
-	<!-- wp:query {"className":"jardin-events-query--upcoming","query":{"perPage":10,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
-	<div class="wp-block-query">
-		<!-- wp:post-template -->
-		<!-- wp:group {"className":"jardin-events-item","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group jardin-events-item">
-			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
-			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
-			<!-- wp:post-meta {"key":"event_date","className":"jardin-events-item-meta"} /-->
-			<!-- wp:post-meta {"key":"event_location","className":"jardin-events-item-meta"} /-->
+<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained","wideSize":"56rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
+<main id="main" class="wp-block-group">
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}},"className":"alignwide"} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:query-title {"type":"archive","level":1,"showPrefix":false} /-->
+		<!-- wp:paragraph {"className":"page-intro"} -->
+		<p class="page-intro">Les fiches événements : conférences, meetups, ateliers. Utilise les filtres pour naviguer par rôle.</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:group {"className":"feed-header","layout":{"type":"default"}} -->
+		<div class="wp-block-group feed-header">
+			<!-- wp:jardin-events/event-filter /-->
 		</div>
 		<!-- /wp:group -->
-		<!-- /wp:post-template -->
-
-		<!-- wp:query-pagination -->
-		<!-- wp:query-pagination-previous /-->
-		<!-- wp:query-pagination-numbers /-->
-		<!-- wp:query-pagination-next /-->
-		<!-- /wp:query-pagination -->
-
-		<!-- wp:query-no-results -->
-		<!-- wp:paragraph -->
-		<p></p>
-		<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
-	</div>
-	<!-- /wp:query -->
-
-	<!-- wp:heading {"level":2} -->
-	<h2>Événements passés</h2>
-	<!-- /wp:heading -->
-
-	<!-- wp:query {"className":"jardin-events-query--past","query":{"perPage":10,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"list"}} -->
-	<div class="wp-block-query">
-		<!-- wp:post-template -->
-		<!-- wp:group {"className":"jardin-events-item jardin-events-item--past","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group jardin-events-item jardin-events-item--past">
-			<!-- wp:post-title {"level":3,"isLink":true,"className":"jardin-events-item-title"} /-->
-			<!-- wp:post-excerpt {"moreText":"…","showMoreOnNewLine":false} /-->
-			<!-- wp:post-meta {"key":"event_date","className":"jardin-events-item-meta"} /-->
-			<!-- wp:post-meta {"key":"event_location","className":"jardin-events-item-meta"} /-->
+		<!-- wp:query {"queryId":81,"query":{"perPage":24,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","inherit":true}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"default"},"className":"entries is-events"} -->
+				<!-- wp:group {"className":"entry","layout":{"type":"default"}} -->
+				<div class="wp-block-group entry">
+					<!-- wp:group {"className":"event-archive-row","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch"}} -->
+					<div class="wp-block-group event-archive-row">
+						<!-- wp:jardin-events/event-inline-date /-->
+						<!-- wp:group {"className":"entry-body","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+						<div class="wp-block-group entry-body">
+							<!-- wp:post-title {"level":3,"isLink":true,"className":"entry-title"} /-->
+							<!-- wp:jardin-events/event-archive-meta /-->
+							<!-- wp:post-excerpt {"className":"entry-excerpt","moreText":"","showMoreOnNewLine":false} /-->
+							<!-- wp:jardin-events/event-external-link /-->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+			<!-- wp:query-pagination -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun événement pour l’instant.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
-		<!-- /wp:group -->
-		<!-- /wp:post-template -->
-
-		<!-- wp:query-pagination -->
-		<!-- wp:query-pagination-previous /-->
-		<!-- wp:query-pagination-numbers /-->
-		<!-- wp:query-pagination-next /-->
-		<!-- /wp:query-pagination -->
-
-		<!-- wp:query-no-results -->
-		<!-- wp:paragraph -->
-		<p></p>
-		<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
+		<!-- /wp:query -->
 	</div>
-	<!-- /wp:query -->
+	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

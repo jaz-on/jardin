@@ -1,0 +1,187 @@
+/**
+ * Nine visual themes — overrides WP preset CSS variables (jardin-docs theme-system-runtime.md).
+ * Official platform colors stay on dedicated presets and are re-set per theme where needed.
+ *
+ * @package Jardin_Theme
+ */
+
+:root,
+[data-theme="rose-pine"] {
+	--wp--preset--color--bg: #191724;
+	--wp--preset--color--surface: #1f1d2e;
+	--wp--preset--color--text: #e0def4;
+	--wp--preset--color--text-muted: #908caa;
+	--wp--preset--color--text-faint: #6e6a86;
+	--wp--preset--color--border: #403d52;
+	--wp--preset--color--border-strong: #524f67;
+	--wp--preset--color--accent: #ebbcba;
+	--wp--preset--color--accent-soft: #26233a;
+	--wp--preset--color--pt-post: #f6c177;
+	--wp--preset--color--pt-note: #9ccfd8;
+	--wp--preset--color--pt-event: #c4a7e7;
+	--wp--preset--color--pt-project: #31748f;
+	--wp--preset--color--pt-beer: #eb6f92;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="rose-pine-moon"] {
+	--wp--preset--color--bg: #232136;
+	--wp--preset--color--surface: #2a273f;
+	--wp--preset--color--text: #e0def4;
+	--wp--preset--color--text-muted: #908caa;
+	--wp--preset--color--text-faint: #6e6a86;
+	--wp--preset--color--border: #393552;
+	--wp--preset--color--border-strong: #56526e;
+	--wp--preset--color--accent: #ea9a97;
+	--wp--preset--color--accent-soft: #44415a;
+	--wp--preset--color--pt-post: #f6c177;
+	--wp--preset--color--pt-note: #3e8fb0;
+	--wp--preset--color--pt-event: #eb6f92;
+	--wp--preset--color--pt-project: #c4a7e7;
+	--wp--preset--color--pt-beer: #ea9a97;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="rose-pine-dawn"] {
+	--wp--preset--color--bg: #faf4ed;
+	--wp--preset--color--surface: #fffaf3;
+	--wp--preset--color--text: #575279;
+	--wp--preset--color--text-muted: #797593;
+	--wp--preset--color--text-faint: #9893a5;
+	--wp--preset--color--border: #dfdad9;
+	--wp--preset--color--border-strong: #cecacd;
+	--wp--preset--color--accent: #d7827e;
+	--wp--preset--color--accent-soft: #f4ede8;
+	--wp--preset--color--pt-post: #ea9d34;
+	--wp--preset--color--pt-note: #286983;
+	--wp--preset--color--pt-event: #b4637a;
+	--wp--preset--color--pt-project: #907aa9;
+	--wp--preset--color--pt-beer: #d7827e;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="catppuccin-latte"] {
+	--wp--preset--color--bg: #eff1f5;
+	--wp--preset--color--surface: #e6e9ef;
+	--wp--preset--color--text: #4c4f69;
+	--wp--preset--color--text-muted: #5c5f77;
+	--wp--preset--color--text-faint: #7c7f93;
+	--wp--preset--color--border: #ccd0da;
+	--wp--preset--color--border-strong: #acb0be;
+	--wp--preset--color--accent: #df8e1d;
+	--wp--preset--color--accent-soft: #dce0e8;
+	--wp--preset--color--pt-post: #df8e1d;
+	--wp--preset--color--pt-note: #1e66f5;
+	--wp--preset--color--pt-event: #d20f39;
+	--wp--preset--color--pt-project: #8839ef;
+	--wp--preset--color--pt-beer: #fe640b;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="catppuccin-frappe"] {
+	--wp--preset--color--bg: #303446;
+	--wp--preset--color--surface: #292c3c;
+	--wp--preset--color--text: #c6d0f5;
+	--wp--preset--color--text-muted: #b5bfe2;
+	--wp--preset--color--text-faint: #a5adce;
+	--wp--preset--color--border: #414559;
+	--wp--preset--color--border-strong: #51576d;
+	--wp--preset--color--accent: #e5c890;
+	--wp--preset--color--accent-soft: #232634;
+	--wp--preset--color--pt-post: #e5c890;
+	--wp--preset--color--pt-note: #8caaee;
+	--wp--preset--color--pt-event: #e78284;
+	--wp--preset--color--pt-project: #ca9ee6;
+	--wp--preset--color--pt-beer: #ef9f76;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="catppuccin-macchiato"] {
+	--wp--preset--color--bg: #24273a;
+	--wp--preset--color--surface: #1e2030;
+	--wp--preset--color--text: #cad3f5;
+	--wp--preset--color--text-muted: #b8c0e0;
+	--wp--preset--color--text-faint: #a5adcb;
+	--wp--preset--color--border: #363a4f;
+	--wp--preset--color--border-strong: #494d64;
+	--wp--preset--color--accent: #eed49f;
+	--wp--preset--color--accent-soft: #181926;
+	--wp--preset--color--pt-post: #eed49f;
+	--wp--preset--color--pt-note: #8aadf4;
+	--wp--preset--color--pt-event: #ed8796;
+	--wp--preset--color--pt-project: #c6a0f6;
+	--wp--preset--color--pt-beer: #f5a97f;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="brewery-pale"] {
+	--wp--preset--color--bg: #fbf6e9;
+	--wp--preset--color--surface: #fffcf5;
+	--wp--preset--color--text: #2c2418;
+	--wp--preset--color--text-muted: #5e5240;
+	--wp--preset--color--text-faint: #8a7a5c;
+	--wp--preset--color--border: #e0d5b8;
+	--wp--preset--color--border-strong: #b8a773;
+	--wp--preset--color--accent: #b8772a;
+	--wp--preset--color--accent-soft: #f5e4c2;
+	--wp--preset--color--pt-post: #b8772a;
+	--wp--preset--color--pt-note: #6b7e2a;
+	--wp--preset--color--pt-event: #b8455a;
+	--wp--preset--color--pt-project: #3d6a8f;
+	--wp--preset--color--pt-beer: #d9a441;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="brewery-amber"] {
+	--wp--preset--color--bg: #2a1f14;
+	--wp--preset--color--surface: #3d2a1a;
+	--wp--preset--color--text: #f6e9d4;
+	--wp--preset--color--text-muted: #c4b59a;
+	--wp--preset--color--text-faint: #9a8b72;
+	--wp--preset--color--border: #5c4330;
+	--wp--preset--color--border-strong: #7a5b42;
+	--wp--preset--color--accent: #e8a035;
+	--wp--preset--color--accent-soft: #3d2a1a;
+	--wp--preset--color--pt-post: #e8a035;
+	--wp--preset--color--pt-note: #9db87a;
+	--wp--preset--color--pt-event: #e07585;
+	--wp--preset--color--pt-project: #7aafd0;
+	--wp--preset--color--pt-beer: #f0c570;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}
+
+[data-theme="brewery-stout"] {
+	--wp--preset--color--bg: #1f1611;
+	--wp--preset--color--surface: #2d211a;
+	--wp--preset--color--text: #f4e4cc;
+	--wp--preset--color--text-muted: #a99880;
+	--wp--preset--color--text-faint: #8a7359;
+	--wp--preset--color--border: #3d2e23;
+	--wp--preset--color--border-strong: #5c4632;
+	--wp--preset--color--accent: #d9a441;
+	--wp--preset--color--accent-soft: #2d211a;
+	--wp--preset--color--pt-post: #d9a441;
+	--wp--preset--color--pt-note: #a8c26b;
+	--wp--preset--color--pt-event: #e07585;
+	--wp--preset--color--pt-project: #7aafd0;
+	--wp--preset--color--pt-beer: #f0c570;
+	--wp--preset--color--color-mastodon-official: #6364ff;
+	--wp--preset--color--color-bluesky-official: #0085ff;
+	--wp--preset--color--color-heart-official: #e0245e;
+}

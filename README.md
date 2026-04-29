@@ -1,32 +1,74 @@
-# Jardin
+# jardin-theme (WordPress block theme)
 
-Un thème WordPress minimaliste pour cultiver ses idées sur le web.
+FSE theme for [jasonrouet.com](https://jasonrouet.com). **Product specs and roadmap** live in the sibling folder `[../jardin-docs](../jardin-docs)` (local-only documentation tree; do not duplicate long `.md` files into this repo).
 
-## Jardin et Jardin Events : deux dépôts, deux rôles
+## Doc entry points
 
-Les deux projets partagent la même vision (« jardin » numérique) mais ne vivent pas au même endroit dans WordPress :
+- [roadmap.md](../jardin-docs/roadmap.md) — phases and progress
+- [theme/theme-json-spec.md](../jardin-docs/theme/theme-json-spec.md)
+- [theme/blocks_inventory.md](../jardin-docs/theme/blocks_inventory.md)
+- [integration/permalinks-rewrites.md](../jardin-docs/integration/permalinks-rewrites.md)
+- [phase-2-site-checklist.md](../jardin-docs/theme/phase-2-site-checklist.md) — post-deploy QA on dev
 
-| | **Jardin** (ce dépôt) | **Jardin Events** |
-|---|------------------------|-------------------|
-| **Rôle** | Thème block (FSE, `theme.json`, styles, motifs de base) | Plugin : événements (CPT, métadonnées, blocs, motifs liés aux événements) |
-| **Dépôt** | [jaz-on/jardin](https://github.com/jaz-on/jardin) (`dev`) | [jaz-on/jardin-event](https://github.com/jaz-on/jardin-event) (`dev`) |
-| **Installation** | `wp-content/themes/` (dossier du thème) | `wp-content/plugins/jardin-event/` |
-| **Activation** | **Apparence** → Thèmes | **Extensions** |
+## Fonts
 
-Pour travailler sur le thème et le plugin dans le même environnement, clonez aussi [jardin-event](https://github.com/jaz-on/jardin-event) dans `wp-content/plugins/` (ou un workspace multi-dossiers). Les outils PHP du thème (**PHPCS**) s’installent avec `composer install` à la racine du thème uniquement.
+Fonts are **self-hosted** under `assets/fonts/` as `.woff2` files, with `fontFace` entries in `theme.json` (see [theme-json-spec.md](../jardin-docs/theme/theme-json-spec.md)). Origins and licenses are summarized in `assets/fonts/README.txt`.
 
-## Installation (thème)
+Only **one** custom page template is shipped (`page-journal.html`) because it has a unique Query Loop and filters. Other pages use the default `templates/page.html` plus **block patterns** under `patterns/` (placeholders, meta rows, etc.). **Singles, archives, categories, and tags** use the default `single.html`, `archive.html`, and `category.html` files so WordPress does not need per–post-type duplicates unless a layout truly diverges later.
 
-1. Placez le dossier du thème dans `wp-content/themes/`
-2. Activez-le via **Apparence** → **Thèmes**
+## Install
 
-Les chaînes du thème sont dans le domaine `jardin` ; un catalogue français d’exemple est fourni (`languages/jardin-fr_FR.po` / `.mo`). Pour régénérer le binaire après édition du `.po` : `msgfmt -o languages/jardin-fr_FR.mo languages/jardin-fr_FR.po`.
+1. Clone or copy this repository under `wp-content/themes/` as **`jardin-theme`** (recommended). **Legacy:** installs that still use the directory name `jardin` can keep it or symlink `jardin` → `jardin-theme`.
+2. In WordPress admin: **Appearance → Themes** → activate **jardin-theme**.
+3. After theme updates that touch rewrite rules, visit **Settings → Permalinks** once (or use `wp rewrite flush`).
 
-## Licence
+### Header (or any template part) not updating on dev
 
-Comme **WordPress** et les thèmes / extensions distribués selon les mêmes principes que le projet officiel, ce thème est publié sous la **GNU General Public License v2 ou toute version ultérieure** (GPL‑2.0‑or‑later).
+WordPress stores **customized** template parts in the database. If the site editor was used to edit **Header**, the filesystem `parts/header.html` from Git can be ignored until you reset the customized part.
 
-- Texte complet : fichier [`LICENSE`](LICENSE) à la racine du dépôt  
-- Même mention dans les métadonnées du thème (`style.css`, `readme.txt`) et URI de licence : [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+1. **Appearance → Editor → Patterns** (or **Template parts**) → open **Header**.
+2. Menu **⋮** (three dots) → **Restore** / **Clear customizations** / **Reset** (label varies by WP version) so the theme file is used again.
+3. **Save**; hard-refresh or purge CDN cache if applicable.
 
-L’extension **Jardin Events** doit suivre la même licence (GPL‑2.0‑or‑later) pour rester alignée sur l’écosystème WordPress et sur ce thème.
+Without this, only **CSS** and **patterns** that are not overridden in the DB will change — which often looks like “the header never updates.”
+
+The shipped header stacks **`jardin-theme/header-main`** (brand row + primary nav), nested patterns **`jardin-theme/site-brand`** and **`jardin-theme/site-toolbar`** — same idea as **`jardin-theme/footer-main`** for the footer. **Content migration:** on first load after upgrading the theme, `inc/content-migration.php` runs a one-shot SQL `REPLACE` on **`wp_posts.post_content` and `post_excerpt`** (templates, template parts, pages, revisions, etc.) to rewrite saved block markup and pattern slugs from `jardin/…` to **`jardin-theme/…`**. It does **not** touch `wp_options` / serialized widget data (length-sensitive). Scrobbler blocks stay under `wp:jardin/lastfm-*` and `wp:jardin/recent-*` (plugin namespace, not migrated). Bump `JARDIN_THEME_CONTENT_MIGRATION_VERSION` in that file when adding new replacement pairs.
+
+**Primary navigation** comes from the WordPress menu assigned to the block. It will not show mockup-style path labels (`/journal`, …) until the menu uses those labels. Remove duplicate utility links (e.g. « Coffee ») if they already exist in the toolbar pattern.
+
+## Companion plugins
+
+Separate WordPress plugins that pair with this theme:
+
+- [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles/)
+- [jardin-bookmarks](https://github.com/jaz-on/jardin-bookmarks/)
+- [jardin-toasts](https://github.com/jaz-on/jardin-toasts/)
+- [jardin-events](https://github.com/jaz-on/jardin-events/)
+
+## Internationalization (theme strings)
+
+The repository keeps `**languages/jardin-theme.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment. **Migration:** if you had local `.mo` files compiled for the old text domain `jardin`, regenerate them for **`jardin-theme`** (same strings, new domain).
+
+## Development
+
+Work on branch `dev`. Text domain: **`jardin-theme`**.
+
+### Post-push verification (Git Updater + cache)
+
+Use this checklist after every push on `dev` to confirm `dev.jasonrouet.com` serves the expected revision:
+
+1. In WP admin, run Git Updater refresh/update for `jardin-theme` and related plugins (`jardin-events` when events UI changed).
+2. Purge caches in order: WordPress cache plugin -> CDN/Cloudflare -> browser hard refresh.
+3. Open assets directly and confirm build markers:
+   - `.../wp-content/themes/jardin-theme/assets/css/theme-base.css` -> `Build marker: 2026-04-29-events-css-v2`
+   - `.../wp-content/themes/jardin-theme/assets/js/filter-tabs.js` -> `build marker: 2026-04-29-feed-v3` (comment header)
+4. Smoke test:
+   - `/` -> IRL block layout and metadata style
+   - `/evenements/` -> filter chips, counts, role filtering behavior
+
+### E2E (Playwright) — phase 5
+
+- Doc des parcours : [`jardin-docs/tests-strategy.md`](../jardin-docs/tests-strategy.md) (dossier local, hors dépôt Git pour la doc jardin en général : si tu n’as pas le clone, ouvre le fichier depuis l’arbo partagée).
+- Installation : `npm ci` (racine du thème), `npx playwright install chromium` (ou `npx playwright install` pour les trois navigateurs).
+- Variables : copie `e2e/.env.example` en **`.env`** à la racine du thème et définis `E2E_BASE_URL` (ex. `https://dev.jasonrouet.com`) ; `E2E_SKIP_EN=1` si `/en/` n’est pas encore en place.
+- Lancer : `npm run e2e` (depuis `jardin-theme/`) ; le rapport est dans `playwright-report/` (non versionné).

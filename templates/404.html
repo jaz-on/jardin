@@ -1,16 +1,14 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","anchor":"main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group">
-	<!-- wp:heading {"level":1} -->
-	<h1 class="wp-block-heading">404</h1>
-	<!-- /wp:heading -->
-	
-	<!-- wp:paragraph -->
-	<p>Page not found.</p>
-	<!-- /wp:paragraph -->
+<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
+<main id="main" class="wp-block-group">
+	<!-- wp:pattern {"slug":"jardin-theme/404-intro"} /-->
+	<!-- wp:group {"className":"jardin-404-search","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group jardin-404-search">
+		<!-- wp:search {"showLabel":false,"placeholder":"Search…","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside"} /-->
+	</div>
+	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
-
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

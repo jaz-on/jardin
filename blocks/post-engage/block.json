@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jardin-theme/post-engage",
+	"title": "Post-engage (POSSE + webmentions)",
+	"category": "theme",
+	"icon": "share",
+	"description": "Syndication links and webmention facepile (brid.gy, etc.).",
+	"textdomain": "jardin-theme",
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

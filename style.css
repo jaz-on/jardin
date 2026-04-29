@@ -1,22 +1,16 @@
 /*
-Theme Name: Jardin
-Theme URI: https://github.com/jaz-on/jardin
-Description: Minimal block theme for a personal digital garden: dark-first palette, accessible typography, and theme.json-first styling aligned with the Jardin design tokens.
-Requires at least: 6.5
-Tested up to: 6.9
-Requires PHP: 8.1
-Version: 0.1.0
+Theme Name: jardin-theme
+Theme URI: https://github.com/jaz-on/jardin-theme
 Author: Jason Rouet
 Author URI: https://jasonrouet.com
-License: GPL v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: jardin
-GitHub Theme URI: https://github.com/jaz-on/jardin
-Primary Branch: main
+Description: Full Site Editing theme for the jardin site. Product specs live in the local jardin-docs repository (not shipped with this theme).
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 8.2
+Version: 0.1.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jardin-theme
+GitHub Theme URI: https://github.com/jaz-on/jardin-theme
+Primary Branch:    dev
 */
-
-/*
- * This file is required for WordPress theme recognition.
- * All styles are now managed via theme.json for better FSE integration.
- */
-
