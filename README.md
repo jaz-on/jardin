@@ -44,6 +44,19 @@ The repository keeps `**languages/jardin.pot`** as the translation template (sou
 
 Work on branch `dev`. Text domain: `jardin`.
 
+### Post-push verification (Git Updater + cache)
+
+Use this checklist after every push on `dev` to confirm `dev.jasonrouet.com` serves the expected revision:
+
+1. In WP admin, run Git Updater refresh/update for `jardin-theme` and related plugins (`jardin-events` when events UI changed).
+2. Purge caches in order: WordPress cache plugin -> CDN/Cloudflare -> browser hard refresh.
+3. Open assets directly and confirm build markers:
+   - `.../wp-content/themes/jardin-theme/assets/css/theme-base.css` -> `Build marker: 2026-04-29-events-css-v2`
+   - `.../wp-content/themes/jardin-theme/assets/js/filter-tabs.js` -> `Build marker: 2026-04-29-events-filter-v2`
+4. Smoke test:
+   - `/` -> IRL block layout and metadata style
+   - `/evenements/` -> filter chips, counts, role filtering behavior
+
 ### E2E (Playwright) — phase 5
 
 - Doc des parcours : [`jardin-docs/tests-strategy.md`](../jardin-docs/tests-strategy.md) (dossier local, hors dépôt Git pour la doc jardin en général : si tu n’as pas le clone, ouvre le fichier depuis l’arbo partagée).

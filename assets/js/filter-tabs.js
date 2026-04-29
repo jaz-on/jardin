@@ -1,5 +1,6 @@
 /**
  * Sets aria-current on the active journal hub filter link (?kind= vs "All").
+ * Build marker: 2026-04-29-events-filter-v2
  *
  * @package Jardin
  */
@@ -69,6 +70,85 @@
 				entry.setAttribute('data-roles', roles.join(','));
 				entry.setAttribute('data-role', roles[0]);
 			}
+		});
+	}
+
+	function getPostIdFromEntry(entry) {
+		var host = entry.closest('li.wp-block-post') || entry.parentElement;
+		if (!host || !host.className) {
+			return 0;
+		}
+		var m = host.className.match(/\bpost-(\d+)\b/);
+		return m ? parseInt(m[1], 10) : 0;
+	}
+
+	function hydrateEventRolesFromRest(entries) {
+		var missing = entries.filter(function (entry) {
+			return !(entry.getAttribute('data-roles') || '').trim();
+		});
+		if (!missing.length) {
+			return Promise.resolve();
+		}
+
+		return fetch('/wp-json/wp/v2/event?per_page=100&_fields=id,event_roles', {
+			credentials: 'same-origin'
+		})
+			.then(function (res) {
+				return res.ok ? res.json() : [];
+			})
+			.then(function (items) {
+				var byId = {};
+				(items || []).forEach(function (item) {
+					if (item && item.id && Array.isArray(item.event_roles)) {
+						byId[item.id] = item.event_roles.filter(Boolean);
+					}
+				});
+				missing.forEach(function (entry) {
+					var id = getPostIdFromEntry(entry);
+					var roles = byId[id] || [];
+					if (roles.length) {
+						entry.setAttribute('data-roles', roles.join(','));
+						entry.setAttribute('data-role', roles[0]);
+					}
+				});
+			})
+			.catch(function () {
+				// Keep existing progressive behavior when REST endpoint is unavailable.
+			});
+	}
+
+	function refreshFilterCounts(nav, entries) {
+		var totals = {
+			all: entries.length,
+			speaker: 0,
+			organizer: 0,
+			sponsor: 0,
+			attendee: 0
+		};
+
+		entries.forEach(function (entry) {
+			var roles = (entry.getAttribute('data-roles') || '')
+				.split(',')
+				.map(function (item) { return item.trim(); })
+				.filter(Boolean);
+			roles.forEach(function (role) {
+				if (Object.prototype.hasOwnProperty.call(totals, role)) {
+					totals[role] += 1;
+				}
+			});
+		});
+
+		nav.querySelectorAll('.ff-btn').forEach(function (btn) {
+			var type = (btn.getAttribute('data-type') || 'all').trim();
+			var count = Object.prototype.hasOwnProperty.call(totals, type) ? totals[type] : 0;
+			var tag = btn.querySelector('.ff-count');
+			if (!tag) {
+				tag = document.createElement('span');
+				tag.className = 'ff-count';
+				btn.appendChild(document.createTextNode(' '));
+				btn.appendChild(tag);
+			}
+			tag.textContent = String(count);
 		});
 	}
 
@@ -146,11 +226,13 @@
 			return;
 		}
 
-		annotateEventEntries(entries);
-
 		var current = (new URLSearchParams(window.location.search).get('event_role') || '').trim();
-		syncEventFilterButtons(nav, current);
-		applyEventRoleFilter(entries, current);
+		annotateEventEntries(entries);
+		hydrateEventRolesFromRest(entries).finally(function () {
+			refreshFilterCounts(nav, entries);
+			syncEventFilterButtons(nav, current);
+			applyEventRoleFilter(entries, current);
+		});
 
 		nav.addEventListener('click', function (event) {
 			var target = event.target;
