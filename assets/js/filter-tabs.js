@@ -192,6 +192,113 @@
 		window.history.replaceState({}, '', url.toString());
 	}
 
+	function formatDateFr(isoLikeDate) {
+		if (!isoLikeDate) {
+			return '';
+		}
+		var d = new Date(isoLikeDate);
+		if (Number.isNaN(d.getTime())) {
+			return '';
+		}
+		return d.toLocaleDateString('fr-FR', {
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric'
+		});
+	}
+
+	function formatDateRangeFr(startDate, endDate) {
+		var start = formatDateFr(startDate);
+		var end = formatDateFr(endDate);
+		if (!start && !end) {
+			return '';
+		}
+		if (!start) {
+			return end;
+		}
+		if (!end || end === start) {
+			return start;
+		}
+		return start + ' - ' + end;
+	}
+
+	function hydrateHomeIrlRowsIfMissing() {
+		var rows = Array.prototype.slice.call(document.querySelectorAll('.events-upcoming .event-row'));
+		if (!rows.length) {
+			return;
+		}
+
+		var hasMissingData = rows.some(function (row) {
+			return !row.querySelector('.entry-when') || !row.querySelector('.entry-loc');
+		});
+		if (!hasMissingData) {
+			return;
+		}
+
+		var idToRow = {};
+		rows.forEach(function (row) {
+			var host = row.closest('li.wp-block-post') || row.parentElement;
+			if (!host || !host.className) {
+				return;
+			}
+			var m = host.className.match(/\bpost-(\d+)\b/);
+			if (m) {
+				idToRow[parseInt(m[1], 10)] = row;
+			}
+		});
+
+		var ids = Object.keys(idToRow);
+		if (!ids.length) {
+			return;
+		}
+
+		fetch('/wp-json/wp/v2/event?per_page=100&_fields=id,event_start,event_end,event_location', {
+			credentials: 'same-origin'
+		})
+			.then(function (res) {
+				return res.ok ? res.json() : [];
+			})
+			.then(function (items) {
+				(items || []).forEach(function (item) {
+					var row = idToRow[item.id];
+					if (!row) {
+						return;
+					}
+
+					var when = row.querySelector('.entry-when');
+					var start = item && item.event_start ? item.event_start : '';
+					var end = item && item.event_end ? item.event_end : '';
+					var range = formatDateRangeFr(start, end);
+					if (range) {
+						if (!when) {
+							when = document.createElement('span');
+							when.className = 'entry-when';
+							row.insertBefore(when, row.firstChild);
+						}
+						when.textContent = range;
+					}
+
+					var where = row.querySelector('.what');
+					if (!where) {
+						return;
+					}
+					var loc = where.querySelector('.entry-loc');
+					var eventLoc = item && item.event_location ? String(item.event_location).trim() : '';
+					if (eventLoc) {
+						if (!loc) {
+							loc = document.createElement('span');
+							loc.className = 'entry-loc';
+							where.appendChild(loc);
+						}
+						loc.textContent = eventLoc;
+					}
+				});
+			})
+			.catch(function () {
+				// Keep server-rendered content if REST fetch fails.
+			});
+	}
+
 	function initEventFilters() {
 		var nav = document.querySelector('.events-filters');
 		var list = document.querySelector('.entries.is-events');
@@ -260,5 +367,6 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		syncJournalFilters();
 		initEventFilters();
+		hydrateHomeIrlRowsIfMissing();
 	});
 }());
