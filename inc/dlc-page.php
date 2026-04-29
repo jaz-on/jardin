@@ -55,6 +55,39 @@ function jardin_force_dlc_page_template( $value, $object_id, $meta_key, $single,
 add_filter( 'get_post_metadata', 'jardin_force_dlc_page_template', 10, 5 );
 
 /**
+ * Prefer filesystem `page-dlc` template over customized DB template.
+ *
+ * In block themes, edited templates are stored as `wp_template` posts and can
+ * shadow template files. For /dlc/, drop custom DB variants to keep deploys
+ * deterministic and aligned with git.
+ *
+ * @param array<int,mixed> $templates Retrieved block templates.
+ * @param array<string,mixed> $query Query args.
+ * @param string $template_type Template type.
+ * @return array<int,mixed>
+ */
+function jardin_prefer_file_template_for_dlc( array $templates, array $query, string $template_type ): array {
+	if ( 'wp_template' !== $template_type || ! jardin_is_dlc_request() ) {
+		return $templates;
+	}
+
+	return array_values(
+		array_filter(
+			$templates,
+			static function ( $template ) {
+				$slug   = is_object( $template ) && isset( $template->slug ) ? (string) $template->slug : '';
+				$source = is_object( $template ) && isset( $template->source ) ? (string) $template->source : '';
+				if ( 'page-dlc' !== $slug ) {
+					return true;
+				}
+				return 'custom' !== $source;
+			}
+		)
+	);
+}
+add_filter( 'get_block_templates', 'jardin_prefer_file_template_for_dlc', 10, 3 );
+
+/**
  * Canonical dynamic block content for the DLC page.
  *
  * @return string
