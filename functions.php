@@ -17,6 +17,8 @@ require_once $jardin_inc . 'enqueue.php';
 require_once $jardin_inc . 'performance.php';
 require_once $jardin_inc . 'block-styles.php';
 require_once $jardin_inc . 'block-variations.php';
+require_once $jardin_inc . 'entry-attributes.php';
+require_once $jardin_inc . 'notes-archive.php';
 require_once $jardin_inc . 'journal-hub.php';
 require_once $jardin_inc . 'dlc-page.php';
 require_once $jardin_inc . 'feed-filters.php';

@@ -4,7 +4,19 @@
 <div id="main" class="wp-block-group">
 	<!-- wp:post-title {"level":1} /-->
 	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-	<!-- wp:pattern {"slug":"jardin/placeholder-blogroll"} /-->
+	<!-- wp:query {"queryId":51,"query":{"perPage":50,"pages":0,"offset":0,"postType":"blogroll","order":"asc","orderBy":"title","inherit":false}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-blogroll"} -->
+			<!-- wp:pattern {"slug":"jardin/entry-card"} /-->
+			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
+		<!-- /wp:post-template -->
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph -->
+			<p>Aucun site dans le blogroll pour l’instant.</p>
+			<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
 </div>
 <!-- /wp:group -->
 

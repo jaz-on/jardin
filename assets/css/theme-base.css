@@ -1737,3 +1737,86 @@ body.admin-bar .site-header-shell {
 		order: -1;
 	}
 }
+
+/* -------------------------------------------------------------------------
+ * Home feed — filter pills + entries (mockup parity)
+ * ------------------------------------------------------------------------- */
+.home-feed-section .feed-filters[data-filter='post']
+	~ .wp-block-query
+	.entries
+	.entry:not([data-kind='post']) {
+	display: none !important;
+}
+
+.home-feed-section .feed-filters[data-filter='note']
+	~ .wp-block-query
+	.entries
+	.entry:not([data-kind='note']) {
+	display: none !important;
+}
+
+.home-feed-section .feed-filters[data-filter='event']
+	~ .wp-block-query
+	.entries
+	.entry:not([data-kind='event']) {
+	display: none !important;
+}
+
+.home-feed-section .feed-filters[data-filter='all'] ~ .wp-block-query .entries .entry {
+	display: block !important;
+}
+
+.entry[data-kind] {
+	border-left: 3px solid var(--wp--preset--color--border);
+	padding-left: var(--wp--preset--spacing--3);
+}
+
+.entry[data-kind='post'] {
+	border-left-color: var(--pt-post, var(--wp--preset--color--pt-post));
+}
+
+.entry[data-kind='note'] {
+	border-left-color: var(--pt-note, var(--wp--preset--color--pt-note));
+}
+
+.entry[data-kind='event'] {
+	border-left-color: var(--pt-event, var(--wp--preset--color--pt-event));
+}
+
+.entry[data-kind='project'] {
+	border-left-color: var(--pt-project, var(--wp--preset--color--pt-project));
+}
+
+.feed-filters .ff-btn {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35rem;
+	margin: 0 0.35rem 0.35rem 0;
+	padding: 0.35rem 0.75rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--pill);
+	background: transparent;
+	font-size: var(--wp--preset--font-size--sm);
+	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+	line-height: 1.3;
+}
+
+.feed-filters .ff-btn.active {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+}
+
+.feed-filters button.ff-btn {
+	font: inherit;
+	font-family: var(--wp--preset--font-family--sans);
+}
+
+.journal-hub-filters {
+	flex-wrap: wrap;
+	display: flex;
+	gap: 0.25rem;
+	align-items: center;
+}

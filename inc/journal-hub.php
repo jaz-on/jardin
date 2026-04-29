@@ -203,6 +203,25 @@ function jardin_journal_clauses_tasting( $clauses, $query ) {
 	$clauses['where'] .= " AND {$empty}";
 	return $clauses;
 }
+/**
+ * Note bucket: short-form CPTs; omit raw scrobbles and raw tastings (empty body).
+ *
+ * @param string    $clauses Clauses.
+ * @param \WP_Query $query   Query.
+ * @return string
+ */
+function jardin_journal_clauses_note_bucket( $clauses, $query ) {
+	if ( 'note_bucket' !== (string) $query->get( 'jardin_clauses' ) ) {
+		return $clauses;
+	}
+
+	global $wpdb;
+	$filled = jardin_sql_post_content_not_empty( $wpdb );
+	$clauses['where'] .= " AND ( ( {$wpdb->posts}.post_type != 'listen' ) OR ( {$wpdb->posts}.post_type = 'listen' AND {$filled} ) )";
+	$clauses['where'] .= " AND ( ( {$wpdb->posts}.post_type != 'beer_checkin' ) OR ( {$wpdb->posts}.post_type = 'beer_checkin' AND {$filled} ) )";
+	return $clauses;
+}
+add_filter( 'posts_clauses', 'jardin_journal_clauses_note_bucket', 18, 2 );
 add_filter( 'posts_clauses', 'jardin_journal_clauses_mixed', 18, 2 );
 add_filter( 'posts_clauses', 'jardin_journal_clauses_bookmark', 20, 2 );
 add_filter( 'posts_clauses', 'jardin_journal_clauses_quote', 20, 2 );
@@ -222,9 +241,13 @@ function jardin_journal_query_for_kind( array $query, string $kind ): array {
 	$query['jardin_clauses'] = '';
 
 	switch ( $kind ) {
-		case 'note':
-			$query['post_type']     = 'iwcpt_note';
+		case 'post':
+			$query['post_type']      = 'post';
 			$query['jardin_clauses'] = 'skip';
+			break;
+		case 'note':
+			$query['post_type']       = array( 'iwcpt_note', 'iwcpt_like', 'favorite', 'beer_checkin', 'listen' );
+			$query['jardin_clauses'] = 'note_bucket';
 			break;
 		case 'like':
 			$query['post_type']     = 'iwcpt_like';
@@ -321,13 +344,13 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 		}
 	}
 
-	if ( 'jardin/events-past-by-role' === $namespace && $role ) {
-		$query['post_type']  = 'event';
-		$query['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_meta_query
+	if ( 'jardin/events-past-by-role' === $namespace && $role && taxonomy_exists( 'event_role' ) ) {
+		$query['post_type'] = 'event';
+		$query['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_tax_query
 			array(
-				'key'     => 'event_role',
-				'value'   => $role,
-				'compare' => 'LIKE',
+				'taxonomy' => 'event_role',
+				'field'    => 'slug',
+				'terms'    => array( $role ),
 			),
 		);
 	}
@@ -358,48 +381,45 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Markup: relative ?kind= links (same request path) for the journal page.
+ * Primary journal hub filters (mockup: tous / articles / notes / événements) via ?kind=.
  *
  * @return string Raw HTML for a core/html block.
  */
 function jardin_get_journal_filters_markup(): string {
-	$label = esc_attr__( 'Journal filters', 'jardin' );
+	$label = esc_attr__( 'Filtrer le journal', 'jardin' );
+	$base  = home_url( '/journal/' );
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only display filter.
+	$current = isset( $_GET['kind'] ) ? sanitize_key( wp_unslash( $_GET['kind'] ) ) : '';
+
 	$items = array(
-		array( 'kind' => '', 'label' => __( 'All', 'jardin' ) ),
-		array( 'kind' => 'note', 'label' => __( 'Notes', 'jardin' ) ),
-		array( 'kind' => 'like', 'label' => __( 'Likes', 'jardin' ) ),
-		array( 'kind' => 'til', 'label' => __( 'TIL', 'jardin' ) ),
-		array( 'kind' => 'bookmark', 'label' => __( 'Bookmarks', 'jardin' ) ),
-		array( 'kind' => 'quote', 'label' => __( 'Quotes', 'jardin' ) ),
-		array( 'kind' => 'event', 'label' => __( 'Events', 'jardin' ) ),
-		array( 'kind' => 'review', 'label' => __( 'Reviews', 'jardin' ) ),
-		array( 'kind' => 'tasting', 'label' => __( 'Tastings', 'jardin' ) ),
-		array( 'kind' => 'jam', 'label' => __( 'Jams', 'jardin' ) ),
-		array( 'kind' => 'listen', 'label' => __( 'Listens (raw)', 'jardin' ) ),
+		array( 'kind' => '', 'type' => 'all', 'label' => __( 'tous', 'jardin' ) ),
+		array( 'kind' => 'post', 'type' => 'post', 'label' => __( 'articles', 'jardin' ) ),
+		array( 'kind' => 'note', 'type' => 'note', 'label' => __( 'notes', 'jardin' ) ),
+		array( 'kind' => 'event', 'type' => 'event', 'label' => __( 'événements', 'jardin' ) ),
 	);
 
-	$base_no_kind = remove_query_arg( 'kind' );
-	$parts        = array();
-	$i            = 0;
+	$parts = array();
 	foreach ( $items as $item ) {
-		$k   = (string) $item['kind'];
-		$href = '' === $k ? $base_no_kind : add_query_arg( 'kind', $k, $base_no_kind );
-		if ( $i > 0 ) {
-			$parts[] = '<span class="jardin-journal-filters__sep" aria-hidden="true"> · </span>';
-		}
-		++$i;
+		$k      = (string) $item['kind'];
+		$type   = (string) $item['type'];
+		$href   = '' === $k ? remove_query_arg( 'kind', $base ) : add_query_arg( 'kind', $k, $base );
+		$active = ( '' === $current && '' === $k ) || ( '' !== $k && $current === $k );
 		$parts[] = sprintf(
-			'<a class="jardin-journal-filters__link" href="%1$s">%2$s</a>',
+			'<a class="ff-btn %4$s" href="%1$s" data-type="%2$s"%5$s>%3$s</a>',
 			esc_url( $href ),
-			esc_html( (string) $item['label'] )
+			esc_attr( $type ),
+			esc_html( (string) $item['label'] ),
+			$active ? 'active' : '',
+			$active ? ' aria-current="page"' : ''
 		);
 	}
 
 	$inner = implode( '', $parts );
 
 	return sprintf(
-		'<nav class="jardin-journal-filters" aria-label="%1$s"><p class="jardin-journal-filters__inner has-text-muted-color has-sm-font-size">%2$s</p></nav>',
+		'<nav class="feed-filters journal-hub-filters" role="navigation" aria-label="%1$s" data-filter="%2$s">%3$s</nav>',
 		$label,
-		$inner // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — built from esc_url/esc_html above.
+		esc_attr( '' === $current ? 'all' : $current ),
+		$inner // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — built from esc_* above.
 	);
 }

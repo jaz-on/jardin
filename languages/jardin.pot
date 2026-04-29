@@ -3,13 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jardin 0.1.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
+"Report-Msgid-Bugs-To: https://github.com/jaz-on/jardin-theme/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-27T18:47:01+00:00\n"
+"POT-Creation-Date: 2026-04-29T19:03:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin\n"
@@ -39,116 +39,211 @@ msgstr ""
 msgid "© %1$s %2$s"
 msgstr ""
 
+#: blocks/event-link-banner/render.php:32
+msgid "Linked event"
+msgstr ""
+
+#: blocks/event-link-banner/render.php:33
+msgid "This article is the recap of an event"
+msgstr ""
+
+#: blocks/post-engage/render.php:81
+msgid "On the fediverse"
+msgstr ""
+
+#: blocks/post-engage/render.php:92
+msgctxt "syndication card CTA"
+msgid "View on Bluesky"
+msgstr ""
+
+#: blocks/post-engage/render.php:93
+msgctxt "syndication card CTA"
+msgid "View on Mastodon"
+msgstr ""
+
+#: blocks/post-engage/render.php:104
+msgid "No Bluesky or Mastodon syndication link was auto-detected on this post."
+msgstr ""
+
+#. translators: %d: number of webmention comments
+#: blocks/post-engage/render.php:112
+msgid "%d mention or reply"
+msgid_plural "%d mentions and replies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: blocks/post-engage/render.php:114
+msgid "Mentions and replies"
+msgstr ""
+
+#: blocks/post-engage/render.php:132
+msgid "Someone"
+msgstr ""
+
 #: inc/block-styles.php:15
 msgid "Lead"
 msgstr ""
 
 #: inc/block-styles.php:16
-msgid "Mono label"
+msgid "Meta text small"
 msgstr ""
 
 #: inc/block-styles.php:17
-msgid "Bare list"
+msgid "Meta text base"
 msgstr ""
 
 #: inc/block-styles.php:18
-msgid "Inline list"
+msgid "Mono label"
 msgstr ""
 
 #: inc/block-styles.php:19
-msgid "Pull quote"
+msgid "Stat label"
 msgstr ""
 
 #: inc/block-styles.php:20
-msgid "Technical note"
+msgid "Bare list"
 msgstr ""
 
 #: inc/block-styles.php:21
-msgid "Portrait 3:4"
+msgid "Inline list"
 msgstr ""
 
 #: inc/block-styles.php:22
-msgid "Square"
+msgid "No bullets"
 msgstr ""
 
 #: inc/block-styles.php:23
-msgid "Feature hero"
+msgid "Bullet row"
 msgstr ""
 
 #: inc/block-styles.php:24
-msgid "Callout soft"
+msgid "Bullet row solid"
 msgstr ""
 
 #: inc/block-styles.php:25
-msgid "Callout info"
+msgid "Pull quote"
 msgstr ""
 
 #: inc/block-styles.php:26
-msgid "Card"
+msgid "Quote card"
 msgstr ""
 
 #: inc/block-styles.php:27
-msgid "Card highlight"
+msgid "Technical note"
 msgstr ""
 
 #: inc/block-styles.php:28
-msgid "Carousel snap"
+msgid "Portrait 3:4"
 msgstr ""
 
 #: inc/block-styles.php:29
-msgid "Single footer zone"
+msgid "Square"
 msgstr ""
 
 #: inc/block-styles.php:30
-msgid "Asymmetric 30/70"
+msgid "Inline icon"
 msgstr ""
 
 #: inc/block-styles.php:31
-msgid "Three columns"
+msgid "Feature hero"
 msgstr ""
 
 #: inc/block-styles.php:32
-msgid "Dotted"
+msgid "Callout soft"
 msgstr ""
 
 #: inc/block-styles.php:33
-msgid "Faint dashes"
+msgid "Callout info"
 msgstr ""
 
 #: inc/block-styles.php:34
-msgid "Ghost"
+msgid "Callout compact"
 msgstr ""
 
 #: inc/block-styles.php:35
-msgid "Coffee toggle"
+msgid "Card"
 msgstr ""
 
 #: inc/block-styles.php:36
-msgid "Mono uppercase"
+msgid "Card highlight"
 msgstr ""
 
 #: inc/block-styles.php:37
+msgid "Carousel snap"
+msgstr ""
+
+#: inc/block-styles.php:38
+msgid "Avatar circle"
+msgstr ""
+
+#: inc/block-styles.php:39
+msgid "Caption"
+msgstr ""
+
+#: inc/block-styles.php:40
+msgid "Microblog stat"
+msgstr ""
+
+#: inc/block-styles.php:41
+msgid "Single footer zone"
+msgstr ""
+
+#: inc/block-styles.php:42
+msgid "Asymmetric 30/70"
+msgstr ""
+
+#: inc/block-styles.php:43
+msgid "Three columns"
+msgstr ""
+
+#: inc/block-styles.php:44
+msgid "Dotted"
+msgstr ""
+
+#: inc/block-styles.php:45
+msgid "Faint dashes"
+msgstr ""
+
+#: inc/block-styles.php:46
+msgid "Ghost"
+msgstr ""
+
+#: inc/block-styles.php:47
+msgid "Coffee toggle"
+msgstr ""
+
+#: inc/block-styles.php:48
+msgid "Mono uppercase"
+msgstr ""
+
+#: inc/block-styles.php:49
 msgid "Tabs"
 msgstr ""
 
-#: inc/journal-hub.php:108
-msgid "Journal filters"
+#: inc/journal-hub.php:389
+#: patterns/journal-hub-top.php:22
+msgid "Filtrer le journal"
 msgstr ""
 
-#: inc/journal-hub.php:110
-msgid "All"
+#: inc/journal-hub.php:395
+#: patterns/home-feed.php:35
+#: patterns/notes-feed-header.php:13
+msgid "tous"
 msgstr ""
 
-#: inc/journal-hub.php:111
-msgid "Notes"
+#: inc/journal-hub.php:396
+#: patterns/home-feed.php:37
+msgid "articles"
 msgstr ""
 
-#: inc/journal-hub.php:112
-msgid "Likes"
+#: inc/journal-hub.php:397
+#: patterns/home-feed.php:40
+msgid "notes"
 msgstr ""
 
-#: inc/journal-hub.php:113
-msgid "TIL"
+#: inc/journal-hub.php:398
+#: patterns/home-feed.php:43
+msgid "événements"
 msgstr ""
 
 #: inc/placeholder-copy.php:19
@@ -184,52 +279,85 @@ msgstr ""
 msgid "Rosé Pine"
 msgstr ""
 
-#: inc/setup.php:45
-msgid "Main"
+#: inc/setup.php:44
+msgid "Soho minimaliste"
 msgstr ""
 
 #: inc/setup.php:46
-msgid "Moon"
-msgstr ""
-
-#: inc/setup.php:47
 msgid "Dawn"
 msgstr ""
 
-#: inc/setup.php:51
+#: inc/setup.php:47
+msgid "Moon"
+msgstr ""
+
+#: inc/setup.php:48
+msgid "Main"
+msgstr ""
+
+#: inc/setup.php:52
 msgid "Catppuccin"
 msgstr ""
 
 #: inc/setup.php:53
-msgid "Latte"
-msgstr ""
-
-#: inc/setup.php:54
-msgid "Frappé"
+msgid "Pastel café"
 msgstr ""
 
 #: inc/setup.php:55
+msgid "Latte"
+msgstr ""
+
+#: inc/setup.php:56
+msgid "Frappé"
+msgstr ""
+
+#: inc/setup.php:57
 msgid "Macchiato"
 msgstr ""
 
-#: inc/setup.php:59
+#: inc/setup.php:61
 msgid "Brewery"
 msgstr ""
 
-#: inc/setup.php:61
+#: inc/setup.php:62
+msgid "Bières artisanales"
+msgstr ""
+
+#: inc/setup.php:64
 msgid "Pale ale"
 msgstr ""
 
-#: inc/setup.php:62
-msgid "Amber"
+#: inc/setup.php:65
+msgid "IPA"
 msgstr ""
 
-#: inc/setup.php:63
+#: inc/setup.php:66
 msgid "Stout"
 msgstr ""
 
-#: inc/setup.php:71
+#: inc/setup.php:74
 msgid "Change color theme"
+msgstr ""
+
+#: inc/setup.php:79
+msgid "Sélection du thème"
+msgstr ""
+
+#: inc/setup.php:81
+msgid "Thème"
+msgstr ""
+
+#: inc/setup.php:82
+msgid "Fermer"
+msgstr ""
+
+#: inc/setup.php:110
+msgid "Suivre le système"
+msgstr ""
+
+#: inc/syndication-config.php:48
+msgctxt "short label for the now-updates format"
+msgid "now"
 msgstr ""
 
 #: patterns/404-intro.php
@@ -243,6 +371,16 @@ msgstr ""
 
 #: patterns/404-intro.php:17
 msgid "The page you are looking for does not exist or has moved."
+msgstr ""
+
+#: patterns/entry-card.php
+msgctxt "Pattern title"
+msgid "Entry card"
+msgstr ""
+
+#: patterns/entry-card.php
+msgctxt "Pattern description"
+msgid "Entry row for Query Loop (.entry + server-side data-kind / data-note-kind)."
 msgstr ""
 
 #: patterns/footer-heading-explore.php
@@ -263,6 +401,161 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
+#: patterns/footer-main.php
+msgctxt "Pattern title"
+msgid "Footer — 4 colonnes + webring"
+msgstr ""
+
+#: patterns/footer-main.php
+msgctxt "Pattern description"
+msgid "Grille mockup (.cols), liens avec home_url, webring IndieWeb. Voir mockup.html ~13315."
+msgstr ""
+
+#: patterns/footer-main.php:26
+msgid "Explorer"
+msgstr ""
+
+#: patterns/footer-main.php:36
+msgid "Explorer (suite)"
+msgstr ""
+
+#: patterns/footer-main.php:45
+msgid "Le site"
+msgstr ""
+
+#: patterns/footer-main.php:56
+msgid "Me joindre"
+msgstr ""
+
+#: patterns/footer-main.php:60
+msgid "Bluesky"
+msgstr ""
+
+#: patterns/footer-main.php:61
+msgid "LinkedIn"
+msgstr ""
+
+#: patterns/footer-main.php:62
+msgid "Mastodon"
+msgstr ""
+
+#: patterns/footer-main.php:69
+msgid "IndieWeb webring"
+msgstr ""
+
+#: patterns/footer-main.php:72
+msgid "← site précédent"
+msgstr ""
+
+#: patterns/footer-main.php:74
+msgid "site suivant →"
+msgstr ""
+
+#: patterns/header-main.php
+msgctxt "Pattern title"
+msgid "Header — marque, toolbar, navigation"
+msgstr ""
+
+#: patterns/header-main.php
+msgctxt "Pattern description"
+msgid "Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin/footer-main. Voir mockup.html header.site ~1005–1133."
+msgstr ""
+
+#: patterns/home-bio.php
+msgctxt "Pattern title"
+msgid "Home — Bio"
+msgstr ""
+
+#: patterns/home-bio.php
+msgctxt "Pattern description"
+msgid "Introductory bio paragraph for the home page."
+msgstr ""
+
+#. translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link
+#: patterns/home-bio.php:20
+msgid "Jason Rouet, product manager WordPress chez %1$s%2$s, président de l'asso %3$s%4$s, contributeur open‑web depuis un bon bout de temps. Ici je bidouille, je note, je raconte."
+msgstr ""
+
+#: patterns/home-events-upcoming.php
+msgctxt "Pattern title"
+msgid "Home — Events upcoming"
+msgstr ""
+
+#: patterns/home-events-upcoming.php
+msgctxt "Pattern description"
+msgid "Upcoming events widget for the home page. Uses jardin/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found."
+msgstr ""
+
+#: patterns/home-events-upcoming.php:18
+msgid "IRL"
+msgstr ""
+
+#: patterns/home-events-upcoming.php:19
+msgid "/evenements →"
+msgstr ""
+
+#: patterns/home-events-upcoming.php:45
+msgid "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️"
+msgstr ""
+
+#: patterns/home-featured-projects.php
+msgctxt "Pattern title"
+msgid "Home — Featured projects"
+msgstr ""
+
+#: patterns/home-featured-projects.php
+msgctxt "Pattern description"
+msgid "Pinned projects grid (3 columns). Placeholder until CPT \"project\" is registered and meta _featured_on_home is implemented — tracked in mockup-dev-parity-cycle.md § 7 (Dettes C)."
+msgstr ""
+
+#. translators: %s: link to /projets
+#: patterns/home-featured-projects.php:18
+msgid "Projets épinglés <a href=\"%s\" class=\"section-link\">/projets →</a>"
+msgstr ""
+
+#: patterns/home-featured-projects.php:33
+msgid "actif"
+msgstr ""
+
+#: patterns/home-featured-projects.php:34
+msgid "Workflow de veille commentée depuis un flux RSS de favoris."
+msgstr ""
+
+#: patterns/home-featured-projects.php:44
+msgid "en cours"
+msgstr ""
+
+#: patterns/home-featured-projects.php:45
+msgid "Thème FSE from‑scratch minimaliste pour ce site."
+msgstr ""
+
+#: patterns/home-featured-projects.php:56
+msgid "Typo française côté front, Polylang‑aware. Espaces insécables et tout le tralala."
+msgstr ""
+
+#: patterns/home-feed.php
+msgctxt "Pattern title"
+msgid "Home — Feed"
+msgstr ""
+
+#: patterns/home-feed.php
+msgctxt "Pattern description"
+msgid "Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card."
+msgstr ""
+
+#. translators: %s: link to /journal
+#: patterns/home-feed.php:23
+msgid "Mon flux <a href=\"%s\" class=\"section-link\">tout voir →</a>"
+msgstr ""
+
+#: patterns/home-feed.php:34
+msgid "Filtrer par type"
+msgstr ""
+
+#: patterns/home-feed.php:63
+msgid "Tout le journal →"
+msgstr ""
+
 #: patterns/journal-hub-top.php
 msgctxt "Pattern title"
 msgid "Journal hub — intro and filters"
@@ -270,11 +563,93 @@ msgstr ""
 
 #: patterns/journal-hub-top.php
 msgctxt "Pattern description"
-msgid "Intro paragraph and ?kind= filter links for the journal page template."
+msgid "Intro, h2, primary ?kind= filters for /journal/."
 msgstr ""
 
-#: patterns/journal-hub-top.php:14
-msgid "A mixed timeline of long posts, notes, likes, and TIL articles—newest first. Use the filters to narrow by kind. (More post types join this hub after the custom plugins ship.)"
+#: patterns/journal-hub-top.php:16
+msgid "A mixed timeline of long posts, notes, likes, bookmarks, events, beer reviews, music jams, and TIL—newest first. Raw scrobbles and tastings without notes stay in their own views; use the filters to narrow by type."
+msgstr ""
+
+#: patterns/listen-single-header.php
+msgctxt "Pattern title"
+msgid "Listen single header"
+msgstr ""
+
+#: patterns/listen-single-header.php
+msgctxt "Pattern description"
+msgid "Album art, track metadata, and Last.fm link for a single listen post."
+msgstr ""
+
+#. translators: 1: formatted date, 2: relative time
+#: patterns/listen-single-header.php:44
+msgid "%1$s · il y a %2$s"
+msgstr ""
+
+#: patterns/listen-single-header.php:74
+msgid "→ Last.fm"
+msgstr ""
+
+#: patterns/listen-single-header.php:77
+msgid "→ Spotify"
+msgstr ""
+
+#: patterns/listen-single-header.php:80
+msgid "→ YouTube"
+msgstr ""
+
+#: patterns/listen-single-header.php:84
+#: patterns/notes-feed-header.php:17
+msgid "jam"
+msgstr ""
+
+#: patterns/notes-feed-header.php
+msgctxt "Pattern title"
+msgid "Notes archive — filters"
+msgstr ""
+
+#: patterns/notes-feed-header.php
+msgctxt "Pattern description"
+msgid "note_kind filter pills for `iwcpt_note` archive."
+msgstr ""
+
+#: patterns/notes-feed-header.php:14
+msgid "bookmark"
+msgstr ""
+
+#: patterns/notes-feed-header.php:15
+msgid "quote"
+msgstr ""
+
+#: patterns/notes-feed-header.php:16
+msgid "listen"
+msgstr ""
+
+#: patterns/notes-feed-header.php:18
+msgid "tasting"
+msgstr ""
+
+#: patterns/notes-feed-header.php:19
+msgid "review"
+msgstr ""
+
+#: patterns/notes-feed-header.php:20
+msgid "reply"
+msgstr ""
+
+#: patterns/notes-feed-header.php:21
+msgid "til"
+msgstr ""
+
+#: patterns/notes-feed-header.php:22
+msgid "note"
+msgstr ""
+
+#: patterns/notes-feed-header.php:55
+msgid "Filtrer les notes"
+msgstr ""
+
+#: patterns/notes-feed-header.php:56
+msgid "Filtrer par type de note"
 msgstr ""
 
 #: patterns/placeholder-beers.php
@@ -357,60 +732,122 @@ msgstr ""
 msgid "Comments and reactions from readers appear below when enabled for this content type."
 msgstr ""
 
-#: assets/js/block-variations.js:20
+#: patterns/site-brand.php
+msgctxt "Pattern title"
+msgid "Site brand"
+msgstr ""
+
+#: patterns/site-brand.php
+msgctxt "Pattern description"
+msgid "JR boxed-serif mark SVG inside .site-brand, linked to home. Matches mockup header structure."
+msgstr ""
+
+#: patterns/site-brand.php:15
+msgid "Retour à l'accueil"
+msgstr ""
+
+#: patterns/site-toolbar.php
+msgctxt "Pattern title"
+msgid "Site toolbar"
+msgstr ""
+
+#: patterns/site-toolbar.php
+msgctxt "Pattern description"
+msgid "Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome)."
+msgstr ""
+
+#: patterns/site-toolbar.php:30
+msgid "Langue"
+msgstr ""
+
+#: patterns/site-toolbar.php:55
+msgid "Utilitaires du site"
+msgstr ""
+
+#: patterns/site-toolbar.php:66
+msgid "Menu"
+msgstr ""
+
+#: patterns/site-toolbar.php:74
+msgid "Rechercher"
+msgstr ""
+
+#: patterns/site-toolbar.php:83
+#: patterns/site-toolbar.php:84
+msgid "Musique en cours"
+msgstr ""
+
+#: patterns/site-toolbar.php:90
+#: patterns/site-toolbar.php:91
+msgid "Me soutenir"
+msgstr ""
+
+#: assets/js/block-variations.js:28
 msgid "Journal hub (mixed)"
 msgstr ""
 
-#: assets/js/block-variations.js:21
+#: assets/js/block-variations.js:29
 msgid "Recent items across journal post types."
 msgstr ""
 
-#: assets/js/block-variations.js:43
+#: assets/js/block-variations.js:51
 msgid "Notes (IndieBlocks)"
 msgstr ""
 
-#: assets/js/block-variations.js:44
+#: assets/js/block-variations.js:52
 msgid "Notes CPT only."
 msgstr ""
 
-#: assets/js/block-variations.js:64
+#: assets/js/block-variations.js:72
 msgid "Events (upcoming)"
 msgstr ""
 
-#: assets/js/block-variations.js:65
+#: assets/js/block-variations.js:73
 msgid "Events ordered by event date meta (ascending)."
 msgstr ""
 
-#: assets/js/block-variations.js:86
+#: assets/js/block-variations.js:94
 msgid "Events (by role meta)"
 msgstr ""
 
-#: assets/js/block-variations.js:87
+#: assets/js/block-variations.js:95
 msgid "Events CPT; refine with filters in the inspector."
 msgstr ""
 
-#: assets/js/block-variations.js:104
+#: assets/js/block-variations.js:112
 msgid "Pinned articles"
 msgstr ""
 
-#: assets/js/block-variations.js:105
+#: assets/js/block-variations.js:113
 msgid "Sticky posts only."
 msgstr ""
 
-#: assets/js/block-variations.js:123
+#: assets/js/block-variations.js:131
 msgid "Blogroll grid"
 msgstr ""
 
-#: assets/js/block-variations.js:124
+#: assets/js/block-variations.js:132
 msgid "Blogroll CPT from jardin-feed."
 msgstr ""
 
-#: assets/js/block-variations.js:141
+#: assets/js/block-variations.js:149
 msgid "Now updates (category)"
 msgstr ""
 
-#: assets/js/block-variations.js:142
+#: assets/js/block-variations.js:150
 msgid "Posts in the now-updates category."
+msgstr ""
+
+#: blocks/post-engage/index.js:16
+msgid "Post-engage (syndication + webmentions)"
+msgstr ""
+
+#: blocks/post-engage/index.js:21
+msgid "Preview uses the current post in the site editor when available."
+msgstr ""
+
+#: blocks/post-engage/index.js:22
+msgid "On the front, this block shows syndication out-links and webmention replies for this post."
 msgstr ""
 
 #: blocks/copyright/block.json
@@ -421,6 +858,26 @@ msgstr ""
 #: blocks/copyright/block.json
 msgctxt "block description"
 msgid "Site name and current year."
+msgstr ""
+
+#: blocks/event-link-banner/block.json
+msgctxt "block title"
+msgid "Event recap banner"
+msgstr ""
+
+#: blocks/event-link-banner/block.json
+msgctxt "block description"
+msgid "Shows a banner when this post is linked as recap from an event (jardin-events)."
+msgstr ""
+
+#: blocks/post-engage/block.json
+msgctxt "block title"
+msgid "Post-engage (POSSE + webmentions)"
+msgstr ""
+
+#: blocks/post-engage/block.json
+msgctxt "block description"
+msgid "Syndication links and webmention facepile (brid.gy, etc.)."
 msgstr ""
 
 #: blocks/theme-toggle/block.json
@@ -461,6 +918,11 @@ msgstr ""
 #: theme.json
 msgctxt "Color name"
 msgid "Border"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border strong"
 msgstr ""
 
 #: theme.json
@@ -541,6 +1003,11 @@ msgstr ""
 #: theme.json
 msgctxt "Font size name"
 msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "MD"
 msgstr ""
 
 #: theme.json
@@ -636,6 +1103,31 @@ msgstr ""
 #: theme.json
 msgctxt "Custom template name"
 msgid "Journal hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Articles (posts only)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blogroll hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "DLC hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Bières hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Maintenant hub"
 msgstr ""
 
 #: theme.json

@@ -7,15 +7,9 @@
 	<!-- wp:pattern {"slug":"jardin/journal-hub-top"} /-->
 	<!-- wp:query {"queryId":10,"namespace":"jardin/journal-mixed","query":{"perPage":12,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
-		<!-- wp:post-template {"layout":{"type":"default","columnCount":1}} -->
-			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"constrained"}} -->
-			<div class="wp-block-group">
-				<!-- wp:post-title {"isLink":true,"level":3} /-->
-				<!-- wp:post-date /-->
-				<!-- wp:post-excerpt /-->
-			</div>
-			<!-- /wp:group -->
-			<!-- wp:separator /-->
+		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
+			<!-- wp:pattern {"slug":"jardin/entry-card"} /-->
+			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
 		<!-- /wp:post-template -->
 		<!-- wp:query-pagination -->
 			<!-- wp:query-pagination-previous /-->

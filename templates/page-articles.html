@@ -3,10 +3,13 @@
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 <div id="main" class="wp-block-group">
 	<!-- wp:post-title {"level":1} /-->
+	<!-- wp:paragraph {"textColor":"text-muted","fontSize":"sm"} -->
+	<p class="has-text-muted-color has-text-color has-sm-font-size">Articles longs uniquement — pas de filtre de type ici (voir /journal/ pour le flux mixte).</p>
+	<!-- /wp:paragraph -->
 	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-	<!-- wp:query {"queryId":52,"query":{"perPage":24,"pages":0,"offset":0,"postType":"beer_checkin","order":"desc","orderBy":"date","inherit":false}} -->
+	<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false}} -->
 	<div class="wp-block-query">
-		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-beer"} -->
+		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->
 			<!-- wp:pattern {"slug":"jardin/entry-card"} /-->
 			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
 		<!-- /wp:post-template -->
@@ -17,7 +20,7 @@
 		<!-- /wp:query-pagination -->
 		<!-- wp:query-no-results -->
 			<!-- wp:paragraph -->
-			<p>Aucune bière enregistrée — configure la sync Untappd (Beer Journal).</p>
+			<p>Aucun article pour l’instant.</p>
 			<!-- /wp:paragraph -->
 		<!-- /wp:query-no-results -->
 	</div>

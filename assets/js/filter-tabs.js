@@ -1,42 +1,198 @@
 /**
- * Sets aria-current on the active journal hub filter link (?kind= vs "All").
- * Build marker: 2026-04-29-events-filter-v2
+ * Feed filters: home (mixed hub), journal hub links, notes archive, events archive.
+ * Single init per section — no double-binding (build marker: 2026-04-29-feed-v3).
  *
  * @package Jardin
  */
 (function () {
 	'use strict';
 
-	function kindFromHref(href) {
-		if (!href || href === '?') {
-			return '';
-		}
-		var q = href.indexOf('?');
-		if (q < 0) {
-			return '';
-		}
-		return new URLSearchParams(href.slice(q)).get('kind') || '';
-	}
-
-	function syncJournalFilters() {
-		var nav = document.querySelector('.jardin-journal-filters');
+	function syncJournalHubFilters() {
+		var nav = document.querySelector('.journal-hub-filters');
 		if (!nav) {
 			return;
 		}
 		var current = (new URLSearchParams(window.location.search).get('kind') || '').trim();
-		var links = nav.querySelectorAll('.jardin-journal-filters__link');
-		links.forEach(function (a) {
-			a.removeAttribute('aria-current');
-			var raw = a.getAttribute('href') || '';
-			var resolved;
-			try {
-				resolved = new URL(raw, window.location.href).searchParams.get('kind') || '';
-			} catch (e) {
-				resolved = kindFromHref(raw);
-			}
-			if (resolved === current) {
+		var norm = current === '' ? 'all' : current;
+		nav.setAttribute('data-filter', norm);
+		nav.querySelectorAll('a.ff-btn').forEach(function (a) {
+			var type = (a.getAttribute('data-type') || 'all').trim();
+			var active = type === norm;
+			a.classList.toggle('active', active);
+			if (active) {
 				a.setAttribute('aria-current', 'page');
+			} else {
+				a.removeAttribute('aria-current');
 			}
+		});
+	}
+
+	function applyHomeKindFilter(entries, kindType) {
+		var t = (kindType || 'all').trim();
+		entries.forEach(function (entry) {
+			if (!t || t === 'all') {
+				entry.hidden = false;
+				return;
+			}
+			var dk = (entry.getAttribute('data-kind') || '').trim();
+			entry.hidden = dk !== t;
+		});
+	}
+
+	function syncHomeFilterButtons(nav, kindType) {
+		var raw = (kindType || '').trim();
+		var norm = !raw || raw === 'all' ? 'all' : raw;
+		nav.setAttribute('data-filter', norm);
+		nav.querySelectorAll('button.ff-btn').forEach(function (btn) {
+			var type = (btn.getAttribute('data-type') || 'all').trim();
+			var active = type === norm;
+			btn.classList.toggle('active', active);
+			btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+			if (active) {
+				btn.setAttribute('aria-current', 'true');
+			} else {
+				btn.removeAttribute('aria-current');
+			}
+		});
+	}
+
+	function updateHomeKindUrl(kindType) {
+		var url = new URL(window.location.href);
+		var t = (kindType || 'all').trim();
+		if (!t || t === 'all') {
+			url.searchParams.delete('kind');
+		} else {
+			url.searchParams.set('kind', t);
+		}
+		window.history.replaceState({}, '', url.toString());
+	}
+
+	function initHomeFeedFilters() {
+		var nav = document.querySelector('.home-feed-filters');
+		if (!nav || nav.getAttribute('data-jardin-home-bound') === '1') {
+			return;
+		}
+		nav.setAttribute('data-jardin-home-bound', '1');
+
+		var section = nav.closest('.home-feed-section');
+		if (!section) {
+			return;
+		}
+		var list = section.querySelector('.wp-block-query .entries');
+		if (!list) {
+			return;
+		}
+		var entries = list.querySelectorAll('.entry');
+		if (!entries.length) {
+			return;
+		}
+
+		var initial = (new URLSearchParams(window.location.search).get('kind') || '').trim();
+		if (initial === 'post' || initial === 'note' || initial === 'event') {
+			syncHomeFilterButtons(nav, initial);
+			applyHomeKindFilter(entries, initial);
+		} else {
+			syncHomeFilterButtons(nav, 'all');
+			applyHomeKindFilter(entries, 'all');
+		}
+
+		nav.addEventListener('click', function (event) {
+			var target = event.target;
+			if (!(target instanceof Element)) {
+				return;
+			}
+			var btn = target.closest('button.ff-btn');
+			if (!btn || !nav.contains(btn)) {
+				return;
+			}
+			event.preventDefault();
+			var type = (btn.getAttribute('data-type') || 'all').trim();
+			var nextKind = type === 'all' ? 'all' : type;
+			syncHomeFilterButtons(nav, nextKind);
+			applyHomeKindFilter(entries, nextKind === 'all' ? 'all' : nextKind);
+			updateHomeKindUrl(nextKind === 'all' ? '' : nextKind);
+		});
+	}
+
+	function applyNotesKindFilter(entries, slug) {
+		var target = (slug || '').trim();
+		entries.forEach(function (entry) {
+			if (!target || target === 'all') {
+				entry.hidden = false;
+				return;
+			}
+			var nk = (entry.getAttribute('data-note-kind') || '').trim();
+			entry.hidden = nk !== target;
+		});
+	}
+
+	function syncNotesFilterButtons(nav, slug) {
+		var raw = (slug || '').trim();
+		var norm = !raw || raw === 'all' ? 'all' : raw;
+		nav.setAttribute('data-filter', norm);
+		nav.querySelectorAll('a.ff-btn').forEach(function (a) {
+			var type = (a.getAttribute('data-type') || 'all').trim();
+			var active = type === norm;
+			a.classList.toggle('active', active);
+			if (active) {
+				a.setAttribute('aria-current', 'page');
+			} else {
+				a.removeAttribute('aria-current');
+			}
+		});
+	}
+
+	function updateNotesKindUrl(slug) {
+		var url = new URL(window.location.href);
+		var s = (slug || '').trim();
+		if (!s || s === 'all') {
+			url.searchParams.delete('note_kind');
+		} else {
+			url.searchParams.set('note_kind', s);
+		}
+		window.history.replaceState({}, '', url.toString());
+	}
+
+	function initNotesArchiveFilters() {
+		var nav = document.querySelector('.notes-archive-filters');
+		var list = document.querySelector('.entries.is-notes');
+		if (!nav || !list || nav.getAttribute('data-jardin-notes-bound') === '1') {
+			return;
+		}
+		nav.setAttribute('data-jardin-notes-bound', '1');
+
+		var entries = list.querySelectorAll('.entry');
+		if (!entries.length) {
+			return;
+		}
+
+		var initial = (new URLSearchParams(window.location.search).get('note_kind') || '').trim();
+		if (initial) {
+			syncNotesFilterButtons(nav, initial);
+			applyNotesKindFilter(entries, initial);
+		} else {
+			syncNotesFilterButtons(nav, 'all');
+			applyNotesKindFilter(entries, 'all');
+		}
+
+		nav.addEventListener('click', function (event) {
+			var target = event.target;
+			if (!(target instanceof Element)) {
+				return;
+			}
+			var btn = target.closest('a.ff-btn');
+			if (!btn || !nav.contains(btn)) {
+				return;
+			}
+			if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+				return;
+			}
+			event.preventDefault();
+			var type = (btn.getAttribute('data-type') || 'all').trim();
+			var next = type === 'all' ? '' : type;
+			syncNotesFilterButtons(nav, next === '' ? 'all' : next);
+			applyNotesKindFilter(entries, next === '' ? 'all' : next);
+			updateNotesKindUrl(next);
 		});
 	}
 
@@ -113,7 +269,7 @@
 				});
 			})
 			.catch(function () {
-				// Keep existing progressive behavior when REST endpoint is unavailable.
+				// REST unavailable.
 			});
 	}
 
@@ -129,7 +285,9 @@
 		entries.forEach(function (entry) {
 			var roles = (entry.getAttribute('data-roles') || '')
 				.split(',')
-				.map(function (item) { return item.trim(); })
+				.map(function (item) {
+					return item.trim();
+				})
 				.filter(Boolean);
 			roles.forEach(function (role) {
 				if (Object.prototype.hasOwnProperty.call(totals, role)) {
@@ -176,7 +334,9 @@
 			}
 			var roles = (entry.getAttribute('data-roles') || '')
 				.split(',')
-				.map(function (item) { return item.trim(); })
+				.map(function (item) {
+					return item.trim();
+				})
 				.filter(Boolean);
 			entry.hidden = roles.indexOf(role) < 0;
 		});
@@ -258,7 +418,9 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
-		syncJournalFilters();
+		syncJournalHubFilters();
+		initHomeFeedFilters();
+		initNotesArchiveFilters();
 		initEventFilters();
 	});
 }());

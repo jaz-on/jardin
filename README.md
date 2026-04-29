@@ -52,7 +52,7 @@ Use this checklist after every push on `dev` to confirm `dev.jasonrouet.com` ser
 2. Purge caches in order: WordPress cache plugin -> CDN/Cloudflare -> browser hard refresh.
 3. Open assets directly and confirm build markers:
    - `.../wp-content/themes/jardin-theme/assets/css/theme-base.css` -> `Build marker: 2026-04-29-events-css-v2`
-   - `.../wp-content/themes/jardin-theme/assets/js/filter-tabs.js` -> `Build marker: 2026-04-29-events-filter-v2`
+   - `.../wp-content/themes/jardin-theme/assets/js/filter-tabs.js` -> `build marker: 2026-04-29-feed-v3` (comment header)
 4. Smoke test:
    - `/` -> IRL block layout and metadata style
    - `/evenements/` -> filter chips, counts, role filtering behavior

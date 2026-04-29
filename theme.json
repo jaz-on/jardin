@@ -181,6 +181,7 @@
 		}
 	},
 	"styles": {
+		"css": ":root{--pt-post:var(--wp--preset--color--pt-post);--pt-note:var(--wp--preset--color--pt-note);--pt-event:var(--wp--preset--color--pt-event);--pt-project:var(--wp--preset--color--pt-project);--pt-beer:var(--wp--preset--color--pt-beer)}",
 		"color": {
 			"background": "var(--wp--preset--color--bg)",
 			"text": "var(--wp--preset--color--text)"
@@ -455,6 +456,7 @@
 	},
 	"customTemplates": [
 		{ "name": "page-journal", "title": "Journal hub", "postTypes": [ "page" ] },
+		{ "name": "page-articles", "title": "Articles (posts only)", "postTypes": [ "page" ] },
 		{ "name": "page-blogroll", "title": "Blogroll hub", "postTypes": [ "page" ] },
 		{ "name": "page-dlc", "title": "DLC hub", "postTypes": [ "page" ] },
 		{ "name": "page-bieres", "title": "Bières hub", "postTypes": [ "page" ] },
