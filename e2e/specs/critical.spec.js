@@ -21,9 +21,14 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 			if ( await metaLines.count() ) {
 				await expect( metaLines.first() ).toBeVisible();
 				await expect( metaLines.first().locator( '.entry-when' ) ).toBeVisible();
+			} else if ( process.env.E2E_IRL_STRICT === '1' ) {
+				expect(
+					await metaLines.count(),
+					'IRL SSR metadata absent — deploy latest jardin-events + jardin-theme (purge caches if needed)'
+				).toBeGreaterThan( 0 );
 			} else {
 				test.skip(
-					process.env.E2E_IRL_STRICT !== '1',
+					true,
 					'IRL SSR metadata absent — deploy latest jardin-events + jardin-theme (set E2E_IRL_STRICT=1 to fail hard)'
 				);
 			}
