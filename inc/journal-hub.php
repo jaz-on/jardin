@@ -307,14 +307,18 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 		$query['meta_key']  = 'event_date';
 		$query['orderby']   = 'meta_value';
 		$query['order']     = 'ASC';
-		$query['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_meta_query
-			array(
-				'key'     => 'event_date',
-				'value'   => gmdate( 'Y-m-d' ),
-				'compare' => '>=',
-				'type'    => 'DATE',
-			),
-		);
+		if ( class_exists( 'Jardin_Events_Core' ) ) {
+			$query['meta_query'] = Jardin_Events_Core::build_upcoming_meta_query(); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_meta_query
+		} else {
+			$query['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_meta_query
+				array(
+					'key'     => 'event_date',
+					'value'   => current_time( 'Y-m-d' ),
+					'compare' => '>=',
+					'type'    => 'DATE',
+				),
+			);
+		}
 	}
 
 	if ( 'jardin/events-past-by-role' === $namespace && $role ) {
