@@ -1448,7 +1448,7 @@ body.admin-bar .site-header-shell {
 		color: var(--wp--preset--color--text-muted);
 	}
 
-	/* Outils du menu mobile : même colonne que la nav, pastilles pleine largeur */
+	/* Outils du menu mobile : une rangée d’icônes (comme la chrome desktop), pas une colonne */
 	.site-header-shell .site-nav-drawer-tools {
 		width: 100%;
 		margin-top: var(--wp--preset--spacing--4);
@@ -1466,8 +1466,8 @@ body.admin-bar .site-header-shell {
 	}
 
 	.site-header-shell .toolbar-chrome--drawer {
-		flex-direction: column;
-		flex-wrap: nowrap;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		align-items: stretch;
 		gap: var(--wp--preset--spacing--2) !important;
 		width: 100%;
@@ -1476,22 +1476,29 @@ body.admin-bar .site-header-shell {
 	.site-header-shell .toolbar-chrome--drawer > * {
 		width: 100%;
 		min-width: 0;
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
 	}
 
 	.site-header-shell .toolbar-chrome--drawer .icon-btn {
 		width: 100%;
-		justify-content: flex-start;
-		padding: 0.65rem 0.8rem;
-		min-height: 0;
+		max-width: 100%;
+		justify-content: center;
+		padding: var(--wp--preset--spacing--2);
+		min-height: 2.5rem;
+		box-sizing: border-box;
 	}
 
 	.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle {
 		width: 100%;
+		min-width: 0;
+		justify-content: center;
 	}
 
 	.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary {
 		width: 100%;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	/* Palette : menu en fixed pour éviter clip au bas du panneau burger */
