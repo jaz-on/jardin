@@ -2,8 +2,7 @@
 /**
  * Front-end performance: disable Twemoji, preload critical fonts.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

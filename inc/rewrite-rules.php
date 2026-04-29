@@ -2,8 +2,7 @@
 /**
  * Optional rewrite rules (now-updates monthly URLs).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

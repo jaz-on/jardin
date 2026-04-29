@@ -5,8 +5,7 @@
  * Categories: text
  * Description: Temporary notice until jardin-feed blogroll grid is wired.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->

@@ -1,9 +1,8 @@
 <?php
 /**
- * Jardin theme bootstrap.
+ * jardin-theme bootstrap.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

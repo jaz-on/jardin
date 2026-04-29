@@ -6,20 +6,19 @@
  * Description: note_kind filter pills for the iwcpt_note archive (hub /activite/ or /activity/).
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 $kinds = array(
-	array( 'slug' => '', 'label' => __( 'tous', 'jardin' ) ),
-	array( 'slug' => 'bookmark', 'label' => __( 'bookmark', 'jardin' ) ),
-	array( 'slug' => 'quote', 'label' => __( 'quote', 'jardin' ) ),
-	array( 'slug' => 'listen', 'label' => __( 'listen', 'jardin' ) ),
-	array( 'slug' => 'jam', 'label' => __( 'jam', 'jardin' ) ),
-	array( 'slug' => 'tasting', 'label' => __( 'tasting', 'jardin' ) ),
-	array( 'slug' => 'review', 'label' => __( 'review', 'jardin' ) ),
-	array( 'slug' => 'reply', 'label' => __( 'reply', 'jardin' ) ),
-	array( 'slug' => 'til', 'label' => __( 'til', 'jardin' ) ),
-	array( 'slug' => 'note', 'label' => __( 'note', 'jardin' ) ),
+	array( 'slug' => '', 'label' => __( 'tous', 'jardin-theme' ) ),
+	array( 'slug' => 'bookmark', 'label' => __( 'bookmark', 'jardin-theme' ) ),
+	array( 'slug' => 'quote', 'label' => __( 'quote', 'jardin-theme' ) ),
+	array( 'slug' => 'listen', 'label' => __( 'listen', 'jardin-theme' ) ),
+	array( 'slug' => 'jam', 'label' => __( 'jam', 'jardin-theme' ) ),
+	array( 'slug' => 'tasting', 'label' => __( 'tasting', 'jardin-theme' ) ),
+	array( 'slug' => 'review', 'label' => __( 'review', 'jardin-theme' ) ),
+	array( 'slug' => 'reply', 'label' => __( 'reply', 'jardin-theme' ) ),
+	array( 'slug' => 'til', 'label' => __( 'til', 'jardin-theme' ) ),
+	array( 'slug' => 'note', 'label' => __( 'note', 'jardin-theme' ) ),
 );
 
 $base = '';
@@ -57,8 +56,8 @@ $dfilter   = '' === $current ? 'all' : $current;
 ?>
 <!-- wp:html -->
 <div class="feed-header">
-	<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer l’activité', 'jardin' ); ?></h2>
-	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type d’entrée', 'jardin' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
+	<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer l’activité', 'jardin-theme' ); ?></h2>
+	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type d’entrée', 'jardin-theme' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
 		<?php echo $nav_inner; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</nav>
 </div>

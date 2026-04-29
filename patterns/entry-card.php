@@ -7,8 +7,7 @@
  * Inserter: no
  * Block Types: core/post-template
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:group {"className":"entry","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->

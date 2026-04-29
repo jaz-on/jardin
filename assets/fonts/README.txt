@@ -1,4 +1,4 @@
-Self-hosted webfonts for the Jardin theme (theme.json fontFace).
+Self-hosted webfonts for the jardin-theme (theme.json fontFace).
 
 Files (WOFF2):
 - source-serif-pro-{regular,semibold,italic}.woff2 — Source Serif Pro (SIL Open Font License 1.1)

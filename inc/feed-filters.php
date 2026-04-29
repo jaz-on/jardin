@@ -2,8 +2,7 @@
 /**
  * Main + dedicated feeds: CPT mix, exclusions, raw listen/tasting handling.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

@@ -2,8 +2,7 @@
 /**
  * Banner linking to the related event when event_linked_post references this post.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,8 +28,8 @@ if ( ! $url ) {
 
 ob_start();
 ?>
-<aside class="event-link-banner" aria-label="<?php esc_attr_e( 'Linked event', 'jardin' ); ?>">
-	<span class="event-link-banner-label"><?php esc_html_e( 'This article is the recap of an event', 'jardin' ); ?></span>
+<aside class="event-link-banner" aria-label="<?php esc_attr_e( 'Linked event', 'jardin-theme' ); ?>">
+	<span class="event-link-banner-label"><?php esc_html_e( 'This article is the recap of an event', 'jardin-theme' ); ?></span>
 	<span class="event-link-banner-event">
 		→ <a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a>
 	</span>

@@ -6,8 +6,7 @@
  * Description: Upcoming events widget for the home page. Uses jardin/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found.
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:group {"className":"events-upcoming","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
@@ -15,8 +14,8 @@
 
 	<!-- wp:heading {"level":3} -->
 	<h3>
-		<span class="events-upcoming-title"><?php esc_html_e( 'IRL', 'jardin' ); ?></span>
-		<a href="<?php echo esc_url( home_url( '/evenements/' ) ); ?>" class="events-upcoming-link"><?php esc_html_e( '/evenements →', 'jardin' ); ?></a>
+		<span class="events-upcoming-title"><?php esc_html_e( 'IRL', 'jardin-theme' ); ?></span>
+		<a href="<?php echo esc_url( home_url( '/evenements/' ) ); ?>" class="events-upcoming-link"><?php esc_html_e( '/evenements →', 'jardin-theme' ); ?></a>
 	</h3>
 	<!-- /wp:heading -->
 
@@ -42,7 +41,7 @@
 	<?php endif; ?>
 
 	<!-- wp:paragraph {"className":"events-upcoming-footer","fontSize":"sm","textColor":"text-muted"} -->
-	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️", 'jardin' ); ?></p>
+	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️", 'jardin-theme' ); ?></p>
 	<!-- /wp:paragraph -->
 
 </div>

@@ -4,8 +4,7 @@
  *
  * Segments URL sans accent (aligné /evenements/). Libellés UI via i18n (Activité / Activity).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -63,7 +62,7 @@ function jardin_get_activity_archive_url(): string {
  * @return string
  */
 function jardin_get_activity_nav_label(): string {
-	return 'activite' === jardin_get_activity_path_segment() ? __( 'activité', 'jardin' ) : __( 'activity', 'jardin' );
+	return 'activite' === jardin_get_activity_path_segment() ? __( 'activité', 'jardin-theme' ) : __( 'activity', 'jardin-theme' );
 }
 
 /**

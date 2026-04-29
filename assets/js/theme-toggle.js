@@ -1,7 +1,7 @@
 /**
  * Front-end theme toggle (pairs with inline boot in inc/setup.php).
  *
- * @package Jardin
+ * @package Jardin_Theme
  */
 (function () {
 	'use strict';

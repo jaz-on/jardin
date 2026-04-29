@@ -6,8 +6,7 @@
  * Description: Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card.
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 $journal_url = home_url( '/journal/' );
 ?>
@@ -20,7 +19,7 @@ $journal_url = home_url( '/journal/' );
 			echo wp_kses(
 				sprintf(
 					/* translators: %s: link to /journal/ */
-					__( 'Mon flux <a href="%s" class="section-link">tout voir →</a>', 'jardin' ),
+					__( 'Mon flux <a href="%s" class="section-link">tout voir →</a>', 'jardin-theme' ),
 					esc_url( $journal_url )
 				),
 				array( 'a' => array( 'href' => true, 'class' => true ) )
@@ -31,16 +30,16 @@ $journal_url = home_url( '/journal/' );
 	<!-- /wp:group -->
 
 	<!-- wp:html -->
-	<div class="feed-filters home-feed-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type', 'jardin' ); ?>" data-filter="all" data-jardin-feed-init="1">
-		<button type="button" class="ff-btn active" data-type="all"><?php esc_html_e( 'tous', 'jardin' ); ?></button>
+	<div class="feed-filters home-feed-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type', 'jardin-theme' ); ?>" data-filter="all" data-jardin-feed-init="1">
+		<button type="button" class="ff-btn active" data-type="all"><?php esc_html_e( 'tous', 'jardin-theme' ); ?></button>
 		<button type="button" class="ff-btn" data-type="post">
-			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-post"/></svg><?php esc_html_e( 'articles', 'jardin' ); ?>
+			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-post"/></svg><?php esc_html_e( 'articles', 'jardin-theme' ); ?>
 		</button>
 		<button type="button" class="ff-btn" data-type="note">
-			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-note"/></svg><?php echo esc_html( function_exists( 'jardin_get_activity_nav_label' ) ? jardin_get_activity_nav_label() : __( 'activité', 'jardin' ) ); ?>
+			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-note"/></svg><?php echo esc_html( function_exists( 'jardin_get_activity_nav_label' ) ? jardin_get_activity_nav_label() : __( 'activité', 'jardin-theme' ) ); ?>
 		</button>
 		<button type="button" class="ff-btn" data-type="event">
-			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-event"/></svg><?php esc_html_e( 'événements', 'jardin' ); ?>
+			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-event"/></svg><?php esc_html_e( 'événements', 'jardin-theme' ); ?>
 		</button>
 	</div>
 	<!-- /wp:html -->
@@ -60,5 +59,5 @@ $journal_url = home_url( '/journal/' );
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} -->
-<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--4)"><a href="<?php echo esc_url( $journal_url ); ?>"><?php esc_html_e( 'Tout le journal →', 'jardin' ); ?></a></p>
+<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--4)"><a href="<?php echo esc_url( $journal_url ); ?>"><?php esc_html_e( 'Tout le journal →', 'jardin-theme' ); ?></a></p>
 <!-- /wp:paragraph -->

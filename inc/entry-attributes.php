@@ -2,8 +2,7 @@
 /**
  * Inject data-kind / data-note-kind on `.entry` groups inside Query Loops (mockup parity).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

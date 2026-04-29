@@ -2,8 +2,7 @@
 /**
  * Shared header toolbar chrome (search, theme, music, support).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -34,7 +33,7 @@ function jardin_render_toolbar_chrome() {
 	?>
 	<a class="icon-btn"
 	   href="<?php echo esc_url( $search_url ); ?>"
-	   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin' ); ?>"
+	   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin-theme' ); ?>"
 	   rel="search"
 	><?php echo $svg_search; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 
@@ -42,15 +41,15 @@ function jardin_render_toolbar_chrome() {
 
 	<button class="icon-btn lfm-toolbar-toggle"
 	        type="button"
-	        aria-label="<?php echo esc_attr__( 'Musique en cours', 'jardin' ); ?>"
-	        title="<?php echo esc_attr__( 'Musique en cours', 'jardin' ); ?>"
+	        aria-label="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
+	        title="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
 	        aria-pressed="false"
 	><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
 
 	<a class="icon-btn coffee-toggle"
 	   href="<?php echo esc_url( $soutenir_url ); ?>"
-	   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
-	   title="<?php echo esc_attr__( 'Me soutenir', 'jardin' ); ?>"
+	   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
+	   title="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
 	><?php echo $svg_coffee . $svg_cherry . $svg_beer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 	<?php
 	return (string) ob_get_clean();

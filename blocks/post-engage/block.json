@@ -6,7 +6,7 @@
 	"category": "theme",
 	"icon": "share",
 	"description": "Syndication links and webmention facepile (brid.gy, etc.).",
-	"textdomain": "jardin",
+	"textdomain": "jardin-theme",
 	"usesContext": [ "postId" ],
 	"supports": {
 		"html": false

@@ -6,7 +6,7 @@
 	"category": "widgets",
 	"icon": "calendar-alt",
 	"description": "Shows a banner when this post is linked as recap from an event (jardin-events).",
-	"textdomain": "jardin",
+	"textdomain": "jardin-theme",
 	"supports": {
 		"html": false
 	},

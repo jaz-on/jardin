@@ -2,8 +2,7 @@
 /**
  * Front-end and editor assets.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

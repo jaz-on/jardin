@@ -5,8 +5,7 @@
  * Categories: text
  * Description: Temporary notice until jardin-scrobbler blocks are wired. Insert at the top of the Now page if needed.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->

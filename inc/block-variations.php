@@ -2,8 +2,7 @@
 /**
  * Editor script: Query Loop block variations.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

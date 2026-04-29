@@ -1,4 +1,4 @@
-# Jardin (WordPress block theme)
+# jardin-theme (WordPress block theme)
 
 FSE theme for [jasonrouet.com](https://jasonrouet.com). **Product specs and roadmap** live in the sibling folder `[../jardin-docs](../jardin-docs)` (local-only documentation tree; do not duplicate long `.md` files into this repo).
 
@@ -18,8 +18,8 @@ Only **one** custom page template is shipped (`page-journal.html`) because it ha
 
 ## Install
 
-1. Clone or copy this repository under `wp-content/themes/`. The production folder name is expected to be `jardin` (you may symlink `jardin` → `jardin-theme`).
-2. In WordPress admin: **Appearance → Themes** → activate **Jardin**.
+1. Clone or copy this repository under `wp-content/themes/` as **`jardin-theme`** (recommended). **Legacy:** installs that still use the directory name `jardin` can keep it or symlink `jardin` → `jardin-theme`.
+2. In WordPress admin: **Appearance → Themes** → activate **jardin-theme**.
 3. After theme updates that touch rewrite rules, visit **Settings → Permalinks** once (or use `wp rewrite flush`).
 
 ### Header (or any template part) not updating on dev
@@ -32,17 +32,17 @@ WordPress stores **customized** template parts in the database. If the site edit
 
 Without this, only **CSS** and **patterns** that are not overridden in the DB will change — which often looks like “the header never updates.”
 
-The shipped header stacks **`jardin/header-main`** (brand row + primary nav), nested patterns **`jardin/site-brand`** and **`jardin/site-toolbar`** — same idea as **`jardin/footer-main`** for the footer.
+The shipped header stacks **`jardin/header-main`** (brand row + primary nav), nested patterns **`jardin/site-brand`** and **`jardin/site-toolbar`** — same idea as **`jardin/footer-main`** for the footer. **Legacy (WordPress identifiers):** block and pattern namespaces stay `jardin/…` because they are serialized in post and template content; renaming them would require a DB migration. The canonical **repository and text domain** name is `jardin-theme`.
 
 **Primary navigation** comes from the WordPress menu assigned to the block. It will not show mockup-style path labels (`/journal`, …) until the menu uses those labels. Remove duplicate utility links (e.g. « Coffee ») if they already exist in the toolbar pattern.
 
 ## Internationalization (theme strings)
 
-The repository keeps `**languages/jardin.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment.
+The repository keeps `**languages/jardin-theme.pot`** as the translation template (source strings are English in PHP/HTML). **Bundled `fr_FR` `.po` / `.mo` files are not versioned** here; site French UI and content use **Polylang** (and related plugins). `load_theme_textdomain()` still loads from `languages/` if you add a `.mo` locally or in deployment. **Migration:** if you had local `.mo` files compiled for the old text domain `jardin`, regenerate them for **`jardin-theme`** (same strings, new domain).
 
 ## Development
 
-Work on branch `dev`. Text domain: `jardin`.
+Work on branch `dev`. Text domain: **`jardin-theme`**.
 
 ### Post-push verification (Git Updater + cache)
 

@@ -6,8 +6,7 @@
  * Description: Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin/footer-main. Voir mockup.html header.site ~1005–1133.
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -37,8 +36,8 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 
 	<!-- wp:html -->
 	<div class="site-nav-drawer-tools" role="region" aria-labelledby="site-nav-drawer-tools-heading">
-		<p class="site-nav-drawer-tools__heading" id="site-nav-drawer-tools-heading"><?php echo esc_html__( 'Outils', 'jardin' ); ?></p>
-		<div class="toolbar-chrome toolbar-chrome--drawer" role="group" aria-label="<?php echo esc_attr__( 'Recherche, thème, musique et soutien', 'jardin' ); ?>">
+		<p class="site-nav-drawer-tools__heading" id="site-nav-drawer-tools-heading"><?php echo esc_html__( 'Outils', 'jardin-theme' ); ?></p>
+		<div class="toolbar-chrome toolbar-chrome--drawer" role="group" aria-label="<?php echo esc_attr__( 'Recherche, thème, musique et soutien', 'jardin-theme' ); ?>">
 			<?php echo jardin_render_toolbar_chrome(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</div>
 	</div>

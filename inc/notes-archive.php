@@ -2,8 +2,7 @@
 /**
  * Notes archive: optional ?note_kind= filter when taxonomy exists (IndieBlocks).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

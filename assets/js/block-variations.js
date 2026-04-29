@@ -7,7 +7,7 @@
  * Namespaces `jardin/notes-by-kind` (archive activité /activite|/activity), `jardin/articles-pinned`, and `jardin/blogroll-grid`
  * are editor presets until matching filters exist (plugins / theme follow-up).
  *
- * @package Jardin
+ * @package Jardin_Theme
  */
 ( function ( wp ) {
 	const { registerBlockVariation } = wp.blocks;
@@ -25,8 +25,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'journal-mixed',
-		title: __( 'Journal hub (mixed)', 'jardin' ),
-		description: __( 'Recent items across journal post types.', 'jardin' ),
+		title: __( 'Journal hub (mixed)', 'jardin-theme' ),
+		description: __( 'Recent items across journal post types.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/journal-mixed',
@@ -48,8 +48,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'notes-by-kind',
-		title: __( 'Notes (IndieBlocks)', 'jardin' ),
-		description: __( 'Notes CPT only.', 'jardin' ),
+		title: __( 'Notes (IndieBlocks)', 'jardin-theme' ),
+		description: __( 'Notes CPT only.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/notes-by-kind',
@@ -69,8 +69,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'events-upcoming',
-		title: __( 'Events (upcoming)', 'jardin' ),
-		description: __( 'Events ordered by event date meta (ascending).', 'jardin' ),
+		title: __( 'Events (upcoming)', 'jardin-theme' ),
+		description: __( 'Events ordered by event date meta (ascending).', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/events-upcoming',
@@ -91,8 +91,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'events-past-by-role',
-		title: __( 'Events (by role meta)', 'jardin' ),
-		description: __( 'Events CPT; refine with filters in the inspector.', 'jardin' ),
+		title: __( 'Events (by role meta)', 'jardin-theme' ),
+		description: __( 'Events CPT; refine with filters in the inspector.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/events-past-by-role',
@@ -109,8 +109,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'articles-pinned',
-		title: __( 'Pinned articles', 'jardin' ),
-		description: __( 'Sticky posts only.', 'jardin' ),
+		title: __( 'Pinned articles', 'jardin-theme' ),
+		description: __( 'Sticky posts only.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/articles-pinned',
@@ -128,8 +128,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'blogroll-grid',
-		title: __( 'Blogroll grid', 'jardin' ),
-		description: __( 'Blogroll CPT from jardin-feed.', 'jardin' ),
+		title: __( 'Blogroll grid', 'jardin-theme' ),
+		description: __( 'Blogroll CPT from jardin-feed.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/blogroll-grid',
@@ -146,8 +146,8 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'now-updates-feed',
-		title: __( 'Now updates (category)', 'jardin' ),
-		description: __( 'Posts in the now-updates category.', 'jardin' ),
+		title: __( 'Now updates (category)', 'jardin-theme' ),
+		description: __( 'Posts in the now-updates category.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin/now-updates-feed',

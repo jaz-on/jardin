@@ -2,8 +2,7 @@
 /**
  * Core sitemap tweaks (e.g. exclude listen CPT from default sitemap when desired).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

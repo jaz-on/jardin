@@ -2,8 +2,7 @@
 /**
  * DLC page hardening: force the dedicated template and canonical block content.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

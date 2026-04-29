@@ -5,8 +5,7 @@
  * Categories: text
  * Description: Published date, modified date, author, categories, and tags in one row. Insert in single templates or per-post in the editor.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->

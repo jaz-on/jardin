@@ -6,7 +6,7 @@
 	"category": "widgets",
 	"icon": "admin-appearance",
 	"description": "Color theme switcher (Rosé Pine, Catppuccin, Brewery).",
-	"textdomain": "jardin",
+	"textdomain": "jardin-theme",
 	"supports": {
 		"html": false,
 		"spacing": {

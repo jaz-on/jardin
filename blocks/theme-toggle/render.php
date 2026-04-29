@@ -2,8 +2,7 @@
 /**
  * Server output for jardin/theme-toggle.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

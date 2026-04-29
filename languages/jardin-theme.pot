@@ -2,20 +2,20 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Jardin 0.1.1\n"
+"Project-Id-Version: jardin-theme 0.1.1\n"
 "Report-Msgid-Bugs-To: https://github.com/jaz-on/jardin-theme/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-29T19:03:39+00:00\n"
+"POT-Creation-Date: 2026-04-29T20:45:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
-"X-Domain: jardin\n"
+"X-Domain: jardin-theme\n"
 
 #. Theme Name of the theme
-msgid "Jardin"
+msgid "jardin-theme"
 msgstr ""
 
 #. Theme URI of the theme
@@ -78,6 +78,15 @@ msgstr ""
 
 #: blocks/post-engage/render.php:132
 msgid "Someone"
+msgstr ""
+
+#: inc/activity-hub.php:66
+#: patterns/home-feed.php:40
+msgid "activité"
+msgstr ""
+
+#: inc/activity-hub.php:66
+msgid "activity"
 msgstr ""
 
 #: inc/block-styles.php:15
@@ -226,19 +235,14 @@ msgid "Filtrer le journal"
 msgstr ""
 
 #: inc/journal-hub.php:395
+#: patterns/activity-feed-header.php:13
 #: patterns/home-feed.php:35
-#: patterns/notes-feed-header.php:13
 msgid "tous"
 msgstr ""
 
 #: inc/journal-hub.php:396
 #: patterns/home-feed.php:37
 msgid "articles"
-msgstr ""
-
-#: inc/journal-hub.php:397
-#: patterns/home-feed.php:40
-msgid "notes"
 msgstr ""
 
 #: inc/journal-hub.php:398
@@ -251,7 +255,7 @@ msgid "Live “now” summary blocks (for example Last.fm) will load here once t
 msgstr ""
 
 #: inc/placeholder-copy.php:21
-msgid "Recent check-ins and beer grids from Jardin Beer will appear here in a later phase. Use the page content for any introductory copy."
+msgid "Recent check-ins and beer grids from jardin-beer will appear here in a later phase. Use the page content for any introductory copy."
 msgstr ""
 
 #: inc/placeholder-copy.php:23
@@ -360,6 +364,20 @@ msgctxt "short label for the now-updates format"
 msgid "now"
 msgstr ""
 
+#: inc/toolbar-chrome.php:37
+msgid "Rechercher"
+msgstr ""
+
+#: inc/toolbar-chrome.php:45
+#: inc/toolbar-chrome.php:46
+msgid "Musique en cours"
+msgstr ""
+
+#: inc/toolbar-chrome.php:52
+#: inc/toolbar-chrome.php:53
+msgid "Me soutenir"
+msgstr ""
+
 #: patterns/404-intro.php
 msgctxt "Pattern title"
 msgid "404 — title and message"
@@ -371,6 +389,61 @@ msgstr ""
 
 #: patterns/404-intro.php:17
 msgid "The page you are looking for does not exist or has moved."
+msgstr ""
+
+#: patterns/activity-feed-header.php
+msgctxt "Pattern title"
+msgid "Activity archive — filters"
+msgstr ""
+
+#: patterns/activity-feed-header.php
+msgctxt "Pattern description"
+msgid "note_kind filter pills for the iwcpt_note archive (hub /activite/ or /activity/)."
+msgstr ""
+
+#: patterns/activity-feed-header.php:14
+msgid "bookmark"
+msgstr ""
+
+#: patterns/activity-feed-header.php:15
+msgid "quote"
+msgstr ""
+
+#: patterns/activity-feed-header.php:16
+msgid "listen"
+msgstr ""
+
+#: patterns/activity-feed-header.php:17
+#: patterns/listen-single-header.php:84
+msgid "jam"
+msgstr ""
+
+#: patterns/activity-feed-header.php:18
+msgid "tasting"
+msgstr ""
+
+#: patterns/activity-feed-header.php:19
+msgid "review"
+msgstr ""
+
+#: patterns/activity-feed-header.php:20
+msgid "reply"
+msgstr ""
+
+#: patterns/activity-feed-header.php:21
+msgid "til"
+msgstr ""
+
+#: patterns/activity-feed-header.php:22
+msgid "note"
+msgstr ""
+
+#: patterns/activity-feed-header.php:60
+msgid "Filtrer l’activité"
+msgstr ""
+
+#: patterns/activity-feed-header.php:61
+msgid "Filtrer par type d’entrée"
 msgstr ""
 
 #: patterns/entry-card.php
@@ -411,43 +484,43 @@ msgctxt "Pattern description"
 msgid "Grille mockup (.cols), liens avec home_url, webring IndieWeb. Voir mockup.html ~13315."
 msgstr ""
 
-#: patterns/footer-main.php:26
+#: patterns/footer-main.php:29
 msgid "Explorer"
 msgstr ""
 
-#: patterns/footer-main.php:36
+#: patterns/footer-main.php:39
 msgid "Explorer (suite)"
 msgstr ""
 
-#: patterns/footer-main.php:45
+#: patterns/footer-main.php:48
 msgid "Le site"
 msgstr ""
 
-#: patterns/footer-main.php:56
+#: patterns/footer-main.php:59
 msgid "Me joindre"
 msgstr ""
 
-#: patterns/footer-main.php:60
+#: patterns/footer-main.php:63
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:61
+#: patterns/footer-main.php:64
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:62
+#: patterns/footer-main.php:65
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:69
+#: patterns/footer-main.php:72
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:72
+#: patterns/footer-main.php:75
 msgid "← site précédent"
 msgstr ""
 
-#: patterns/footer-main.php:74
+#: patterns/footer-main.php:77
 msgid "site suivant →"
 msgstr ""
 
@@ -459,6 +532,14 @@ msgstr ""
 #: patterns/header-main.php
 msgctxt "Pattern description"
 msgid "Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin/footer-main. Voir mockup.html header.site ~1005–1133."
+msgstr ""
+
+#: patterns/header-main.php:40
+msgid "Outils"
+msgstr ""
+
+#: patterns/header-main.php:41
+msgid "Recherche, thème, musique et soutien"
 msgstr ""
 
 #: patterns/home-bio.php
@@ -597,61 +678,6 @@ msgstr ""
 msgid "→ YouTube"
 msgstr ""
 
-#: patterns/listen-single-header.php:84
-#: patterns/notes-feed-header.php:17
-msgid "jam"
-msgstr ""
-
-#: patterns/notes-feed-header.php
-msgctxt "Pattern title"
-msgid "Notes archive — filters"
-msgstr ""
-
-#: patterns/notes-feed-header.php
-msgctxt "Pattern description"
-msgid "note_kind filter pills for `iwcpt_note` archive."
-msgstr ""
-
-#: patterns/notes-feed-header.php:14
-msgid "bookmark"
-msgstr ""
-
-#: patterns/notes-feed-header.php:15
-msgid "quote"
-msgstr ""
-
-#: patterns/notes-feed-header.php:16
-msgid "listen"
-msgstr ""
-
-#: patterns/notes-feed-header.php:18
-msgid "tasting"
-msgstr ""
-
-#: patterns/notes-feed-header.php:19
-msgid "review"
-msgstr ""
-
-#: patterns/notes-feed-header.php:20
-msgid "reply"
-msgstr ""
-
-#: patterns/notes-feed-header.php:21
-msgid "til"
-msgstr ""
-
-#: patterns/notes-feed-header.php:22
-msgid "note"
-msgstr ""
-
-#: patterns/notes-feed-header.php:55
-msgid "Filtrer les notes"
-msgstr ""
-
-#: patterns/notes-feed-header.php:56
-msgid "Filtrer par type de note"
-msgstr ""
-
 #: patterns/placeholder-beers.php
 msgctxt "Pattern title"
 msgid "Placeholder — Beers"
@@ -659,7 +685,7 @@ msgstr ""
 
 #: patterns/placeholder-beers.php
 msgctxt "Pattern description"
-msgid "Temporary notice until Jardin Beer blocks are wired."
+msgid "Temporary notice until jardin-beer blocks are wired."
 msgstr ""
 
 #: patterns/placeholder-blogroll.php
@@ -760,26 +786,12 @@ msgstr ""
 msgid "Langue"
 msgstr ""
 
-#: patterns/site-toolbar.php:55
+#: patterns/site-toolbar.php:38
 msgid "Utilitaires du site"
 msgstr ""
 
-#: patterns/site-toolbar.php:66
+#: patterns/site-toolbar.php:49
 msgid "Menu"
-msgstr ""
-
-#: patterns/site-toolbar.php:74
-msgid "Rechercher"
-msgstr ""
-
-#: patterns/site-toolbar.php:83
-#: patterns/site-toolbar.php:84
-msgid "Musique en cours"
-msgstr ""
-
-#: patterns/site-toolbar.php:90
-#: patterns/site-toolbar.php:91
-msgid "Me soutenir"
 msgstr ""
 
 #: assets/js/block-variations.js:28

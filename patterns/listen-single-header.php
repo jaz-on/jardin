@@ -6,8 +6,7 @@
  * Description: Album art, track metadata, and Last.fm link for a single listen post.
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 $pid    = get_the_ID();
 $track  = esc_html( (string) get_post_meta( $pid, '_sj_track_name', true ) );
@@ -41,7 +40,7 @@ if ( '' !== $at ) {
 	$ts       = (int) strtotime( $at );
 	$time_str = sprintf(
 		/* translators: 1: formatted date, 2: relative time */
-		__( '%1$s · il y a %2$s', 'jardin' ),
+		__( '%1$s · il y a %2$s', 'jardin-theme' ),
 		wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $ts ),
 		human_time_diff( $ts, time() )
 	);
@@ -71,17 +70,17 @@ if ( '' !== $at ) {
 		<?php endif; ?>
 		<div class="sj-listen-links">
 			<?php if ( '' !== $lfm ) : ?>
-				<span class="u-listen-of h-cite"><a class="u-url" href="<?php echo $lfm; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ Last.fm', 'jardin' ); ?></a></span>
+				<span class="u-listen-of h-cite"><a class="u-url" href="<?php echo $lfm; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ Last.fm', 'jardin-theme' ); ?></a></span>
 			<?php endif; ?>
 			<?php if ( '' !== $spotify ) : ?>
-				<a href="<?php echo $spotify; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ Spotify', 'jardin' ); ?></a>
+				<a href="<?php echo $spotify; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ Spotify', 'jardin-theme' ); ?></a>
 			<?php endif; ?>
 			<?php if ( '' !== $youtube ) : ?>
-				<a href="<?php echo $youtube; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ YouTube', 'jardin' ); ?></a>
+				<a href="<?php echo $youtube; ?>" target="_blank" rel="noopener"><?php echo esc_html__( '→ YouTube', 'jardin-theme' ); ?></a>
 			<?php endif; ?>
 		</div>
 		<?php if ( $is_jam ) : ?>
-			<span class="sj-listen-jam-badge"><?php echo esc_html__( 'jam', 'jardin' ); ?></span>
+			<span class="sj-listen-jam-badge"><?php echo esc_html__( 'jam', 'jardin-theme' ); ?></span>
 		<?php endif; ?>
 	</div>
 </div>

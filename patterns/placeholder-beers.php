@@ -3,10 +3,9 @@
  * Title: Placeholder — Beers
  * Slug: jardin/placeholder-beers
  * Categories: text
- * Description: Temporary notice until Jardin Beer blocks are wired.
+ * Description: Temporary notice until jardin-beer blocks are wired.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->

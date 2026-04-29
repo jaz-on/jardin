@@ -2,7 +2,7 @@
 /**
  * jardin/post-engage — syndication (syndication-links) + webmention comments.
  *
- * @package Jardin
+ * @package Jardin_Theme
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Block default content.
@@ -78,7 +78,7 @@ ob_start();
 <section class="jardin-post-engage" data-post-engage>
 	<?php if ( $has_cards ) : ?>
 	<header class="jardin-post-engage__head">
-		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'On the fediverse', 'jardin' ); ?></h2>
+		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'On the fediverse', 'jardin-theme' ); ?></h2>
 	</header>
 		<?php
 		$order = array( 'bluesky' => 'bsky', 'mastodon' => 'masto' );
@@ -89,8 +89,8 @@ ob_start();
 			}
 			$is_b = ( 'bluesky' === $d );
 			$btn  = $is_b
-				? _x( 'View on Bluesky', 'syndication card CTA', 'jardin' )
-				: _x( 'View on Mastodon', 'syndication card CTA', 'jardin' );
+				? _x( 'View on Bluesky', 'syndication card CTA', 'jardin-theme' )
+				: _x( 'View on Mastodon', 'syndication card CTA', 'jardin-theme' );
 			$cls  = 'jardin-post-engage__card ' . ( $is_b ? 'is-bluesky' : 'is-mastodon' );
 			?>
 	<article class="<?php echo esc_attr( $cls ); ?>" data-brand="<?php echo esc_attr( (string) $brand ); ?>">
@@ -101,7 +101,7 @@ ob_start();
 		}
 		?>
 	<?php elseif ( $editor_hint ) : ?>
-	<p class="jardin-post-engage__dev has-xs-font-size has-text-muted-color"><?php esc_html_e( 'No Bluesky or Mastodon syndication link was auto-detected on this post.', 'jardin' ); ?></p>
+	<p class="jardin-post-engage__dev has-xs-font-size has-text-muted-color"><?php esc_html_e( 'No Bluesky or Mastodon syndication link was auto-detected on this post.', 'jardin-theme' ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( $has_wm ) : ?>
@@ -109,9 +109,9 @@ ob_start();
 		<?php
 		$count = count( $wm );
 		/* translators: %d: number of webmention comments */
-		$line = (string) sprintf( _n( '%d mention or reply', '%d mentions and replies', $count, 'jardin' ), (int) $count );
+		$line = (string) sprintf( _n( '%d mention or reply', '%d mentions and replies', $count, 'jardin-theme' ), (int) $count );
 		?>
-		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'Mentions and replies', 'jardin' ); ?></h2>
+		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'Mentions and replies', 'jardin-theme' ); ?></h2>
 		<p class="jardin-post-engage__stats has-xs-font-size has-text-muted-color"><?php echo esc_html( $line ); ?></p>
 	</header>
 	<ol class="jardin-wm__list" role="list">
@@ -129,7 +129,7 @@ ob_start();
 		<li class="jardin-wm__li">
 			<article class="h-cite" id="webmention-<?php echo (int) $c->comment_ID; ?>">
 				<footer class="jardin-wm__meta has-xs-font-size">
-					<a class="jardin-wm__author" rel="ugc" href="<?php echo esc_url( $u ); ?>"><span class="p-name"><?php echo esc_html( $a ? $a : __( 'Someone', 'jardin' ) ); ?></span></a>
+					<a class="jardin-wm__author" rel="ugc" href="<?php echo esc_url( $u ); ?>"><span class="p-name"><?php echo esc_html( $a ? $a : __( 'Someone', 'jardin-theme' ) ); ?></span></a>
 				</footer>
 				<div class="jardin-wm__excerpt e-content has-xs-font-size"><?php echo $ex; // phpcs:ignore WordPress.Security.EscapeOutput -- esc_html above. ?></div>
 			</article>

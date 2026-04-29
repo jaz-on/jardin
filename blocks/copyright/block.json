@@ -6,7 +6,7 @@
 	"category": "widgets",
 	"icon": "copyright",
 	"description": "Site name and current year.",
-	"textdomain": "jardin",
+	"textdomain": "jardin-theme",
 	"supports": {
 		"html": false,
 		"alignment": true

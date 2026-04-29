@@ -2,7 +2,7 @@
  * Feed filters: home (mixed hub), journal hub links, notes archive, events archive.
  * Single init per section — no double-binding (build marker: 2026-04-29-feed-v3).
  *
- * @package Jardin
+ * @package Jardin_Theme
  */
 (function () {
 	'use strict';

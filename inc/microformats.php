@@ -2,8 +2,7 @@
 /**
  * Heuristic microformat classes on public singles (h-entry, h-event, h-review) — jardin-docs integration/.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

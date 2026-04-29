@@ -5,10 +5,9 @@
  * Categories: text
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 ?>
 <!-- wp:paragraph -->
-<p><?php echo esc_html__( 'No journal items yet.', 'jardin' ); ?></p>
+<p><?php echo esc_html__( 'No journal items yet.', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->

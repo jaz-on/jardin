@@ -6,8 +6,7 @@
  * Description: Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome).
  * Inserter: no
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -27,7 +26,7 @@ if ( function_exists( 'pll_the_languages' ) ) {
 				esc_html( strtoupper( $lang['slug'] ) )
 			);
 		}
-		$lang_switch = '<div class="lang-switch" role="group" aria-label="' . esc_attr__( 'Langue', 'jardin' ) . '">' . $buttons . '</div>';
+		$lang_switch = '<div class="lang-switch" role="group" aria-label="' . esc_attr__( 'Langue', 'jardin-theme' ) . '">' . $buttons . '</div>';
 	}
 }
 
@@ -35,7 +34,7 @@ $svg_burger = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" strok
 
 ?>
 <!-- wp:html -->
-<div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Utilitaires du site', 'jardin' ); ?>">
+<div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Utilitaires du site', 'jardin-theme' ); ?>">
 
 	<?php if ( '' !== $lang_switch ) : ?>
 	<div class="toolbar-lang">
@@ -46,7 +45,7 @@ $svg_burger = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" strok
 	<button class="icon-btn burger"
 	        type="button"
 	        id="header-burger-proxy"
-	        aria-label="<?php echo esc_attr__( 'Menu', 'jardin' ); ?>"
+	        aria-label="<?php echo esc_attr__( 'Menu', 'jardin-theme' ); ?>"
 	        aria-expanded="false"
 	><?php echo $svg_burger; // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 

@@ -2,8 +2,7 @@
 /**
  * Register theme-owned dynamic blocks (no shortcode wrappers).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 

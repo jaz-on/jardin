@@ -2,8 +2,7 @@
 /**
  * POSSE, webmention, and OpenGraph glue for custom CPTs (plugins may be inactive — filters are harmless no-ops).
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -45,7 +44,7 @@ function jardin_mastodon_status( $text, $post ) {
 	if ( ! is_object_in_term( (int) $post->ID, 'category', 'now-updates' ) ) {
 		return $text;
 	}
-	$prefix = '[' . get_bloginfo( 'name' ) . ' — ' . _x( 'now', 'short label for the now-updates format', 'jardin' ) . "] \n\n";
+	$prefix = '[' . get_bloginfo( 'name' ) . ' — ' . _x( 'now', 'short label for the now-updates format', 'jardin-theme' ) . "] \n\n";
 	/**
 	 * Filter: jardin_mastodon_now_update_prefix
 	 */

@@ -8,8 +8,7 @@
  *
  * Usage: place [jardin_styleguide] in the /styleguide page content.
  *
- * @package Jardin
- */
+ * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -181,7 +180,7 @@ function jardin_sg_section_typography( array $theme_json ): void {
 			$var = sprintf( 'var(--wp--preset--font-family--%s)', $family['slug'] );
 			printf(
 				'<div class="sg-typo-sample" style="font-family:%s">'
-				. '<p class="sg-typo-specimen">Aa Bb Cc 123 — « Jardin »</p>'
+				. '<p class="sg-typo-specimen">Aa Bb Cc 123 — « jardin-theme »</p>'
 				. '<code>%s</code> <span class="sg-typo-meta">%s</span>'
 				. '</div>',
 				esc_attr( $family['fontFamily'] ),

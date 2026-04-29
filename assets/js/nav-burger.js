@@ -1,7 +1,7 @@
 /**
  * Header mobile menu toggle (<=768px).
  *
- * @package Jardin
+ * @package Jardin_Theme
  */
 (function () {
 	'use strict';
