@@ -1461,6 +1461,12 @@ body.admin-bar .site-header-shell {
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: var(--wp--preset--font-size--xs);
 	opacity: var(--wp--custom--opacity--muted, 0.85);
+	display: inline-block;
+	min-width: 1.5ch;
+	text-align: right;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+	vertical-align: middle;
 }
 
 .events-upcoming .what .entry-title {
