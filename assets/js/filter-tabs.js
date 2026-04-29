@@ -207,6 +207,21 @@
 		});
 	}
 
+	function formatDateRangeFr(startDate, endDate) {
+		var start = formatDateFr(startDate);
+		var end = formatDateFr(endDate);
+		if (!start && !end) {
+			return '';
+		}
+		if (!start) {
+			return end;
+		}
+		if (!end || end === start) {
+			return start;
+		}
+		return start + ' - ' + end;
+	}
+
 	function hydrateHomeIrlRows() {
 		var rows = Array.prototype.slice.call(document.querySelectorAll('.events-upcoming .event-row'));
 		if (!rows.length) {
@@ -230,7 +245,7 @@
 			return;
 		}
 
-		fetch('/wp-json/wp/v2/event?per_page=100&_fields=id,date,meta.event_date,meta.event_location', {
+		fetch('/wp-json/wp/v2/event?per_page=100&_fields=id,event_start,event_end,event_location', {
 			credentials: 'same-origin'
 		})
 			.then(function (res) {
@@ -248,15 +263,19 @@
 						when.className = 'entry-when';
 						row.insertBefore(when, row.firstChild);
 					}
-					var eventDate = item && item.meta && item.meta.event_date ? item.meta.event_date : '';
-					when.textContent = formatDateFr(eventDate || item.date);
+					var start = item && item.event_start ? item.event_start : '';
+					var end = item && item.event_end ? item.event_end : '';
+					var range = formatDateRangeFr(start, end);
+					if (range) {
+						when.textContent = range;
+					}
 
 					var where = row.querySelector('.what');
 					if (!where) {
 						return;
 					}
 					var loc = where.querySelector('.entry-loc');
-					var eventLoc = item && item.meta && item.meta.event_location ? String(item.meta.event_location).trim() : '';
+					var eventLoc = item && item.event_location ? String(item.event_location).trim() : '';
 					if (eventLoc) {
 						if (!loc) {
 							loc = document.createElement('span');
