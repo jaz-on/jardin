@@ -3,7 +3,7 @@
  * Title: Placeholder — Beers
  * Slug: jardin/placeholder-beers
  * Categories: text
- * Description: Temporary notice until beer-journal blocks are wired.
+ * Description: Temporary notice until Jardin Beer blocks are wired.
  *
  * @package Jardin
  */

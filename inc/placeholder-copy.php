@@ -18,7 +18,7 @@ function jardin_get_placeholder_message( string $type ): string {
 		case 'now':
 			return __( 'Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content.', 'jardin' );
 		case 'beers':
-			return __( 'Recent check-ins and beer grids from beer-journal will appear here in a later phase. Use the page content for any introductory copy.', 'jardin' );
+			return __( 'Recent check-ins and beer grids from Jardin Beer will appear here in a later phase. Use the page content for any introductory copy.', 'jardin' );
 		case 'blogroll':
 			return __( 'The blogroll grid powered by feed-journal will appear here in a later phase. Use the page content for notes in the meantime.', 'jardin' );
 		default:

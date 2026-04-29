@@ -156,7 +156,7 @@ msgid "Live “now” summary blocks (for example Last.fm) will load here once t
 msgstr ""
 
 #: inc/placeholder-copy.php:21
-msgid "Recent check-ins and beer grids from beer-journal will appear here in a later phase. Use the page content for any introductory copy."
+msgid "Recent check-ins and beer grids from Jardin Beer will appear here in a later phase. Use the page content for any introductory copy."
 msgstr ""
 
 #: inc/placeholder-copy.php:23
@@ -284,7 +284,7 @@ msgstr ""
 
 #: patterns/placeholder-beers.php
 msgctxt "Pattern description"
-msgid "Temporary notice until beer-journal blocks are wired."
+msgid "Temporary notice until Jardin Beer blocks are wired."
 msgstr ""
 
 #: patterns/placeholder-blogroll.php
