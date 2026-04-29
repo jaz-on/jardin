@@ -545,21 +545,18 @@ a.events-upcoming-link:hover {
 	margin-top: 0;
 }
 
-.events-upcoming .event-meta-inline {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	gap: 0;
+.events-upcoming .entry-meta-inline {
+	display: block;
 	font-size: var(--wp--preset--font-size--sm);
 	color: var(--wp--preset--color--text-muted);
+	margin-top: 0.15rem;
 }
 
-.events-upcoming .event-meta-inline .entry-when {
+.events-upcoming .entry-meta-inline .entry-when {
 	color: var(--wp--preset--color--text-muted);
 }
 
-.events-upcoming .event-meta-inline .entry-loc::before {
-	content: " - ";
+.events-upcoming .entry-meta-inline .entry-meta-sep {
 	opacity: 0.9;
 }
 

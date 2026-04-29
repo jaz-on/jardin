@@ -29,12 +29,7 @@
 				<!-- wp:group {"className":"what","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|1"}}} -->
 				<div class="wp-block-group what">
 					<!-- wp:post-title {"isLink":true,"level":0,"className":"entry-title"} /-->
-					<!-- wp:group {"className":"event-meta-inline","layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
-					<div class="wp-block-group event-meta-inline">
-						<!-- wp:jardin-events/event-inline-date /-->
-						<!-- wp:jardin-events/event-inline-location /-->
-					</div>
-					<!-- /wp:group -->
+					<!-- wp:jardin-events/event-inline-meta /-->
 				</div>
 				<!-- /wp:group -->
 			</div>
