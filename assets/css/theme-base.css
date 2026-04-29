@@ -467,7 +467,7 @@ a.section-link:hover {
 .events-upcoming .wp-block-heading {
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	align-items: baseline;
 	gap: var(--wp--preset--spacing--2);
 	margin: 0 0 var(--wp--preset--spacing--2);
@@ -476,6 +476,10 @@ a.section-link:hover {
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	font-weight: 500;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.events-upcoming-title {
 	color: var(--wp--preset--color--text-faint);
 }
 
@@ -493,6 +497,7 @@ a.events-upcoming-link {
 
 .events-upcoming-link:hover,
 a.events-upcoming-link:hover {
+	color: var(--wp--preset--color--accent);
 	opacity: 1;
 }
 
@@ -503,6 +508,43 @@ a.events-upcoming-link:hover {
 	align-items: baseline;
 	padding: var(--wp--preset--spacing--3) 0;
 	border-bottom: 1px dashed var(--wp--preset--color--border);
+}
+
+.events-upcoming .entry-when {
+	color: var(--wp--preset--color--accent);
+	font-variant-numeric: tabular-nums;
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 500;
+}
+
+.events-upcoming .what {
+	font-size: var(--wp--preset--font-size--base);
+}
+
+.events-upcoming .what .wp-block-post-title,
+.events-upcoming .what .entry-title {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--base);
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.events-upcoming .what .wp-block-post-title a,
+.events-upcoming .what .entry-title a {
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+}
+
+.events-upcoming .what .wp-block-post-title a:is(:hover, :focus-visible),
+.events-upcoming .what .entry-title a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.events-upcoming .what .entry-loc {
+	color: var(--wp--preset--color--text-muted);
+	font-size: var(--wp--preset--font-size--sm);
+	display: block;
+	margin-top: 0.15rem;
 }
 
 .event-row + .event-row {
@@ -1597,6 +1639,11 @@ body.admin-bar .site-header-shell {
 		flex-direction: column;
 		align-items: stretch;
 		gap: var(--wp--preset--spacing--3);
+	}
+
+	.events-upcoming h3,
+	.events-upcoming .wp-block-heading {
+		flex-wrap: wrap;
 	}
 
 	.entries.is-events .event-archive-row {

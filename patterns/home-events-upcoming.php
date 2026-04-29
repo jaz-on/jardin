@@ -14,18 +14,13 @@
 <div class="wp-block-group events-upcoming">
 
 	<!-- wp:heading {"level":3} -->
-	<h3><?php
-		echo wp_kses(
-			sprintf(
-			/* translators: %s: link to /evenements/ */
-			__( 'Où prendre un café IRL&#160;? <a href="%s" class="events-upcoming-link">/evenements →</a>', 'jardin' ),
-				esc_url( home_url( '/evenements/' ) )
-			),
-			array( 'a' => array( 'href' => true, 'class' => true ) )
-		);
-	?></h3>
+	<h3>
+		<span class="events-upcoming-title"><?php esc_html_e( 'IRL', 'jardin' ); ?></span>
+		<a href="<?php echo esc_url( home_url( '/evenements/' ) ); ?>" class="events-upcoming-link"><?php esc_html_e( '/evenements →', 'jardin' ); ?></a>
+	</h3>
 	<!-- /wp:heading -->
 
+	<?php if ( function_exists( 'jardin_events_get_post_type' ) && post_type_exists( jardin_events_get_post_type() ) ) : ?>
 	<!-- wp:query {"queryId":20,"namespace":"jardin/events-upcoming","query":{"perPage":5,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"meta_value","metaKey":"event_date","sticky":"","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default"}} -->
@@ -45,9 +40,10 @@
 		<!-- /wp:query-no-results -->
 	</div>
 	<!-- /wp:query -->
+	<?php endif; ?>
 
 	<!-- wp:paragraph {"className":"events-upcoming-footer","fontSize":"sm","textColor":"text-muted"} -->
-	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( "Sinon, j'habite Cognac, fais-moi signe si tu passes dans la r\u{00e9}gion\u{00a0}! ✌️", 'jardin' ); ?></p>
+	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️", 'jardin' ); ?></p>
 	<!-- /wp:paragraph -->
 
 </div>
