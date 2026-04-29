@@ -1,6 +1,6 @@
 <?php
 /**
- * jardin/post-engage — syndication (syndication-links) + webmention comments.
+ * jardin-theme/post-engage — syndication (syndication-links) + webmention comments.
  *
  * @package Jardin_Theme
  *
@@ -75,10 +75,10 @@ if ( ! $has_cards && ! $has_wm && ! $editor_hint ) {
 
 ob_start();
 ?>
-<section class="jardin-post-engage" data-post-engage>
+<section class="jardin-theme-post-engage" data-post-engage>
 	<?php if ( $has_cards ) : ?>
-	<header class="jardin-post-engage__head">
-		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'On the fediverse', 'jardin-theme' ); ?></h2>
+	<header class="jardin-theme-post-engage__head">
+		<h2 class="jardin-theme-post-engage__title has-sm-font-size"><?php echo esc_html__( 'On the fediverse', 'jardin-theme' ); ?></h2>
 	</header>
 		<?php
 		$order = array( 'bluesky' => 'bsky', 'mastodon' => 'masto' );
@@ -91,30 +91,30 @@ ob_start();
 			$btn  = $is_b
 				? _x( 'View on Bluesky', 'syndication card CTA', 'jardin-theme' )
 				: _x( 'View on Mastodon', 'syndication card CTA', 'jardin-theme' );
-			$cls  = 'jardin-post-engage__card ' . ( $is_b ? 'is-bluesky' : 'is-mastodon' );
+			$cls  = 'jardin-theme-post-engage__card ' . ( $is_b ? 'is-bluesky' : 'is-mastodon' );
 			?>
 	<article class="<?php echo esc_attr( $cls ); ?>" data-brand="<?php echo esc_attr( (string) $brand ); ?>">
-		<p class="jardin-post-engage__label has-xs-font-size"><?php echo esc_html( (string) ( $row['label'] ?? '' ) ); ?></p>
-		<a class="jardin-post-engage__cta" rel="external noopener noreferrer" href="<?php echo esc_url( (string) $row['url'] ); ?>"><?php echo esc_html( (string) $btn ); ?> <span aria-hidden="true" class="jardin-post-engage__ext">↗</span></a>
+		<p class="jardin-theme-post-engage__label has-xs-font-size"><?php echo esc_html( (string) ( $row['label'] ?? '' ) ); ?></p>
+		<a class="jardin-theme-post-engage__cta" rel="external noopener noreferrer" href="<?php echo esc_url( (string) $row['url'] ); ?>"><?php echo esc_html( (string) $btn ); ?> <span aria-hidden="true" class="jardin-theme-post-engage__ext">↗</span></a>
 	</article>
 			<?php
 		}
 		?>
 	<?php elseif ( $editor_hint ) : ?>
-	<p class="jardin-post-engage__dev has-xs-font-size has-text-muted-color"><?php esc_html_e( 'No Bluesky or Mastodon syndication link was auto-detected on this post.', 'jardin-theme' ); ?></p>
+	<p class="jardin-theme-post-engage__dev has-xs-font-size has-text-muted-color"><?php esc_html_e( 'No Bluesky or Mastodon syndication link was auto-detected on this post.', 'jardin-theme' ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( $has_wm ) : ?>
-	<header class="jardin-post-engage__head jardin-post-engage__head--replies">
+	<header class="jardin-theme-post-engage__head jardin-theme-post-engage__head--replies">
 		<?php
 		$count = count( $wm );
 		/* translators: %d: number of webmention comments */
 		$line = (string) sprintf( _n( '%d mention or reply', '%d mentions and replies', $count, 'jardin-theme' ), (int) $count );
 		?>
-		<h2 class="jardin-post-engage__title has-sm-font-size"><?php echo esc_html__( 'Mentions and replies', 'jardin-theme' ); ?></h2>
-		<p class="jardin-post-engage__stats has-xs-font-size has-text-muted-color"><?php echo esc_html( $line ); ?></p>
+		<h2 class="jardin-theme-post-engage__title has-sm-font-size"><?php echo esc_html__( 'Mentions and replies', 'jardin-theme' ); ?></h2>
+		<p class="jardin-theme-post-engage__stats has-xs-font-size has-text-muted-color"><?php echo esc_html( $line ); ?></p>
 	</header>
-	<ol class="jardin-wm__list" role="list">
+	<ol class="jardin-theme-wm__list" role="list">
 		<?php
 		foreach ( $wm as $c ) :
 			if ( ! is_object( $c ) || ! isset( $c->comment_ID, $c->comment_content ) ) {
@@ -126,12 +126,12 @@ ob_start();
 			$u   = ( $u && filter_var( $u, FILTER_VALIDATE_URL ) ) ? $u : '#';
 			$ex  = esc_html( wp_trim_words( wp_strip_all_tags( (string) $c->comment_content ), 36, '…' ) );
 			?>
-		<li class="jardin-wm__li">
+		<li class="jardin-theme-wm__li">
 			<article class="h-cite" id="webmention-<?php echo (int) $c->comment_ID; ?>">
-				<footer class="jardin-wm__meta has-xs-font-size">
-					<a class="jardin-wm__author" rel="ugc" href="<?php echo esc_url( $u ); ?>"><span class="p-name"><?php echo esc_html( $a ? $a : __( 'Someone', 'jardin-theme' ) ); ?></span></a>
+				<footer class="jardin-theme-wm__meta has-xs-font-size">
+					<a class="jardin-theme-wm__author" rel="ugc" href="<?php echo esc_url( $u ); ?>"><span class="p-name"><?php echo esc_html( $a ? $a : __( 'Someone', 'jardin-theme' ) ); ?></span></a>
 				</footer>
-				<div class="jardin-wm__excerpt e-content has-xs-font-size"><?php echo $ex; // phpcs:ignore WordPress.Security.EscapeOutput -- esc_html above. ?></div>
+				<div class="jardin-theme-wm__excerpt e-content has-xs-font-size"><?php echo $ex; // phpcs:ignore WordPress.Security.EscapeOutput -- esc_html above. ?></div>
 			</article>
 		</li>
 		<?php endforeach; ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Post meta row
- * Slug: jardin/post-meta-bar
+ * Slug: jardin-theme/post-meta-bar
  * Categories: text
  * Description: Published date, modified date, author, categories, and tags in one row. Insert in single templates or per-post in the editor.
  *

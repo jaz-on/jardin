@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Home — Bio
- * Slug: jardin/home-bio
+ * Slug: jardin-theme/home-bio
  * Categories: text
  * Description: Introductory bio paragraph for the home page.
  * Inserter: no

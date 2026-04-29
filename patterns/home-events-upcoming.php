@@ -1,9 +1,9 @@
 <?php
 /**
  * Title: Home — Events upcoming
- * Slug: jardin/home-events-upcoming
+ * Slug: jardin-theme/home-events-upcoming
  * Categories: query
- * Description: Upcoming events widget for the home page. Uses jardin/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found.
+ * Description: Upcoming events widget for the home page. Uses jardin-theme/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found.
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -20,7 +20,7 @@
 	<!-- /wp:heading -->
 
 	<?php if ( function_exists( 'jardin_events_get_post_type' ) && post_type_exists( jardin_events_get_post_type() ) ) : ?>
-	<!-- wp:query {"queryId":20,"namespace":"jardin/events-upcoming","query":{"perPage":5,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"meta_value","metaKey":"event_date","sticky":"","inherit":false}} -->
+	<!-- wp:query {"queryId":20,"namespace":"jardin-theme/events-upcoming","query":{"perPage":5,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"meta_value","metaKey":"event_date","sticky":"","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default"}} -->
 			<!-- wp:group {"className":"event-row","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->

@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 function jardin_render_toolbar_chrome() {
 	$theme_toggle_html = '';
 	if ( function_exists( 'do_blocks' ) ) {
-		$theme_toggle_html = do_blocks( '<!-- wp:jardin/theme-toggle /-->' );
+		$theme_toggle_html = do_blocks( '<!-- wp:jardin-theme/theme-toggle /-->' );
 	}
 	if ( '' === trim( wp_strip_all_tags( (string) $theme_toggle_html ) ) && function_exists( 'jardin_get_theme_toggle_markup' ) ) {
 		$theme_toggle_html = jardin_get_theme_toggle_markup();

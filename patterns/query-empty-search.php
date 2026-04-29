@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Search query — empty state
- * Slug: jardin/query-empty-search
+ * Slug: jardin-theme/query-empty-search
  * Categories: text
  * Inserter: no
  *

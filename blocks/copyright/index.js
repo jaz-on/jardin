@@ -3,7 +3,7 @@
 	const { useBlockProps } = wp.blockEditor;
 	const { createElement: el } = wp.element;
 
-	registerBlockType( 'jardin/copyright', {
+	registerBlockType( 'jardin-theme/copyright', {
 		apiVersion: 3,
 		edit() {
 			return el(

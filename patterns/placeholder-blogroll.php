@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Placeholder — Blogroll
- * Slug: jardin/placeholder-blogroll
+ * Slug: jardin-theme/placeholder-blogroll
  * Categories: text
  * Description: Temporary notice until jardin-feed blogroll grid is wired.
  *

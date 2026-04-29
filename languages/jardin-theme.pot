@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: jardin-theme 0.1.1\n"
+"Project-Id-Version: jardin-theme 0.1.2\n"
 "Report-Msgid-Bugs-To: https://github.com/jaz-on/jardin-theme/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-29T20:45:03+00:00\n"
+"POT-Creation-Date: 2026-04-29T20:55:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin-theme\n"
@@ -35,15 +35,15 @@ msgid "https://jasonrouet.com"
 msgstr ""
 
 #. translators: 1: four-digit year, 2: site name
-#: blocks/copyright/render.php:13
+#: blocks/copyright/render.php:12
 msgid "© %1$s %2$s"
 msgstr ""
 
-#: blocks/event-link-banner/render.php:32
+#: blocks/event-link-banner/render.php:31
 msgid "Linked event"
 msgstr ""
 
-#: blocks/event-link-banner/render.php:33
+#: blocks/event-link-banner/render.php:32
 msgid "This article is the recap of an event"
 msgstr ""
 
@@ -80,301 +80,301 @@ msgstr ""
 msgid "Someone"
 msgstr ""
 
-#: inc/activity-hub.php:66
-#: patterns/home-feed.php:40
+#: inc/activity-hub.php:65
+#: patterns/home-feed.php:39
 msgid "activité"
 msgstr ""
 
-#: inc/activity-hub.php:66
+#: inc/activity-hub.php:65
 msgid "activity"
 msgstr ""
 
-#: inc/block-styles.php:15
+#: inc/block-styles.php:14
 msgid "Lead"
 msgstr ""
 
-#: inc/block-styles.php:16
+#: inc/block-styles.php:15
 msgid "Meta text small"
 msgstr ""
 
-#: inc/block-styles.php:17
+#: inc/block-styles.php:16
 msgid "Meta text base"
 msgstr ""
 
-#: inc/block-styles.php:18
+#: inc/block-styles.php:17
 msgid "Mono label"
 msgstr ""
 
-#: inc/block-styles.php:19
+#: inc/block-styles.php:18
 msgid "Stat label"
 msgstr ""
 
-#: inc/block-styles.php:20
+#: inc/block-styles.php:19
 msgid "Bare list"
 msgstr ""
 
-#: inc/block-styles.php:21
+#: inc/block-styles.php:20
 msgid "Inline list"
 msgstr ""
 
-#: inc/block-styles.php:22
+#: inc/block-styles.php:21
 msgid "No bullets"
 msgstr ""
 
-#: inc/block-styles.php:23
+#: inc/block-styles.php:22
 msgid "Bullet row"
 msgstr ""
 
-#: inc/block-styles.php:24
+#: inc/block-styles.php:23
 msgid "Bullet row solid"
 msgstr ""
 
-#: inc/block-styles.php:25
+#: inc/block-styles.php:24
 msgid "Pull quote"
 msgstr ""
 
-#: inc/block-styles.php:26
+#: inc/block-styles.php:25
 msgid "Quote card"
 msgstr ""
 
-#: inc/block-styles.php:27
+#: inc/block-styles.php:26
 msgid "Technical note"
 msgstr ""
 
-#: inc/block-styles.php:28
+#: inc/block-styles.php:27
 msgid "Portrait 3:4"
 msgstr ""
 
-#: inc/block-styles.php:29
+#: inc/block-styles.php:28
 msgid "Square"
 msgstr ""
 
-#: inc/block-styles.php:30
+#: inc/block-styles.php:29
 msgid "Inline icon"
 msgstr ""
 
-#: inc/block-styles.php:31
+#: inc/block-styles.php:30
 msgid "Feature hero"
 msgstr ""
 
-#: inc/block-styles.php:32
+#: inc/block-styles.php:31
 msgid "Callout soft"
 msgstr ""
 
-#: inc/block-styles.php:33
+#: inc/block-styles.php:32
 msgid "Callout info"
 msgstr ""
 
-#: inc/block-styles.php:34
+#: inc/block-styles.php:33
 msgid "Callout compact"
 msgstr ""
 
-#: inc/block-styles.php:35
+#: inc/block-styles.php:34
 msgid "Card"
 msgstr ""
 
-#: inc/block-styles.php:36
+#: inc/block-styles.php:35
 msgid "Card highlight"
 msgstr ""
 
-#: inc/block-styles.php:37
+#: inc/block-styles.php:36
 msgid "Carousel snap"
 msgstr ""
 
-#: inc/block-styles.php:38
+#: inc/block-styles.php:37
 msgid "Avatar circle"
 msgstr ""
 
-#: inc/block-styles.php:39
+#: inc/block-styles.php:38
 msgid "Caption"
 msgstr ""
 
-#: inc/block-styles.php:40
+#: inc/block-styles.php:39
 msgid "Microblog stat"
 msgstr ""
 
-#: inc/block-styles.php:41
+#: inc/block-styles.php:40
 msgid "Single footer zone"
 msgstr ""
 
-#: inc/block-styles.php:42
+#: inc/block-styles.php:41
 msgid "Asymmetric 30/70"
 msgstr ""
 
-#: inc/block-styles.php:43
+#: inc/block-styles.php:42
 msgid "Three columns"
 msgstr ""
 
-#: inc/block-styles.php:44
+#: inc/block-styles.php:43
 msgid "Dotted"
 msgstr ""
 
-#: inc/block-styles.php:45
+#: inc/block-styles.php:44
 msgid "Faint dashes"
 msgstr ""
 
-#: inc/block-styles.php:46
+#: inc/block-styles.php:45
 msgid "Ghost"
 msgstr ""
 
-#: inc/block-styles.php:47
+#: inc/block-styles.php:46
 msgid "Coffee toggle"
 msgstr ""
 
-#: inc/block-styles.php:48
+#: inc/block-styles.php:47
 msgid "Mono uppercase"
 msgstr ""
 
-#: inc/block-styles.php:49
+#: inc/block-styles.php:48
 msgid "Tabs"
 msgstr ""
 
-#: inc/journal-hub.php:389
-#: patterns/journal-hub-top.php:22
+#: inc/journal-hub.php:388
+#: patterns/journal-hub-top.php:21
 msgid "Filtrer le journal"
 msgstr ""
 
-#: inc/journal-hub.php:395
-#: patterns/activity-feed-header.php:13
-#: patterns/home-feed.php:35
+#: inc/journal-hub.php:394
+#: patterns/activity-feed-header.php:12
+#: patterns/home-feed.php:34
 msgid "tous"
 msgstr ""
 
-#: inc/journal-hub.php:396
-#: patterns/home-feed.php:37
+#: inc/journal-hub.php:395
+#: patterns/home-feed.php:36
 msgid "articles"
 msgstr ""
 
-#: inc/journal-hub.php:398
-#: patterns/home-feed.php:43
+#: inc/journal-hub.php:397
+#: patterns/home-feed.php:42
 msgid "événements"
 msgstr ""
 
-#: inc/placeholder-copy.php:19
+#: inc/placeholder-copy.php:18
 msgid "Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content."
 msgstr ""
 
-#: inc/placeholder-copy.php:21
+#: inc/placeholder-copy.php:20
 msgid "Recent check-ins and beer grids from jardin-beer will appear here in a later phase. Use the page content for any introductory copy."
 msgstr ""
 
-#: inc/placeholder-copy.php:23
+#: inc/placeholder-copy.php:22
 msgid "The blogroll grid powered by jardin-feed will appear here in a later phase. Use the page content for notes in the meantime."
 msgstr ""
 
-#: inc/placeholder-copy.php:25
+#: inc/placeholder-copy.php:24
 msgid "Content for this section will appear here once the related features are connected."
 msgstr ""
 
-#: inc/search-block-i18n.php:23
-#: inc/search-block-i18n.php:25
+#: inc/search-block-i18n.php:22
+#: inc/search-block-i18n.php:24
 msgid "Search"
 msgstr ""
 
-#: inc/search-block-i18n.php:24
+#: inc/search-block-i18n.php:23
 msgid "Search…"
 msgstr ""
 
-#: inc/setup.php:31
+#: inc/setup.php:30
 msgid "Skip to main content"
 msgstr ""
 
-#: inc/setup.php:43
+#: inc/setup.php:42
 msgid "Rosé Pine"
 msgstr ""
 
-#: inc/setup.php:44
+#: inc/setup.php:43
 msgid "Soho minimaliste"
 msgstr ""
 
-#: inc/setup.php:46
+#: inc/setup.php:45
 msgid "Dawn"
 msgstr ""
 
-#: inc/setup.php:47
+#: inc/setup.php:46
 msgid "Moon"
 msgstr ""
 
-#: inc/setup.php:48
+#: inc/setup.php:47
 msgid "Main"
 msgstr ""
 
-#: inc/setup.php:52
+#: inc/setup.php:51
 msgid "Catppuccin"
 msgstr ""
 
-#: inc/setup.php:53
+#: inc/setup.php:52
 msgid "Pastel café"
 msgstr ""
 
-#: inc/setup.php:55
+#: inc/setup.php:54
 msgid "Latte"
 msgstr ""
 
-#: inc/setup.php:56
+#: inc/setup.php:55
 msgid "Frappé"
 msgstr ""
 
-#: inc/setup.php:57
+#: inc/setup.php:56
 msgid "Macchiato"
 msgstr ""
 
-#: inc/setup.php:61
+#: inc/setup.php:60
 msgid "Brewery"
 msgstr ""
 
-#: inc/setup.php:62
+#: inc/setup.php:61
 msgid "Bières artisanales"
 msgstr ""
 
-#: inc/setup.php:64
+#: inc/setup.php:63
 msgid "Pale ale"
 msgstr ""
 
-#: inc/setup.php:65
+#: inc/setup.php:64
 msgid "IPA"
 msgstr ""
 
-#: inc/setup.php:66
+#: inc/setup.php:65
 msgid "Stout"
 msgstr ""
 
-#: inc/setup.php:74
+#: inc/setup.php:73
 msgid "Change color theme"
 msgstr ""
 
-#: inc/setup.php:79
+#: inc/setup.php:78
 msgid "Sélection du thème"
 msgstr ""
 
-#: inc/setup.php:81
+#: inc/setup.php:80
 msgid "Thème"
 msgstr ""
 
-#: inc/setup.php:82
+#: inc/setup.php:81
 msgid "Fermer"
 msgstr ""
 
-#: inc/setup.php:110
+#: inc/setup.php:109
 msgid "Suivre le système"
 msgstr ""
 
-#: inc/syndication-config.php:48
+#: inc/syndication-config.php:47
 msgctxt "short label for the now-updates format"
 msgid "now"
 msgstr ""
 
-#: inc/toolbar-chrome.php:37
+#: inc/toolbar-chrome.php:36
 msgid "Rechercher"
 msgstr ""
 
+#: inc/toolbar-chrome.php:44
 #: inc/toolbar-chrome.php:45
-#: inc/toolbar-chrome.php:46
 msgid "Musique en cours"
 msgstr ""
 
+#: inc/toolbar-chrome.php:51
 #: inc/toolbar-chrome.php:52
-#: inc/toolbar-chrome.php:53
 msgid "Me soutenir"
 msgstr ""
 
@@ -383,11 +383,11 @@ msgctxt "Pattern title"
 msgid "404 — title and message"
 msgstr ""
 
-#: patterns/404-intro.php:13
+#: patterns/404-intro.php:12
 msgid "Page not found"
 msgstr ""
 
-#: patterns/404-intro.php:17
+#: patterns/404-intro.php:16
 msgid "The page you are looking for does not exist or has moved."
 msgstr ""
 
@@ -401,48 +401,48 @@ msgctxt "Pattern description"
 msgid "note_kind filter pills for the iwcpt_note archive (hub /activite/ or /activity/)."
 msgstr ""
 
-#: patterns/activity-feed-header.php:14
+#: patterns/activity-feed-header.php:13
 msgid "bookmark"
 msgstr ""
 
-#: patterns/activity-feed-header.php:15
+#: patterns/activity-feed-header.php:14
 msgid "quote"
 msgstr ""
 
-#: patterns/activity-feed-header.php:16
+#: patterns/activity-feed-header.php:15
 msgid "listen"
 msgstr ""
 
-#: patterns/activity-feed-header.php:17
-#: patterns/listen-single-header.php:84
+#: patterns/activity-feed-header.php:16
+#: patterns/listen-single-header.php:83
 msgid "jam"
 msgstr ""
 
-#: patterns/activity-feed-header.php:18
+#: patterns/activity-feed-header.php:17
 msgid "tasting"
 msgstr ""
 
-#: patterns/activity-feed-header.php:19
+#: patterns/activity-feed-header.php:18
 msgid "review"
 msgstr ""
 
-#: patterns/activity-feed-header.php:20
+#: patterns/activity-feed-header.php:19
 msgid "reply"
 msgstr ""
 
-#: patterns/activity-feed-header.php:21
+#: patterns/activity-feed-header.php:20
 msgid "til"
 msgstr ""
 
-#: patterns/activity-feed-header.php:22
+#: patterns/activity-feed-header.php:21
 msgid "note"
 msgstr ""
 
-#: patterns/activity-feed-header.php:60
+#: patterns/activity-feed-header.php:59
 msgid "Filtrer l’activité"
 msgstr ""
 
-#: patterns/activity-feed-header.php:61
+#: patterns/activity-feed-header.php:60
 msgid "Filtrer par type d’entrée"
 msgstr ""
 
@@ -461,7 +461,7 @@ msgctxt "Pattern title"
 msgid "Footer heading — Explore"
 msgstr ""
 
-#: patterns/footer-heading-explore.php:13
+#: patterns/footer-heading-explore.php:12
 msgid "Explore"
 msgstr ""
 
@@ -470,7 +470,7 @@ msgctxt "Pattern title"
 msgid "Footer heading — Site"
 msgstr ""
 
-#: patterns/footer-heading-site.php:13
+#: patterns/footer-heading-site.php:12
 msgid "Site"
 msgstr ""
 
@@ -484,43 +484,43 @@ msgctxt "Pattern description"
 msgid "Grille mockup (.cols), liens avec home_url, webring IndieWeb. Voir mockup.html ~13315."
 msgstr ""
 
-#: patterns/footer-main.php:29
+#: patterns/footer-main.php:28
 msgid "Explorer"
 msgstr ""
 
-#: patterns/footer-main.php:39
+#: patterns/footer-main.php:38
 msgid "Explorer (suite)"
 msgstr ""
 
-#: patterns/footer-main.php:48
+#: patterns/footer-main.php:47
 msgid "Le site"
 msgstr ""
 
-#: patterns/footer-main.php:59
+#: patterns/footer-main.php:58
 msgid "Me joindre"
 msgstr ""
 
-#: patterns/footer-main.php:63
+#: patterns/footer-main.php:62
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:64
+#: patterns/footer-main.php:63
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:65
+#: patterns/footer-main.php:64
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:72
+#: patterns/footer-main.php:71
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:75
+#: patterns/footer-main.php:74
 msgid "← site précédent"
 msgstr ""
 
-#: patterns/footer-main.php:77
+#: patterns/footer-main.php:76
 msgid "site suivant →"
 msgstr ""
 
@@ -531,14 +531,14 @@ msgstr ""
 
 #: patterns/header-main.php
 msgctxt "Pattern description"
-msgid "Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin/footer-main. Voir mockup.html header.site ~1005–1133."
+msgid "Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin-theme/footer-main. Voir mockup.html header.site ~1005–1133."
 msgstr ""
 
-#: patterns/header-main.php:40
+#: patterns/header-main.php:39
 msgid "Outils"
 msgstr ""
 
-#: patterns/header-main.php:41
+#: patterns/header-main.php:40
 msgid "Recherche, thème, musique et soutien"
 msgstr ""
 
@@ -553,7 +553,7 @@ msgid "Introductory bio paragraph for the home page."
 msgstr ""
 
 #. translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link
-#: patterns/home-bio.php:20
+#: patterns/home-bio.php:19
 msgid "Jason Rouet, product manager WordPress chez %1$s%2$s, président de l'asso %3$s%4$s, contributeur open‑web depuis un bon bout de temps. Ici je bidouille, je note, je raconte."
 msgstr ""
 
@@ -564,18 +564,18 @@ msgstr ""
 
 #: patterns/home-events-upcoming.php
 msgctxt "Pattern description"
-msgid "Upcoming events widget for the home page. Uses jardin/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found."
+msgid "Upcoming events widget for the home page. Uses jardin-theme/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found."
 msgstr ""
 
-#: patterns/home-events-upcoming.php:18
+#: patterns/home-events-upcoming.php:17
 msgid "IRL"
 msgstr ""
 
-#: patterns/home-events-upcoming.php:19
+#: patterns/home-events-upcoming.php:18
 msgid "/evenements →"
 msgstr ""
 
-#: patterns/home-events-upcoming.php:45
+#: patterns/home-events-upcoming.php:44
 msgid "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️"
 msgstr ""
 
@@ -590,27 +590,27 @@ msgid "Pinned projects grid (3 columns). Placeholder until CPT \"project\" is re
 msgstr ""
 
 #. translators: %s: link to /projets
-#: patterns/home-featured-projects.php:18
+#: patterns/home-featured-projects.php:17
 msgid "Projets épinglés <a href=\"%s\" class=\"section-link\">/projets →</a>"
 msgstr ""
 
-#: patterns/home-featured-projects.php:33
+#: patterns/home-featured-projects.php:32
 msgid "actif"
 msgstr ""
 
-#: patterns/home-featured-projects.php:34
+#: patterns/home-featured-projects.php:33
 msgid "Workflow de veille commentée depuis un flux RSS de favoris."
 msgstr ""
 
-#: patterns/home-featured-projects.php:44
+#: patterns/home-featured-projects.php:43
 msgid "en cours"
 msgstr ""
 
-#: patterns/home-featured-projects.php:45
+#: patterns/home-featured-projects.php:44
 msgid "Thème FSE from‑scratch minimaliste pour ce site."
 msgstr ""
 
-#: patterns/home-featured-projects.php:56
+#: patterns/home-featured-projects.php:55
 msgid "Typo française côté front, Polylang‑aware. Espaces insécables et tout le tralala."
 msgstr ""
 
@@ -625,15 +625,15 @@ msgid "Mixed journal feed: heading, client-side filter pills + ?kind= URL, journ
 msgstr ""
 
 #. translators: %s: link to /journal
-#: patterns/home-feed.php:23
+#: patterns/home-feed.php:22
 msgid "Mon flux <a href=\"%s\" class=\"section-link\">tout voir →</a>"
 msgstr ""
 
-#: patterns/home-feed.php:34
+#: patterns/home-feed.php:33
 msgid "Filtrer par type"
 msgstr ""
 
-#: patterns/home-feed.php:63
+#: patterns/home-feed.php:62
 msgid "Tout le journal →"
 msgstr ""
 
@@ -647,7 +647,7 @@ msgctxt "Pattern description"
 msgid "Intro, h2, primary ?kind= filters for /journal/."
 msgstr ""
 
-#: patterns/journal-hub-top.php:16
+#: patterns/journal-hub-top.php:15
 msgid "A mixed timeline of long posts, notes, likes, bookmarks, events, beer reviews, music jams, and TIL—newest first. Raw scrobbles and tastings without notes stay in their own views; use the filters to narrow by type."
 msgstr ""
 
@@ -662,19 +662,19 @@ msgid "Album art, track metadata, and Last.fm link for a single listen post."
 msgstr ""
 
 #. translators: 1: formatted date, 2: relative time
-#: patterns/listen-single-header.php:44
+#: patterns/listen-single-header.php:43
 msgid "%1$s · il y a %2$s"
 msgstr ""
 
-#: patterns/listen-single-header.php:74
+#: patterns/listen-single-header.php:73
 msgid "→ Last.fm"
 msgstr ""
 
-#: patterns/listen-single-header.php:77
+#: patterns/listen-single-header.php:76
 msgid "→ Spotify"
 msgstr ""
 
-#: patterns/listen-single-header.php:80
+#: patterns/listen-single-header.php:79
 msgid "→ YouTube"
 msgstr ""
 
@@ -723,7 +723,7 @@ msgctxt "Pattern title"
 msgid "Home query — empty state"
 msgstr ""
 
-#: patterns/query-empty-home.php:13
+#: patterns/query-empty-home.php:12
 msgid "No posts yet."
 msgstr ""
 
@@ -732,7 +732,7 @@ msgctxt "Pattern title"
 msgid "Journal query — empty state"
 msgstr ""
 
-#: patterns/query-empty-journal.php:13
+#: patterns/query-empty-journal.php:12
 msgid "No journal items yet."
 msgstr ""
 
@@ -741,7 +741,7 @@ msgctxt "Pattern title"
 msgid "Search query — empty state"
 msgstr ""
 
-#: patterns/query-empty-search.php:13
+#: patterns/query-empty-search.php:12
 msgid "No results found."
 msgstr ""
 
@@ -750,11 +750,11 @@ msgctxt "Pattern title"
 msgid "Single — reactions section intro"
 msgstr ""
 
-#: patterns/single-footer-intro.php:13
+#: patterns/single-footer-intro.php:12
 msgid "Reactions & discussion"
 msgstr ""
 
-#: patterns/single-footer-intro.php:17
+#: patterns/single-footer-intro.php:16
 msgid "Comments and reactions from readers appear below when enabled for this content type."
 msgstr ""
 
@@ -768,7 +768,7 @@ msgctxt "Pattern description"
 msgid "JR boxed-serif mark SVG inside .site-brand, linked to home. Matches mockup header structure."
 msgstr ""
 
-#: patterns/site-brand.php:15
+#: patterns/site-brand.php:14
 msgid "Retour à l'accueil"
 msgstr ""
 
@@ -782,15 +782,15 @@ msgctxt "Pattern description"
 msgid "Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome)."
 msgstr ""
 
-#: patterns/site-toolbar.php:30
+#: patterns/site-toolbar.php:29
 msgid "Langue"
 msgstr ""
 
-#: patterns/site-toolbar.php:38
+#: patterns/site-toolbar.php:37
 msgid "Utilitaires du site"
 msgstr ""
 
-#: patterns/site-toolbar.php:49
+#: patterns/site-toolbar.php:48
 msgid "Menu"
 msgstr ""
 

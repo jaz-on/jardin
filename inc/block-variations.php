@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function jardin_enqueue_block_variations_editor(): void {
 	wp_enqueue_script(
-		'jardin-block-variations',
+		'jardin-theme-block-variations',
 		get_template_directory_uri() . '/assets/js/block-variations.js',
 		array( 'wp-blocks', 'wp-element', 'wp-i18n', 'wp-dom-ready' ),
 		wp_get_theme()->get( 'Version' ),

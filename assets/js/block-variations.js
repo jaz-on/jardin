@@ -1,10 +1,10 @@
 /**
  * Query Loop variations (jardin-docs theme/blocks_inventory.md § E).
  *
- * Namespace `jardin/journal-mixed` (?kind=) plus `jardin/now-updates-feed`,
- * `jardin/events-upcoming`, and `jardin/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
+ * Namespace `jardin-theme/journal-mixed` (?kind=) plus `jardin-theme/now-updates-feed`,
+ * `jardin-theme/events-upcoming`, and `jardin-theme/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
  * Phase 2 shipped post + IndieBlocks only; Phase 4 extends journal-mixed with plugin CPTs.
- * Namespaces `jardin/notes-by-kind` (archive activité /activite|/activity), `jardin/articles-pinned`, and `jardin/blogroll-grid`
+ * Namespaces `jardin-theme/notes-by-kind` (archive activité /activite|/activity), `jardin-theme/articles-pinned`, and `jardin-theme/blogroll-grid`
  * are editor presets until matching filters exist (plugins / theme follow-up).
  *
  * @package Jardin_Theme
@@ -29,7 +29,7 @@
 		description: __( 'Recent items across journal post types.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/journal-mixed',
+			namespace: 'jardin-theme/journal-mixed',
 			query: {
 				perPage: 10,
 				pages: 0,
@@ -52,7 +52,7 @@
 		description: __( 'Notes CPT only.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/notes-by-kind',
+			namespace: 'jardin-theme/notes-by-kind',
 			query: {
 				perPage: 10,
 				pages: 0,
@@ -73,7 +73,7 @@
 		description: __( 'Events ordered by event date meta (ascending).', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/events-upcoming',
+			namespace: 'jardin-theme/events-upcoming',
 			query: {
 				perPage: 12,
 				pages: 0,
@@ -95,7 +95,7 @@
 		description: __( 'Events CPT; refine with filters in the inspector.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/events-past-by-role',
+			namespace: 'jardin-theme/events-past-by-role',
 			query: {
 				perPage: 10,
 				postType: 'event',
@@ -113,7 +113,7 @@
 		description: __( 'Sticky posts only.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/articles-pinned',
+			namespace: 'jardin-theme/articles-pinned',
 			query: {
 				perPage: 5,
 				postType: 'post',
@@ -132,7 +132,7 @@
 		description: __( 'Blogroll CPT from jardin-feed.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/blogroll-grid',
+			namespace: 'jardin-theme/blogroll-grid',
 			query: {
 				perPage: 24,
 				postType: 'blogroll',
@@ -150,7 +150,7 @@
 		description: __( 'Posts in the now-updates category.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin/now-updates-feed',
+			namespace: 'jardin-theme/now-updates-feed',
 			query: {
 				perPage: 12,
 				postType: 'post',

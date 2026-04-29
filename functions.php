@@ -8,6 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 $jardin_inc = get_template_directory() . '/inc/';
 
+require_once $jardin_inc . 'content-migration.php';
 require_once $jardin_inc . 'setup.php';
 require_once $jardin_inc . 'toolbar-chrome.php';
 require_once $jardin_inc . 'blocks.php';

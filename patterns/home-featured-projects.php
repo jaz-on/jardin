@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Home — Featured projects
- * Slug: jardin/home-featured-projects
+ * Slug: jardin-theme/home-featured-projects
  * Categories: text
  * Description: Pinned projects grid (3 columns). Placeholder until CPT "project" is registered and meta _featured_on_home is implemented — tracked in mockup-dev-parity-cycle.md § 7 (Dettes C).
  * Inserter: no

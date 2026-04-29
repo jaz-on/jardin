@@ -1,6 +1,6 @@
 <?php
 /**
- * Server output for jardin/theme-toggle.
+ * Server output for jardin-theme/theme-toggle.
  *
  * @package Jardin_Theme */
 

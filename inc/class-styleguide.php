@@ -2,21 +2,21 @@
 /**
  * Dynamic styleguide shortcode.
  *
- * Renders a live inventory of the jardin theme: design tokens from theme.json,
+ * Renders a live inventory of the jardin-theme: design tokens from theme.json,
  * every core block with demo content, registered block styles, and all theme
  * patterns. Always in sync — nothing to maintain by hand.
  *
- * Usage: place [jardin_styleguide] in the /styleguide page content.
+ * Usage: place [jardin_theme_styleguide] in the /styleguide page content.
  *
  * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Register the [jardin_styleguide] shortcode.
+ * Register the [jardin_theme_styleguide] shortcode.
  */
 function jardin_styleguide_register(): void {
-	add_shortcode( 'jardin_styleguide', 'jardin_styleguide_render' );
+	add_shortcode( 'jardin_theme_styleguide', 'jardin_styleguide_render' );
 }
 add_action( 'init', 'jardin_styleguide_register' );
 
@@ -25,12 +25,12 @@ add_action( 'init', 'jardin_styleguide_register' );
  */
 function jardin_styleguide_maybe_enqueue(): void {
 	global $post;
-	if ( ! $post || ! has_shortcode( $post->post_content, 'jardin_styleguide' ) ) {
+	if ( ! $post || ! has_shortcode( $post->post_content, 'jardin_theme_styleguide' ) ) {
 		return;
 	}
 	$tpl_dir = get_template_directory();
 	wp_enqueue_style(
-		'jardin-styleguide',
+		'jardin-theme-styleguide',
 		get_template_directory_uri() . '/assets/css/styleguide.css',
 		array(),
 		filemtime( $tpl_dir . '/assets/css/styleguide.css' ) ?: wp_get_theme()->get( 'Version' )
@@ -353,7 +353,7 @@ function jardin_sg_section_patterns(): void {
 	$all      = $registry->get_all_registered();
 
 	$jardin_patterns = array_filter( $all, function ( $p ) {
-		return str_starts_with( $p['name'], 'jardin/' );
+		return str_starts_with( $p['name'], 'jardin-theme/' );
 	} );
 
 	usort( $jardin_patterns, function ( $a, $b ) {
@@ -363,7 +363,7 @@ function jardin_sg_section_patterns(): void {
 	ob_start();
 
 	if ( empty( $jardin_patterns ) ) {
-		echo '<p>Aucun pattern jardin/ enregistré.</p>';
+		echo '<p>Aucun pattern jardin-theme/ enregistré.</p>';
 	}
 
 	foreach ( $jardin_patterns as $pattern ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Server output for jardin/copyright.
+ * Server output for jardin-theme/copyright.
  *
  * @package Jardin_Theme */
 

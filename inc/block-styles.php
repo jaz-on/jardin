@@ -86,7 +86,7 @@ function jardin_enqueue_block_styles_assets(): void {
 		wp_enqueue_block_style(
 			$block_name,
 			array(
-				'handle' => 'jardin-block-styles',
+				'handle' => 'jardin-theme-block-styles',
 				'src'    => get_theme_file_uri( 'assets/css/block-styles.css' ),
 				'path'   => get_theme_file_path( 'assets/css/block-styles.css' ),
 			)

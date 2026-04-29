@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer — 4 colonnes + webring
- * Slug: jardin/footer-main
+ * Slug: jardin-theme/footer-main
  * Categories: footer
  * Description: Grille mockup (.cols), liens avec home_url, webring IndieWeb. Voir mockup.html ~13315.
  * Inserter: no

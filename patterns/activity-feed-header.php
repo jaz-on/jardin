@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Activity archive — filters
- * Slug: jardin/activity-feed-header
+ * Slug: jardin-theme/activity-feed-header
  * Categories: text
  * Description: note_kind filter pills for the iwcpt_note archive (hub /activite/ or /activity/).
  * Inserter: no

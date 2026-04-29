@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Journal query — empty state
- * Slug: jardin/query-empty-journal
+ * Slug: jardin-theme/query-empty-journal
  * Categories: text
  * Inserter: no
  *

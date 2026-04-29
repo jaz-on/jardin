@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Entry card
- * Slug: jardin/entry-card
+ * Slug: jardin-theme/entry-card
  * Categories: text
  * Description: Entry row for Query Loop (.entry + server-side data-kind / data-note-kind).
  * Inserter: no

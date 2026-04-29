@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Home query — empty state
- * Slug: jardin/query-empty-home
+ * Slug: jardin-theme/query-empty-home
  * Categories: text
  * Inserter: no
  *

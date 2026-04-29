@@ -3,7 +3,7 @@
 	const { useBlockProps } = wp.blockEditor;
 	const { createElement: el } = wp.element;
 
-	registerBlockType( 'jardin/theme-toggle', {
+	registerBlockType( 'jardin-theme/theme-toggle', {
 		apiVersion: 3,
 		edit() {
 			return el(

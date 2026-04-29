@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Listen single header
- * Slug: jardin/listen-single-header
+ * Slug: jardin-theme/listen-single-header
  * Categories: text
  * Description: Album art, track metadata, and Last.fm link for a single listen post.
  * Inserter: no

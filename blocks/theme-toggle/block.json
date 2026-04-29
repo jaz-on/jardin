@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "jardin/theme-toggle",
+	"name": "jardin-theme/theme-toggle",
 	"title": "Theme palette",
 	"category": "widgets",
 	"icon": "admin-appearance",

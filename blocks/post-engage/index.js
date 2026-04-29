@@ -4,11 +4,11 @@
 	const { createElement: el } = wp.element;
 	const { __ } = wp.i18n;
 
-	registerBlockType( 'jardin/post-engage', {
+	registerBlockType( 'jardin-theme/post-engage', {
 		apiVersion: 3,
 		edit( { context } ) {
 			const b = useBlockProps( {
-				className: 'jardin-post-engage is-editor',
+				className: 'jardin-theme-post-engage is-editor',
 			} );
 			return el(
 				'div',

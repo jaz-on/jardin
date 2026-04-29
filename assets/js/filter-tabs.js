@@ -69,10 +69,10 @@
 
 	function initHomeFeedFilters() {
 		var nav = document.querySelector('.home-feed-filters');
-		if (!nav || nav.getAttribute('data-jardin-home-bound') === '1') {
+		if (!nav || nav.getAttribute('data-jardin-theme-home-bound') === '1') {
 			return;
 		}
-		nav.setAttribute('data-jardin-home-bound', '1');
+		nav.setAttribute('data-jardin-theme-home-bound', '1');
 
 		var section = nav.closest('.home-feed-section');
 		if (!section) {
@@ -156,10 +156,10 @@
 	function initNotesArchiveFilters() {
 		var nav = document.querySelector('.notes-archive-filters');
 		var list = document.querySelector('.entries.is-notes');
-		if (!nav || !list || nav.getAttribute('data-jardin-notes-bound') === '1') {
+		if (!nav || !list || nav.getAttribute('data-jardin-theme-notes-bound') === '1') {
 			return;
 		}
-		nav.setAttribute('data-jardin-notes-bound', '1');
+		nav.setAttribute('data-jardin-theme-notes-bound', '1');
 
 		var entries = list.querySelectorAll('.entry');
 		if (!entries.length) {

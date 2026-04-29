@@ -309,11 +309,11 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 	$kind      = isset( $_GET['kind'] ) ? sanitize_key( wp_unslash( $_GET['kind'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	$role      = isset( $_GET['event_role'] ) ? sanitize_key( wp_unslash( $_GET['event_role'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-	if ( 'jardin/journal-mixed' === $namespace ) {
+	if ( 'jardin-theme/journal-mixed' === $namespace ) {
 		$query = jardin_filter_hub_query( $query, $kind );
 	}
 
-	if ( 'jardin/now-updates-feed' === $namespace ) {
+	if ( 'jardin-theme/now-updates-feed' === $namespace ) {
 		$query['post_type'] = 'post';
 		$query['tax_query']  = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_tax_query
 			array(
@@ -324,7 +324,7 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 		);
 	}
 
-	if ( 'jardin/events-upcoming' === $namespace ) {
+	if ( 'jardin-theme/events-upcoming' === $namespace ) {
 		$query['post_type']  = 'event';
 		$query['meta_key']  = 'event_date';
 		$query['orderby']   = 'meta_value';
@@ -343,7 +343,7 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 		}
 	}
 
-	if ( 'jardin/events-past-by-role' === $namespace && $role && taxonomy_exists( 'event_role' ) ) {
+	if ( 'jardin-theme/events-past-by-role' === $namespace && $role && taxonomy_exists( 'event_role' ) ) {
 		$query['post_type'] = 'event';
 		$query['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_tax_query
 			array(

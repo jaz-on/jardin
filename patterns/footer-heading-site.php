@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer heading — Site
- * Slug: jardin/footer-heading-site
+ * Slug: jardin-theme/footer-heading-site
  * Categories: text
  * Inserter: no
  *

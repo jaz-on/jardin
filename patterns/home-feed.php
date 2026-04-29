@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Home — Feed
- * Slug: jardin/home-feed
+ * Slug: jardin-theme/home-feed
  * Categories: query
  * Description: Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card.
  * Inserter: no
@@ -30,7 +30,7 @@ $journal_url = home_url( '/journal/' );
 	<!-- /wp:group -->
 
 	<!-- wp:html -->
-	<div class="feed-filters home-feed-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type', 'jardin-theme' ); ?>" data-filter="all" data-jardin-feed-init="1">
+	<div class="feed-filters home-feed-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type', 'jardin-theme' ); ?>" data-filter="all" data-jardin-theme-feed-init="1">
 		<button type="button" class="ff-btn active" data-type="all"><?php esc_html_e( 'tous', 'jardin-theme' ); ?></button>
 		<button type="button" class="ff-btn" data-type="post">
 			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-post"/></svg><?php esc_html_e( 'articles', 'jardin-theme' ); ?>
@@ -44,14 +44,14 @@ $journal_url = home_url( '/journal/' );
 	</div>
 	<!-- /wp:html -->
 
-	<!-- wp:query {"queryId":2,"namespace":"jardin/journal-mixed","query":{"perPage":10,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
+	<!-- wp:query {"queryId":2,"namespace":"jardin-theme/journal-mixed","query":{"perPage":10,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
-			<!-- wp:pattern {"slug":"jardin/entry-card"} /-->
+			<!-- wp:pattern {"slug":"jardin-theme/entry-card"} /-->
 			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
 		<!-- /wp:post-template -->
 		<!-- wp:query-no-results -->
-			<!-- wp:pattern {"slug":"jardin/query-empty-home"} /-->
+			<!-- wp:pattern {"slug":"jardin-theme/query-empty-home"} /-->
 		<!-- /wp:query-no-results -->
 	</div>
 	<!-- /wp:query -->

@@ -32,7 +32,7 @@ WordPress stores **customized** template parts in the database. If the site edit
 
 Without this, only **CSS** and **patterns** that are not overridden in the DB will change — which often looks like “the header never updates.”
 
-The shipped header stacks **`jardin/header-main`** (brand row + primary nav), nested patterns **`jardin/site-brand`** and **`jardin/site-toolbar`** — same idea as **`jardin/footer-main`** for the footer. **Legacy (WordPress identifiers):** block and pattern namespaces stay `jardin/…` because they are serialized in post and template content; renaming them would require a DB migration. The canonical **repository and text domain** name is `jardin-theme`.
+The shipped header stacks **`jardin-theme/header-main`** (brand row + primary nav), nested patterns **`jardin-theme/site-brand`** and **`jardin-theme/site-toolbar`** — same idea as **`jardin-theme/footer-main`** for the footer. **Content migration:** on first load after upgrading the theme, `inc/content-migration.php` runs a one-shot SQL `REPLACE` on **`wp_posts.post_content` and `post_excerpt`** (templates, template parts, pages, revisions, etc.) to rewrite saved block markup and pattern slugs from `jardin/…` to **`jardin-theme/…`**. It does **not** touch `wp_options` / serialized widget data (length-sensitive). Scrobbler blocks stay under `wp:jardin/lastfm-*` and `wp:jardin/recent-*` (plugin namespace, not migrated). Bump `JARDIN_THEME_CONTENT_MIGRATION_VERSION` in that file when adding new replacement pairs.
 
 **Primary navigation** comes from the WordPress menu assigned to the block. It will not show mockup-style path labels (`/journal`, …) until the menu uses those labels. Remove duplicate utility links (e.g. « Coffee ») if they already exist in the toolbar pattern.
 

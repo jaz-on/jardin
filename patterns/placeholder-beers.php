@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Placeholder — Beers
- * Slug: jardin/placeholder-beers
+ * Slug: jardin-theme/placeholder-beers
  * Categories: text
  * Description: Temporary notice until jardin-beer blocks are wired.
  *

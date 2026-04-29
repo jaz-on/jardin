@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer heading — Explore
- * Slug: jardin/footer-heading-explore
+ * Slug: jardin-theme/footer-heading-explore
  * Categories: text
  * Inserter: no
  *

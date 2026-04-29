@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Site toolbar
- * Slug: jardin/site-toolbar
+ * Slug: jardin-theme/site-toolbar
  * Categories: hidden
  * Description: Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome).
  * Inserter: no

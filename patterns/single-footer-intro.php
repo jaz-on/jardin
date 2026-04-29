@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Single — reactions section intro
- * Slug: jardin/single-footer-intro
+ * Slug: jardin-theme/single-footer-intro
  * Categories: text
  * Inserter: no
  *

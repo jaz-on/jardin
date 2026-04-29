@@ -27,12 +27,12 @@ add_action( 'after_setup_theme', 'jardin_setup' );
  * Skip link for keyboard and screen reader users (WCAG 2.4.1).
  */
 function jardin_skip_link(): void {
-	echo '<a class="jardin-skip-link" href="#main">' . esc_html__( 'Skip to main content', 'jardin-theme' ) . '</a>';
+	echo '<a class="jardin-theme-skip-link" href="#main">' . esc_html__( 'Skip to main content', 'jardin-theme' ) . '</a>';
 }
 add_action( 'wp_body_open', 'jardin_skip_link', 5 );
 
 /**
- * Theme palette toggle markup (used by the jardin/theme-toggle block).
+ * Theme palette toggle markup (used by the jardin-theme/theme-toggle block).
  *
  * @return string
  */
@@ -69,7 +69,7 @@ function jardin_get_theme_toggle_markup(): string {
 
 	ob_start();
 	?>
-	<details class="jardin-theme-toggle wp-block-jardin-theme-toggle">
+	<details class="jardin-theme-toggle wp-block-jardin-theme-theme-toggle">
 		<summary class="jardin-theme-toggle__summary" aria-label="<?php echo esc_attr__( 'Change color theme', 'jardin-theme' ); ?>">
 			<svg class="jardin-theme-toggle__icon" width="20" height="20" aria-hidden="true" focusable="false">
 				<use href="#i-palette"></use>

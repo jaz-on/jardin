@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 404 — title and message
- * Slug: jardin/404-intro
+ * Slug: jardin-theme/404-intro
  * Categories: text
  * Inserter: no
  *

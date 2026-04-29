@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Journal hub — intro and filters
- * Slug: jardin/journal-hub-top
+ * Slug: jardin-theme/journal-hub-top
  * Categories: text
  * Description: Intro, h2, primary ?kind= filters for /journal/.
  * Inserter: no

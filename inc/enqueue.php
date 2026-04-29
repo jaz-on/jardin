@@ -36,7 +36,7 @@ function jardin_enqueue_assets(): void {
 	);
 
 	wp_enqueue_script(
-		'jardin-nav-burger',
+		'jardin-theme-nav-burger',
 		get_template_directory_uri() . '/assets/js/nav-burger.js',
 		array(),
 		filemtime( $tpl_dir . '/assets/js/nav-burger.js' ) ?: $ver,
@@ -44,7 +44,7 @@ function jardin_enqueue_assets(): void {
 	);
 
 	wp_enqueue_script(
-		'jardin-filter-tabs',
+		'jardin-theme-filter-tabs',
 		get_template_directory_uri() . '/assets/js/filter-tabs.js',
 		array(),
 		filemtime( $tpl_dir . '/assets/js/filter-tabs.js' ) ?: $ver,

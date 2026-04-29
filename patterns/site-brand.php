@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Site brand
- * Slug: jardin/site-brand
+ * Slug: jardin-theme/site-brand
  * Categories: text
  * Description: JR boxed-serif mark SVG inside .site-brand, linked to home. Matches mockup header structure.
  * Inserter: no
