@@ -11,6 +11,23 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 		expect( r?.status() ).toBe( 200 );
 		const main = page.getByRole( 'main' ).or( page.locator( '#main' ) );
 		await expect( main.first() ).toBeVisible();
+
+		// Home IRL: metadata should be server-rendered (no JS hydration dependency).
+		// Note: environments can lag behind theme/plugin deploys; keep smoke green by default.
+		const irl = page.locator( '.events-upcoming' );
+		if ( await irl.count() ) {
+			await expect( irl.first() ).toBeVisible();
+			const metaLines = irl.first().locator( '.entry-meta-inline' );
+			if ( await metaLines.count() ) {
+				await expect( metaLines.first() ).toBeVisible();
+				await expect( metaLines.first().locator( '.entry-when' ) ).toBeVisible();
+			} else {
+				test.skip(
+					process.env.E2E_IRL_STRICT !== '1',
+					'IRL SSR metadata absent — deploy latest jardin-events + jardin-theme (set E2E_IRL_STRICT=1 to fail hard)'
+				);
+			}
+		}
 	} );
 
 	test( '2 — /journal/', async ( { page } ) => {
