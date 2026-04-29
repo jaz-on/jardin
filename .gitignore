@@ -11,6 +11,20 @@ Desktop.ini
 *.swo
 .directory
 
+# macOS Finder duplicate filenames (e.g. copy conflict → "file 2.ext")
+* 2.php
+* 2.css
+* 2.html
+* 2.js
+* 2.json
+* 2.svg
+* 2.txt
+* 2.woff2
+* 2.md
+* 2.pot
+* 2.cjs
+* 2.example
+
 # Env
 .env
 .env.*
