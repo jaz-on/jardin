@@ -9,6 +9,11 @@
  * @package Jardin
  */
 
+defined( 'ABSPATH' ) || exit;
+
+$activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : home_url( '/activite/' );
+$activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activite' );
+
 ?>
 <!-- wp:group {"className":"site-row site-row-brand","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
 <div class="wp-block-group site-row site-row-brand">
@@ -23,7 +28,7 @@
 	<!-- wp:navigation {"className":"primary jardin-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"}} -->
 		<!-- wp:navigation-link {"label":"/journal","type":"custom","url":"/journal/","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/articles","type":"custom","url":"/articles/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/notes","type":"custom","url":"/notes/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr( $activity_label ); ?>","type":"custom","url":"<?php echo esc_url( $activity_url ); ?>","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/evenements","type":"custom","url":"/evenements/","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/projets","type":"custom","url":"/projets/","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/maintenant","type":"custom","url":"/maintenant/","kind":"custom"} /-->

@@ -28,7 +28,7 @@ function jardin_get_entry_data_kind( $post ): string {
 }
 
 /**
- * Granular note_kind for /notes filters and card badges (bookmark, quote, jam, …).
+ * Granular note_kind for the activity hub archive filters and card badges (bookmark, quote, jam, …).
  *
  * @param \WP_Post|null $post Post.
  * @return string

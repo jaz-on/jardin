@@ -381,7 +381,7 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Primary journal hub filters (mockup: tous / articles / notes / événements) via ?kind=.
+ * Primary journal hub filters (tous / articles / activité / événements) via ?kind=.
  *
  * @return string Raw HTML for a core/html block.
  */
@@ -394,7 +394,7 @@ function jardin_get_journal_filters_markup(): string {
 	$items = array(
 		array( 'kind' => '', 'type' => 'all', 'label' => __( 'tous', 'jardin' ) ),
 		array( 'kind' => 'post', 'type' => 'post', 'label' => __( 'articles', 'jardin' ) ),
-		array( 'kind' => 'note', 'type' => 'note', 'label' => __( 'notes', 'jardin' ) ),
+		array( 'kind' => 'note', 'type' => 'note', 'label' => jardin_get_activity_nav_label() ),
 		array( 'kind' => 'event', 'type' => 'event', 'label' => __( 'événements', 'jardin' ) ),
 	);
 

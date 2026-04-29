@@ -19,6 +19,9 @@ $u = static function ( string $path ): string {
 	return esc_url( home_url( $path ) );
 };
 
+$activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activite/' );
+$activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activite' );
+
 ?>
 <!-- wp:html -->
 <div class="cols">
@@ -27,7 +30,7 @@ $u = static function ( string $path ): string {
 		<ul>
 			<li><a href="<?php echo $u( '/journal/' ); ?>"><?php echo esc_html( '/journal' ); ?></a></li>
 			<li><a href="<?php echo $u( '/articles/' ); ?>"><?php echo esc_html( '/articles' ); ?></a></li>
-			<li><a href="<?php echo $u( '/notes/' ); ?>"><?php echo esc_html( '/notes' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $activity_url ); ?>"><?php echo esc_html( $activity_label ); ?></a></li>
 			<li><a href="<?php echo $u( '/evenements/' ); ?>"><?php echo esc_html( '/evenements' ); ?></a></li>
 			<li><a href="<?php echo $u( '/projets/' ); ?>"><?php echo esc_html( '/projets' ); ?></a></li>
 		</ul>

@@ -47,6 +47,15 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 		expect( r?.status() ).toBe( 200 );
 	} );
 
+	test( '3b — hub activité (FR)', async ( { page } ) => {
+		const r = await page.goto( '/activite/' );
+		expect( r, 'HTTP' ).not.toBeNull();
+		if ( r?.status() === 404 ) {
+			test.skip( true, '/activite/ 404 — déployer le thème + flush permaliens' );
+		}
+		expect( r?.status() ).toBe( 200 );
+	} );
+
 	test( '4 — flux /feed/', async ( { request } ) => {
 		const r = await request.get( '/feed/' );
 		expect( r.status() ).toBe( 200 );
