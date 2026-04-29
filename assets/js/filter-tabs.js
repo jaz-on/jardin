@@ -192,6 +192,86 @@
 		window.history.replaceState({}, '', url.toString());
 	}
 
+	function formatDateFr(isoLikeDate) {
+		if (!isoLikeDate) {
+			return '';
+		}
+		var d = new Date(isoLikeDate);
+		if (Number.isNaN(d.getTime())) {
+			return '';
+		}
+		return d.toLocaleDateString('fr-FR', {
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric'
+		});
+	}
+
+	function hydrateHomeIrlRows() {
+		var rows = Array.prototype.slice.call(document.querySelectorAll('.events-upcoming .event-row'));
+		if (!rows.length) {
+			return;
+		}
+
+		var idToRow = {};
+		rows.forEach(function (row) {
+			var host = row.closest('li.wp-block-post') || row.parentElement;
+			if (!host || !host.className) {
+				return;
+			}
+			var m = host.className.match(/\bpost-(\d+)\b/);
+			if (m) {
+				idToRow[parseInt(m[1], 10)] = row;
+			}
+		});
+
+		var ids = Object.keys(idToRow);
+		if (!ids.length) {
+			return;
+		}
+
+		fetch('/wp-json/wp/v2/event?per_page=100&_fields=id,date,meta.event_date,meta.event_location', {
+			credentials: 'same-origin'
+		})
+			.then(function (res) {
+				return res.ok ? res.json() : [];
+			})
+			.then(function (items) {
+				(items || []).forEach(function (item) {
+					var row = idToRow[item.id];
+					if (!row) {
+						return;
+					}
+					var when = row.querySelector('.entry-when');
+					if (!when) {
+						when = document.createElement('span');
+						when.className = 'entry-when';
+						row.insertBefore(when, row.firstChild);
+					}
+					var eventDate = item && item.meta && item.meta.event_date ? item.meta.event_date : '';
+					when.textContent = formatDateFr(eventDate || item.date);
+
+					var where = row.querySelector('.what');
+					if (!where) {
+						return;
+					}
+					var loc = where.querySelector('.entry-loc');
+					var eventLoc = item && item.meta && item.meta.event_location ? String(item.meta.event_location).trim() : '';
+					if (eventLoc) {
+						if (!loc) {
+							loc = document.createElement('span');
+							loc.className = 'entry-loc';
+							where.appendChild(loc);
+						}
+						loc.textContent = eventLoc;
+					}
+				});
+			})
+			.catch(function () {
+				// Keep server-rendered content if REST fetch fails.
+			});
+	}
+
 	function initEventFilters() {
 		var nav = document.querySelector('.events-filters');
 		var list = document.querySelector('.entries.is-events');
@@ -260,5 +340,6 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		syncJournalFilters();
 		initEventFilters();
+		hydrateHomeIrlRows();
 	});
 }());
