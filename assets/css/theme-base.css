@@ -813,7 +813,8 @@ body.admin-bar .site-header-shell {
 }
 
 /* Barre icônes : simple flex avec gap, chaque bouton arrondi individuellement (mockup parity) */
-.site-header-shell .toolbar-chrome {
+.site-header-shell .toolbar-chrome--header,
+.site-header-shell .toolbar-chrome--drawer {
 	display: flex;
 	align-items: stretch;
 	flex-wrap: nowrap;
@@ -821,7 +822,8 @@ body.admin-bar .site-header-shell {
 	flex-shrink: 0;
 }
 
-.site-header-shell .toolbar-chrome > * {
+.site-header-shell .toolbar-chrome--header > *,
+.site-header-shell .toolbar-chrome--drawer > * {
 	flex: 0 0 auto;
 	min-width: 0;
 	display: flex;
@@ -917,7 +919,8 @@ body.admin-bar .site-header-shell {
 }
 
 /* Sélecteur de thème dans la chrome : même silhouette que .icon-btn mockup */
-.site-header-shell .toolbar-chrome .jardin-theme-toggle {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle {
 	position: relative;
 	display: flex;
 	align-items: stretch;
@@ -925,7 +928,8 @@ body.admin-bar .site-header-shell {
 	min-width: 2.25rem;
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -942,30 +946,36 @@ body.admin-bar .site-header-shell {
 	cursor: pointer;
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary::-webkit-details-marker {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary::-webkit-details-marker,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary::-webkit-details-marker {
 	display: none;
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:hover,
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__summary:focus-visible {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary:hover,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary:hover,
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary:focus-visible,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary:focus-visible {
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 	outline: none;
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle[open] .jardin-theme-toggle__summary,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
 	border-color: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--accent);
 	background: var(--wp--preset--color--accent-soft);
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__icon {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__icon,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__icon {
 	width: 14px;
 	height: 14px;
 	color: currentColor;
 }
 
-.site-header-shell .toolbar-chrome .jardin-theme-toggle__menu {
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__menu,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__menu {
 	top: 100%;
 	right: 0;
 	left: auto;
@@ -991,7 +1001,8 @@ body.admin-bar .site-header-shell {
 	color: var(--wp--preset--color--bg);
 }
 
-.site-header-shell .toolbar-chrome .coffee-toggle:is(:hover, :focus-visible) {
+.site-header-shell .toolbar-chrome--header .coffee-toggle:is(:hover, :focus-visible),
+.site-header-shell .toolbar-chrome--drawer .coffee-toggle:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--bg);
 }
 
@@ -1335,6 +1346,10 @@ body.admin-bar .site-header-shell {
 }
 
 @media (min-width: 769px) {
+	.site-header-shell .site-nav-drawer-tools {
+		display: none !important;
+	}
+
 	.site-header-shell .primary.jardin-primary-nav {
 		display: block;
 	}
@@ -1368,8 +1383,8 @@ body.admin-bar .site-header-shell {
 		gap: var(--wp--preset--spacing--2);
 	}
 
-	/* Keep only language + moved burger in top row */
-	.site-header-shell .toolbar-chrome {
+	/* Hide header chrome on small screens; duplicate lives in burger panel (.toolbar-chrome--drawer). */
+	.site-header-shell .toolbar .toolbar-chrome--header {
 		display: none;
 	}
 
@@ -1431,6 +1446,66 @@ body.admin-bar .site-header-shell {
 		padding: 0.65rem 0.8rem;
 		background: var(--wp--preset--color--surface);
 		color: var(--wp--preset--color--text-muted);
+	}
+
+	/* Outils du menu mobile : même colonne que la nav, pastilles pleine largeur */
+	.site-header-shell .site-nav-drawer-tools {
+		width: 100%;
+		margin-top: var(--wp--preset--spacing--4);
+		padding-top: var(--wp--preset--spacing--4);
+		border-top: 1px solid var(--wp--preset--color--border);
+	}
+
+	.site-header-shell .site-nav-drawer-tools__heading {
+		margin: 0 0 var(--wp--preset--spacing--2) 0;
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--wp--preset--color--text-muted);
+	}
+
+	.site-header-shell .toolbar-chrome--drawer {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		gap: var(--wp--preset--spacing--2) !important;
+		width: 100%;
+	}
+
+	.site-header-shell .toolbar-chrome--drawer > * {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.site-header-shell .toolbar-chrome--drawer .icon-btn {
+		width: 100%;
+		justify-content: flex-start;
+		padding: 0.65rem 0.8rem;
+		min-height: 0;
+	}
+
+	.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle {
+		width: 100%;
+	}
+
+	.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	/* Palette : menu en fixed pour éviter clip au bas du panneau burger */
+	.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__menu {
+		position: fixed;
+		z-index: 250;
+		left: max(var(--wp--preset--spacing--4), env(safe-area-inset-left, 0px));
+		right: max(var(--wp--preset--spacing--4), env(safe-area-inset-right, 0px));
+		top: auto;
+		bottom: max(var(--wp--preset--spacing--4), env(safe-area-inset-bottom, 0px));
+		margin-top: 0;
+		max-height: min(70vh, 28rem);
+		overflow-y: auto;
+		min-width: 0;
 	}
 }
 

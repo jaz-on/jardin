@@ -34,5 +34,14 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 		<!-- wp:navigation-link {"label":"/maintenant","type":"custom","url":"/maintenant/","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/a-propos","type":"custom","url":"/a-propos/","kind":"custom"} /-->
 	<!-- /wp:navigation -->
+
+	<!-- wp:html -->
+	<div class="site-nav-drawer-tools" role="region" aria-labelledby="site-nav-drawer-tools-heading">
+		<p class="site-nav-drawer-tools__heading" id="site-nav-drawer-tools-heading"><?php echo esc_html__( 'Outils', 'jardin' ); ?></p>
+		<div class="toolbar-chrome toolbar-chrome--drawer" role="group" aria-label="<?php echo esc_attr__( 'Recherche, thème, musique et soutien', 'jardin' ); ?>">
+			<?php echo jardin_render_toolbar_chrome(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		</div>
+	</div>
+	<!-- /wp:html -->
 </div>
 <!-- /wp:group -->
