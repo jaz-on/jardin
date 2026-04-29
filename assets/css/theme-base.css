@@ -503,10 +503,7 @@ a.events-upcoming-link:hover {
 }
 
 .event-row {
-	display: grid;
-	grid-template-columns: 6rem 1fr;
-	gap: var(--wp--preset--spacing--3);
-	align-items: baseline;
+	display: block;
 	padding: var(--wp--preset--spacing--3) 0;
 	border-bottom: 1px dashed var(--wp--preset--color--border);
 }
@@ -544,8 +541,26 @@ a.events-upcoming-link:hover {
 .events-upcoming .what .entry-loc {
 	color: var(--wp--preset--color--text-muted);
 	font-size: var(--wp--preset--font-size--sm);
-	display: block;
-	margin-top: 0.15rem;
+	display: inline;
+	margin-top: 0;
+}
+
+.events-upcoming .event-meta-inline {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.events-upcoming .event-meta-inline .entry-when {
+	color: var(--wp--preset--color--text-muted);
+}
+
+.events-upcoming .event-meta-inline .entry-loc::before {
+	content: " - ";
+	opacity: 0.9;
 }
 
 .event-row + .event-row {
@@ -1475,10 +1490,10 @@ body.admin-bar .site-header-shell {
 }
 
 .events-upcoming .what .entry-loc {
-	display: block;
+	display: inline;
 	font-size: var(--wp--preset--font-size--sm);
 	color: var(--wp--preset--color--text-muted);
-	margin-top: 0.15rem;
+	margin-top: 0;
 }
 
 .wp-block-query .entries.is-events .wp-block-post-template {
@@ -1699,8 +1714,7 @@ body.admin-bar .site-header-shell {
 
 @media (max-width: 560px) {
 	.event-row {
-		grid-template-columns: 1fr;
-		gap: var(--wp--preset--spacing--2);
+		padding: var(--wp--preset--spacing--3) 0;
 	}
 
 	.entry-when {
