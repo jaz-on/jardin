@@ -1169,7 +1169,7 @@ body.admin-bar .site-header-shell {
 
 .site-footer-shell .cols a {
 	text-decoration: none;
-	color: var(--wp--preset--color--text);
+	color: var(--wp--preset--color--text-muted);
 }
 
 .site-footer-shell .cols a:is(:hover, :focus-visible) {
