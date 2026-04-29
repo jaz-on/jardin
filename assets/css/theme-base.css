@@ -562,8 +562,8 @@ a.events-upcoming-link:hover {
 
 .events-upcoming-footer {
 	margin-top: var(--wp--preset--spacing--3);
-	padding-top: var(--wp--preset--spacing--3);
-	border-top: 1px dashed var(--wp--preset--color--border);
+	padding-top: 0;
+	border-top: 0;
 	margin-bottom: 0;
 	font-size: var(--wp--preset--font-size--base);
 	font-style: italic;
