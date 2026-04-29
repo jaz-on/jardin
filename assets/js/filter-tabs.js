@@ -115,7 +115,29 @@
 	function initEventFilters() {
 		var nav = document.querySelector('.events-filters');
 		var list = document.querySelector('.entries.is-events');
-		if (!nav || !list) {
+		if (!list) {
+			return;
+		}
+		if (!nav) {
+			var feedHeader = document.querySelector('.feed-header');
+			if (feedHeader) {
+				var archiveBase = window.location.pathname.replace(/\/+$/, '') + '/';
+				var fallback = document.createElement('div');
+				fallback.className = 'feed-filters events-filters u-w-full';
+				fallback.setAttribute('role', 'navigation');
+				fallback.setAttribute('aria-label', 'Filter events by role');
+				fallback.innerHTML = [
+					'<a class="ff-btn" href="' + archiveBase + '" data-type="all">tous</a>',
+					'<a class="ff-btn" href="' + archiveBase + '?event_role=speaker" data-type="speaker">Speaker</a>',
+					'<a class="ff-btn" href="' + archiveBase + '?event_role=organizer" data-type="organizer">Organisateur·rice</a>',
+					'<a class="ff-btn" href="' + archiveBase + '?event_role=sponsor" data-type="sponsor">Sponsor</a>',
+					'<a class="ff-btn" href="' + archiveBase + '?event_role=attendee" data-type="attendee">Participant·e</a>'
+				].join('');
+				feedHeader.appendChild(fallback);
+				nav = fallback;
+			}
+		}
+		if (!nav) {
 			return;
 		}
 

@@ -1519,6 +1519,10 @@ body.admin-bar .site-header-shell {
 	color: var(--wp--preset--color--accent);
 }
 
+.entries.is-events .entry-when.is-fallback {
+ color: var(--wp--preset--color--text-faint);
+}
+
 .entries.is-events .event-archive-row .entry-body {
 	min-width: 0;
 }
@@ -1561,6 +1565,11 @@ body.admin-bar .site-header-shell {
 
 .entries.is-events .entry-role--attendee {
 	background: color-mix(in srgb, var(--wp--preset--color--accent) 18%, transparent);
+}
+
+.entries.is-events .entry-role--unknown {
+ background: color-mix(in srgb, var(--wp--preset--color--border) 45%, transparent);
+ color: var(--wp--preset--color--text-muted);
 }
 
 .entries.is-events .entry-loc::before {
