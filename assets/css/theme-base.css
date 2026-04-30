@@ -1549,6 +1549,9 @@ body.admin-bar .site-header-shell {
 	font-size: var(--wp--preset--font-size--md);
 	color: var(--wp--preset--color--text-muted);
 	max-width: 42rem;
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--3);
+	line-height: 1.5;
 }
 
 .feed-filters.events-filters .ff-count {
@@ -1911,7 +1914,7 @@ body.admin-bar .site-header-shell {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--wp--preset--spacing--3);
-	padding: var(--wp--preset--spacing--3);
+	padding: var(--wp--preset--spacing--4);
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--soft);
 	background: var(--wp--preset--color--surface);
@@ -1930,11 +1933,11 @@ body.admin-bar .site-header-shell {
 
 .articles-taxo-title {
 	margin: 0;
-	font-size: var(--wp--preset--font-size--xs);
+	font-size: var(--wp--preset--font-size--sm);
 	font-family: var(--wp--preset--font-family--mono);
 	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	color: var(--wp--preset--color--text-muted);
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--text);
 	text-align: left;
 	align-self: flex-start;
 }
@@ -2029,11 +2032,15 @@ body.admin-bar .site-header-shell {
 
 .articles-taxo-mix {
 	grid-template-columns: 1fr;
+	margin-top: var(--wp--preset--spacing--2);
+	margin-bottom: var(--wp--preset--spacing--4);
 }
 
 .articles-taxo-mix-flow {
 	width: 100%;
 	align-items: flex-start;
+	justify-content: flex-start;
+	gap: var(--wp--preset--spacing--3);
 }
 
 .articles-taxo-mix-group {
@@ -2046,8 +2053,29 @@ body.admin-bar .site-header-shell {
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: var(--wp--preset--font-size--xs);
 	text-transform: uppercase;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.05em;
 	color: var(--wp--preset--color--text-faint);
+	opacity: 0.95;
+}
+
+.articles-taxo-mix .articles-taxo-title {
+	width: 100%;
+	text-align: left;
+}
+
+.articles-taxo-mix .articles-taxo-mix-group .articles-taxo-list,
+.articles-taxo-mix .articles-taxo-mix-group .articles-taxo-cloud.wp-block-tag-cloud {
+	gap: 0.45rem;
+}
+
+.wp-block-group.alignwide > .wp-block-post-title,
+.wp-block-group.alignwide > .wp-block-query-title {
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--2);
+}
+
+.wp-block-group.alignwide > .wp-block-query {
+	margin-top: var(--wp--preset--spacing--3);
 }
 
 /* Shared entries shell (articles + journal variants, excludes events variant). */
