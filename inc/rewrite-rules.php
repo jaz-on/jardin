@@ -14,6 +14,7 @@ function jardin_register_rewrite_rules(): void {
 	$target = 'index.php?post_type=now_update&name=$matches[1]';
 
 	add_rewrite_rule( '^now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
+	add_rewrite_rule( '^now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^maintenant/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^en/now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 

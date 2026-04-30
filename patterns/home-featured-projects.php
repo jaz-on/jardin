@@ -15,9 +15,9 @@
 <h2 class="section-with-link"><?php
 	echo wp_kses(
 		sprintf(
-			/* translators: %s: link to /projets/ */
-			__( 'Pinned projects <a href="%s" class="section-link">/projets →</a>', 'jardin-theme' ),
-			esc_url( home_url( '/projets/' ) )
+			/* translators: %s: link to /projects/ */
+			__( 'Pinned projects <a href="%s" class="section-link">/projects →</a>', 'jardin-theme' ),
+			esc_url( home_url( '/projects/' ) )
 		),
 		array( 'a' => array( 'href' => true, 'class' => true ) )
 	);

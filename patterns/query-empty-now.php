@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Maintenant query — empty state
+ * Title: Now hub query — empty state
  * Slug: jardin-theme/query-empty-now
  * Categories: text
  * Inserter: no

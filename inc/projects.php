@@ -50,9 +50,9 @@ function jardin_register_project_cpt(): void {
 		'labels'              => $labels,
 		'public'              => true,
 		'show_in_rest'        => true,
-		'has_archive'         => 'projets',
+		'has_archive'         => 'projects',
 		'rewrite'             => array(
-			'slug' => 'projets',
+			'slug' => 'projects',
 		),
 		'supports'            => array(
 			'title',
@@ -384,7 +384,7 @@ function jardin_projects_ensure_default_status_term( $post_id, $post, $update, $
 add_action( 'wp_after_insert_post', 'jardin_projects_ensure_default_status_term', 10, 4 );
 
 /**
- * Flush rewrite rules when switching to this theme so /projets/ resolves.
+ * Flush rewrite rules when switching to this theme so /projects/ resolves.
  */
 function jardin_projects_flush_rewrites_on_theme_switch(): void {
 	flush_rewrite_rules( false );

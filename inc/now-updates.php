@@ -17,7 +17,7 @@ function jardin_register_now_update_cpt(): void {
 		'menu_name'          => _x( 'Now updates', 'admin menu', 'jardin-theme' ),
 		'name_admin_bar'     => _x( 'Now update', 'add new on admin bar', 'jardin-theme' ),
 		'add_new'            => _x( 'Add New', 'now_update', 'jardin-theme' ),
-		'add_new_item'       => __( 'Add New Now update', 'jardin-theme' ),
+		'add_new_item'       => __( 'Add new now', 'jardin-theme' ),
 		'new_item'           => __( 'New Now update', 'jardin-theme' ),
 		'edit_item'          => __( 'Edit Now update', 'jardin-theme' ),
 		'view_item'          => __( 'View Now update', 'jardin-theme' ),
@@ -59,7 +59,7 @@ function jardin_now_updates_path_for_post( int $post_id ): string {
 	if ( function_exists( 'pll_get_post_language' ) ) {
 		$lang = (string) pll_get_post_language( $post_id, 'slug' );
 		if ( 'fr' === $lang ) {
-			$base = 'maintenant';
+			$base = 'now';
 		}
 	}
 	/**
