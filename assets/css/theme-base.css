@@ -1709,6 +1709,11 @@ body.admin-bar .site-header-shell {
 	margin-bottom: var(--wp--preset--spacing--3);
 }
 
+.single.h-event .post-meta-sep {
+	color: var(--wp--preset--color--border);
+	user-select: none;
+}
+
 .single.h-event .post-meta .dt-start {
 	font-family: var(--wp--preset--font-family--mono);
 	color: var(--wp--preset--color--text);
@@ -1734,10 +1739,6 @@ body.admin-bar .site-header-shell {
 }
 
 .single.h-event .p-location {
-	display: block;
-	width: 100%;
-	flex-basis: 100%;
-	margin-top: 0.25rem;
 	color: var(--wp--preset--color--text-muted);
 }
 
