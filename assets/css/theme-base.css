@@ -649,19 +649,235 @@ a.events-upcoming-link:hover {
    Home — Projects grid
    ============================================================ */
 
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	gap: var(--wp--preset--spacing--4);
+}
+
+.project-card {
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+}
+
+/* Statut prévu : carte atténuée, lien titre désactivé (mockup planned). */
+.project-card.planned,
+.projects-grid .project-card:has(.status .term-planned),
+.projects-grid .project-card:has(.status a.term-planned) {
+	opacity: 0.72;
+	border-style: dashed;
+	cursor: default;
+}
+
+.project-card.planned .wp-block-post-title a,
+.projects-grid .project-card:has(.status .term-planned) .wp-block-post-title a,
+.projects-grid .project-card:has(.status a.term-planned) .wp-block-post-title a {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	color: inherit;
+}
+
+.project-card .pc-head {
+	align-items: baseline;
+	gap: var(--wp--preset--spacing--2);
+}
+
+.project-card h3,
+.project-card .wp-block-post-title {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--md);
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: var(--wp--custom--leading--tight);
+	margin: 0;
+}
+
 .project-card .status {
 	display: inline-block;
 	font-size: var(--wp--preset--font-size--xs);
 	font-family: var(--wp--preset--font-family--mono);
-	font-weight: 400;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: var(--wp--custom--tracking--wide);
 	color: var(--wp--preset--color--text-muted);
-	margin-left: 0.5em;
+	background: var(--wp--preset--color--border);
+	padding: 0.15rem 0.45rem;
+	border-radius: var(--wp--custom--radius--sharp);
+	margin-left: 0;
+}
+
+.project-card .status a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.project-card .status a:hover,
+.project-card .status a:focus-visible {
+	text-decoration: none;
+}
+
+.project-card .status .term-actif,
+.project-card .status .term-wip,
+.project-card .status .term-stable,
+.project-card .status .term-planned,
+.project-card .status .term-archived {
+	color: inherit;
+}
+
+.project-status.actif,
+.project-card .status .term-actif {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-note) 15%, transparent);
+	color: var(--wp--preset--color--pt-note);
+}
+
+.project-status.wip,
+.project-card .status .term-wip {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--accent);
+}
+
+.project-status.stable,
+.project-card .status .term-stable {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-project) 15%, transparent);
+	color: var(--wp--preset--color--pt-project);
+}
+
+.project-status.planned,
+.project-card .status .term-planned {
+	background: var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.project-status.archived,
+.project-card .status .term-archived {
+	background: color-mix(in srgb, var(--wp--preset--color--text-muted) 16%, transparent);
+	color: var(--wp--preset--color--text-muted);
 }
 
 .project-card .desc {
 	font-size: var(--wp--preset--font-size--sm);
 	color: var(--wp--preset--color--text-muted);
 	margin: 0;
+}
+
+.project-card .wp-block-post-excerpt__excerpt {
+	margin: 0;
+}
+
+.project-card .wp-block-post-title a {
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+}
+
+.project-card .wp-block-post-title a:hover,
+.project-card .wp-block-post-title a:focus-visible {
+	color: var(--wp--preset--color--accent);
+}
+
+.project-header-meta {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: var(--wp--preset--spacing--3);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	margin: 0 0 var(--wp--preset--spacing--6);
+}
+
+.project-stat {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--1);
+}
+
+.project-stat-label {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: var(--wp--custom--tracking--wide);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.project-stat-value {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text);
+}
+
+.project-stat-value a {
+	color: var(--wp--preset--color--accent);
+	text-decoration: none;
+}
+
+.project-stat-value a:hover,
+.project-stat-value a:focus-visible {
+	text-decoration: underline;
+}
+
+.project-changelog {
+	margin-top: var(--wp--preset--spacing--6);
+	padding-top: var(--wp--preset--spacing--6);
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.project-changelog h2 {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--lg);
+	font-weight: 500;
+	text-transform: none;
+	margin: 0 0 var(--wp--preset--spacing--4);
+}
+
+.changelog-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.changelog-list li {
+	display: grid;
+	grid-template-columns: 6rem 8rem 1fr;
+	gap: var(--wp--preset--spacing--4);
+	padding: var(--wp--preset--spacing--3) 0;
+	border-bottom: 1px dashed var(--wp--preset--color--border);
+	align-items: baseline;
+}
+
+.changelog-list li:last-child {
+	border-bottom: 0;
+}
+
+.cl-version {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 500;
+	color: var(--wp--preset--color--accent);
+}
+
+.changelog-list time {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.cl-summary {
+	font-size: var(--wp--preset--font-size--base);
+	color: var(--wp--preset--color--text);
+}
+
+@media (max-width: 48rem) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.changelog-list li {
+		grid-template-columns: 1fr;
+		gap: var(--wp--preset--spacing--2);
+	}
 }
 
 /* ============================================================
