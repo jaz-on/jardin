@@ -8,8 +8,8 @@
  * @package Jardin_Theme */
 
 ?>
-<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"post-meta-bar","layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
+<div class="wp-block-group post-meta-bar">
 	<!-- wp:post-date {"fontSize":"xs"} /-->
 	<!-- wp:post-date {"displayType":"modified","fontSize":"xs"} /-->
 	<!-- wp:post-author-name {"isLink":true,"fontSize":"xs"} /-->

@@ -2,14 +2,35 @@
 
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 <main id="main" class="wp-block-group">
-	<!-- wp:post-title {"level":1} /-->
-	<!-- wp:paragraph {"textColor":"text-muted","fontSize":"sm"} -->
-	<p class="has-text-muted-color has-text-color has-sm-font-size">Articles longs uniquement — pas de filtre de type ici (voir /journal/ pour le flux mixte).</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-	<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false}} -->
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}},"className":"alignwide"} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:post-title {"level":1} /-->
+		<!-- wp:paragraph {"className":"page-intro"} -->
+		<p class="page-intro">Les articles longs. La réflexion qui dépasse le paragraphe. Utilise les taxonomies pour naviguer par sujet.</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:group {"className":"articles-taxo","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5"}}} -->
+		<div class="wp-block-group articles-taxo">
+			<!-- wp:group {"className":"articles-taxo-col","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
+			<div class="wp-block-group articles-taxo-col">
+				<!-- wp:heading {"level":2,"className":"articles-taxo-title"} -->
+				<h2 class="wp-block-heading articles-taxo-title">Catégories</h2>
+				<!-- /wp:heading -->
+				<!-- wp:categories {"showPostCounts":true,"showHierarchy":false,"className":"articles-taxo-list"} /-->
+			</div>
+			<!-- /wp:group -->
+			<!-- wp:group {"className":"articles-taxo-col","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
+			<div class="wp-block-group articles-taxo-col">
+				<!-- wp:heading {"level":2,"className":"articles-taxo-title"} -->
+				<h2 class="wp-block-heading articles-taxo-title">Tags</h2>
+				<!-- /wp:heading -->
+				<!-- wp:tag-cloud {"numberOfTags":12,"showTagCounts":true,"smallestFontSize":"0.8rem","largestFontSize":"0.8rem","className":"articles-taxo-cloud"} /-->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"include","inherit":false}} -->
 	<div class="wp-block-query">
-		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->
+		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles is-compact"} -->
 			<!-- wp:pattern {"slug":"jardin-theme/entry-card"} /-->
 			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
 		<!-- /wp:post-template -->
@@ -25,6 +46,8 @@
 		<!-- /wp:query-no-results -->
 	</div>
 	<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
 
