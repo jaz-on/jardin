@@ -30,23 +30,23 @@ function jardin_projects_sync_service(): Jardin_Projects_Sync {
  */
 function jardin_register_project_cpt(): void {
 	$labels = array(
-		'name'               => __( 'Projets', 'jardin-theme' ),
-		'singular_name'      => __( 'Projet', 'jardin-theme' ),
-		'add_new'            => __( 'Ajouter un projet', 'jardin-theme' ),
-		'add_new_item'       => __( 'Ajouter un nouveau projet', 'jardin-theme' ),
-		'edit_item'          => __( 'Modifier le projet', 'jardin-theme' ),
-		'new_item'           => __( 'Nouveau projet', 'jardin-theme' ),
-		'view_item'          => __( 'Voir le projet', 'jardin-theme' ),
-		'search_items'       => __( 'Rechercher des projets', 'jardin-theme' ),
-		'not_found'          => __( 'Aucun projet trouvé', 'jardin-theme' ),
-		'not_found_in_trash' => __( 'Aucun projet dans la corbeille', 'jardin-theme' ),
-		'all_items'          => __( 'Tous les projets', 'jardin-theme' ),
-		'archives'           => __( 'Archives des projets', 'jardin-theme' ),
-		'menu_name'          => __( 'Projets', 'jardin-theme' ),
+		'name'               => __( 'Projects', 'jardin-theme' ),
+		'singular_name'      => __( 'Project', 'jardin-theme' ),
+		'add_new'            => __( 'Add project', 'jardin-theme' ),
+		'add_new_item'       => __( 'Add new project', 'jardin-theme' ),
+		'edit_item'          => __( 'Edit project', 'jardin-theme' ),
+		'new_item'           => __( 'New project', 'jardin-theme' ),
+		'view_item'          => __( 'View project', 'jardin-theme' ),
+		'search_items'       => __( 'Search projects', 'jardin-theme' ),
+		'not_found'          => __( 'No projects found', 'jardin-theme' ),
+		'not_found_in_trash' => __( 'No projects found in Trash', 'jardin-theme' ),
+		'all_items'          => __( 'All projects', 'jardin-theme' ),
+		'archives'           => __( 'Project archives', 'jardin-theme' ),
+		'menu_name'          => __( 'Projects', 'jardin-theme' ),
 	);
 
 	$args = array(
-		'label'               => __( 'Projets', 'jardin-theme' ),
+		'label'               => __( 'Projects', 'jardin-theme' ),
 		'labels'              => $labels,
 		'public'              => true,
 		'show_in_rest'        => true,
@@ -80,13 +80,13 @@ add_action( 'init', 'jardin_register_project_cpt', 5 );
  */
 function jardin_register_project_status_taxonomy(): void {
 	$labels = array(
-		'name'          => __( 'Statuts projet', 'jardin-theme' ),
-		'singular_name' => __( 'Statut projet', 'jardin-theme' ),
-		'menu_name'     => __( 'Statuts', 'jardin-theme' ),
-		'all_items'     => __( 'Tous les statuts', 'jardin-theme' ),
-		'edit_item'     => __( 'Modifier le statut', 'jardin-theme' ),
-		'update_item'   => __( 'Mettre à jour le statut', 'jardin-theme' ),
-		'add_new_item'  => __( 'Ajouter un statut', 'jardin-theme' ),
+		'name'          => __( 'Project statuses', 'jardin-theme' ),
+		'singular_name' => __( 'Project status', 'jardin-theme' ),
+		'menu_name'     => __( 'Statuses', 'jardin-theme' ),
+		'all_items'     => __( 'All statuses', 'jardin-theme' ),
+		'edit_item'     => __( 'Edit status', 'jardin-theme' ),
+		'update_item'   => __( 'Update status', 'jardin-theme' ),
+		'add_new_item'  => __( 'Add status', 'jardin-theme' ),
 	);
 
 	register_taxonomy(
@@ -194,11 +194,11 @@ function jardin_seed_project_status_terms(): void {
 	}
 
 	$defaults = array(
-		'actif'    => __( 'actif', 'jardin-theme' ),
-		'wip'      => __( 'en cours', 'jardin-theme' ),
+		'actif'    => __( 'active', 'jardin-theme' ),
+		'wip'      => __( 'in progress', 'jardin-theme' ),
 		'stable'   => __( 'stable', 'jardin-theme' ),
-		'planned'  => __( 'prévu', 'jardin-theme' ),
-		'archived' => __( 'archivé', 'jardin-theme' ),
+		'planned'  => __( 'planned', 'jardin-theme' ),
+		'archived' => __( 'archived', 'jardin-theme' ),
 	);
 
 	foreach ( $defaults as $slug => $label ) {
@@ -219,7 +219,65 @@ function jardin_projects_bootstrap_sync(): void {
 add_action( 'init', 'jardin_projects_bootstrap_sync', 6 );
 
 /**
- * Featured Query Loop: restrict to project_featured meta.
+ * Post IDs for the home pinned-projects grid: featured first (menu_order, date), then fill with recently modified.
+ *
+ * @param int $limit Max items (home grid uses 3).
+ * @return int[]
+ */
+function jardin_projects_get_home_featured_post_ids( int $limit = 3 ): array {
+	$pt = jardin_projects_get_post_type();
+	if ( ! post_type_exists( $pt ) || $limit < 1 ) {
+		return array();
+	}
+
+	$featured = get_posts(
+		array(
+			'post_type'           => $pt,
+			'post_status'         => 'publish',
+			'posts_per_page'      => $limit,
+			'orderby'             => array(
+				'menu_order' => 'ASC',
+				'date'       => 'DESC',
+			),
+			'fields'              => 'ids',
+			'no_found_rows'       => true,
+			'ignore_sticky_posts' => true,
+			'meta_query'          => array(
+				array(
+					'key'     => 'project_featured',
+					'value'   => '1',
+					'compare' => '=',
+				),
+			),
+		)
+	);
+
+	$featured = array_map( 'intval', $featured );
+
+	if ( count( $featured ) >= $limit ) {
+		return array_slice( $featured, 0, $limit );
+	}
+
+	$need = $limit - count( $featured );
+	$fill = get_posts(
+		array(
+			'post_type'           => $pt,
+			'post_status'         => 'publish',
+			'posts_per_page'      => $need,
+			'orderby'             => 'modified',
+			'order'               => 'DESC',
+			'post__not_in'        => $featured,
+			'fields'              => 'ids',
+			'no_found_rows'       => true,
+			'ignore_sticky_posts' => true,
+		)
+	);
+
+	return array_merge( $featured, array_map( 'intval', $fill ) );
+}
+
+/**
+ * Featured Query Loop on home: pinned meta + fallback to latest modified (mockup parity).
  *
  * @param array     $query Query vars.
  * @param \WP_Block $block Block instance.
@@ -248,13 +306,21 @@ function jardin_projects_filter_featured_query_loop( $query, $block, $page ) { /
 		return $query;
 	}
 
-	$query['meta_key']     = 'project_featured';
-	$query['meta_value']   = '1';
-	$query['meta_compare'] = '=';
-	$query['orderby']      = array(
-		'menu_order' => 'ASC',
-		'date'       => 'DESC',
-	);
+	$per_page = isset( $query['posts_per_page'] ) ? (int) $query['posts_per_page'] : 3;
+	if ( $per_page < 1 ) {
+		$per_page = 3;
+	}
+
+	$ids = jardin_projects_get_home_featured_post_ids( $per_page );
+
+	if ( empty( $ids ) ) {
+		$query['post__in'] = array( 0 );
+	} else {
+		$query['post__in'] = $ids;
+	}
+	$query['orderby'] = 'post__in';
+
+	unset( $query['meta_key'], $query['meta_value'], $query['meta_compare'], $query['meta_query'] );
 
 	return $query;
 }
@@ -326,7 +392,7 @@ function jardin_projects_flush_rewrites_on_theme_switch(): void {
 add_action( 'after_switch_theme', 'jardin_projects_flush_rewrites_on_theme_switch' );
 
 /**
- * Éditeur de blocs : panneaux latéraux pour les métas projet (pas de métabox).
+ * Block editor: sidebar panels for project meta (no classic metabox).
  */
 function jardin_enqueue_project_block_editor_assets(): void {
 	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;

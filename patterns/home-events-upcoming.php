@@ -41,7 +41,7 @@
 	<?php endif; ?>
 
 	<!-- wp:paragraph {"className":"events-upcoming-footer","fontSize":"sm","textColor":"text-muted"} -->
-	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( "J'habite la belle ville de Cognac, fais-moi signe pour prendre un café si tu y passes ! ✌️", 'jardin-theme' ); ?></p>
+	<p class="events-upcoming-footer has-text-muted-color has-text-color has-sm-font-size"><?php esc_html_e( 'I live in Cognac — happy to grab coffee if you are passing through. ✌️', 'jardin-theme' ); ?></p>
 	<!-- /wp:paragraph -->
 
 </div>

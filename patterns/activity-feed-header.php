@@ -9,7 +9,7 @@
  * @package Jardin_Theme */
 
 $kinds = array(
-	array( 'slug' => '', 'label' => __( 'tous', 'jardin-theme' ) ),
+	array( 'slug' => '', 'label' => __( 'All', 'jardin-theme' ) ),
 	array( 'slug' => 'bookmark', 'label' => __( 'bookmark', 'jardin-theme' ) ),
 	array( 'slug' => 'quote', 'label' => __( 'quote', 'jardin-theme' ) ),
 	array( 'slug' => 'listen', 'label' => __( 'listen', 'jardin-theme' ) ),
@@ -56,8 +56,8 @@ $dfilter   = '' === $current ? 'all' : $current;
 ?>
 <!-- wp:html -->
 <div class="feed-header">
-	<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer les activités', 'jardin-theme' ); ?></h2>
-	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type d’entrée', 'jardin-theme' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
+	<h2 class="wp-block-heading"><?php esc_html_e( 'Filter activity feed', 'jardin-theme' ); ?></h2>
+	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filter by entry type', 'jardin-theme' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
 		<?php echo $nav_inner; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</nav>
 </div>

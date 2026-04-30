@@ -110,17 +110,17 @@ function jardin_sg_item( string $label, string $demo ): string {
 
 function jardin_sg_section_toc(): void {
 	$sections = array(
-		'sg-tokens'       => 'Design tokens (couleurs)',
-		'sg-typography'   => 'Typographie',
+		'sg-tokens'       => 'Design tokens (colors)',
+		'sg-typography'   => 'Typography',
 		'sg-spacing'      => 'Spacing',
-		'sg-blocks'       => 'Blocs core — démo',
+		'sg-blocks'       => 'Core blocks — demos',
 		'sg-block-styles' => 'Block styles (jardin)',
 		'sg-patterns'     => 'Block patterns (jardin)',
 		'sg-templates'    => 'Templates & parts',
 		'sg-cpt'          => 'Post types & taxonomies',
 	);
 
-	echo '<nav class="sg-toc" aria-label="Sommaire du styleguide"><h3>Sommaire</h3><ul>';
+	echo '<nav class="sg-toc" aria-label="Styleguide contents"><h3>Contents</h3><ul>';
 	$i = 1;
 	foreach ( $sections as $id => $label ) {
 		printf( '<li><a href="#%s">%d. %s</a></li>', esc_attr( $id ), $i, esc_html( $label ) );
@@ -160,7 +160,7 @@ function jardin_sg_section_tokens( array $theme_json ): void {
 	}
 	echo '</div>';
 
-	jardin_sg_section( 'sg-tokens', 'Design tokens (couleurs)', ob_get_clean() );
+	jardin_sg_section( 'sg-tokens', 'Design tokens (colors)', ob_get_clean() );
 }
 
 /* =========================================================================
@@ -193,10 +193,10 @@ function jardin_sg_section_typography( array $theme_json ): void {
 
 	if ( $sizes ) {
 		echo '<h3>Font sizes</h3>';
-		echo '<table class="sg-table"><thead><tr><th>Slug</th><th>Size</th><th>Aperçu</th></tr></thead><tbody>';
+		echo '<table class="sg-table"><thead><tr><th>Slug</th><th>Size</th><th>Preview</th></tr></thead><tbody>';
 		foreach ( $sizes as $size ) {
 			printf(
-				'<tr><td><code>%s</code></td><td><code>%s</code></td><td style="font-size:%s">Le vif renard</td></tr>',
+				'<tr><td><code>%s</code></td><td><code>%s</code></td><td style="font-size:%s">The quick brown fox</td></tr>',
 				esc_html( $size['slug'] ),
 				esc_html( $size['size'] ),
 				esc_attr( $size['size'] )
@@ -209,12 +209,12 @@ function jardin_sg_section_typography( array $theme_json ): void {
 	echo '<h3>Heading hierarchy</h3>';
 	for ( $lvl = 1; $lvl <= 6; ++$lvl ) {
 		echo do_blocks( sprintf(
-			'<!-- wp:heading {"level":%d} --><h%d class="wp-block-heading">Heading %d — Le jardin typographique</h%d><!-- /wp:heading -->',
+			'<!-- wp:heading {"level":%d} --><h%d class="wp-block-heading">Heading %d — Typographic garden</h%d><!-- /wp:heading -->',
 			$lvl, $lvl, $lvl, $lvl
 		) );
 	}
 
-	jardin_sg_section( 'sg-typography', 'Typographie', ob_get_clean() );
+	jardin_sg_section( 'sg-typography', 'Typography', ob_get_clean() );
 }
 
 /* =========================================================================
@@ -244,7 +244,7 @@ function jardin_sg_section_spacing( array $theme_json ): void {
 
 	$custom = $theme_json['settings']['custom'] ?? array();
 	if ( ! empty( $custom['radius'] ) ) {
-		echo '<h3>Border radius</h3><table class="sg-table"><thead><tr><th>Token</th><th>Value</th><th>Aperçu</th></tr></thead><tbody>';
+		echo '<h3>Border radius</h3><table class="sg-table"><thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead><tbody>';
 		foreach ( $custom['radius'] as $token => $val ) {
 			printf(
 				'<tr><td><code>%s</code></td><td><code>%s</code></td><td><span class="sg-radius-demo" style="border-radius:%s"></span></td></tr>',
@@ -265,21 +265,21 @@ function jardin_sg_section_spacing( array $theme_json ): void {
 
 function jardin_sg_section_blocks(): void {
 	$demos = array(
-		'core/paragraph' => '<!-- wp:paragraph --><p>Un paragraphe de base. Du texte avec du <strong>gras</strong>, de l\'<em>italique</em>, du <code>code inline</code>, un <a href="https://example.com">lien</a>, du <s>barré</s> et une <mark>mise en avant</mark>. Typographie française : « guillemets », apostrophes, espaces insécables — 1 234 €.</p><!-- /wp:paragraph -->',
+		'core/paragraph' => '<!-- wp:paragraph --><p>A baseline paragraph with <strong>bold</strong>, <em>italics</em>, inline <code>code</code>, an <a href="https://example.com">anchor</a>, <s>strike</s>, and <mark>highlight</mark>. French typography sample: « guillemets », apostrophes, narrow spaces — 1&nbsp;234&nbsp;€.</p><!-- /wp:paragraph -->',
 
-		'core/paragraph (drop cap)' => '<!-- wp:paragraph {"dropCap":true} --><p class="has-drop-cap">La lettrine s\'active via l\'attribut dropCap du bloc paragraph. Elle est un marqueur d\'identité du thème jardin — plus grande, en serif ambré. Ce paragraphe montre le rendu réel.</p><!-- /wp:paragraph -->',
+		'core/paragraph (drop cap)' => '<!-- wp:paragraph {"dropCap":true} --><p class="has-drop-cap">Drop caps use the paragraph block’s dropCap attribute. They’re part of jardin’s identity — taller amber serif. This paragraph shows the real render.</p><!-- /wp:paragraph -->',
 
-		'core/heading (h2)' => '<!-- wp:heading --><h2 class="wp-block-heading">Un heading de niveau 2</h2><!-- /wp:heading -->',
+		'core/heading (h2)' => '<!-- wp:heading --><h2 class="wp-block-heading">Level 2 heading</h2><!-- /wp:heading -->',
 
-		'core/heading (h3)' => '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Un heading de niveau 3</h3><!-- /wp:heading -->',
+		'core/heading (h3)' => '<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Level 3 heading</h3><!-- /wp:heading -->',
 
-		'core/list' => '<!-- wp:list --><ul class="wp-block-list"><!-- wp:list-item --><li>Premier élément de liste</li><!-- /wp:list-item --><!-- wp:list-item --><li>Deuxième élément avec du <strong>gras</strong></li><!-- /wp:list-item --><!-- wp:list-item --><li>Troisième avec un <a href="#">lien</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->',
+		'core/list' => '<!-- wp:list --><ul class="wp-block-list"><!-- wp:list-item --><li>First list item</li><!-- /wp:list-item --><!-- wp:list-item --><li>Second item with <strong>bold</strong></li><!-- /wp:list-item --><!-- wp:list-item --><li>Third with an <a href="#">link</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->',
 
-		'core/list (ordered)' => '<!-- wp:list {"ordered":true} --><ol class="wp-block-list"><!-- wp:list-item --><li>Première étape</li><!-- /wp:list-item --><!-- wp:list-item --><li>Deuxième étape</li><!-- /wp:list-item --><!-- wp:list-item --><li>Troisième étape</li><!-- /wp:list-item --></ol><!-- /wp:list -->',
+		'core/list (ordered)' => '<!-- wp:list {"ordered":true} --><ol class="wp-block-list"><!-- wp:list-item --><li>First step</li><!-- /wp:list-item --><!-- wp:list-item --><li>Second step</li><!-- /wp:list-item --><!-- wp:list-item --><li>Third step</li><!-- /wp:list-item --></ol><!-- /wp:list -->',
 
-		'core/quote' => '<!-- wp:quote --><blockquote class="wp-block-quote"><p>« Si je n\'écris pas, ça n\'existe pas. »</p><cite>Jason Rouet, à peu près tous les jours</cite></blockquote><!-- /wp:quote -->',
+		'core/quote' => '<!-- wp:quote --><blockquote class="wp-block-quote"><p>« If I don’t write it, it doesn’t exist. »</p><cite>Jason Rouet, most days</cite></blockquote><!-- /wp:quote -->',
 
-		'core/pullquote' => '<!-- wp:pullquote --><figure class="wp-block-pullquote"><blockquote><p>Les sites personnels bien faits sont les meilleurs endroits du web.</p><cite>Conviction personnelle</cite></blockquote></figure><!-- /wp:pullquote -->',
+		'core/pullquote' => '<!-- wp:pullquote --><figure class="wp-block-pullquote"><blockquote><p>Well-made personal sites are the best places on the web.</p><cite>Strong opinion</cite></blockquote></figure><!-- /wp:pullquote -->',
 
 		'core/code' => '<!-- wp:code --><pre class="wp-block-code"><code>register_taxonomy( \'note_kind\', [ \'iwcpt_note\' ], [
   \'label\'        => \'Note Kinds\',
@@ -287,23 +287,23 @@ function jardin_sg_section_blocks(): void {
   \'public\'       => true,
 ] );</code></pre><!-- /wp:code -->',
 
-		'core/preformatted' => '<!-- wp:preformatted --><pre class="wp-block-preformatted">Texte préformaté — préserve    les espaces
-et les sauts
-    de ligne.</pre><!-- /wp:preformatted -->',
+		'core/preformatted' => '<!-- wp:preformatted --><pre class="wp-block-preformatted">Preformatted text — keeps    spaces
+and line
+    breaks.</pre><!-- /wp:preformatted -->',
 
-		'core/table' => '<!-- wp:table --><figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Composant</th><th>Technologie</th><th>Status</th></tr></thead><tbody><tr><td>Thème</td><td>FSE block theme</td><td>En cours</td></tr><tr><td>Plugins</td><td>PHP 8.4</td><td>Actifs</td></tr><tr><td>Hébergement</td><td>Hosterra</td><td>Production</td></tr></tbody></table></figure><!-- /wp:table -->',
+		'core/table' => '<!-- wp:table --><figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Layer</th><th>Technology</th><th>Status</th></tr></thead><tbody><tr><td>Theme</td><td>FSE block theme</td><td>In progress</td></tr><tr><td>Plugins</td><td>PHP 8.4</td><td>Active</td></tr><tr><td>Hosting</td><td>Hosterra</td><td>Production</td></tr></tbody></table></figure><!-- /wp:table -->',
 
 		'core/separator' => '<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity"/><!-- /wp:separator -->',
 
 		'core/separator (wide)' => '<!-- wp:separator {"className":"is-style-wide"} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->',
 
-		'core/buttons' => '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Bouton primaire</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button">Bouton outline</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
+		'core/buttons' => '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Primary button</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button">Outline button</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
 
-		'core/columns (2 cols)' => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p>Colonne gauche. Du texte pour voir le rendu sur deux colonnes côte à côte.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p>Colonne droite. Les colonnes s\'empilent en mobile automatiquement.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+		'core/columns (2 cols)' => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p>Left column — body copy to preview side-by-side layout.</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p>Right column — stacks on small screens automatically.</p><!-- /wp:paragraph --></div><!-- /wp:column --></div><!-- /wp:columns -->',
 
-		'core/group (callout)' => '<!-- wp:group {"className":"is-style-callout-soft"} --><div class="wp-block-group is-style-callout-soft"><!-- wp:paragraph --><p>Un bloc group avec le style <code>callout-soft</code>. Utilisé pour les encadrés d\'information dans le contenu éditorial.</p><!-- /wp:paragraph --></div><!-- /wp:group -->',
+		'core/group (callout)' => '<!-- wp:group {"className":"is-style-callout-soft"} --><div class="wp-block-group is-style-callout-soft"><!-- wp:paragraph --><p>A group block using <code>callout-soft</code> — for informational asides in editorial content.</p><!-- /wp:paragraph --></div><!-- /wp:group -->',
 
-		'core/details' => '<!-- wp:details --><details class="wp-block-details"><summary>Détails techniques (cliquer pour ouvrir)</summary><!-- wp:paragraph --><p>Contenu masqué par défaut, visible au clic. Utilisé pour les notes techniques, les FAQ, les avertissements.</p><!-- /wp:paragraph --></details><!-- /wp:details -->',
+		'core/details' => '<!-- wp:details --><details class="wp-block-details"><summary>Technical details (click to expand)</summary><!-- wp:paragraph --><p>Hidden by default; revealed on click — handy for technical notes, FAQs, and caveats.</p><!-- /wp:paragraph --></details><!-- /wp:details -->',
 	);
 
 	ob_start();
@@ -311,7 +311,7 @@ et les sauts
 		echo jardin_sg_item( $label, do_blocks( $markup ) );
 	}
 
-	jardin_sg_section( 'sg-blocks', 'Blocs core — démo', ob_get_clean() );
+	jardin_sg_section( 'sg-blocks', 'Core blocks — demos', ob_get_clean() );
 }
 
 /* =========================================================================
@@ -323,7 +323,7 @@ function jardin_sg_section_block_styles(): void {
 	$all      = $registry->get_all_registered();
 
 	ob_start();
-	echo '<table class="sg-table"><thead><tr><th>Bloc</th><th>Style</th><th>Label</th></tr></thead><tbody>';
+	echo '<table class="sg-table"><thead><tr><th>Block</th><th>Style</th><th>Label</th></tr></thead><tbody>';
 
 	foreach ( $all as $block_name => $styles ) {
 		foreach ( $styles as $style_name => $style_data ) {
@@ -363,7 +363,7 @@ function jardin_sg_section_patterns(): void {
 	ob_start();
 
 	if ( empty( $jardin_patterns ) ) {
-		echo '<p>Aucun pattern jardin-theme/ enregistré.</p>';
+		echo '<p>No jardin-theme/ patterns registered.</p>';
 	}
 
 	foreach ( $jardin_patterns as $pattern ) {
@@ -390,7 +390,7 @@ function jardin_sg_section_patterns(): void {
 			echo do_blocks( $pattern['content'] );
 			echo '</div>';
 		} else {
-			echo '<p class="sg-pattern-hidden"><em>Pattern masqué (hidden) — non rendu.</em></p>';
+			echo '<p class="sg-pattern-hidden"><em>Hidden pattern — not rendered.</em></p>';
 		}
 
 		echo '</div>';
@@ -410,7 +410,7 @@ function jardin_sg_section_templates(): void {
 	$parts_dir    = get_template_directory() . '/parts';
 
 	echo '<h3>Templates</h3>';
-	echo '<table class="sg-table"><thead><tr><th>Fichier</th><th>Existe</th></tr></thead><tbody>';
+	echo '<table class="sg-table"><thead><tr><th>File</th><th>Present</th></tr></thead><tbody>';
 	if ( is_dir( $template_dir ) ) {
 		foreach ( glob( $template_dir . '/*.html' ) as $file ) {
 			$name = basename( $file );
@@ -420,7 +420,7 @@ function jardin_sg_section_templates(): void {
 	echo '</tbody></table>';
 
 	echo '<h3>Template Parts</h3>';
-	echo '<table class="sg-table"><thead><tr><th>Fichier</th><th>Existe</th></tr></thead><tbody>';
+	echo '<table class="sg-table"><thead><tr><th>File</th><th>Present</th></tr></thead><tbody>';
 	if ( is_dir( $parts_dir ) ) {
 		foreach ( glob( $parts_dir . '/*.html' ) as $file ) {
 			$name = basename( $file );

@@ -11,7 +11,7 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 
 1. Clone or copy into `wp-content/themes/jardin-theme` (recommended). Legacy folder name `jardin` is still supported or can symlink to `jardin-theme`.
 2. **Appearance → Themes** → activate **jardin-theme**.
-3. After changes that affect rewrites, open **Settings → Permalinks** once and save (or `wp rewrite flush`).
+3. **Rewrites / permaliens** : flush automatique quand le thème est mis à jour via l’**upgrader** WordPress, et aussi quand les fichiers du thème changent sur le disque (Git Updater sur branche **sans** bump de version) : le thème compare les dates de modification de `functions.php`, `style.css` et `inc/*.php` et appelle `flush_rewrite_rules()` au besoin. Pour désactiver ce dernier comportement (ex. prod très chargée), utiliser le filtre `jardin_auto_flush_rewrites_on_theme_pull` (retourner `false`). Sinon, **Réglages → Permaliens** ou `wp rewrite flush`.
 
 **Customized template parts:** if the header (or another part) ignores Git updates, reset it in the Site Editor (**Patterns / Template parts** → open part → clear customizations) so files from the theme load again.
 

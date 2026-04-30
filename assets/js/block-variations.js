@@ -4,7 +4,7 @@
  * Namespace `jardin-theme/journal-mixed` (?kind=) plus `jardin-theme/now-updates-feed`,
  * `jardin-theme/events-upcoming`, and `jardin-theme/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
  * Phase 2 shipped post + IndieBlocks only; Phase 4 extends journal-mixed with plugin CPTs.
- * Namespaces `jardin-theme/notes-by-kind` (archive activités /activites|/activities), `jardin-theme/articles-pinned`, and `jardin-theme/blogroll-grid`
+ * Namespaces `jardin-theme/notes-by-kind` (activities archive /activites|/activities), `jardin-theme/articles-pinned`, and `jardin-theme/blogroll-grid`
  * are editor presets until matching filters exist (plugins / theme follow-up).
  *
  * @package Jardin_Theme

@@ -1,15 +1,15 @@
 <?php
 /**
- * Hub « activités » (FR: /activites/, EN: /activities/) pour l’archive CPT IndieBlocks `iwcpt_note`.
+ * Activities hub (FR: /activites/, EN: /activities/) for the IndieBlocks `iwcpt_note` archive CPT.
  *
- * Segments URL sans accent (aligné /evenements/). Libellés UI via i18n (Activités / Activities).
+ * URL segments are ASCII (aligned with /evenements/). UI labels use gettext (e.g. Activities).
  *
  * @package Jardin_Theme */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Slug de chemin pour la langue Polylang (slug), ou estimation depuis la locale.
+ * Path segment for a Polylang language slug, or inferred from locale.
  *
  * @param string $lang_slug Ex. fr, en.
  * @return string activites | activities
@@ -20,7 +20,7 @@ function jardin_get_activity_path_segment_for_lang( string $lang_slug ): string 
 }
 
 /**
- * Slug de chemin pour la langue courante (front).
+ * Path segment for the current front-end language.
  *
  * @return string
  */
@@ -36,7 +36,7 @@ function jardin_get_activity_path_segment(): string {
 }
 
 /**
- * URL absolue de l’archive « activités » (iwcpt_note) pour la langue courante.
+ * Absolute URL of the `iwcpt_note` archive hub for the current language.
  *
  * @return string
  */
@@ -57,16 +57,16 @@ function jardin_get_activity_archive_url(): string {
 }
 
 /**
- * Libellé court pour filtres et pills (activités / activities), aligné sur le segment du hub.
+ * Short label for filters and pills (translate via fr_FR.po on French locales).
  *
  * @return string
  */
 function jardin_get_activity_nav_label(): string {
-	return 'activites' === jardin_get_activity_path_segment() ? __( 'activités', 'jardin-theme' ) : __( 'activities', 'jardin-theme' );
+	return __( 'Activities', 'jardin-theme' );
 }
 
 /**
- * Enregistre les règles de réécriture pour /activites/ et /activities/ (et préfixes Polylang).
+ * Register rewrite rules for /activites/ and /activities/ (including Polylang prefixes).
  *
  * @return void
  */
@@ -85,7 +85,7 @@ function jardin_register_activity_archive_rewrites(): void {
 				$lang_slug = sanitize_key( (string) $lang_slug );
 				$seg       = jardin_get_activity_path_segment_for_lang( $lang_slug );
 				if ( $hide && $lang_slug === $default ) {
-					// Langue par défaut sans préfixe : pas de query var `lang` (Polylang l’infère).
+					// Default language without prefix: no `lang` query var (Polylang infers it).
 					add_rewrite_rule( '^' . $seg . '/?$', 'index.php?post_type=iwcpt_note', 'top' );
 				} else {
 					add_rewrite_rule( '^' . $lang_slug . '/' . $seg . '/?$', 'index.php?lang=' . $lang_slug . '&post_type=iwcpt_note', 'top' );
@@ -101,7 +101,7 @@ function jardin_register_activity_archive_rewrites(): void {
 add_action( 'init', 'jardin_register_activity_archive_rewrites', 25 );
 
 /**
- * Permalink canonique de l’archive iwcpt_note → hub activités.
+ * Canonical permalink for the `iwcpt_note` archive → activities hub.
  *
  * @param string $link     Default link.
  * @param string $post_type Post type.
@@ -116,7 +116,7 @@ function jardin_filter_iwcpt_note_archive_link( string $link, string $post_type 
 add_filter( 'post_type_archive_link', 'jardin_filter_iwcpt_note_archive_link', 20, 2 );
 
 /**
- * Redirige l’ancienne archive /notes/ (slug IndieBlocks) vers le hub activités.
+ * Redirect legacy /notes/ IndieBlocks archive slug to the activities hub.
  *
  * @return void
  */

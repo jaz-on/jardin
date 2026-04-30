@@ -40,7 +40,7 @@ function jardin_get_theme_toggle_markup(): string {
 	$themes = array(
 		array(
 			'label' => __( 'Rosé Pine', 'jardin-theme' ),
-			'desc'  => __( 'Soho minimaliste', 'jardin-theme' ),
+			'desc'  => __( 'Minimal Soho aesthetic', 'jardin-theme' ),
 			'items' => array(
 				array( 'slug' => 'rose-pine-dawn', 'name' => __( 'Dawn', 'jardin-theme' ),  'icon' => '🌅', 'swatches' => array( '#faf4ed', '#d7827e', '#575279' ) ),
 				array( 'slug' => 'rose-pine-moon', 'name' => __( 'Moon', 'jardin-theme' ),  'icon' => '🌙', 'swatches' => array( '#232136', '#ea9a97', '#e0def4' ) ),
@@ -49,7 +49,7 @@ function jardin_get_theme_toggle_markup(): string {
 		),
 		array(
 			'label' => __( 'Catppuccin', 'jardin-theme' ),
-			'desc'  => __( 'Pastel café', 'jardin-theme' ),
+			'desc'  => __( 'Pastel café tones', 'jardin-theme' ),
 			'items' => array(
 				array( 'slug' => 'catppuccin-latte',     'name' => __( 'Latte', 'jardin-theme' ),     'icon' => '🥛', 'swatches' => array( '#eff1f5', '#df8e1d', '#4c4f69' ) ),
 				array( 'slug' => 'catppuccin-frappe',     'name' => __( 'Frappé', 'jardin-theme' ),    'icon' => '🍮', 'swatches' => array( '#303446', '#e5c890', '#c6d0f5' ) ),
@@ -58,7 +58,7 @@ function jardin_get_theme_toggle_markup(): string {
 		),
 		array(
 			'label' => __( 'Brewery', 'jardin-theme' ),
-			'desc'  => __( 'Bières artisanales', 'jardin-theme' ),
+			'desc'  => __( 'Craft beer palettes', 'jardin-theme' ),
 			'items' => array(
 			array( 'slug' => 'brewery-pale',  'name' => __( 'Pale ale', 'jardin-theme' ), 'icon' => '🍺', 'swatches' => array( '#FBF6E9', '#B8772A', '#2C2418' ) ),
 			array( 'slug' => 'brewery-amber', 'name' => __( 'IPA', 'jardin-theme' ),      'icon' => '🍻', 'swatches' => array( '#3A2210', '#C87533', '#F0D9B5' ) ),
@@ -75,10 +75,10 @@ function jardin_get_theme_toggle_markup(): string {
 				<use href="#i-palette"></use>
 			</svg>
 		</summary>
-		<div class="jardin-theme-toggle__menu" role="dialog" aria-label="<?php echo esc_attr__( 'Sélection du thème', 'jardin-theme' ); ?>">
+		<div class="jardin-theme-toggle__menu" role="dialog" aria-label="<?php echo esc_attr__( 'Theme selection', 'jardin-theme' ); ?>">
 			<div class="jardin-theme-toggle__header">
-				<h2 class="jardin-theme-toggle__title"><?php echo esc_html__( 'Thème', 'jardin-theme' ); ?></h2>
-				<button type="button" class="jardin-theme-toggle__close" aria-label="<?php echo esc_attr__( 'Fermer', 'jardin-theme' ); ?>">
+				<h2 class="jardin-theme-toggle__title"><?php echo esc_html__( 'Color scheme', 'jardin-theme' ); ?></h2>
+				<button type="button" class="jardin-theme-toggle__close" aria-label="<?php echo esc_attr__( 'Close', 'jardin-theme' ); ?>">
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
 				</button>
 			</div>
@@ -106,7 +106,7 @@ function jardin_get_theme_toggle_markup(): string {
 			</div>
 			<div class="jardin-theme-toggle__footer">
 				<button type="button" class="jardin-theme-toggle__system" data-theme-system>
-					<?php echo esc_html__( 'Suivre le système', 'jardin-theme' ); ?>
+					<?php echo esc_html__( 'Match system', 'jardin-theme' ); ?>
 				</button>
 			</div>
 		</div>

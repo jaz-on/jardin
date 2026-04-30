@@ -32,7 +32,7 @@ ob_start();
 		<span class="project-stat-value"><?php echo esc_html( $version ); ?></span>
 	</div>
 	<div class="project-stat">
-		<span class="project-stat-label"><?php esc_html_e( 'licence', 'jardin-theme' ); ?></span>
+		<span class="project-stat-label"><?php esc_html_e( 'license', 'jardin-theme' ); ?></span>
 		<span class="project-stat-value"><?php echo esc_html( $license ); ?></span>
 	</div>
 	<?php if ( '' !== $stack ) : ?>

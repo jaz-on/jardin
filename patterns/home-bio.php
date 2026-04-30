@@ -16,7 +16,7 @@ $icon_wpfr      = '<span class="inline-icon" aria-hidden="true"><svg viewBox="0 
 	<?php
 	printf(
 		/* translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link */
-		esc_html__( 'Jason Rouet, product manager WordPress chez %1$s%2$s, président de l\'asso %3$s%4$s, contributeur open‑web depuis un bon bout de temps. Ici je bidouille, je note, je raconte.', 'jardin-theme' ),
+		esc_html__( 'Jason Rouet, WordPress product manager at %1$s%2$s, president of %3$s%4$s, open-web contributor for years. Here I tinker, jot notes, and tell stories.', 'jardin-theme' ),
 		$icon_mediapapa, // phpcs:ignore WordPress.Security.EscapeOutput
 		'<a href="https://www.wp-mediapapa.com/" class="inline-brand" rel="noopener">Mediapapa</a>',
 		$icon_wpfr, // phpcs:ignore WordPress.Security.EscapeOutput

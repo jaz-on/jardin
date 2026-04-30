@@ -3,7 +3,7 @@
  * Title: Footer — 4 colonnes + webring
  * Slug: jardin-theme/footer-main
  * Categories: footer
- * Description: Grille mockup (.cols), liens avec home_url, webring IndieWeb. Voir mockup.html ~13315.
+ * Description: Four-column mockup (.cols), links via home_url, IndieWeb webring. See mockup.html ~13315.
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -25,7 +25,7 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 <!-- wp:html -->
 <div class="cols">
 	<div>
-		<h4><?php esc_html_e( 'Explorer', 'jardin-theme' ); ?></h4>
+		<h4><?php esc_html_e( 'Explore', 'jardin-theme' ); ?></h4>
 		<ul>
 			<li><a href="<?php echo $u( '/journal/' ); ?>"><?php echo esc_html( '/journal' ); ?></a></li>
 			<li><a href="<?php echo $u( '/articles/' ); ?>"><?php echo esc_html( '/articles' ); ?></a></li>
@@ -35,7 +35,7 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 		</ul>
 	</div>
 	<div>
-		<h4><?php esc_html_e( 'Explorer (suite)', 'jardin-theme' ); ?></h4>
+		<h4><?php esc_html_e( 'More to explore', 'jardin-theme' ); ?></h4>
 		<ul>
 			<li><a href="<?php echo $u( '/maintenant/' ); ?>"><?php echo esc_html( '/maintenant' ); ?></a></li>
 			<li><a href="<?php echo $u( '/dlc/' ); ?>"><?php echo esc_html( '/dlc' ); ?></a></li>
@@ -44,7 +44,7 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 		</ul>
 	</div>
 	<div>
-		<h4><?php esc_html_e( 'Le site', 'jardin-theme' ); ?></h4>
+		<h4><?php esc_html_e( 'This site', 'jardin-theme' ); ?></h4>
 		<ul>
 			<li><a href="<?php echo $u( '/index/' ); ?>"><?php echo esc_html( '/index' ); ?></a></li>
 			<li><a href="<?php echo $u( '/colophon/' ); ?>"><?php echo esc_html( '/colophon' ); ?></a></li>
@@ -55,7 +55,7 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 		</ul>
 	</div>
 	<div>
-		<h4><?php esc_html_e( 'Me joindre', 'jardin-theme' ); ?></h4>
+		<h4><?php esc_html_e( 'Reach me', 'jardin-theme' ); ?></h4>
 		<ul>
 			<li><a href="<?php echo $u( '/contact/' ); ?>"><?php echo esc_html( '/contact' ); ?></a></li>
 			<li><a href="<?php echo $u( '/social/' ); ?>"><?php echo esc_html( '/social' ); ?></a></li>
@@ -71,9 +71,9 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 		<a href="https://xn--sr8hvo.ws/" target="_blank" rel="noopener"><?php esc_html_e( 'IndieWeb webring', 'jardin-theme' ); ?> <span aria-hidden="true">🕸💍</span></a>
 	</span>
 	<span class="webring-nav">
-		<a class="webring-prev" href="https://xn--sr8hvo.ws/previous"><?php esc_html_e( '← site précédent', 'jardin-theme' ); ?></a>
+		<a class="webring-prev" href="https://xn--sr8hvo.ws/previous"><?php esc_html_e( '← previous site', 'jardin-theme' ); ?></a>
 		<span class="webring-sep" aria-hidden="true">·</span>
-		<a class="webring-next" href="https://xn--sr8hvo.ws/next"><?php esc_html_e( 'site suivant →', 'jardin-theme' ); ?></a>
+		<a class="webring-next" href="https://xn--sr8hvo.ws/next"><?php esc_html_e( 'next site →', 'jardin-theme' ); ?></a>
 	</span>
 </div>
 <!-- /wp:html -->

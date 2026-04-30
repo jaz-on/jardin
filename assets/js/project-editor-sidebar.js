@@ -1,5 +1,5 @@
 /**
- * CPT project — métas et sync depuis la colonne document (sans métabox).
+ * Project CPT — meta and sync from the document sidebar (no classic metabox).
  */
 ( function ( wp ) {
 	const { registerPlugin } = wp.plugins;
@@ -54,7 +54,7 @@
 		children.push(
 			fieldGap(
 				el( TextControl, {
-					label: __( 'Dépôt GitHub', 'jardin-theme' ),
+					label: __( 'GitHub repository', 'jardin-theme' ),
 					type: 'url',
 					value: meta && meta.repo_url ? meta.repo_url : '',
 					placeholder: 'https://github.com/owner/repo',
@@ -82,7 +82,7 @@
 		children.push(
 			fieldGap(
 				el( TextControl, {
-					label: __( 'Version courante', 'jardin-theme' ),
+					label: __( 'Current version', 'jardin-theme' ),
 					value: meta && meta.current_version ? meta.current_version : '',
 					placeholder: 'v1.2.0',
 					onChange: function ( v ) {
@@ -95,9 +95,9 @@
 		children.push(
 			fieldGap(
 				el( TextControl, {
-					label: __( 'Licence', 'jardin-theme' ),
+					label: __( 'License', 'jardin-theme' ),
 					help: cfg.defaultLicense
-						? sprintf( __( 'Exemple courant : %s', 'jardin-theme' ), cfg.defaultLicense )
+						? sprintf( __( 'Common default: %s', 'jardin-theme' ), cfg.defaultLicense )
 						: '',
 					value: meta && meta.license ? meta.license : '',
 					placeholder: cfg.defaultLicense || '',
@@ -111,7 +111,7 @@
 		children.push(
 			fieldGap(
 				el( TextControl, {
-					label: __( 'Libellé stack', 'jardin-theme' ),
+					label: __( 'Stack label', 'jardin-theme' ),
 					value: meta && meta.stack_label ? meta.stack_label : '',
 					placeholder: 'PHP 8.2 · WP 6.9+',
 					onChange: function ( v ) {
@@ -124,15 +124,15 @@
 		children.push(
 			fieldGap(
 				el( RadioControl, {
-					label: __( 'Synchronisation du changelog', 'jardin-theme' ),
+					label: __( 'Changelog synchronization', 'jardin-theme' ),
 					selected: syncModeSafe,
 					options: [
 						{
-							label: __( 'Automatique (cron + mise en ligne)', 'jardin-theme' ),
+							label: __( 'Automatic (cron + publish)', 'jardin-theme' ),
 							value: 'auto',
 						},
 						{
-							label: __( 'Manuelle uniquement', 'jardin-theme' ),
+							label: __( 'Manual only', 'jardin-theme' ),
 							value: 'manual',
 						},
 					],
@@ -153,7 +153,7 @@
 							isDismissible: false,
 						},
 						__(
-							'Enregistrez le brouillon pour pouvoir lancer une synchronisation manuelle.',
+							'Save the draft before you can run a manual sync.',
 							'jardin-theme'
 						)
 					)
@@ -168,7 +168,7 @@
 							variant: 'secondary',
 							href: cfg.syncUrl,
 						},
-						__( 'Synchroniser le changelog (GitHub)', 'jardin-theme' )
+						__( 'Sync changelog (GitHub)', 'jardin-theme' )
 					)
 				)
 			);
@@ -179,7 +179,7 @@
 				el(
 					'p',
 					{ className: 'components-base-control__help', style: { marginBottom: '6px' } },
-					el( 'strong', null, __( 'État sync : ', 'jardin-theme' ) ),
+					el( 'strong', null, __( 'Sync state: ', 'jardin-theme' ) ),
 					syncState
 				)
 			);
@@ -189,7 +189,7 @@
 				el(
 					'p',
 					{ className: 'components-base-control__help', style: { marginBottom: '6px' } },
-					el( 'strong', null, __( 'Dernière sync : ', 'jardin-theme' ) ),
+					el( 'strong', null, __( 'Last sync: ', 'jardin-theme' ) ),
 					lastSync
 				)
 			);
@@ -199,7 +199,7 @@
 				el(
 					'p',
 					{ className: 'components-base-control__help', style: { marginBottom: '0' } },
-					el( 'strong', null, __( 'Dernière erreur : ', 'jardin-theme' ) ),
+					el( 'strong', null, __( 'Last error: ', 'jardin-theme' ) ),
 					lastErr
 				)
 			);
@@ -209,7 +209,7 @@
 			PluginDocumentSettingPanel,
 			{
 				name: 'jardin-project-data',
-				title: __( 'Données projet', 'jardin-theme' ),
+				title: __( 'Project data', 'jardin-theme' ),
 				className: 'jardin-project-data-panel',
 			},
 			children
@@ -232,11 +232,11 @@
 			PluginDocumentSettingPanel,
 			{
 				name: 'jardin-project-featured',
-				title: __( 'Mise en avant', 'jardin-theme' ),
+				title: __( 'Featured', 'jardin-theme' ),
 				className: 'jardin-project-featured-panel',
 			},
 			el( ToggleControl, {
-				label: __( 'Afficher dans la grille « projets épinglés » de l’accueil', 'jardin-theme' ),
+				label: __( 'Show in the home “pinned projects” grid', 'jardin-theme' ),
 				checked: featured,
 				onChange: function ( value ) {
 					setMeta(
@@ -253,7 +253,7 @@
 					style: { marginTop: '8px', marginBottom: 0 },
 				},
 				__(
-					'L’ordre dans cette grille suit le champ « Ordre » du document (menu_order), puis la date.',
+					'Order in that grid follows the document “Order” field (menu_order), then publish date.',
 					'jardin-theme'
 				)
 			)

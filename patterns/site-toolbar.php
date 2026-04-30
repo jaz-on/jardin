@@ -3,7 +3,7 @@
  * Title: Site toolbar
  * Slug: jardin-theme/site-toolbar
  * Categories: hidden
- * Description: Header utilities — bloc langue dédié (.toolbar-lang), puis icônes segmentées (.toolbar-chrome).
+ * Description: Header utilities — dedicated language block (.toolbar-lang), then segmented icons (.toolbar-chrome).
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -26,7 +26,7 @@ if ( function_exists( 'pll_the_languages' ) ) {
 				esc_html( strtoupper( $lang['slug'] ) )
 			);
 		}
-		$lang_switch = '<div class="lang-switch" role="group" aria-label="' . esc_attr__( 'Langue', 'jardin-theme' ) . '">' . $buttons . '</div>';
+		$lang_switch = '<div class="lang-switch" role="group" aria-label="' . esc_attr__( 'Language', 'jardin-theme' ) . '">' . $buttons . '</div>';
 	}
 }
 
@@ -41,7 +41,7 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 
 ?>
 <!-- wp:html -->
-<div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Utilitaires du site', 'jardin-theme' ); ?>">
+<div class="toolbar" role="toolbar" aria-label="<?php echo esc_attr__( 'Site utilities', 'jardin-theme' ); ?>">
 
 	<?php if ( '' !== $lang_switch ) : ?>
 	<div class="toolbar-lang">
@@ -59,7 +59,7 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 	<div class="toolbar-chrome toolbar-chrome--header">
 		<a class="icon-btn"
 		   href="<?php echo esc_url( $search_url ); ?>"
-		   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin-theme' ); ?>"
+		   aria-label="<?php echo esc_attr__( 'Search', 'jardin-theme' ); ?>"
 		   rel="search"
 		><?php echo $svg_search; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 
@@ -67,15 +67,15 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 
 		<button class="icon-btn lfm-toolbar-toggle"
 		        type="button"
-		        aria-label="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
-		        title="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
+		        aria-label="<?php echo esc_attr__( 'Now playing', 'jardin-theme' ); ?>"
+		        title="<?php echo esc_attr__( 'Now playing', 'jardin-theme' ); ?>"
 		        aria-pressed="false"
 		><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
 
 		<a class="icon-btn coffee-toggle"
 		   href="<?php echo esc_url( $support_url ); ?>"
-		   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
-		   title="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
+		   aria-label="<?php echo esc_attr__( 'Support me', 'jardin-theme' ); ?>"
+		   title="<?php echo esc_attr__( 'Support me', 'jardin-theme' ); ?>"
 		><?php echo $svg_coffee . $svg_cherry . $svg_beer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 	</div>
 </div>

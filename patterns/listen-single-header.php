@@ -40,7 +40,7 @@ if ( '' !== $at ) {
 	$ts       = (int) strtotime( $at );
 	$time_str = sprintf(
 		/* translators: 1: formatted date, 2: relative time */
-		__( '%1$s · il y a %2$s', 'jardin-theme' ),
+		__( '%1$s · %2$s ago', 'jardin-theme' ),
 		wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $ts ),
 		human_time_diff( $ts, time() )
 	);

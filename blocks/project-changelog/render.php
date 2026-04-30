@@ -20,7 +20,7 @@ $repo  = (string) get_post_meta( $project_id, 'repo_url', true );
 ob_start();
 ?>
 <section class="project-changelog">
-	<h2><?php esc_html_e( 'Historique des versions', 'jardin-theme' ); ?></h2>
+	<h2><?php esc_html_e( 'Version history', 'jardin-theme' ); ?></h2>
 	<?php if ( ! empty( $items ) ) : ?>
 		<ul class="changelog-list">
 			<?php foreach ( $items as $item ) : ?>
@@ -33,7 +33,7 @@ ob_start();
 							$ts = strtotime( $published );
 							echo $ts ? esc_html( wp_date( get_option( 'date_format' ), $ts ) ) : esc_html( $published );
 						} else {
-							esc_html_e( 'date inconnue', 'jardin-theme' );
+							esc_html_e( 'Unknown date', 'jardin-theme' );
 						}
 						?>
 					</time>
@@ -42,10 +42,10 @@ ob_start();
 			<?php endforeach; ?>
 		</ul>
 	<?php else : ?>
-		<p class="u-text-meta-sm u-italic"><?php esc_html_e( 'Aucun changelog synchronisé pour le moment.', 'jardin-theme' ); ?></p>
+		<p class="u-text-meta-sm u-italic"><?php esc_html_e( 'No changelog synced yet.', 'jardin-theme' ); ?></p>
 	<?php endif; ?>
 	<?php if ( '' !== $repo ) : ?>
-		<p class="u-text-meta-sm"><a href="<?php echo esc_url( $repo ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Voir le repository GitHub complet →', 'jardin-theme' ); ?></a></p>
+		<p class="u-text-meta-sm"><a href="<?php echo esc_url( $repo ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'View full GitHub repository →', 'jardin-theme' ); ?></a></p>
 	<?php endif; ?>
 </section>
 <?php

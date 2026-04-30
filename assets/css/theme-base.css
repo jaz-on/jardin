@@ -1824,6 +1824,73 @@ main#main.wp-block-group {
 	line-height: 1.5;
 }
 
+/* Hub footnotes — mockup .page-techie */
+.page-techie {
+	margin-top: var(--wp--preset--spacing--6);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+	line-height: 1.55;
+}
+
+.page-techie :where(p) {
+	margin-top: var(--wp--preset--spacing--2);
+	margin-bottom: var(--wp--preset--spacing--2);
+	line-height: 1.55;
+}
+
+.page-techie :where(p):first-child {
+	margin-top: 0;
+}
+
+.page-techie :where(p):last-child {
+	margin-bottom: 0;
+}
+
+.page-techie-label {
+	display: flex;
+	align-items: center;
+	gap: 0.35em;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--text-faint);
+	margin-bottom: var(--wp--preset--spacing--2);
+	line-height: 1.35;
+}
+
+.page-techie-label .techie-icon {
+	flex-shrink: 0;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.page-techie code {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.9em;
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--accent);
+	padding: 0.1em 0.35em;
+	border-radius: 2px;
+}
+
+.page-techie a {
+	color: var(--wp--preset--color--accent);
+	text-decoration-color: color-mix(in srgb, var(--wp--preset--color--accent) 35%, transparent);
+}
+
+.page-techie a:is(:hover, :focus-visible) {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.home-featured-projects-wrap {
+	margin-top: var(--wp--preset--spacing--6);
+}
+
 .feed-filters.events-filters .ff-count {
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: var(--wp--preset--font-size--xs);

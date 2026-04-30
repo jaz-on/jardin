@@ -96,7 +96,7 @@ function jardin_get_dlc_dynamic_blocks_markup(): string {
 		"\n\n",
 		array(
 			'<!-- wp:paragraph {"textColor":"text-muted"} -->',
-			'<p class="has-text-muted-color has-text-color">Mon historique d\'écoute, alimenté par <a href="https://last.fm" target="_blank" rel="noopener">Last.fm</a> via un plugin maison. Scrobblé depuis 2006.</p>',
+			'<p class="has-text-muted-color has-text-color">My listening history powered by <a href="https://last.fm" target="_blank" rel="noopener">Last.fm</a> via a custom plugin. Scrobbling since 2006.</p>',
 			'<!-- /wp:paragraph -->',
 			'<!-- wp:jardin/lastfm-stats /-->',
 			'<!-- wp:jardin/lastfm-now-playing /-->',

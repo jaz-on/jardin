@@ -21,11 +21,11 @@ ob_start();
 ?>
 <div class="post-meta">
 	<?php if ( '' !== (string) $updated ) : ?>
-		<time class="dt-updated" datetime="<?php echo esc_attr( (string) $updated ); ?>" title="<?php echo esc_attr( __( 'Dernière modification', 'jardin-theme' ) ); ?>">
+		<time class="dt-updated" datetime="<?php echo esc_attr( (string) $updated ); ?>" title="<?php echo esc_attr( __( 'Last updated', 'jardin-theme' ) ); ?>">
 			<?php
 			printf(
 				/* translators: %s is a localized date. */
-				esc_html__( 'Modifié le %s', 'jardin-theme' ),
+				esc_html__( 'Updated %s', 'jardin-theme' ),
 				esc_html( get_the_modified_date( '', $post_id ) )
 			);
 			?>

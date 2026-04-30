@@ -4,8 +4,8 @@ const { test, expect } = require( '@playwright/test' );
 const skipEn = process.env.E2E_SKIP_EN === '1';
 const enPath = ( process.env.E2E_EN_PATH || '/en/' ).replace( /\/$/, '' ) + '/';
 
-test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
-	test( '1 — accueil', async ( { page } ) => {
+test.describe( 'Phase 5 — seven critical smoke HTTP flows', () => {
+	test( '1 — home', async ( { page } ) => {
 		const r = await page.goto( '/' );
 		expect( r, 'HTTP' ).not.toBeNull();
 		expect( r?.status() ).toBe( 200 );
@@ -41,47 +41,47 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 		expect( r?.status() ).toBe( 200 );
 	} );
 
-	test( "3 — /journal/ avec filtre d'essai (kind=til)", async ( { page } ) => {
+	test( '3 — /journal/ with sample filter (kind=til)', async ( { page } ) => {
 		const r = await page.goto( '/journal/?kind=til' );
 		expect( r, 'HTTP' ).not.toBeNull();
 		expect( r?.status() ).toBe( 200 );
 	} );
 
-	test( '3b — hub activité (FR)', async ( { page } ) => {
+	test( '3b — activities hub (/activites/)', async ( { page } ) => {
 		const r = await page.goto( '/activites/' );
 		expect( r, 'HTTP' ).not.toBeNull();
 		if ( r?.status() === 404 ) {
-			test.skip( true, '/activites/ 404 — déployer le thème + flush permaliens' );
+			test.skip( true, '/activites/ 404 — deploy theme + flush permalinks' );
 		}
 		expect( r?.status() ).toBe( 200 );
 	} );
 
-	test( '4 — flux /feed/', async ( { request } ) => {
+	test( '4 — /feed/', async ( { request } ) => {
 		const r = await request.get( '/feed/' );
 		expect( r.status() ).toBe( 200 );
 		const ct = r.headers()[ 'content-type' ] || '';
 		expect( ct, 'type RSS/Atom' ).toMatch( /xml|atom|rss/ );
 	} );
 
-	test( '5 — flux /feed/listens/', async ( { request } ) => {
+	test( '5 — /feed/listens/', async ( { request } ) => {
 		const r = await request.get( '/feed/listens/' );
-		// 404 possible si le plugin n’est pas actif sur l’environnement de test.
+		// 404 if scrobbles plugin inactive or rewrites missing on this env.
 		if ( r.status() === 404 ) {
-			test.skip( true, 'feed/listens/ 404 — activer jardin-scrobbler ou rewrites' );
+			test.skip( true, 'feed/listens/ 404 — enable jardin-scrobbles or fix rewrites' );
 		}
 		expect( r.status() ).toBe( 200 );
 		const ct = r.headers()[ 'content-type' ] || '';
 		expect( ct, 'type RSS' ).toMatch( /xml|rss/ );
 	} );
 
-	test( '6 — 404 propre', async ( { page } ) => {
+	test( '6 — clean 404', async ( { page } ) => {
 		const r = await page.goto( '/cette-page-nexiste-pas-jardin-e2e/' );
 		expect( r?.status() ).toBe( 404 );
 		const body = page.locator( 'body' );
 		await expect( body ).toBeVisible();
 	} );
 
-	test( '7 — accueil EN (Polylang)', async ( { page } ) => {
+	test( '7 — EN home (Polylang)', async ( { page } ) => {
 		test.skip( skipEn, 'E2E_SKIP_EN=1' );
 		const r = await page.goto( enPath, { waitUntil: 'domcontentloaded' } );
 		expect( r, 'page EN' ).not.toBeNull();

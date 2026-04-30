@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin list actions and manual changelog sync (sans métabox).
+ * Admin list actions and manual changelog sync (no classic metabox).
  *
  * @package Jardin_Theme
  */
@@ -71,9 +71,9 @@ class Jardin_Projects_Admin {
 		if ( isset( $_GET['jardin_projects_synced'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$state = sanitize_key( wp_unslash( $_GET['jardin_projects_synced'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			if ( 'ok' === $state ) {
-				echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Changelog synchronisé avec succès.', 'jardin-theme' ) . '</p></div>';
+				echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Changelog synced successfully.', 'jardin-theme' ) . '</p></div>';
 			} elseif ( 'error' === $state ) {
-				echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__( 'Synchronisation terminée avec des erreurs — voir le panneau « Données projet » dans l’éditeur.', 'jardin-theme' ) . '</p></div>';
+				echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__( 'Sync finished with errors — see the “Project data” panel in the editor.', 'jardin-theme' ) . '</p></div>';
 			}
 		}
 
@@ -86,7 +86,7 @@ class Jardin_Projects_Admin {
 					esc_html(
 						sprintf(
 							/* translators: 1: successful sync count, 2: failed sync count */
-							__( 'Synchronisation groupée : %1$d réussie(s), %2$d échec(s).', 'jardin-theme' ),
+							__( 'Bulk sync: %1$d succeeded, %2$d failed.', 'jardin-theme' ),
 							$ok,
 							$fails
 						)

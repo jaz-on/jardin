@@ -9,12 +9,14 @@
  * @package Jardin_Theme */
 
 ?>
+<!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
+<div class="wp-block-group home-featured-projects-wrap">
 <!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
 <h2 class="section-with-link"><?php
 	echo wp_kses(
 		sprintf(
 			/* translators: %s: link to /projets/ */
-			__( 'Projets épinglés <a href="%s" class="section-link">/projets →</a>', 'jardin-theme' ),
+			__( 'Pinned projects <a href="%s" class="section-link">/projets →</a>', 'jardin-theme' ),
 			esc_url( home_url( '/projets/' ) )
 		),
 		array( 'a' => array( 'href' => true, 'class' => true ) )
@@ -39,8 +41,10 @@
 	<!-- /wp:post-template -->
 	<!-- wp:query-no-results -->
 		<!-- wp:paragraph {"className":"u-text-meta-sm"} -->
-		<p class="u-text-meta-sm"><?php esc_html_e( 'Aucun projet épinglé pour le moment.', 'jardin-theme' ); ?></p>
+		<p class="u-text-meta-sm"><?php esc_html_e( 'No pinned projects yet.', 'jardin-theme' ); ?></p>
 		<!-- /wp:paragraph -->
 	<!-- /wp:query-no-results -->
 </div>
 <!-- /wp:query -->
+</div>
+<!-- /wp:group -->

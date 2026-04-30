@@ -374,21 +374,21 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Primary journal hub filters (tous / articles / activités / événements) via ?kind=.
+ * Primary journal hub filters (all / posts / activities / events) via ?kind=.
  *
  * @return string Raw HTML for a core/html block.
  */
 function jardin_get_journal_filters_markup(): string {
-	$label = esc_attr__( 'Filtrer le journal', 'jardin-theme' );
+	$label = esc_attr__( 'Filter journal', 'jardin-theme' );
 	$base  = home_url( '/journal/' );
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only display filter.
 	$current = isset( $_GET['kind'] ) ? sanitize_key( wp_unslash( $_GET['kind'] ) ) : '';
 
 	$items = array(
-		array( 'kind' => '', 'type' => 'all', 'label' => __( 'tous', 'jardin-theme' ) ),
-		array( 'kind' => 'post', 'type' => 'post', 'label' => __( 'articles', 'jardin-theme' ) ),
+		array( 'kind' => '', 'type' => 'all', 'label' => __( 'All', 'jardin-theme' ) ),
+		array( 'kind' => 'post', 'type' => 'post', 'label' => __( 'Posts', 'jardin-theme' ) ),
 		array( 'kind' => 'note', 'type' => 'note', 'label' => jardin_get_activity_nav_label() ),
-		array( 'kind' => 'event', 'type' => 'event', 'label' => __( 'événements', 'jardin-theme' ) ),
+		array( 'kind' => 'event', 'type' => 'event', 'label' => __( 'Events', 'jardin-theme' ) ),
 	);
 
 	$parts = array();

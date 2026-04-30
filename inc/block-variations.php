@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
  * Enqueue block variation script in the block editor.
  */
 function jardin_enqueue_block_variations_editor(): void {
+	$dir = get_template_directory();
+
 	wp_enqueue_script(
 		'jardin-theme-block-variations',
 		get_template_directory_uri() . '/assets/js/block-variations.js',
@@ -17,5 +19,7 @@ function jardin_enqueue_block_variations_editor(): void {
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
+
+	wp_set_script_translations( 'jardin-theme-block-variations', 'jardin-theme', $dir . '/languages' );
 }
 add_action( 'enqueue_block_editor_assets', 'jardin_enqueue_block_variations_editor' );

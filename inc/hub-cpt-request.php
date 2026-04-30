@@ -1,17 +1,15 @@
 <?php
 /**
- * Singles CPT sous la même base qu’une page hub (/projets/, /evenements/, …).
+ * CPT singles under the same path prefix as a hub page (/projets/, /evenements/, …).
  *
- * WordPress résout d’abord les pages hiérarchiques : une URL du type
- * /{base-hub}/{slug} est traitée comme « enfant de page » avant le CPT,
- * ce qui produit une 404 alors qu’un contenu publié existe.
+ * WordPress resolves hierarchical pages first: a URL like /{hub}/{slug} is treated as a
+ * child page before the CPT, which yields a 404 even when published CPT content exists.
  *
- * On corrige au stade `request` : si aucune page ne correspond au chemin et qu’un
- * article du CPT attendu (slug de réécriture = premier segment) existe, on bascule
- * vers une requête single CPT.
+ * We fix this at `request`: if no page matches the path and a post of the expected CPT
+ * (rewrite slug = first segment) exists, switch to a single-CPT query.
  *
- * Les paires préfixe → CPT sont dérivées des CPT publics avec rewrite slug (plugins inclus).
- * Utiliser le filtre `jardin_hub_page_cpt_prefix_map` pour retirer ou forcer une entrée.
+ * Prefix → CPT pairs are built from public CPTs with rewrite slugs (plugins included).
+ * Use the `jardin_hub_page_cpt_prefix_map` filter to remove or force an entry.
  *
  * @package Jardin_Theme
  */
@@ -19,7 +17,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Carte segment d’URL → post_type (slug de réécriture WordPress du CPT).
+ * Map URL segment → post_type (WordPress CPT rewrite slug).
  *
  * @return array<string, string>
  */
@@ -48,7 +46,7 @@ function jardin_get_hub_page_cpt_prefix_map(): array {
 		$built[ $slug ] = $post_type;
 	}
 
-	// Plus long en premier (cas improbable de préfixes imbriqués).
+	// Longest prefix first (edge case: nested prefixes).
 	uksort(
 		$built,
 		static function ( string $a, string $b ): int {

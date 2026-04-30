@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: Header — marque, toolbar, navigation
+ * Title: Header — brand, toolbar, navigation
  * Slug: jardin-theme/header-main
  * Categories: header
- * Description: Contenu du header (ligne brand + toolbar, puis nav) — même principe que jardin-theme/footer-main. Voir mockup.html header.site ~1005–1133.
+ * Description: Header content (brand row + toolbar, then nav) — same approach as jardin-theme/footer-main. See mockup.html header.site ~1005–1133.
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -43,11 +43,11 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 
 	<!-- wp:html -->
 	<div class="site-nav-drawer-tools" role="region" aria-labelledby="site-nav-drawer-tools-heading">
-		<p class="site-nav-drawer-tools__heading" id="site-nav-drawer-tools-heading"><?php echo esc_html__( 'Outils', 'jardin-theme' ); ?></p>
-		<div class="toolbar-chrome toolbar-chrome--drawer" role="group" aria-label="<?php echo esc_attr__( 'Recherche, thème, musique et soutien', 'jardin-theme' ); ?>">
+		<p class="site-nav-drawer-tools__heading" id="site-nav-drawer-tools-heading"><?php echo esc_html__( 'Tools', 'jardin-theme' ); ?></p>
+		<div class="toolbar-chrome toolbar-chrome--drawer" role="group" aria-label="<?php echo esc_attr__( 'Search, theme, music, and support', 'jardin-theme' ); ?>">
 			<a class="icon-btn"
 			   href="<?php echo esc_url( $search_url ); ?>"
-			   aria-label="<?php echo esc_attr__( 'Rechercher', 'jardin-theme' ); ?>"
+			   aria-label="<?php echo esc_attr__( 'Search', 'jardin-theme' ); ?>"
 			   rel="search"
 			><?php echo $svg_search; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 
@@ -55,15 +55,15 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 
 			<button class="icon-btn lfm-toolbar-toggle"
 			        type="button"
-			        aria-label="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
-			        title="<?php echo esc_attr__( 'Musique en cours', 'jardin-theme' ); ?>"
+			        aria-label="<?php echo esc_attr__( 'Now playing', 'jardin-theme' ); ?>"
+			        title="<?php echo esc_attr__( 'Now playing', 'jardin-theme' ); ?>"
 			        aria-pressed="false"
 			><?php echo $svg_music; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
 
 			<a class="icon-btn coffee-toggle"
 			   href="<?php echo esc_url( $support_url ); ?>"
-			   aria-label="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
-			   title="<?php echo esc_attr__( 'Me soutenir', 'jardin-theme' ); ?>"
+			   aria-label="<?php echo esc_attr__( 'Support me', 'jardin-theme' ); ?>"
+			   title="<?php echo esc_attr__( 'Support me', 'jardin-theme' ); ?>"
 			><?php echo $svg_coffee . $svg_cherry . $svg_beer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 		</div>
 	</div>

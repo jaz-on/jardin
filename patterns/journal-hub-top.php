@@ -18,7 +18,7 @@
 	<!-- wp:group {"className":"feed-header","layout":{"type":"default"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 	<div class="wp-block-group feed-header">
 		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer le journal', 'jardin-theme' ); ?></h2>
+		<h2 class="wp-block-heading"><?php esc_html_e( 'Filter journal', 'jardin-theme' ); ?></h2>
 		<!-- /wp:heading -->
 	</div>
 	<!-- /wp:group -->
