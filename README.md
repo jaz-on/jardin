@@ -1,6 +1,6 @@
 # jardin-theme
 
-WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Long-form specs and roadmap live in the local tree [`../jardin-docs`](../jardin-docs) (do not copy those `.md` files into this repo).
+WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Long-form specs and roadmap live in the local tree `[../jardin-docs](../jardin-docs)` (do not copy those `.md` files into this repo).
 
 ## Requirements
 
@@ -22,7 +22,7 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 - Default templates for single, archive, category, tag; one custom page template `page-journal.html` (Query Loop + filters).
 - Patterns under `patterns/`; shared header/footer layout via template parts and patterns (see Site Editor).
 - Self-hosted fonts (`assets/fonts/`, `theme.json` `fontFace`); details in `assets/fonts/README.txt`.
-- Translation template: `languages/jardin-theme.pot` (text domain **`jardin-theme`**). Bundled `.mo` files are optional per site.
+- Translation template: `languages/jardin-theme.pot` (text domain `**jardin-theme`**). Bundled `.mo` files are optional per site.
 
 ## Doc entry points
 
@@ -34,17 +34,19 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 
 ## Jardin stack
 
-| Repository | Role |
-|------------|------|
-| **jardin-theme** (this repo) | FSE theme, templates, patterns |
-| [jardin-events](https://github.com/jaz-on/jardin-events) | `event` CPT, archive, Query Loop helpers, event blocks |
-| [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles) | Last.fm → `listen` CPT, `/listens/`, player blocks |
-| [jardin-toasts](https://github.com/jaz-on/jardin-toasts) | Untappd RSS + import → `beer_checkin` CPT |
+
+| Repository                                                     | Role                                                   |
+| -------------------------------------------------------------- | ------------------------------------------------------ |
+| **jardin-theme** (this repo)                                   | FSE theme, templates, patterns                         |
+| [jardin-events](https://github.com/jaz-on/jardin-events)       | `event` CPT, archive, Query Loop helpers, event blocks |
+| [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles) | Last.fm → `listen` CPT, `/listens/`, player blocks     |
+| [jardin-toasts](https://github.com/jaz-on/jardin-toasts)       | Untappd RSS + import → `beer_checkin` CPT              |
 | [jardin-bookmarks](https://github.com/jaz-on/jardin-bookmarks) | Feedbin → `favorite` / `blogroll` CPTs, blogroll block |
+
 
 ## Development
 
-- Default branch for day-to-day work: **`dev`**.
+- Default branch for day-to-day work: `**dev`**.
 - After pushing: refresh **Git Updater**, purge caches, spot-check key URLs (`/`, `/evenements/` when events are in use). Optional build markers in `assets/css/theme-base.css` and `assets/js/filter-tabs.js` for cache bust verification.
 - E2E: `npm ci`, `npx playwright install chromium`, copy `e2e/.env.example` → `.env` with `E2E_BASE_URL`, then `npm run e2e` ([tests strategy](../jardin-docs/tests-strategy.md)).
 - Optional (one-time per clone): install the local `pre-push` hook with `npm run hooks:install`.
