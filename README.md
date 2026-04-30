@@ -47,6 +47,7 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 - Default branch for day-to-day work: **`dev`**.
 - After pushing: refresh **Git Updater**, purge caches, spot-check key URLs (`/`, `/evenements/` when events are in use). Optional build markers in `assets/css/theme-base.css` and `assets/js/filter-tabs.js` for cache bust verification.
 - E2E: `npm ci`, `npx playwright install chromium`, copy `e2e/.env.example` → `.env` with `E2E_BASE_URL`, then `npm run e2e` ([tests strategy](../jardin-docs/tests-strategy.md)).
+- Optional (one-time per clone): install the local `pre-push` hook with `npm run hooks:install`.
 
 ## License
 

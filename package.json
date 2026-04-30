@@ -5,7 +5,8 @@
 	"scripts": {
 		"e2e": "playwright test -c e2e/playwright.config.cjs",
 		"e2e:ui": "playwright test -c e2e/playwright.config.cjs --ui",
-		"e2e:report": "playwright show-report"
+		"e2e:report": "playwright show-report",
+		"hooks:install": "bash scripts/install-git-hooks.sh"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "^4.9.0",
