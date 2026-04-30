@@ -18,8 +18,8 @@ $u = static function ( string $path ): string {
 	return esc_url( home_url( $path ) );
 };
 
-$activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activite/' );
-$activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activite' );
+$activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activites/' );
+$activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' );
 
 ?>
 <!-- wp:html -->

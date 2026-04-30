@@ -1,8 +1,8 @@
 <?php
 /**
- * Hub « activité » (FR: /activite/, EN: /activity/) pour l’archive CPT IndieBlocks `iwcpt_note`.
+ * Hub « activités » (FR: /activites/, EN: /activities/) pour l’archive CPT IndieBlocks `iwcpt_note`.
  *
- * Segments URL sans accent (aligné /evenements/). Libellés UI via i18n (Activité / Activity).
+ * Segments URL sans accent (aligné /evenements/). Libellés UI via i18n (Activités / Activities).
  *
  * @package Jardin_Theme */
 
@@ -12,11 +12,11 @@ defined( 'ABSPATH' ) || exit;
  * Slug de chemin pour la langue Polylang (slug), ou estimation depuis la locale.
  *
  * @param string $lang_slug Ex. fr, en.
- * @return string activite | activity
+ * @return string activites | activities
  */
 function jardin_get_activity_path_segment_for_lang( string $lang_slug ): string {
 	$lang_slug = sanitize_key( $lang_slug );
-	return ( 'fr' === $lang_slug ) ? 'activite' : 'activity';
+	return ( 'fr' === $lang_slug ) ? 'activites' : 'activities';
 }
 
 /**
@@ -32,11 +32,11 @@ function jardin_get_activity_path_segment(): string {
 		}
 	}
 	$loc = get_locale();
-	return ( str_starts_with( (string) $loc, 'fr' ) ) ? 'activite' : 'activity';
+	return ( str_starts_with( (string) $loc, 'fr' ) ) ? 'activites' : 'activities';
 }
 
 /**
- * URL absolue de l’archive « activité » (iwcpt_note) pour la langue courante.
+ * URL absolue de l’archive « activités » (iwcpt_note) pour la langue courante.
  *
  * @return string
  */
@@ -57,16 +57,16 @@ function jardin_get_activity_archive_url(): string {
 }
 
 /**
- * Libellé court pour filtres et pills (activité / activity), aligné sur le segment du hub.
+ * Libellé court pour filtres et pills (activités / activities), aligné sur le segment du hub.
  *
  * @return string
  */
 function jardin_get_activity_nav_label(): string {
-	return 'activite' === jardin_get_activity_path_segment() ? __( 'activité', 'jardin-theme' ) : __( 'activity', 'jardin-theme' );
+	return 'activites' === jardin_get_activity_path_segment() ? __( 'activités', 'jardin-theme' ) : __( 'activities', 'jardin-theme' );
 }
 
 /**
- * Enregistre les règles de réécriture pour /activite/ et /activity/ (et préfixes Polylang).
+ * Enregistre les règles de réécriture pour /activites/ et /activities/ (et préfixes Polylang).
  *
  * @return void
  */
@@ -101,7 +101,7 @@ function jardin_register_activity_archive_rewrites(): void {
 add_action( 'init', 'jardin_register_activity_archive_rewrites', 25 );
 
 /**
- * Permalink canonique de l’archive iwcpt_note → hub activité.
+ * Permalink canonique de l’archive iwcpt_note → hub activités.
  *
  * @param string $link     Default link.
  * @param string $post_type Post type.
@@ -116,7 +116,7 @@ function jardin_filter_iwcpt_note_archive_link( string $link, string $post_type 
 add_filter( 'post_type_archive_link', 'jardin_filter_iwcpt_note_archive_link', 20, 2 );
 
 /**
- * Redirige l’ancienne archive /notes/ (slug IndieBlocks) vers le hub activité.
+ * Redirige l’ancienne archive /notes/ (slug IndieBlocks) vers le hub activités.
  *
  * @return void
  */

@@ -36,7 +36,7 @@ $journal_url = home_url( '/journal/' );
 			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-post"/></svg><?php esc_html_e( 'articles', 'jardin-theme' ); ?>
 		</button>
 		<button type="button" class="ff-btn" data-type="note">
-			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-note"/></svg><?php echo esc_html( function_exists( 'jardin_get_activity_nav_label' ) ? jardin_get_activity_nav_label() : __( 'activité', 'jardin-theme' ) ); ?>
+			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-note"/></svg><?php echo esc_html( function_exists( 'jardin_get_activity_nav_label' ) ? jardin_get_activity_nav_label() : __( 'activités', 'jardin-theme' ) ); ?>
 		</button>
 		<button type="button" class="ff-btn" data-type="event">
 			<svg aria-hidden="true" class="ff-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-event"/></svg><?php esc_html_e( 'événements', 'jardin-theme' ); ?>

@@ -3,7 +3,7 @@
  * Title: Activity archive — filters
  * Slug: jardin-theme/activity-feed-header
  * Categories: text
- * Description: note_kind filter pills for the iwcpt_note archive (hub /activite/ or /activity/).
+ * Description: note_kind filter pills for the iwcpt_note archive (hub /activites/ or /activities/).
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -28,7 +28,7 @@ if ( function_exists( 'jardin_get_activity_archive_url' ) ) {
 	$base = (string) get_post_type_archive_link( 'iwcpt_note' );
 }
 if ( ! $base ) {
-	$base = trailingslashit( home_url( '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activite' ) ) );
+	$base = trailingslashit( home_url( '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' ) ) );
 }
 
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -56,7 +56,7 @@ $dfilter   = '' === $current ? 'all' : $current;
 ?>
 <!-- wp:html -->
 <div class="feed-header">
-	<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer l’activité', 'jardin-theme' ); ?></h2>
+	<h2 class="wp-block-heading"><?php esc_html_e( 'Filtrer les activités', 'jardin-theme' ); ?></h2>
 	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filtrer par type d’entrée', 'jardin-theme' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
 		<?php echo $nav_inner; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</nav>

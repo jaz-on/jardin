@@ -10,7 +10,6 @@ $jardin_inc = get_template_directory() . '/inc/';
 
 require_once $jardin_inc . 'content-migration.php';
 require_once $jardin_inc . 'setup.php';
-require_once $jardin_inc . 'toolbar-chrome.php';
 require_once $jardin_inc . 'blocks.php';
 require_once $jardin_inc . 'placeholder-copy.php';
 require_once $jardin_inc . 'search-block-i18n.php';

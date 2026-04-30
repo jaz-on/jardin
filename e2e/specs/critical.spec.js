@@ -48,10 +48,10 @@ test.describe( 'Phase 5 — 7 parcours critiques (smoke HTTP)', () => {
 	} );
 
 	test( '3b — hub activité (FR)', async ( { page } ) => {
-		const r = await page.goto( '/activite/' );
+		const r = await page.goto( '/activites/' );
 		expect( r, 'HTTP' ).not.toBeNull();
 		if ( r?.status() === 404 ) {
-			test.skip( true, '/activite/ 404 — déployer le thème + flush permaliens' );
+			test.skip( true, '/activites/ 404 — déployer le thème + flush permaliens' );
 		}
 		expect( r?.status() ).toBe( 200 );
 	} );

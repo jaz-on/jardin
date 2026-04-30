@@ -380,7 +380,7 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Primary journal hub filters (tous / articles / activité / événements) via ?kind=.
+ * Primary journal hub filters (tous / articles / activités / événements) via ?kind=.
  *
  * @return string Raw HTML for a core/html block.
  */
