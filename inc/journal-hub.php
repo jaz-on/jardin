@@ -314,14 +314,8 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 	}
 
 	if ( 'jardin-theme/now-updates-feed' === $namespace ) {
-		$query['post_type'] = 'post';
-		$query['tax_query']  = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_tax_query
-			array(
-				'taxonomy' => 'category',
-				'field'    => 'slug',
-				'terms'    => array( 'now-updates' ),
-			),
-		);
+		$query['post_type'] = 'now_update';
+		unset( $query['tax_query'] );
 	}
 
 	if ( 'jardin-theme/events-upcoming' === $namespace ) {

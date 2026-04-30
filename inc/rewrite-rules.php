@@ -1,8 +1,9 @@
 <?php
 /**
- * Optional rewrite rules (now-updates monthly URLs).
+ * Optional rewrite rules (now-update monthly URLs).
  *
- * @package Jardin_Theme */
+ * @package Jardin_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,37 +11,49 @@ defined( 'ABSPATH' ) || exit;
  * Register rewrite rules from jardin-docs integration/permalinks-rewrites.md.
  */
 function jardin_register_rewrite_rules(): void {
-	add_rewrite_rule(
-		'^now-updates/([0-9]{4}-[0-9]{2})/?$',
-		'index.php?category_name=now-updates&name=$matches[1]',
-		'top'
-	);
+	$target = 'index.php?post_type=now_update&name=$matches[1]';
+
+	add_rewrite_rule( '^now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
+	add_rewrite_rule( '^maintenant/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
+	add_rewrite_rule( '^en/now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
+
+	// Legacy category URLs retained for 301 canonical redirects.
+	add_rewrite_rule( '^category/now-updates/([0-9]{4}-[0-9]{2})/?$', 'index.php?category_name=now-updates&name=$matches[1]', 'top' );
+	add_rewrite_rule( '^categorie/maintenant/([0-9]{4}-[0-9]{2})/?$', 'index.php?category_name=now-updates&name=$matches[1]', 'top' );
 }
 add_action( 'init', 'jardin_register_rewrite_rules' );
 
 /**
- * Pretty now-update URLs: `/now-updates/{year-month}/` (Polylang may translate the segment; filter `jardin_now_updates_path` can override the base).
- *
- * @param string  $url  Permalink.
- * @param \WP_Post $post Post.
- * @return string
+ * Redirect legacy category singles to canonical now_update URL when possible.
  */
-function jardin_filter_now_updates_post_link( $url, $post ) {
-	if ( is_admin() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-		return $url;
+function jardin_redirect_legacy_now_update_urls(): void {
+	if ( is_admin() || ! is_singular( 'post' ) ) {
+		return;
 	}
-	if ( 'post' !== $post->post_type || 'publish' !== $post->post_status ) {
-		return $url;
+
+	$post = get_queried_object();
+	if ( ! $post instanceof WP_Post || ! is_object_in_term( (int) $post->ID, 'category', 'now-updates' ) ) {
+		return;
 	}
-	if ( ! is_object_in_term( (int) $post->ID, 'category', 'now-updates' ) ) {
-		return $url;
+
+	$migrated_id = (int) get_post_meta( (int) $post->ID, '_jardin_now_update_new_id', true );
+	$target      = $migrated_id > 0 ? get_post( $migrated_id ) : null;
+	if ( ! $target instanceof WP_Post || 'now_update' !== $target->post_type ) {
+		$target = get_page_by_path( (string) $post->post_name, OBJECT, 'now_update' );
 	}
-	$slug  = (string) $post->post_name;
-	$base  = (string) apply_filters( 'jardin_now_updates_path', 'now-updates' );
-	$built = home_url( user_trailingslashit( $base . '/' . $slug ) );
-	return $built;
+	if ( ! $target instanceof WP_Post || 'now_update' !== $target->post_type ) {
+		return;
+	}
+
+	$canonical = get_permalink( $target );
+	if ( ! is_string( $canonical ) || '' === $canonical ) {
+		return;
+	}
+
+	wp_safe_redirect( $canonical, 301 );
+	exit;
 }
-add_filter( 'post_link', 'jardin_filter_now_updates_post_link', 20, 2 );
+add_action( 'template_redirect', 'jardin_redirect_legacy_now_update_urls', 1 );
 
 /**
  * Flush rewrite rules when switching to this theme.

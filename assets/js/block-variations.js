@@ -146,18 +146,16 @@
 
 	registerBlockVariation( 'core/query', {
 		name: 'now-updates-feed',
-		title: __( 'Now updates (category)', 'jardin-theme' ),
-		description: __( 'Posts in the now-updates category.', 'jardin-theme' ),
+		title: __( 'Now updates', 'jardin-theme' ),
+		description: __( 'Entries from the now_update post type.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
 			namespace: 'jardin-theme/now-updates-feed',
 			query: {
 				perPage: 12,
-				postType: 'post',
+				postType: 'now_update',
 				order: 'desc',
 				orderBy: 'date',
-				categories: [],
-				categoryIds: [],
 				sticky: 'exclude',
 				inherit: false,
 			},

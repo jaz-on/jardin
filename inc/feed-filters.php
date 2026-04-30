@@ -26,7 +26,7 @@ function jardin_get_main_feed_post_types(): array {
 add_filter( 'jardin_scrobbler_exclude_from_main_feed', '__return_false' );
 
 /**
- * Main feed: multi-CPT, exclude `now-updates` posts (native category), and flag for SQL.
+ * Main feed: multi-CPT and flag for SQL filtering.
  *
  * @param \WP_Query $query Main query.
  */
@@ -38,10 +38,6 @@ function jardin_feed_main_pre_get_posts( $query ): void {
 		return;
 	}
 	$query->set( 'post_type', jardin_get_main_feed_post_types() );
-	$now = get_term_by( 'slug', 'now-updates', 'category' );
-	if ( $now && ! is_wp_error( $now ) ) {
-		$query->set( 'category__not_in', array( (int) $now->term_id ) );
-	}
 	$query->set( 'jardin_clauses', 'main_feed' );
 }
 add_action( 'pre_get_posts', 'jardin_feed_main_pre_get_posts', 3 );

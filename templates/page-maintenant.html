@@ -9,9 +9,9 @@
 	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3","margin":{"top":"var:preset|spacing|5"}}}} -->
 	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--5)">
 		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading">Edition courante</h2>
+		<h2 class="wp-block-heading">Édition courante</h2>
 		<!-- /wp:heading -->
-		<!-- wp:query {"queryId":21,"namespace":"jardin-theme/now-updates-feed","query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
+		<!-- wp:query {"queryId":21,"query":{"perPage":1,"pages":0,"offset":0,"postType":"now_update","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
 			<!-- wp:pattern {"slug":"jardin-theme/entry-card-article"} /-->
@@ -26,9 +26,9 @@
 	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 	<div class="wp-block-group">
 		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading">Archive des editions</h2>
+		<h2 class="wp-block-heading">Archive des éditions</h2>
 		<!-- /wp:heading -->
-		<!-- wp:query {"queryId":22,"namespace":"jardin-theme/now-updates-feed","query":{"perPage":12,"pages":0,"offset":1,"postType":"post","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
+		<!-- wp:query {"queryId":22,"query":{"perPage":12,"pages":0,"offset":1,"postType":"now_update","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
 			<!-- wp:pattern {"slug":"jardin-theme/entry-card-article"} /-->
