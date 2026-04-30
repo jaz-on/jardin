@@ -29,6 +29,12 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 </div>
 <!-- /wp:group -->
 
+<?php if ( function_exists( 'jardin_render_breadcrumb' ) ) : ?>
+	<!-- wp:html -->
+	<?php echo jardin_render_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	<!-- /wp:html -->
+<?php endif; ?>
+
 <!-- wp:group {"className":"site-row site-row-nav","layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group site-row site-row-nav">
 	<!-- wp:navigation {"className":"primary jardin-theme-primary-nav","overlayMenu":"never","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"nowrap"}} -->

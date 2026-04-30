@@ -24,6 +24,7 @@ require_once $jardin_inc . 'journal-hub.php';
 require_once $jardin_inc . 'dlc-page.php';
 require_once $jardin_inc . 'feed-filters.php';
 require_once $jardin_inc . 'microformats.php';
+require_once $jardin_inc . 'breadcrumbs.php';
 require_once $jardin_inc . 'syndication-config.php';
 require_once $jardin_inc . 'rewrite-rules.php';
 require_once $jardin_inc . 'sitemap.php';
