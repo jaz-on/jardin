@@ -9,5 +9,5 @@
 
 ?>
 <!-- wp:paragraph -->
-<p><?php echo esc_html__( 'No journal items yet.', 'jardin-theme' ); ?></p>
+<p><?php echo esc_html__( 'No journal entries yet.', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->

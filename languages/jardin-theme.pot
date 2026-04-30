@@ -733,7 +733,17 @@ msgid "Journal query — empty state"
 msgstr ""
 
 #: patterns/query-empty-journal.php:12
-msgid "No journal items yet."
+msgid "No journal entries yet."
+msgstr ""
+
+#: patterns/query-empty-now.php
+msgctxt "Pattern title"
+msgid "Maintenant query — empty state"
+msgstr ""
+
+#: patterns/query-empty-now.php:12
+msgctxt "Empty query loop: Maintenant monthly editions (now_update CPT)"
+msgid "No now updates yet."
 msgstr ""
 
 #: patterns/query-empty-search.php
