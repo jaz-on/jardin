@@ -1,6 +1,6 @@
 /**
  * Global CSS not covered by theme.json (skip-link, layout helpers, journal filters).
- * Build marker: 2026-04-29-events-css-v2
+ * Build marker: 2026-04-30-hub-intro-align-all-wide
  *
  * Checklist (mockup parity): token/preset d'abord (theme.json) ; ici seulement
  * sélecteurs mockup, états, DOM block, responsive non couverts par l'API.
@@ -1302,6 +1302,11 @@ main#main.wp-block-group {
    Primary nav — boxed (mockup nav.primary), DOM block Navigation
    ============================================================ */
 
+/*
+ * Nav pills use horizontal padding + border; widen the row so outer edges match .site-inner.
+ * Brand row uses the same inset so JR lines up with /journal and toolbar with /a-propos.
+ */
+.site-header-shell .site-row.site-row-brand,
 .site-row-nav {
 	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
 	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
@@ -1646,12 +1651,16 @@ main#main.wp-block-group {
 	}
 
 	/* Burger opens inline nav panel for mobile. */
+	.site-header-shell .site-row.site-row-brand,
 	.site-header-shell .site-row-nav {
-		display: none !important;
 		margin-left: 0;
 		margin-right: 0;
 		width: 100% !important;
 		max-width: 100% !important;
+	}
+
+	.site-header-shell .site-row-nav {
+		display: none !important;
 	}
 
 	.site-header-shell .site-row-nav.is-open-mobile {
@@ -1824,6 +1833,17 @@ main#main.wp-block-group {
 	line-height: 1.5;
 }
 
+/*
+ * Hub templates (projects, events, static pages with post-content intro):
+ * Drop .page-intro's 42rem cap so text matches the query/post title and grid —
+ * core `.is-layout-constrained > *` already sets width via --wp--style--global--content-size.
+ */
+.wp-block-group.alignwide.is-layout-constrained > .page-intro,
+.wp-block-group.alignwide > .page-intro,
+.wp-block-group.alignwide > .wp-block-post-content.page-intro {
+	max-width: none;
+}
+
 /* Hub footnotes — mockup .page-techie */
 .page-techie {
 	margin-top: var(--wp--preset--spacing--6);
@@ -1866,6 +1886,8 @@ main#main.wp-block-group {
 .page-techie-label .techie-icon {
 	flex-shrink: 0;
 	color: var(--wp--preset--color--text-faint);
+	/* Optical alignment with uppercase mono label (baseline mismatch vs stroke icons). */
+	transform: translateY(0.06em);
 }
 
 .page-techie code {
