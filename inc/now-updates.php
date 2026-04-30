@@ -59,7 +59,7 @@ function jardin_now_updates_path_for_post( int $post_id ): string {
 	if ( function_exists( 'pll_get_post_language' ) ) {
 		$lang = (string) pll_get_post_language( $post_id, 'slug' );
 		if ( 'fr' === $lang ) {
-			$base = 'now';
+			$base = 'maintenant';
 		}
 	}
 	/**

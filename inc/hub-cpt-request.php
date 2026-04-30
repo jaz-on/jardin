@@ -1,6 +1,6 @@
 <?php
 /**
- * CPT singles under the same path prefix as a hub page (/projects/, /events/, …).
+ * CPT singles under the same path prefix as a hub page (/projets/, /evenements/, …).
  *
  * WordPress resolves hierarchical pages first: a URL like /{hub}/{slug} is treated as a
  * child page before the CPT, which yields a 404 even when published CPT content exists.

@@ -20,6 +20,11 @@ $svg_coffee = '<svg class="coffee-icon coffee-icon-coffee" width="14" height="14
 $svg_cherry = '<svg class="coffee-icon coffee-icon-cherry" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/><path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/><path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12"/><path d="M22 9c-4.29 0-7.14-2.33-7-7-3 0-4.5 2-4.5 5"/></svg>';
 $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5C9.44 3.5 10 3 11 3s1.44.5 3 .5 2.5-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/><path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg>';
 
+$projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : home_url( '/projets/' );
+$projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
+$now_url        = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : home_url( '/maintenant/' );
+$now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
+
 ?>
 <!-- wp:group {"className":"site-row site-row-brand","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
 <div class="wp-block-group site-row site-row-brand">
@@ -36,8 +41,8 @@ $svg_beer   = '<svg class="coffee-icon coffee-icon-beer" width="14" height="14" 
 		<!-- wp:navigation-link {"label":"/articles","type":"custom","url":"/articles/","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"<?php echo esc_attr( $activity_label ); ?>","type":"custom","url":"<?php echo esc_url( $activity_url ); ?>","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/evenements","type":"custom","url":"/evenements/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/projects","type":"custom","url":"/projects/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"/now","type":"custom","url":"/now/","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr( $projects_label ); ?>","type":"custom","url":"<?php echo esc_url( $projects_url ); ?>","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr( $now_label ); ?>","type":"custom","url":"<?php echo esc_url( $now_url ); ?>","kind":"custom"} /-->
 		<!-- wp:navigation-link {"label":"/a-propos","type":"custom","url":"/a-propos/","kind":"custom"} /-->
 	<!-- /wp:navigation -->
 

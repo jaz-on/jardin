@@ -21,6 +21,11 @@ $u = static function ( string $path ): string {
 $activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activites/' );
 $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' );
 
+$projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : $u( '/projets/' );
+$projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
+$now_url        = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : $u( '/maintenant/' );
+$now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
+
 ?>
 <!-- wp:html -->
 <div class="cols">
@@ -31,13 +36,13 @@ $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) 
 			<li><a href="<?php echo $u( '/articles/' ); ?>"><?php echo esc_html( '/articles' ); ?></a></li>
 			<li><a href="<?php echo esc_url( $activity_url ); ?>"><?php echo esc_html( $activity_label ); ?></a></li>
 			<li><a href="<?php echo $u( '/evenements/' ); ?>"><?php echo esc_html( '/evenements' ); ?></a></li>
-			<li><a href="<?php echo $u( '/projects/' ); ?>"><?php echo esc_html( '/projects' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $projects_url ); ?>"><?php echo esc_html( $projects_label ); ?></a></li>
 		</ul>
 	</div>
 	<div>
 		<h4><?php esc_html_e( 'More to explore', 'jardin-theme' ); ?></h4>
 		<ul>
-			<li><a href="<?php echo $u( '/now/' ); ?>"><?php echo esc_html( '/now' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $now_url ); ?>"><?php echo esc_html( $now_label ); ?></a></li>
 			<li><a href="<?php echo $u( '/dlc/' ); ?>"><?php echo esc_html( '/dlc' ); ?></a></li>
 			<li><a href="<?php echo $u( '/bieres/' ); ?>"><?php echo esc_html( '/bieres' ); ?></a></li>
 			<li><a href="<?php echo $u( '/blogroll/' ); ?>"><?php echo esc_html( '/blogroll' ); ?></a></li>
