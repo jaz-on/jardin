@@ -1978,60 +1978,61 @@ body.admin-bar .site-header-shell {
 	color: var(--wp--preset--color--text-muted);
 }
 
-/* Shared entries shell (articles + journal + events variants). */
-.wp-block-query .entries .wp-block-post-template {
+/* Shared entries shell (articles + journal variants, excludes events variant). */
+.wp-block-query ul.wp-block-post-template.entries,
+.wp-block-query ol.wp-block-post-template.entries {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.wp-block-query .entries .wp-block-post {
+.wp-block-query .entries:not(.is-events) .wp-block-post {
 	margin: 0;
 }
 
-.wp-block-query .entries .entry {
+.wp-block-query .entries:not(.is-events) .entry {
 	border-left: 2px solid transparent;
 	padding-left: var(--wp--preset--spacing--2);
 	transition: border-color 0.15s ease, background 0.15s ease;
 }
 
-.wp-block-query .entries .entry:focus-within,
-.wp-block-query .entries .entry:hover {
+.wp-block-query .entries:not(.is-events) .entry:focus-within,
+.wp-block-query .entries:not(.is-events) .entry:hover {
 	border-left-color: var(--wp--preset--color--accent);
 }
 
-.wp-block-query .entries .entry-title {
+.wp-block-query .entries:not(.is-events) .entry-title {
 	margin: 0;
 	font-size: var(--wp--preset--font-size--base);
 	line-height: 1.4;
 	font-weight: 500;
 }
 
-.wp-block-query .entries .entry-title a {
+.wp-block-query .entries:not(.is-events) .entry-title a {
 	text-decoration: none;
 	color: var(--wp--preset--color--text);
 }
 
-.wp-block-query .entries .entry-title a:is(:hover, :focus-visible) {
+.wp-block-query .entries:not(.is-events) .entry-title a:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--accent);
 }
 
-.wp-block-query .entries .entry__meta-row {
+.wp-block-query .entries:not(.is-events) .entry__meta-row {
 	font-size: var(--wp--preset--font-size--xs);
 	color: var(--wp--preset--color--text-faint);
 	font-family: var(--wp--preset--font-family--mono);
 }
 
-.wp-block-query .entries .entry__meta-row a {
+.wp-block-query .entries:not(.is-events) .entry__meta-row a {
 	color: var(--wp--preset--color--text-muted);
 	text-decoration: none;
 }
 
-.wp-block-query .entries .entry__meta-row a:is(:hover, :focus-visible) {
+.wp-block-query .entries:not(.is-events) .entry__meta-row a:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--accent);
 }
 
-.wp-block-query .entries .entry-excerpt {
+.wp-block-query .entries:not(.is-events) .entry-excerpt {
 	margin: 0;
 	color: var(--wp--preset--color--text-muted);
 	font-size: var(--wp--preset--font-size--sm);
@@ -2072,7 +2073,7 @@ body.admin-bar .site-header-shell {
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
 .wp-block-query .entries.is-articles .wp-block-post.sticky .entry-title::after {
-	content: "★ epingle";
+	content: "★ épinglé";
 	display: inline-block;
 	margin-left: var(--wp--preset--spacing--2);
 	padding: 1px 0.35rem;
@@ -2085,6 +2086,27 @@ body.admin-bar .site-header-shell {
 	border-radius: var(--wp--custom--radius--pill);
 	background: var(--wp--preset--color--accent-soft);
 	vertical-align: middle;
+}
+
+/* Categories dropdown density control in /articles taxonomies header. */
+.articles-taxo-list.wp-block-categories-dropdown {
+	display: block;
+}
+
+.articles-taxo-list.wp-block-categories-dropdown .wp-block-categories-dropdown {
+	margin: 0;
+}
+
+.articles-taxo-list.wp-block-categories-dropdown select {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.35rem 0.55rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--bg);
+	color: var(--wp--preset--color--text);
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--sans);
 }
 
 /* ============================================================
