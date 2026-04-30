@@ -140,3 +140,106 @@ function jardin_render_block_entry_data_attrs( string $block_content, array $blo
 	return $block_content;
 }
 add_filter( 'render_block', 'jardin_render_block_entry_data_attrs', 10, 2 );
+
+/**
+ * First related post id from event_article meta (array or scalar).
+ *
+ * @param int $event_id Event post id.
+ * @return int
+ */
+function jardin_get_event_related_post_id( int $event_id ): int {
+	$raw = get_post_meta( $event_id, 'event_article', true );
+
+	if ( is_array( $raw ) ) {
+		foreach ( $raw as $candidate ) {
+			$id = (int) $candidate;
+			if ( $id > 0 ) {
+				return $id;
+			}
+		}
+		return 0;
+	}
+
+	$id = (int) $raw;
+	return $id > 0 ? $id : 0;
+}
+
+/**
+ * Build fallback summary for event archive cards.
+ *
+ * @param \WP_Post $post Event post.
+ * @return string
+ */
+function jardin_get_event_archive_summary( WP_Post $post ): string {
+	$content = trim( (string) $post->post_content );
+	if ( '' !== $content ) {
+		return wp_trim_words( wp_strip_all_tags( strip_shortcodes( $content ) ), 42, '…' );
+	}
+
+	$related_id = jardin_get_event_related_post_id( (int) $post->ID );
+	if ( $related_id > 0 ) {
+		$related = get_post( $related_id );
+		if ( $related instanceof WP_Post ) {
+			$related_excerpt = trim( (string) $related->post_excerpt );
+			if ( '' !== $related_excerpt ) {
+				return wp_trim_words( wp_strip_all_tags( $related_excerpt ), 42, '…' );
+			}
+
+			$related_content = trim( (string) $related->post_content );
+			if ( '' !== $related_content ) {
+				return wp_trim_words( wp_strip_all_tags( strip_shortcodes( $related_content ) ), 42, '…' );
+			}
+		}
+	}
+
+	return '';
+}
+
+/**
+ * Fallback text for empty event excerpts in archive cards.
+ *
+ * @param string       $block_content Block HTML.
+ * @param array<mixed> $block         Parsed block.
+ * @return string
+ */
+function jardin_render_event_excerpt_fallback( string $block_content, array $block ): string {
+	if ( empty( $block['blockName'] ) || 'core/post-excerpt' !== $block['blockName'] ) {
+		return $block_content;
+	}
+
+	$attrs      = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+	$class_name = isset( $attrs['className'] ) ? (string) $attrs['className'] : '';
+	$classes    = preg_split( '/\s+/', $class_name, -1, PREG_SPLIT_NO_EMPTY );
+
+	if ( ! is_array( $classes ) || ! in_array( 'entry-excerpt', $classes, true ) ) {
+		return $block_content;
+	}
+
+	$ctx     = isset( $block['context'] ) && is_array( $block['context'] ) ? $block['context'] : array();
+	$post_id = isset( $ctx['postId'] ) ? (int) $ctx['postId'] : 0;
+	if ( $post_id <= 0 || 'event' !== get_post_type( $post_id ) ) {
+		return $block_content;
+	}
+
+	$current_text = trim( wp_strip_all_tags( $block_content ) );
+	if ( '' !== $current_text ) {
+		return $block_content;
+	}
+
+	$post = get_post( $post_id );
+	if ( ! $post instanceof WP_Post ) {
+		return $block_content;
+	}
+
+	$summary = jardin_get_event_archive_summary( $post );
+	if ( '' === $summary ) {
+		return $block_content;
+	}
+
+	return sprintf(
+		'<p class="%1$s">%2$s</p>',
+		esc_attr( trim( 'entry-excerpt wp-block-post-excerpt__excerpt ' . $class_name ) ),
+		esc_html( $summary )
+	);
+}
+add_filter( 'render_block', 'jardin_render_event_excerpt_fallback', 11, 2 );
