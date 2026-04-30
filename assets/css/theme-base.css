@@ -653,6 +653,21 @@ a.events-upcoming-link:hover {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 	gap: var(--wp--preset--spacing--4);
+	/* Même hauteur par ligne : étire chaque cellule sur la hauteur de la rangée */
+	align-items: stretch;
+}
+
+/* Query Loop : le bloc post-template peut imposer start ; on rétablit l’harmonie des lignes */
+.projects-grid.wp-block-post-template.is-layout-grid {
+	align-items: stretch;
+}
+
+/* Le li est l’item de grille ; il prend toute la hauteur de cellule pour pouvoir étirer la carte */
+.projects-grid:is(ul, ol) > li {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	height: 100%;
 }
 
 .project-card {
@@ -660,6 +675,16 @@ a.events-upcoming-link:hover {
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--soft);
 	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	/* Remplit la cellule + colonne flex : même hauteur pour toutes les cartes d’une rangée */
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: clamp(11rem, 28vmin, 15rem);
+}
+
+.project-card .wp-block-post-excerpt {
+	flex: 1 1 auto;
+	min-height: 0;
 }
 
 /* Statut prévu : carte atténuée, lien titre désactivé (mockup planned). */
@@ -681,6 +706,9 @@ a.events-upcoming-link:hover {
 }
 
 .project-card .pc-head {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
 	align-items: baseline;
 	gap: var(--wp--preset--spacing--2);
 }
