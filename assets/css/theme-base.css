@@ -1910,11 +1910,21 @@ body.admin-bar .site-header-shell {
 .articles-taxo {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: var(--wp--preset--spacing--5);
-	padding: var(--wp--preset--spacing--4);
+	gap: var(--wp--preset--spacing--3);
+	padding: var(--wp--preset--spacing--3);
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--soft);
 	background: var(--wp--preset--color--surface);
+}
+
+.articles-taxo-col {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.articles-taxo-col > * {
+	margin-block: 0;
 }
 
 .articles-taxo-title {
@@ -1961,7 +1971,7 @@ body.admin-bar .site-header-shell {
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--2);
+	gap: 0.35rem;
 }
 
 .articles-taxo-list li {
@@ -1971,13 +1981,15 @@ body.admin-bar .site-header-shell {
 .articles-taxo-list .cat-item {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.3rem;
-	padding: 0.2rem 0.65rem;
+	gap: 0.25rem;
+	padding: 0.1rem 0.5rem;
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--pill);
-	font-size: var(--wp--preset--font-size--sm);
+	font-size: var(--wp--preset--font-size--xs);
+	line-height: 1.3;
 	color: var(--wp--preset--color--text-muted);
 	background: var(--wp--preset--color--bg);
+	white-space: nowrap;
 }
 
 .articles-taxo-list .cat-item a,
@@ -1995,16 +2007,19 @@ body.admin-bar .site-header-shell {
 .articles-taxo-cloud.wp-block-tag-cloud {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--2);
+	gap: 0.35rem;
 }
 
 .articles-taxo-cloud.wp-block-tag-cloud .tag-cloud-link {
 	display: inline-flex;
 	align-items: center;
-	padding: 0.2rem 0.65rem;
+	padding: 0.1rem 0.5rem;
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--pill);
+	font-size: var(--wp--preset--font-size--xs) !important;
+	line-height: 1.3;
 	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
 }
 
 /* Shared entries shell (articles + journal variants, excludes events variant). */
