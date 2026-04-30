@@ -8,16 +8,12 @@
 	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"top":"var:preset|spacing|6"}}},"className":"now-hub-current"} -->
 	<div class="wp-block-group now-hub-current" style="margin-top:var(--wp--preset--spacing--6)">
-		<!-- wp:paragraph {"className":"now-hub-eyebrow"} -->
-		<p class="now-hub-eyebrow">Ce mois-ci</p>
-		<!-- /wp:paragraph -->
 		<!-- wp:query {"queryId":21,"query":{"perPage":1,"pages":0,"offset":0,"postType":"now_update","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template {"layout":{"type":"default","columnCount":1}} -->
 				<!-- wp:group {"layout":{"type":"constrained"},"className":"single h-entry now-update-current","tagName":"article"} -->
 				<article class="wp-block-group single h-entry now-update-current">
-					<!-- wp:post-title {"level":2,"className":"p-name"} /-->
-					<!-- wp:post-date {"format":"j F Y"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"now-hub-eyebrow"} /-->
 					<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
 					<!-- wp:post-content {"className":"e-content","layout":{"type":"constrained"}} /-->
 				</article>

@@ -2533,13 +2533,14 @@ main#main.wp-block-group {
 	padding: 0;
 }
 
-.now-hub-current .now-hub-eyebrow {
-	margin: 0 0 var(--wp--preset--spacing--3);
+.now-hub-current article.now-update-current .wp-block-post-date.now-hub-eyebrow {
+	display: block;
+	margin: 0 0 var(--wp--preset--spacing--4);
 	font-family: var(--wp--preset--font-family--mono);
-	font-size: var(--wp--preset--font-size--xs);
-	text-transform: uppercase;
-	letter-spacing: 0.07em;
-	color: var(--wp--preset--color--accent);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	color: var(--wp--preset--color--text-muted);
 }
 
 .now-hub-current article.now-update-current {
@@ -2549,20 +2550,6 @@ main#main.wp-block-group {
 	border-left: 4px solid var(--wp--preset--color--accent);
 	padding: var(--wp--preset--spacing--6) var(--wp--preset--spacing--6) var(--wp--preset--spacing--6)
 		calc(var(--wp--preset--spacing--6) - 3px);
-}
-
-.now-hub-current article.now-update-current .wp-block-post-title.p-name {
-	margin: 0 0 var(--wp--preset--spacing--2);
-	font-size: var(--wp--preset--font-size--2-xl);
-	line-height: 1.2;
-}
-
-.now-hub-current article.now-update-current .wp-block-post-date {
-	display: block;
-	margin: 0 0 var(--wp--preset--spacing--2);
-	font-family: var(--wp--preset--font-family--mono);
-	font-size: var(--wp--preset--font-size--sm);
-	color: var(--wp--preset--color--text-muted);
 }
 
 .now-hub-current article.now-update-current .wp-block-separator.is-style-dashed-faint {
@@ -2582,12 +2569,13 @@ main#main.wp-block-group {
 
 .now-hub-archive .now-hub-archive-heading {
 	margin: 0 0 var(--wp--preset--spacing--2);
-	font-family: var(--wp--preset--font-family--sans);
-	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--2-xl);
 	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	color: var(--wp--preset--color--text-faint);
+	line-height: 1.25;
+	text-transform: none;
+	letter-spacing: normal;
+	color: var(--wp--preset--color--text);
 }
 
 .now-hub-archive .now-hub-archive-intro {
@@ -2645,7 +2633,7 @@ main#main.wp-block-group {
 		padding-left: calc(var(--wp--preset--spacing--5) - 3px);
 	}
 
-	.now-hub-current article.now-update-current .wp-block-post-title.p-name {
+	.now-hub-archive .now-hub-archive-heading {
 		font-size: var(--wp--preset--font-size--xl);
 	}
 
