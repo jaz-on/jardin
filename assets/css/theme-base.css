@@ -696,7 +696,8 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 }
 
-.site-main-shell.wp-block-group {
+.site-main-shell.wp-block-group,
+main#main.wp-block-group {
 	max-width: var(--wp--style--wide-size, 56rem);
 	margin-left: auto;
 	margin-right: auto;
