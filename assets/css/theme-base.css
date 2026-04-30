@@ -1926,6 +1926,31 @@ body.admin-bar .site-header-shell {
 	color: var(--wp--preset--color--text-muted);
 }
 
+.breadcrumb {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.breadcrumb a {
+	color: var(--wp--preset--color--text-muted);
+	text-decoration: none;
+}
+
+.breadcrumb a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.breadcrumb .crumb-sep {
+	color: var(--wp--preset--color--border);
+	margin: 0 0.2rem;
+}
+
+.breadcrumb .crumb-current {
+	color: var(--wp--preset--color--text-muted);
+}
+
 .articles-taxo-list,
 .articles-taxo-cloud.wp-block-tag-cloud {
 	margin: 0;
