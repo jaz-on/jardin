@@ -1957,9 +1957,18 @@ main#main.wp-block-group {
 
 .breadcrumb {
 	margin: 0;
+	padding: 0;
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: var(--wp--preset--font-size--xs);
 	color: var(--wp--preset--color--text-faint);
+}
+
+.site-main-shell.wp-block-group > .breadcrumb,
+main#main.wp-block-group > .breadcrumb,
+.site-main-shell.wp-block-group > .wp-block-jardin-theme-breadcrumb,
+main#main.wp-block-group > .wp-block-jardin-theme-breadcrumb {
+	margin: 0 !important;
+	padding: 0;
 }
 
 .breadcrumb a {
