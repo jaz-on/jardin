@@ -2519,6 +2519,143 @@ main#main.wp-block-group {
 }
 
 /* ============================================================
+   Maintenant hub (/maintenant): entrée courante vs archives
+   ============================================================ */
+
+.now-hub-current .wp-block-query {
+	margin-block: 0;
+}
+
+.now-hub-current ul.wp-block-post-template,
+.now-hub-current ol.wp-block-post-template {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.now-hub-current .now-hub-eyebrow {
+	margin: 0 0 var(--wp--preset--spacing--3);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: var(--wp--preset--color--accent);
+}
+
+.now-hub-current article.now-update-current {
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	border-left: 4px solid var(--wp--preset--color--accent);
+	padding: var(--wp--preset--spacing--6) var(--wp--preset--spacing--6) var(--wp--preset--spacing--6)
+		calc(var(--wp--preset--spacing--6) - 3px);
+}
+
+.now-hub-current article.now-update-current .wp-block-post-title.p-name {
+	margin: 0 0 var(--wp--preset--spacing--2);
+	font-size: var(--wp--preset--font-size--2-xl);
+	line-height: 1.2;
+}
+
+.now-hub-current article.now-update-current .wp-block-post-date {
+	display: block;
+	margin: 0 0 var(--wp--preset--spacing--2);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.now-hub-current article.now-update-current .wp-block-separator.is-style-dashed-faint {
+	margin-block: var(--wp--preset--spacing--4);
+	opacity: 0.55;
+}
+
+.now-hub-current article.now-update-current .e-content {
+	margin-top: 0;
+}
+
+.now-hub-archive {
+	margin-top: var(--wp--preset--spacing--8);
+	padding-top: var(--wp--preset--spacing--7);
+	border-top: 1px dashed var(--wp--preset--color--border-strong);
+}
+
+.now-hub-archive .now-hub-archive-heading {
+	margin: 0 0 var(--wp--preset--spacing--2);
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.now-hub-archive .now-hub-archive-intro {
+	margin: 0 0 var(--wp--preset--spacing--5);
+	max-width: 36rem;
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: var(--wp--custom--leading--normal, 1.6);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.wp-block-query .entries.now-archive .wp-block-post {
+	margin: 0;
+}
+
+.wp-block-query .entries.now-archive .entry {
+	margin: 0;
+	padding: var(--wp--preset--spacing--4) 0;
+	border-bottom: 1px dashed var(--wp--preset--color--border);
+	border-left: none;
+	padding-left: 0;
+	transition: background-color 0.15s ease;
+}
+
+.wp-block-query .entries.now-archive .wp-block-post:last-child .entry {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.wp-block-query .entries.now-archive .entry:focus-within,
+.wp-block-query .entries.now-archive .entry:hover {
+	border-left: none;
+	background: color-mix(in srgb, var(--wp--preset--color--accent) 5%, transparent);
+	border-radius: var(--wp--custom--radius--soft);
+}
+
+.wp-block-query .entries.now-archive .entry-title {
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: 1.45;
+}
+
+.wp-block-query .entries.now-archive .entry-meta-row {
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.wp-block-query .entries.now-archive .entry-excerpt {
+	font-size: var(--wp--preset--font-size--xs);
+	line-height: 1.5;
+	color: var(--wp--preset--color--text-muted);
+}
+
+@media (max-width: 600px) {
+	.now-hub-current article.now-update-current {
+		padding: var(--wp--preset--spacing--5);
+		padding-left: calc(var(--wp--preset--spacing--5) - 3px);
+	}
+
+	.now-hub-current article.now-update-current .wp-block-post-title.p-name {
+		font-size: var(--wp--preset--font-size--xl);
+	}
+
+	.now-hub-archive {
+		margin-top: var(--wp--preset--spacing--7);
+		padding-top: var(--wp--preset--spacing--6);
+	}
+}
+
+/* ============================================================
    Shared single scaffold (post + event)
    ============================================================ */
 .single.h-entry .wp-block-post-title,
