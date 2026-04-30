@@ -21,6 +21,7 @@ require_once $jardin_inc . 'entry-attributes.php';
 require_once $jardin_inc . 'activity-hub.php';
 require_once $jardin_inc . 'notes-archive.php';
 require_once $jardin_inc . 'journal-hub.php';
+require_once $jardin_inc . 'project-query-guard.php';
 require_once $jardin_inc . 'dlc-page.php';
 require_once $jardin_inc . 'feed-filters.php';
 require_once $jardin_inc . 'microformats.php';
