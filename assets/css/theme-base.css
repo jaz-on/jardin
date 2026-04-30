@@ -1531,6 +1531,9 @@ main#main.wp-block-group {
 
 @media (max-width: 782px) {
 	main#main.wp-block-group {
+		margin-left: var(--wp--preset--spacing--4);
+		margin-right: var(--wp--preset--spacing--4);
+		width: auto;
 		padding-left: var(--wp--preset--spacing--4);
 		padding-right: var(--wp--preset--spacing--4);
 	}
@@ -1541,6 +1544,11 @@ main#main.wp-block-group {
 	}
 
 	.site-inner.alignwide {
+		padding-left: var(--wp--preset--spacing--4);
+		padding-right: var(--wp--preset--spacing--4);
+	}
+
+	.site-footer-inner.alignwide {
 		padding-left: var(--wp--preset--spacing--4);
 		padding-right: var(--wp--preset--spacing--4);
 	}
