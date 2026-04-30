@@ -273,14 +273,69 @@
 			});
 	}
 
+	function titleFromRoleSlug(slug) {
+		return (slug || '')
+			.split('-')
+			.filter(Boolean)
+			.map(function (part) {
+				return part.charAt(0).toUpperCase() + part.slice(1);
+			})
+			.join(' ');
+	}
+
+	function collectRolesFromEntries(entries) {
+		var roleSet = {};
+		entries.forEach(function (entry) {
+			var roles = (entry.getAttribute('data-roles') || '')
+				.split(',')
+				.map(function (item) {
+					return item.trim();
+				})
+				.filter(Boolean);
+			roles.forEach(function (role) {
+				roleSet[role] = true;
+			});
+		});
+		return Object.keys(roleSet).sort();
+	}
+
+	function buildFallbackEventFilters(feedHeader, archiveBase, entries) {
+		if (!feedHeader) {
+			return null;
+		}
+		var roles = collectRolesFromEntries(entries);
+		var fallback = document.createElement('div');
+		fallback.className = 'feed-filters events-filters u-w-full';
+		fallback.setAttribute('role', 'navigation');
+		fallback.setAttribute('aria-label', 'Filter events by role');
+
+		var links = ['<a class="ff-btn" href="' + archiveBase + '" data-type="all">tous</a>'];
+		roles.forEach(function (role) {
+			links.push(
+				'<a class="ff-btn" href="' +
+					archiveBase +
+					'?event_role=' +
+					encodeURIComponent(role) +
+					'" data-type="' +
+					role +
+					'">' +
+					titleFromRoleSlug(role) +
+					'</a>'
+			);
+		});
+		fallback.innerHTML = links.join('');
+		feedHeader.appendChild(fallback);
+		return fallback;
+	}
+
 	function refreshFilterCounts(nav, entries) {
-		var totals = {
-			all: entries.length,
-			speaker: 0,
-			organizer: 0,
-			sponsor: 0,
-			attendee: 0
-		};
+		var totals = { all: entries.length };
+		nav.querySelectorAll('.ff-btn').forEach(function (btn) {
+			var type = (btn.getAttribute('data-type') || '').trim();
+			if (type && type !== 'all' && !Object.prototype.hasOwnProperty.call(totals, type)) {
+				totals[type] = 0;
+			}
+		});
 
 		entries.forEach(function (entry) {
 			var roles = (entry.getAttribute('data-roles') || '')
@@ -290,9 +345,10 @@
 				})
 				.filter(Boolean);
 			roles.forEach(function (role) {
-				if (Object.prototype.hasOwnProperty.call(totals, role)) {
-					totals[role] += 1;
+				if (!Object.prototype.hasOwnProperty.call(totals, role)) {
+					totals[role] = 0;
 				}
+				totals[role] += 1;
 			});
 		});
 
@@ -358,37 +414,27 @@
 		if (!list) {
 			return;
 		}
-		if (!nav) {
-			var feedHeader = document.querySelector('.feed-header');
-			if (feedHeader) {
-				var archiveBase = window.location.pathname.replace(/\/+$/, '') + '/';
-				var fallback = document.createElement('div');
-				fallback.className = 'feed-filters events-filters u-w-full';
-				fallback.setAttribute('role', 'navigation');
-				fallback.setAttribute('aria-label', 'Filter events by role');
-				fallback.innerHTML = [
-					'<a class="ff-btn" href="' + archiveBase + '" data-type="all">tous</a>',
-					'<a class="ff-btn" href="' + archiveBase + '?event_role=speaker" data-type="speaker">Speaker</a>',
-					'<a class="ff-btn" href="' + archiveBase + '?event_role=organizer" data-type="organizer">Organisateur·rice</a>',
-					'<a class="ff-btn" href="' + archiveBase + '?event_role=sponsor" data-type="sponsor">Sponsor</a>',
-					'<a class="ff-btn" href="' + archiveBase + '?event_role=attendee" data-type="attendee">Participant·e</a>'
-				].join('');
-				feedHeader.appendChild(fallback);
-				nav = fallback;
-			}
-		}
-		if (!nav) {
-			return;
-		}
-
 		var entries = Array.prototype.slice.call(list.querySelectorAll('.entry[data-kind="event"]'));
 		if (!entries.length) {
 			return;
 		}
+		annotateEventEntries(entries);
+		if (!nav) {
+			var feedHeader = document.querySelector('.feed-header');
+			var archiveBase = window.location.pathname.replace(/\/+$/, '') + '/';
+			nav = buildFallbackEventFilters(feedHeader, archiveBase, entries);
+		}
+		if (!nav) {
+			return;
+		}
 
 		var current = (new URLSearchParams(window.location.search).get('event_role') || '').trim();
-		annotateEventEntries(entries);
 		hydrateEventRolesFromRest(entries).finally(function () {
+			if (!document.querySelector('.events-filters')) {
+				var feedHeader = document.querySelector('.feed-header');
+				var archiveBase = window.location.pathname.replace(/\/+$/, '') + '/';
+				nav = buildFallbackEventFilters(feedHeader, archiveBase, entries) || nav;
+			}
 			refreshFilterCounts(nav, entries);
 			syncEventFilterButtons(nav, current);
 			applyEventRoleFilter(entries, current);
