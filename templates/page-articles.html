@@ -1,6 +1,6 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
+<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}},"className":"site-main-shell"} -->
 <main id="main" class="wp-block-group">
 
 	<!-- wp:jardin-theme/breadcrumb /-->
@@ -10,11 +10,9 @@
 		<!-- wp:paragraph {"className":"page-intro"} -->
 		<p class="page-intro">Les articles longs. La réflexion qui dépasse le paragraphe. Utilise les taxonomies pour naviguer par sujet.</p>
 		<!-- /wp:paragraph -->
-		<!-- wp:group {"className":"articles-taxo articles-taxo-mix","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
-		<div class="wp-block-group articles-taxo articles-taxo-mix">
-			<!-- wp:heading {"level":2,"className":"articles-taxo-title"} -->
-			<h2 class="wp-block-heading articles-taxo-title">Explorer par sujets</h2>
-			<!-- /wp:heading -->
+		<!-- wp:details {"className":"articles-taxo-toggle","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"showContent":true} -->
+		<details class="wp-block-details articles-taxo-toggle" open>
+			<summary>Explorer par sujets</summary>
 			<!-- wp:group {"className":"articles-taxo-mix-flow","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left","verticalAlignment":"top"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
 			<div class="wp-block-group articles-taxo-mix-flow">
 				<!-- wp:group {"className":"articles-taxo-mix-group is-categories","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
@@ -35,8 +33,8 @@
 				<!-- /wp:group -->
 			</div>
 			<!-- /wp:group -->
-		</div>
-		<!-- /wp:group -->
+		</details>
+		<!-- /wp:details -->
 		<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"include","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->

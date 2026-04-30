@@ -2036,11 +2036,49 @@ body.admin-bar .site-header-shell {
 	margin-bottom: var(--wp--preset--spacing--4);
 }
 
+.articles-taxo-toggle {
+	margin-top: var(--wp--preset--spacing--2);
+	margin-bottom: var(--wp--preset--spacing--4);
+	padding: var(--wp--preset--spacing--4);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+}
+
+.articles-taxo-toggle > summary {
+	cursor: pointer;
+	list-style: none;
+	margin: 0;
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--mono);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--text);
+	text-align: left;
+}
+
+.articles-taxo-toggle > summary::-webkit-details-marker {
+	display: none;
+}
+
+.articles-taxo-toggle > summary::before {
+	content: "▾";
+	display: inline-block;
+	margin-right: 0.4rem;
+	color: var(--wp--preset--color--text-muted);
+	transition: transform 0.15s ease;
+}
+
+.articles-taxo-toggle:not([open]) > summary::before {
+	transform: rotate(-90deg);
+}
+
 .articles-taxo-mix-flow {
 	width: 100%;
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: var(--wp--preset--spacing--3);
+	margin-top: var(--wp--preset--spacing--2);
 }
 
 .articles-taxo-mix-group {
