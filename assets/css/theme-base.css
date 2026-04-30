@@ -1939,6 +1939,10 @@ body.admin-bar .site-header-shell {
 	gap: var(--wp--preset--spacing--2);
 }
 
+.articles-taxo-list li {
+	margin: 0;
+}
+
 .articles-taxo-list .cat-item {
 	display: inline-flex;
 	align-items: center;
@@ -2064,11 +2068,14 @@ body.admin-bar .site-header-shell {
 .wp-block-query .entries.is-compact .entry-title {
 	grid-column: 2;
 	grid-row: 1;
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.35;
 }
 
 .wp-block-query .entries.is-compact .entry-excerpt {
 	grid-column: 2;
 	grid-row: 2;
+	display: none;
 }
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
@@ -2086,27 +2093,6 @@ body.admin-bar .site-header-shell {
 	border-radius: var(--wp--custom--radius--pill);
 	background: var(--wp--preset--color--accent-soft);
 	vertical-align: middle;
-}
-
-/* Categories dropdown density control in /articles taxonomies header. */
-.articles-taxo-list.wp-block-categories-dropdown {
-	display: block;
-}
-
-.articles-taxo-list.wp-block-categories-dropdown .wp-block-categories-dropdown {
-	margin: 0;
-}
-
-.articles-taxo-list.wp-block-categories-dropdown select {
-	width: 100%;
-	max-width: 100%;
-	padding: 0.35rem 0.55rem;
-	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--soft);
-	background: var(--wp--preset--color--bg);
-	color: var(--wp--preset--color--text);
-	font-size: var(--wp--preset--font-size--sm);
-	font-family: var(--wp--preset--font-family--sans);
 }
 
 /* ============================================================
