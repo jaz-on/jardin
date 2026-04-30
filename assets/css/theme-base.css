@@ -696,6 +696,18 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 }
 
+.site-main-shell.wp-block-group {
+	max-width: var(--wp--style--wide-size, 56rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: var(--wp--preset--spacing--6);
+	padding-bottom: var(--wp--preset--spacing--6);
+	padding-left: var(--wp--preset--spacing--5);
+	padding-right: var(--wp--preset--spacing--5);
+	width: 100%;
+	box-sizing: border-box;
+}
+
 /*
  * Mockup: horizontal padding lives on .alignwide (--maxw-wide centered), not on full-bleed shell.
  * Ensures wide width even if the editor/synced template omits inline wide rules.
