@@ -2128,13 +2128,17 @@ body.admin-bar .site-header-shell {
 }
 
 .wp-block-query .entries.is-articles .wp-block-separator.is-style-dashed-faint {
-	margin-top: 0;
+	display: block;
+	width: 100%;
+	margin-top: var(--wp--preset--spacing--3);
 	margin-bottom: 0;
 	opacity: 0.75;
+	border: 0;
+	border-top: 1px dashed var(--wp--preset--color--border);
 }
 
 .wp-block-query .entries.is-articles .wp-block-separator.is-style-dashed-faint::before {
-	border-top-style: dashed;
+	content: none;
 }
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
