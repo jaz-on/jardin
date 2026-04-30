@@ -29,7 +29,6 @@ function jardin_register_block_styles(): void {
 		array( 'core/image', 'icon-inline', __( 'Inline icon', 'jardin-theme' ) ),
 		array( 'core/cover', 'feature', __( 'Feature hero', 'jardin-theme' ) ),
 		array( 'core/group', 'callout-soft', __( 'Callout soft', 'jardin-theme' ) ),
-		array( 'core/group', 'callout-info', __( 'Callout info', 'jardin-theme' ) ),
 		array( 'core/group', 'callout-pad-sm', __( 'Callout compact', 'jardin-theme' ) ),
 		array( 'core/group', 'card', __( 'Card', 'jardin-theme' ) ),
 		array( 'core/group', 'card-highlight', __( 'Card highlight', 'jardin-theme' ) ),

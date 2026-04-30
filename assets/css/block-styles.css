@@ -114,17 +114,11 @@ li.is-style-bullet-row-solid {
 }
 
 /* Group */
-.is-style-callout-soft {
-	background-color: var(--wp--preset--color--accent-soft);
-	border-radius: var(--wp--custom--radius--soft);
-	padding: var(--wp--preset--spacing--4);
-}
-
+.is-style-callout-soft,
 .is-style-callout-info {
 	background-color: var(--wp--preset--color--accent-soft);
 	border-radius: var(--wp--custom--radius--soft);
 	padding: var(--wp--preset--spacing--4);
-	text-align: center;
 }
 
 .is-style-callout-pad-sm {
