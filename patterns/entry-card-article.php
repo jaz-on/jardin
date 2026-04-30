@@ -12,11 +12,8 @@
 ?>
 <!-- wp:group {"className":"entry","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
 <div class="wp-block-group entry">
-	<!-- wp:group {"className":"entry-title-row","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"flex-start","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+	<!-- wp:group {"className":"entry-title-row","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
 	<div class="wp-block-group entry-title-row">
-		<!-- wp:paragraph {"className":"entry-kind"} -->
-		<p class="entry-kind">post</p>
-		<!-- /wp:paragraph -->
 		<!-- wp:post-title {"isLink":true,"level":3,"className":"entry-title"} /-->
 	</div>
 	<!-- /wp:group -->

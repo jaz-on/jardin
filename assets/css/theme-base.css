@@ -2070,24 +2070,12 @@ body.admin-bar .site-header-shell {
 /* Compact mode for /articles archive. */
 /* /articles archive: dedicated card architecture (mockup parity). */
 .wp-block-query .entries.is-articles .entry {
-	padding-top: var(--wp--preset--spacing--3);
-	padding-bottom: var(--wp--preset--spacing--3);
+	padding-top: var(--wp--preset--spacing--4);
+	padding-bottom: var(--wp--preset--spacing--4);
 }
 
 .wp-block-query .entries.is-articles .entry-title-row {
 	margin: 0;
-}
-
-.wp-block-query .entries.is-articles .entry-kind {
-	margin: 0;
-	font-family: var(--wp--preset--font-family--mono);
-	font-size: var(--wp--preset--font-size--xs);
-	color: var(--wp--preset--color--text-faint);
-	border: 1px solid var(--wp--preset--color--border);
-	border-radius: var(--wp--custom--radius--soft);
-	padding: 0.05rem 0.4rem;
-	line-height: 1.2;
-	text-transform: lowercase;
 }
 
 .wp-block-query .entries.is-articles .entry-title {
@@ -2113,6 +2101,13 @@ body.admin-bar .site-header-shell {
 	font-size: var(--wp--preset--font-size--xs);
 }
 
+.wp-block-query .entries.is-articles .entry-cat::before,
+.wp-block-query .entries.is-articles .entry-tag::before {
+	content: "·";
+	margin-right: 0.35rem;
+	color: var(--wp--preset--color--border);
+}
+
 .wp-block-query .entries.is-articles .entry-cat a,
 .wp-block-query .entries.is-articles .entry-tag a {
 	color: var(--wp--preset--color--text-faint);
@@ -2127,9 +2122,19 @@ body.admin-bar .site-header-shell {
 .wp-block-query .entries.is-articles .entry-excerpt {
 	display: block;
 	margin: 0;
-	font-size: var(--wp--preset--font-size--base);
-	line-height: 1.5;
-	color: var(--wp--preset--color--text-muted);
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: 1.55;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.wp-block-query .entries.is-articles .wp-block-separator.is-style-dashed-faint {
+	margin-top: 0;
+	margin-bottom: 0;
+	opacity: 0.75;
+}
+
+.wp-block-query .entries.is-articles .wp-block-separator.is-style-dashed-faint::before {
+	border-top-style: dashed;
 }
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
