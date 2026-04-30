@@ -1530,6 +1530,11 @@ main#main.wp-block-group {
 }
 
 @media (max-width: 782px) {
+	main#main.wp-block-group {
+		padding-left: var(--wp--preset--spacing--4);
+		padding-right: var(--wp--preset--spacing--4);
+	}
+
 	.site-header-shell.wp-block-group {
 		padding-top: var(--wp--preset--spacing--3) !important;
 		padding-bottom: var(--wp--preset--spacing--2) !important;
