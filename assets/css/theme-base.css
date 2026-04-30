@@ -1921,6 +1921,7 @@ body.admin-bar .site-header-shell {
 	display: flex;
 	flex-direction: column;
 	gap: 0.35rem;
+	align-items: flex-start;
 }
 
 .articles-taxo-col > * {
@@ -1934,6 +1935,8 @@ body.admin-bar .site-header-shell {
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	color: var(--wp--preset--color--text-muted);
+	text-align: left;
+	align-self: flex-start;
 }
 
 .breadcrumb {
@@ -2008,6 +2011,8 @@ body.admin-bar .site-header-shell {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.35rem;
+	justify-content: flex-start;
+	text-align: left;
 }
 
 .articles-taxo-cloud.wp-block-tag-cloud .tag-cloud-link {
@@ -2020,6 +2025,29 @@ body.admin-bar .site-header-shell {
 	line-height: 1.3;
 	color: var(--wp--preset--color--text-muted);
 	white-space: nowrap;
+}
+
+.articles-taxo-mix {
+	grid-template-columns: 1fr;
+}
+
+.articles-taxo-mix-flow {
+	width: 100%;
+	align-items: flex-start;
+}
+
+.articles-taxo-mix-group {
+	flex: 1 1 20rem;
+	min-width: 16rem;
+}
+
+.articles-taxo-chip-label {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--text-faint);
 }
 
 /* Shared entries shell (articles + journal variants, excludes events variant). */

@@ -30,6 +30,33 @@
 			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->
+		<!-- wp:group {"className":"articles-taxo articles-taxo-mix","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
+		<div class="wp-block-group articles-taxo articles-taxo-mix">
+			<!-- wp:heading {"level":2,"className":"articles-taxo-title"} -->
+			<h2 class="wp-block-heading articles-taxo-title">Explorer par sujets (test mix)</h2>
+			<!-- /wp:heading -->
+			<!-- wp:group {"className":"articles-taxo-mix-flow","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left","verticalAlignment":"top"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+			<div class="wp-block-group articles-taxo-mix-flow">
+				<!-- wp:group {"className":"articles-taxo-mix-group is-categories","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+				<div class="wp-block-group articles-taxo-mix-group is-categories">
+					<!-- wp:paragraph {"className":"articles-taxo-chip-label"} -->
+					<p class="articles-taxo-chip-label">Catégories</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:categories {"showPostCounts":true,"showHierarchy":false,"className":"articles-taxo-list"} /-->
+				</div>
+				<!-- /wp:group -->
+				<!-- wp:group {"className":"articles-taxo-mix-group is-tags","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+				<div class="wp-block-group articles-taxo-mix-group is-tags">
+					<!-- wp:paragraph {"className":"articles-taxo-chip-label"} -->
+					<p class="articles-taxo-chip-label">Tags</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:tag-cloud {"numberOfTags":12,"showTagCounts":true,"smallestFontSize":"0.8rem","largestFontSize":"0.8rem","className":"articles-taxo-cloud"} /-->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
 		<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"include","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->
