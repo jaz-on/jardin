@@ -19,6 +19,7 @@ require_once $jardin_inc . 'block-styles.php';
 require_once $jardin_inc . 'block-variations.php';
 require_once $jardin_inc . 'entry-attributes.php';
 require_once $jardin_inc . 'activity-hub.php';
+require_once $jardin_inc . 'hub-cpt-request.php';
 require_once $jardin_inc . 'notes-archive.php';
 require_once $jardin_inc . 'journal-hub.php';
 require_once $jardin_inc . 'project-query-guard.php';
