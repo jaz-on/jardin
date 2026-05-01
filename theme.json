@@ -368,8 +368,7 @@
 							"outline": {
 								"color": "var(--wp--preset--color--accent)",
 								"width": "2px",
-								"style": "solid",
-								"offset": "2px"
+								"style": "solid"
 							}
 						},
 						":active": {
