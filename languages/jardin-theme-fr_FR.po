@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
-"POT-Creation-Date: 2026-05-01T12:12:59+00:00\n"
+"POT-Creation-Date: 2026-05-01T12:15:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -116,47 +116,6 @@ msgstr "Mentions et réponses"
 #: blocks/post-engage/render.php:194
 msgid "Someone"
 msgstr "Quelqu’un"
-
-#: blocks/project-changelog/render.php:23
-msgid "Version history"
-msgstr ""
-
-#: blocks/project-changelog/render.php:36
-msgid "Unknown date"
-msgstr ""
-
-#: blocks/project-changelog/render.php:45
-msgid "No changelog synced yet."
-msgstr ""
-
-#: blocks/project-changelog/render.php:48
-msgid "View full GitHub repository →"
-msgstr ""
-
-#: blocks/project-header-meta/render.php:31
-msgid "version"
-msgstr ""
-
-#: blocks/project-header-meta/render.php:35
-msgid "license"
-msgstr ""
-
-#: blocks/project-header-meta/render.php:40
-msgid "stack"
-msgstr ""
-
-#: blocks/project-header-meta/render.php:46
-msgid "repo"
-msgstr ""
-
-#: blocks/project-inline-meta/render.php:24
-msgid "Last updated"
-msgstr ""
-
-#. translators: %s is a localized date.
-#: blocks/project-inline-meta/render.php:28
-msgid "Updated %s"
-msgstr ""
 
 #: inc/activity-hub.php:65 patterns/home-feed.php:39
 msgid "Activities"
@@ -302,34 +261,6 @@ msgstr ""
 msgid "Toasts"
 msgstr "Toasts"
 
-#: inc/class-projects-sync.php:70
-msgid "Repository URL is missing."
-msgstr ""
-
-#: inc/class-projects-sync.php:75
-msgid "Invalid GitHub repository URL."
-msgstr ""
-
-#: inc/class-projects-sync.php:89
-msgid "No changelog entries found."
-msgstr ""
-
-#: inc/class-projects-sync.php:259
-msgid "Git tag detected (no published release note)."
-msgstr ""
-
-#: inc/class-projects-sync.php:288
-msgid "CHANGELOG.md was found but cannot be downloaded."
-msgstr ""
-
-#: inc/class-projects-sync.php:335
-msgid "Parsed from CHANGELOG.md."
-msgstr ""
-
-#: inc/class-projects-sync.php:364
-msgid "Release published on GitHub."
-msgstr ""
-
 #: inc/entry-attributes.php:104
 msgid "Now"
 msgstr "Maintenant"
@@ -346,7 +277,7 @@ msgstr "Article"
 msgid "Event"
 msgstr "Événement"
 
-#: inc/entry-attributes.php:119 inc/projects.php:34
+#: inc/entry-attributes.php:119
 msgid "Project"
 msgstr "Projet"
 
@@ -511,131 +442,16 @@ msgstr ""
 
 #: inc/placeholder-copy.php:22
 msgid ""
-"The blogroll grid powered by jardin-feed will appear here in a later phase. "
-"Use the page content for notes in the meantime."
+"The blogroll grid powered by jardin-bookmarks will appear here in a later "
+"phase. Use the page content for notes in the meantime."
 msgstr ""
+"La grille blogroll (plugin jardin-bookmarks) apparaîtra ici dans une phase "
+"ultérieure. En attendant, utilisez le corps de la page pour vos notes."
 
 #: inc/placeholder-copy.php:24
 msgid ""
 "Content for this section will appear here once the related features are "
 "connected."
-msgstr ""
-
-#: inc/projects-admin.php:23 assets/js/project-editor-sidebar.js:171
-msgid "Sync changelog (GitHub)"
-msgstr ""
-
-#: inc/projects-admin.php:74
-msgid "Changelog synced successfully."
-msgstr ""
-
-#: inc/projects-admin.php:76
-msgid "Sync finished with errors — see the “Project data” panel in the editor."
-msgstr ""
-
-#. translators: 1: successful sync count, 2: failed sync count
-#: inc/projects-admin.php:89
-msgid "Bulk sync: %1$d succeeded, %2$d failed."
-msgstr ""
-
-#: inc/projects-admin.php:102
-msgid "Unauthorized request."
-msgstr ""
-
-#: inc/projects-admin.php:140
-msgid "Sync changelog"
-msgstr ""
-
-#: inc/projects.php:33 inc/projects.php:45 inc/projects.php:49
-msgid "Projects"
-msgstr ""
-
-#: inc/projects.php:35
-msgid "Add project"
-msgstr ""
-
-#: inc/projects.php:36
-msgid "Add new project"
-msgstr ""
-
-#: inc/projects.php:37
-msgid "Edit project"
-msgstr ""
-
-#: inc/projects.php:38
-msgid "New project"
-msgstr ""
-
-#: inc/projects.php:39
-msgid "View project"
-msgstr ""
-
-#: inc/projects.php:40
-msgid "Search projects"
-msgstr ""
-
-#: inc/projects.php:41
-msgid "No projects found"
-msgstr ""
-
-#: inc/projects.php:42
-msgid "No projects found in Trash"
-msgstr ""
-
-#: inc/projects.php:43
-msgid "All projects"
-msgstr ""
-
-#: inc/projects.php:44
-msgid "Project archives"
-msgstr ""
-
-#: inc/projects.php:83
-msgid "Project statuses"
-msgstr ""
-
-#: inc/projects.php:84
-msgid "Project status"
-msgstr ""
-
-#: inc/projects.php:85
-msgid "Statuses"
-msgstr ""
-
-#: inc/projects.php:86
-msgid "All statuses"
-msgstr ""
-
-#: inc/projects.php:87
-msgid "Edit status"
-msgstr ""
-
-#: inc/projects.php:88
-msgid "Update status"
-msgstr ""
-
-#: inc/projects.php:89
-msgid "Add status"
-msgstr ""
-
-#: inc/projects.php:197
-msgid "active"
-msgstr ""
-
-#: inc/projects.php:198
-msgid "in progress"
-msgstr ""
-
-#: inc/projects.php:199
-msgid "stable"
-msgstr ""
-
-#: inc/projects.php:200
-msgid "planned"
-msgstr ""
-
-#: inc/projects.php:201
-msgid "archived"
 msgstr ""
 
 #: inc/setup.php:30
@@ -1048,7 +864,7 @@ msgstr ""
 
 #: patterns/placeholder-blogroll.php
 msgctxt "Pattern description"
-msgid "Temporary notice until jardin-feed blogroll grid is wired."
+msgid "Temporary notice until jardin-bookmarks blogroll grid is wired."
 msgstr ""
 
 #: patterns/placeholder-now.php
@@ -1202,8 +1018,8 @@ msgid "Blogroll grid"
 msgstr ""
 
 #: assets/js/block-variations.js:132
-msgid "Blogroll CPT from jardin-feed."
-msgstr ""
+msgid "Blogroll CPT from jardin-bookmarks."
+msgstr "CPT blogroll (plugin jardin-bookmarks)."
 
 #: assets/js/block-variations.js:149
 msgid "Now updates"
@@ -1211,76 +1027,6 @@ msgstr ""
 
 #: assets/js/block-variations.js:150
 msgid "Entries from the now (monthly edition) post type."
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:57
-msgid "GitHub repository"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:71
-msgid "URL WordPress.org"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:85
-msgid "Current version"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:98
-msgid "License"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:100
-msgid "Common default: %s"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:114
-msgid "Stack label"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:127
-msgid "Changelog synchronization"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:131
-msgid "Automatic (cron + publish)"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:135
-msgid "Manual only"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:155
-msgid "Save the draft before you can run a manual sync."
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:182
-msgid "Sync state: "
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:192
-msgid "Last sync: "
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:202
-msgid "Last error: "
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:212
-msgid "Project data"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:235
-msgid "Featured"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:239
-msgid "Show in the home “pinned projects” grid"
-msgstr ""
-
-#: assets/js/project-editor-sidebar.js:255
-msgid ""
-"Order in that grid follows the document “Order” field (menu_order), then "
-"publish date."
 msgstr ""
 
 #: blocks/header-utilities/index.js:20
@@ -1370,36 +1116,6 @@ msgstr ""
 #: blocks/post-engage/block.json
 msgctxt "block description"
 msgid "Syndication links and webmention facepile (brid.gy, etc.)."
-msgstr ""
-
-#: blocks/project-changelog/block.json
-msgctxt "block title"
-msgid "Project Changelog"
-msgstr ""
-
-#: blocks/project-changelog/block.json
-msgctxt "block description"
-msgid "Project changelog synchronized from GitHub."
-msgstr ""
-
-#: blocks/project-header-meta/block.json
-msgctxt "block title"
-msgid "Project Header Meta"
-msgstr ""
-
-#: blocks/project-header-meta/block.json
-msgctxt "block description"
-msgid "Project technical metadata cards."
-msgstr ""
-
-#: blocks/project-inline-meta/block.json
-msgctxt "block title"
-msgid "Project Inline Meta"
-msgstr ""
-
-#: blocks/project-inline-meta/block.json
-msgctxt "block description"
-msgid "Inline metadata row for project singles."
 msgstr ""
 
 #: blocks/theme-toggle/block.json

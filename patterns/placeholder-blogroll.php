@@ -3,7 +3,7 @@
  * Title: Placeholder — Blogroll
  * Slug: jardin-theme/placeholder-blogroll
  * Categories: text
- * Description: Temporary notice until jardin-feed blogroll grid is wired.
+ * Description: Temporary notice until jardin-bookmarks blogroll grid is wired.
  *
  * @package Jardin_Theme */
 
