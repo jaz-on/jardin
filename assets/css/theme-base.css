@@ -983,12 +983,6 @@ body.admin-bar .site-header-shell {
 	}
 }
 
-/* `<main>` : on garantit un padding-top vertical (Core ne pose pas de padding-block). */
-main#main.wp-block-group {
-	padding-top: var(--wp--preset--spacing--6);
-	padding-bottom: 0;
-}
-
 .site-row.site-row-brand,
 .site-row-brand {
 	min-height: 0;
