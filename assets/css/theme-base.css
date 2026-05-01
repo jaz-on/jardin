@@ -1,6 +1,6 @@
 /**
  * Global CSS not covered by theme.json (skip-link, layout helpers, journal filters).
- * Build marker: 2026-04-30-hub-intro-align-all-wide
+ * Build marker: 2026-05-01-header-fse-brand-nav-toolbar
  *
  * Checklist (mockup parity): token/preset d'abord (theme.json) ; ici seulement
  * sélecteurs mockup, états, DOM block, responsive non couverts par l'API.
@@ -1012,40 +1012,38 @@ main#main.wp-block-group {
 	align-items: center;
 }
 
-/* core/html (site-brand) + dynamic header-utilities : rangée header sur une ligne (toolbar à droite).
- * Ne pas dépendre de :last-child sur header-utilities : en BDD un bloc ou wrapper peut être ajouté après,
- * auquel cas les anciennes règles « last-child » ne s’appliquaient plus → flex réduisait la toolbar à ~0 (icônes invisibles). */
-.site-row-brand > .wp-block-html {
+/*
+ * Brand row: logo (souvent core/html) + bloc dynamique header-utilities.
+ * Sélecteurs en descendant (pas d’enfant direct) : l’éditeur de site peut insérer
+ * un groupe wrapper sans casser la toolbar (icônes à largeur nulle).
+ */
+.site-header-shell .site-row-brand .wp-block-html {
 	flex: 0 0 auto;
-	min-width: 0;
-}
-
-.site-row-brand > .wp-block-html:first-child {
-	flex-shrink: 0;
-}
-
-.site-row-brand > .wp-block-html:last-child {
-	margin-left: auto;
-	min-width: 0;
-	flex: 1 1 auto;
-	max-width: 100%;
-	display: flex;
-	justify-content: flex-end;
-}
-
-.site-row-brand > .wp-block-jardin-theme-header-utilities {
-	flex: 1 1 auto;
-	min-width: 0;
-	margin-left: auto;
-	max-width: 100%;
-	display: flex;
-	justify-content: flex-end;
-}
-
-/* Dynamic block wrapper + .toolbar : éviter flex shrink → largeur ~0 (icônes « disparues ») */
-.site-row-brand > .wp-block-jardin-theme-header-utilities > .toolbar {
 	min-width: min-content;
+}
+
+.site-header-shell .site-row-brand .wp-block-jardin-theme-header-utilities {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex: 0 0 auto;
+	margin-inline-start: auto;
+	min-width: min-content;
+	max-width: 100%;
+}
+
+.site-header-shell .site-row-brand .wp-block-jardin-theme-header-utilities .toolbar {
+	min-width: min-content;
+	max-width: 100%;
 	flex-shrink: 0;
+}
+
+/* Icônes inline SVG : dimensions stables (évite collapse / stroke invisible). */
+.site-header-shell .toolbar .icon-btn svg {
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	display: block;
 }
 
 /* Rangée marque + utilitaires : forcer space-between (au cas où le JSON bloc est surchargé) */
@@ -1107,8 +1105,8 @@ main#main.wp-block-group {
 	justify-content: flex-end;
 	flex-wrap: nowrap;
 	gap: var(--wp--preset--spacing--3);
-	min-width: 0;
-	flex-shrink: 1;
+	min-width: min-content;
+	flex-shrink: 0;
 	max-width: 100%;
 }
 
@@ -1358,11 +1356,10 @@ main#main.wp-block-group {
    ============================================================ */
 
 /*
- * Nav pills use horizontal padding + border; widen the row so outer edges match .site-inner.
- * Brand row uses the same inset so JR lines up with /journal and toolbar with /a-propos.
+ * Nav pills: widen only the nav row so outer edges align with the wide column.
+ * Brand row stays within .site-inner horizontal padding so the JR mark is not pulled past the content edge.
  */
-.site-header-shell .site-row.site-row-brand,
-.site-row-nav {
+.site-header-shell .site-row.site-row-nav {
 	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
 	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
 	width: calc(100% + 2 * (clamp(10px, 1.5vw, 18px) + 1px)) !important;
