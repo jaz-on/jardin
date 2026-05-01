@@ -12,8 +12,8 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<!-- wp:columns {"align":"wide","className":"cols","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|6","left":"var:preset|spacing|6"}}}} -->
-<div class="wp-block-columns alignwide cols">
+<!-- wp:columns {"className":"cols","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|6","left":"var:preset|spacing|6"}}}} -->
+<div class="wp-block-columns cols">
 	<!-- wp:column -->
 	<div class="wp-block-column">
 		<!-- wp:heading {"level":4} -->

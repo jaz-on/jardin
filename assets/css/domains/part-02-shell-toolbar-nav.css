@@ -1,0 +1,584 @@
+/* ============================================================
+   Site header — shell (alignfull) + inner (alignwide) mockup parity
+   ============================================================ */
+
+.site-header-shell {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--wp--preset--color--bg, var(--wp--preset--color--base));
+	border-bottom: 2px solid var(--wp--preset--color--accent);
+}
+
+.site-header-shell.wp-block-group {
+	padding-top: var(--wp--preset--spacing--5) !important;
+	padding-bottom: var(--wp--preset--spacing--4) !important;
+}
+
+body.admin-bar .site-header-shell {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar .site-header-shell {
+		top: 46px;
+	}
+}
+
+.site-inner {
+	min-width: 0;
+}
+
+main#main.wp-block-group {
+	max-width: var(--wp--style--wide-size, 56rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: var(--wp--preset--spacing--6);
+	padding-bottom: var(--wp--preset--spacing--6);
+	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	width: 100%;
+	box-sizing: border-box;
+	overflow-x: clip;
+}
+
+/*
+ * Header/footer inner column — same max-width + gutters as main#main.
+ */
+.site-inner.alignwide,
+.site-footer-inner.alignwide {
+	max-width: var(--wp--style--wide-size, 56rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.site-row.site-row-brand,
+.site-row-brand {
+	min-height: 0;
+	align-items: center;
+}
+
+/*
+ * Brand row: logo (souvent core/html) + bloc dynamique header-utilities.
+ * Sélecteurs en descendant (pas d’enfant direct) : l’éditeur de site peut insérer
+ * un groupe wrapper sans casser la toolbar (icônes à largeur nulle).
+ */
+.site-header-shell .site-row-brand .wp-block-html {
+	flex: 0 0 auto;
+	min-width: min-content;
+}
+
+.site-header-shell .site-row-brand .wp-block-jardin-theme-header-utilities {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex: 0 0 auto;
+	margin-inline-start: auto;
+	min-width: min-content;
+	max-width: 100%;
+}
+
+.site-header-shell .site-row-brand .wp-block-jardin-theme-header-utilities .toolbar {
+	min-width: min-content;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+/* Icônes inline SVG : dimensions stables (évite collapse / stroke invisible). */
+.site-header-shell .toolbar .icon-btn svg {
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	display: block;
+}
+
+/* Rangée marque + utilitaires : forcer space-between (au cas où le JSON bloc est surchargé) */
+.site-header-shell .wp-block-group.site-row.site-row-brand.is-layout-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	column-gap: var(--wp--preset--spacing--4);
+}
+
+.site-brand {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	flex-shrink: 0;
+}
+
+/* Logo JR : toujours accent (pas l’héritage `text` du body) */
+.site-header-shell .site-brand a.site-mark {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--wp--preset--color--accent);
+	flex-shrink: 0;
+	transition:
+		color var(--wp--custom--transition--fast, 120ms ease),
+		transform var(--wp--custom--transition--fast, 120ms ease);
+}
+
+.site-header-shell .site-brand a.site-mark svg {
+	display: block;
+}
+
+.site-header-shell .site-brand a.site-mark svg text {
+	fill: currentColor;
+}
+
+.site-header-shell .site-brand a.site-mark svg rect {
+	stroke: currentColor;
+}
+
+.site-header-shell .site-brand a.site-mark:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+	transform: rotate(-3deg);
+	outline: none;
+}
+
+/* ============================================================
+   Toolbar — mockup.html ~1239–1331 ( + segmented chrome pour capture maquette )
+   ============================================================ */
+
+.toolbar,
+.site-toolbar {
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-end;
+	flex-wrap: nowrap;
+	gap: var(--wp--preset--spacing--3);
+	min-width: min-content;
+	flex-shrink: 0;
+	max-width: 100%;
+}
+
+/* Bloc langue seul (Polylang : 2+ langues possibles) */
+.site-header-shell .toolbar-lang {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: stretch;
+	max-width: 100%;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+	overflow: hidden;
+}
+
+/* Barre icônes : simple flex avec gap, chaque bouton arrondi individuellement (mockup parity) */
+.site-header-shell .toolbar-chrome--header,
+.site-header-shell .toolbar-chrome--drawer {
+	display: flex;
+	align-items: stretch;
+	flex-wrap: nowrap;
+	gap: var(--wp--preset--spacing--2);
+	flex-shrink: 0;
+}
+
+.site-header-shell .toolbar-chrome--header > *,
+.site-header-shell .toolbar-chrome--drawer > * {
+	flex: 0 0 auto;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+}
+
+/* Langue : style par défaut si hors toolbar (éditeur) */
+.lang-switch {
+	display: flex;
+	gap: 0;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.site-header-shell .toolbar-lang .lang-switch {
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	overflow: visible;
+}
+
+.lang-switch a {
+	display: inline-block;
+	padding: var(--wp--preset--spacing--2);
+	line-height: 1.25;
+	height: auto;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: none;
+	letter-spacing: normal;
+	background: transparent;
+	border: none;
+	color: var(--wp--preset--color--text-muted);
+	text-decoration: none;
+	transition: color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
+}
+
+.lang-switch a + a {
+	border-left: 1px solid var(--wp--preset--color--border);
+}
+
+.lang-switch a[aria-current="true"] {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--accent);
+}
+
+.lang-switch a:hover {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+.lang-switch a[aria-current="true"]:hover {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--accent);
+}
+
+/* Icon button — même traitement visuel que les pastilles nav header */
+.icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.25rem;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--text-muted);
+	cursor: pointer;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: 1;
+	text-decoration: none;
+	transition: border-color var(--wp--custom--transition--fast, 120ms ease), color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
+	flex-shrink: 0;
+}
+
+.icon-btn.burger {
+	display: none;
+}
+
+.icon-btn:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	outline: none;
+}
+
+.icon-btn[aria-pressed="true"] {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+/* Sélecteur de thème dans la chrome : même silhouette que .icon-btn mockup */
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	flex: 0 0 auto;
+	min-width: 2.25rem;
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.25rem;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	width: auto;
+	height: auto;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--text-muted);
+	list-style: none;
+	transition: border-color var(--wp--custom--transition--fast, 120ms ease), color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
+	cursor: pointer;
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary::-webkit-details-marker,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary::-webkit-details-marker {
+	display: none;
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary:hover,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary:hover,
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__summary:focus-visible,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__summary:focus-visible {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	outline: none;
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle[open] .jardin-theme-toggle__summary,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__icon,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__icon {
+	width: 14px;
+	height: 14px;
+	color: currentColor;
+}
+
+.site-header-shell .toolbar-chrome--header .jardin-theme-toggle__menu,
+.site-header-shell .toolbar-chrome--drawer .jardin-theme-toggle__menu {
+	top: 100%;
+	right: 0;
+	left: auto;
+	margin-top: var(--wp--preset--spacing--2, 0.35rem);
+	min-width: min(20rem, calc(100vw - 2rem));
+}
+
+.jardin-theme-toggle[open] .jardin-theme-toggle__summary {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+/* ---- Coffee multi-icon (mockup + slugs jardin theme-toggle) ---- */
+.coffee-toggle {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.coffee-toggle:is(:hover, :focus-visible) {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--bg);
+}
+
+.site-header-shell .toolbar-chrome--header .coffee-toggle:is(:hover, :focus-visible),
+.site-header-shell .toolbar-chrome--drawer .coffee-toggle:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--bg);
+}
+
+.coffee-icon {
+	display: none;
+}
+
+.coffee-icon-coffee {
+	display: inline-block;
+}
+
+/* Catppuccin family */
+:is(html[data-theme^="catppuccin-"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="catppuccin-"]) .coffee-icon-coffee {
+	display: inline-block;
+}
+
+/* Rosé Pine family */
+:is(html[data-theme^="rose-pine"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="rose-pine"]) .coffee-icon-cherry {
+	display: inline-block;
+}
+
+/* Brewery family */
+:is(html[data-theme^="brewery-"]) .coffee-icon {
+	display: none;
+}
+
+:is(html[data-theme^="brewery-"]) .coffee-icon-beer {
+	display: inline-block;
+}
+
+/* ============================================================
+   Primary nav — boxed (mockup nav.primary), DOM block Navigation
+   ============================================================ */
+
+/*
+ * Nav pills: widen only the nav row so outer edges align with the wide column.
+ * Brand row stays within .site-inner horizontal padding so the JR mark is not pulled past the content edge.
+ */
+.site-header-shell .site-row.site-row-nav {
+	margin-left: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	margin-right: calc(-1 * clamp(10px, 1.5vw, 18px) - 1px);
+	width: calc(100% + 2 * (clamp(10px, 1.5vw, 18px) + 1px)) !important;
+	max-width: none !important;
+}
+
+.primary.jardin-theme-primary-nav,
+.jardin-theme-primary-nav.primary {
+	overflow-x: auto;
+	overflow-y: visible;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.primary.jardin-theme-primary-nav::-webkit-scrollbar,
+.jardin-theme-primary-nav.primary::-webkit-scrollbar {
+	display: none;
+}
+
+.primary.jardin-theme-primary-nav .wp-block-navigation__container,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	gap: clamp(4px, 0.5vw, 10px) !important;
+	align-items: stretch;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+}
+
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item {
+	flex: 1 1 0;
+	min-width: 0;
+	max-width: none;
+}
+
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	text-align: center;
+	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: clamp(0.78rem, 1vw, 0.875rem);
+	font-weight: 400;
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: color var(--wp--custom--transition--fast, 120ms ease), border-color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
+}
+
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible),
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	outline: none;
+}
+
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > a,
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > .wp-block-navigation-item__content,
+.primary.jardin-theme-primary-nav .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > a,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > a,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav.primary .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > a {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+/* Fallback: nav sans classe .primary (anciens template parts) */
+.jardin-theme-primary-nav:not(.primary) {
+	overflow-x: auto;
+	overflow-y: visible;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	max-width: none;
+}
+
+.jardin-theme-primary-nav:not(.primary)::-webkit-scrollbar {
+	display: none;
+}
+
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: clamp(4px, 0.5vw, 10px);
+	align-items: stretch;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+}
+
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li {
+	flex: 1 1 0;
+	min-width: 0;
+	max-width: none;
+}
+
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > a,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	text-align: center;
+	padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.5vw, 18px);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--surface);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: clamp(0.78rem, 1vw, 0.875rem);
+	font-weight: 400;
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: color var(--wp--custom--transition--fast, 120ms ease), border-color var(--wp--custom--transition--fast, 120ms ease), background var(--wp--custom--transition--fast, 120ms ease);
+}
+
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item > a:is(:hover, :focus-visible),
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li > .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li > a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+	outline: none;
+}
+
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item > a,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li.current-menu-item > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > li.current-menu-item > a,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > .wp-block-navigation-item__content,
+.jardin-theme-primary-nav:not(.primary) .wp-block-navigation__container > .wp-block-navigation-item.wp-block-navigation-item--current > a {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+

@@ -11,17 +11,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$jardin_projects_hub_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : trailingslashit( home_url( '/projets/' ) );
+$jardin_projects_hub_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
+
 ?>
 <!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
 <div class="wp-block-group home-featured-projects-wrap">
-<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
-<h2 class="wp-block-heading alignwide section-with-link"><?php
+<!-- wp:heading {"level":2,"className":"section-with-link"} -->
+<h2 class="wp-block-heading section-with-link"><?php
 	echo wp_kses(
 		sprintf(
-			/* translators: 1: projects hub URL (starter), 2: path label */
+			/* translators: 1: projects hub URL, 2: path label */
 			__( 'Pinned projects <a href="%1$s" class="section-link">%2$s →</a>', 'jardin-theme' ),
-			esc_url( trailingslashit( home_url( '/projets/' ) ) ),
-			esc_html( '/projets' )
+			esc_url( $jardin_projects_hub_url ),
+			esc_html( $jardin_projects_hub_label )
 		),
 		array( 'a' => array( 'href' => true, 'class' => true ) )
 	);

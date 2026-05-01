@@ -1,0 +1,948 @@
+/**
+ * Global CSS not covered by theme.json (skip-link, layout helpers, journal filters).
+ * Build marker: 2026-05-01-header-fse-brand-nav-toolbar
+ *
+ * Checklist (mockup parity): token/preset d'abord (theme.json) ; ici seulement
+ * sélecteurs mockup, états, DOM block, responsive non couverts par l'API.
+ *
+ * @package Jardin_Theme
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration-color: var(--wp--preset--color--border-strong);
+	text-underline-offset: 3px;
+}
+
+.jardin-theme-skip-link {
+	position: absolute;
+	left: -9999px;
+	z-index: 999999;
+	padding: 0.5rem 1rem;
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--bg);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.jardin-theme-skip-link:focus {
+	position: fixed;
+	top: 0.5rem;
+	left: 0.5rem;
+	clip: auto;
+	width: auto;
+	height: auto;
+}
+
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+a {
+	text-decoration-color: var(--wp--preset--color--border-strong, currentColor);
+	text-underline-offset: 3px;
+}
+
+a:is(:hover, :focus-visible) {
+	text-decoration-color: var(--wp--preset--color--accent);
+}
+
+.jardin-theme-toggle {
+	position: relative;
+}
+
+.jardin-theme-toggle__summary {
+	cursor: pointer;
+	list-style: none;
+}
+
+.jardin-theme-toggle__summary::-webkit-details-marker {
+	display: none;
+}
+
+.jardin-theme-toggle__icon {
+	display: block;
+	color: var(--wp--preset--color--accent);
+}
+
+.jardin-theme-toggle__menu {
+	position: absolute;
+	right: 0;
+	z-index: 200;
+	margin-top: 0.35rem;
+	min-width: 12rem;
+	padding: var(--wp--preset--spacing--3);
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	box-shadow: var(--wp--preset--shadow--md);
+}
+
+.jardin-theme-toggle__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--wp--preset--spacing--3);
+}
+
+.jardin-theme-toggle__title {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--base, 1rem);
+	font-family: var(--wp--preset--font-family--serif);
+	font-weight: 500;
+}
+
+.jardin-theme-toggle__close {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	color: var(--wp--preset--color--text-muted);
+	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 0 var(--wp--preset--spacing--2);
+	line-height: 1;
+}
+
+.jardin-theme-toggle__close:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+}
+
+.jardin-theme-toggle__body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--3);
+}
+
+.jardin-theme-toggle__family {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.jardin-theme-toggle__family > legend {
+	padding: 0 0 var(--wp--preset--spacing--1) 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--wp--preset--color--text-muted);
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.jardin-theme-toggle__family-desc {
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+	text-transform: none;
+	letter-spacing: 0;
+	font-family: var(--wp--preset--font-family--sans);
+	font-style: italic;
+}
+
+.jardin-theme-toggle__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--1);
+}
+
+.jardin-theme-toggle__option {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--2);
+	width: 100%;
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--wp--custom--radius--soft);
+	color: var(--wp--preset--color--text);
+	cursor: pointer;
+	text-align: left;
+	transition: all var(--wp--custom--transition--fast, 200ms ease);
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: inherit;
+}
+
+.jardin-theme-toggle__option:hover {
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--border);
+}
+
+.jardin-theme-toggle__option:focus-visible {
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--accent);
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+.jardin-theme-toggle__option.is-active,
+.jardin-theme-toggle__option[aria-pressed="true"] {
+	background: var(--wp--preset--color--accent-soft);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.jardin-theme-toggle__option-icon {
+	font-size: 1rem;
+	flex-shrink: 0;
+}
+
+.jardin-theme-toggle__option-name {
+	flex-grow: 1;
+}
+
+.jardin-theme-toggle__swatches {
+	display: inline-flex;
+	gap: 2px;
+	flex-shrink: 0;
+}
+
+.jardin-theme-toggle__swatches > span {
+	display: inline-block;
+	width: 0.875rem;
+	height: 0.875rem;
+	border-radius: var(--wp--custom--radius--pill, 999px);
+	border: 1px solid var(--wp--preset--color--border);
+}
+
+.jardin-theme-toggle__footer {
+	margin-top: var(--wp--preset--spacing--3);
+	padding-top: var(--wp--preset--spacing--2);
+	border-top: 1px solid var(--wp--preset--color--border);
+	text-align: center;
+}
+
+.jardin-theme-toggle__system {
+	background: transparent;
+	border: 1px solid var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text-muted);
+	font-size: var(--wp--preset--font-size--xs);
+	padding: var(--wp--preset--spacing--1) var(--wp--preset--spacing--3);
+	border-radius: var(--wp--custom--radius--soft);
+	cursor: pointer;
+	font-family: var(--wp--preset--font-family--mono);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transition: all var(--wp--custom--transition--fast, 200ms ease);
+}
+
+.jardin-theme-toggle__system:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--text);
+	border-color: var(--wp--preset--color--text-muted);
+}
+
+.jardin-journal-filters {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.jardin-journal-filters__inner {
+	margin: 0;
+	line-height: 1.5;
+}
+
+.jardin-journal-filters__link {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.jardin-journal-filters__link:hover {
+	color: var(--wp--preset--color--accent);
+}
+
+.jardin-journal-filters__sep {
+	opacity: 0.65;
+	white-space: pre;
+}
+
+/* Inline icons in text (logo badges next to brand names) */
+.inline-icon {
+	display: inline-flex;
+	align-items: center;
+	vertical-align: -0.25em;
+	margin: 0 var(--wp--preset--spacing--1, 0.25rem) 0 0.125rem;
+	line-height: 0;
+}
+
+.inline-icon svg {
+	display: block;
+	border-radius: var(--wp--custom--radius--soft);
+}
+
+.inline-brand {
+	font-weight: 600;
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--wp--preset--color--accent);
+	padding-bottom: 1px;
+}
+
+.inline-brand:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+/*
+ * Liens éditoriaux (posts, pages, CPTs) : même traitement que .inline-brand
+ * (gras, soulignage coloré décalé, couleur accent au hover).
+ * Cible les liens texte dans les blocs de contenu ; exclut boutons, nav, images.
+ */
+.wp-block-post-content :is(p, li, blockquote, td, dd, figcaption, dt, .wp-block-verse) a:not(.wp-block-button__link):not([class*="wp-block-"]) {
+	font-weight: 600;
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--wp--preset--color--accent);
+	padding-bottom: 1px;
+}
+
+.wp-block-post-content :is(p, li, blockquote, td, dd, figcaption, dt, .wp-block-verse) a:not(.wp-block-button__link):not([class*="wp-block-"]):is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
+p.bio,
+.bio {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.5;
+	color: var(--wp--preset--color--text);
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--6);
+}
+
+.jardin-header-search {
+	flex: 1 1 10rem;
+	max-width: min(18rem, 100%);
+}
+
+.jardin-header-search .search-form,
+.jardin-header-search form {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--2);
+	width: 100%;
+}
+
+.jardin-header-search .search-field {
+	flex: 1;
+	min-width: 0;
+	padding: 0.35rem 0.5rem;
+	font: inherit;
+	font-size: var(--wp--preset--font-size--sm);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	background: var(--wp--preset--color--bg);
+	color: var(--wp--preset--color--text);
+}
+
+.jardin-header-search .search-submit {
+	font-size: var(--wp--preset--font-size--xs);
+	padding: 0.35rem 0.65rem;
+	border-radius: var(--wp--custom--radius--soft);
+	border: 1px solid var(--wp--preset--color--border);
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--text);
+	cursor: pointer;
+}
+
+.jardin-404-search {
+	margin-top: var(--wp--preset--spacing--5);
+	max-width: min(28rem, 100%);
+}
+
+/* Post-engage: POSSE + webmention list (Phase 4) */
+.jardin-theme-post-engage {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--4);
+}
+.jardin-theme-post-engage__head--replies {
+	margin-top: var(--wp--preset--spacing--4);
+}
+.jardin-theme-post-engage__card {
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--4);
+	border-radius: var(--wp--custom--radius--soft);
+	border: 1px solid var(--wp--preset--color--border);
+}
+.jardin-theme-post-engage__card.is-bluesky {
+	border-color: #0085ff;
+	background: color-mix(in srgb, #0085ff 6%, var(--wp--preset--color--bg));
+}
+.jardin-theme-post-engage__card.is-mastodon {
+	border-color: #6364ff;
+	background: color-mix(in srgb, #6364ff 6%, var(--wp--preset--color--bg));
+}
+.jardin-theme-post-engage__cta {
+	font-weight: 600;
+	text-decoration: none;
+}
+.jardin-theme-post-engage__cta:hover {
+	text-decoration: underline;
+}
+
+/* Post-engage compact: feed / archive cards (MOCKUP parity P5–P6) */
+.entry .jardin-theme-post-engage--compact {
+	margin-top: var(--wp--preset--spacing--2);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__teaser {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.15rem 0.35rem;
+	color: var(--wp--preset--color--text-muted);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__pill {
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: var(--wp--custom--radius--pill, 999px);
+	padding: 0.1rem 0.45rem;
+	border: 1px solid var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__pill:hover {
+	text-decoration: underline;
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse-link {
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse-link:hover {
+	text-decoration: underline;
+}
+
+.jardin-theme-wm__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--3);
+}
+.jardin-theme-wm__li {
+	margin: 0;
+}
+
+/* ============================================================
+   Site brand / mark (JR SVG) — couleur / hover : règles détaillées sous .site-header-shell
+   ============================================================ */
+
+.site-mark {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+/* ============================================================
+   Home — Section headings with inline links
+   ============================================================ */
+
+.section-with-link {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.4em var(--wp--preset--spacing--3);
+}
+
+.section-link {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 400;
+	font-family: var(--wp--preset--font-family--mono);
+	letter-spacing: 0.01em;
+}
+
+.section-link a,
+a.section-link {
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+	opacity: 0.75;
+}
+
+.section-link a:hover,
+a.section-link:hover {
+	opacity: 1;
+}
+
+/* ============================================================
+   Home — Bio
+   ============================================================ */
+
+.bio {
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.5;
+}
+
+/* ============================================================
+   Home — Events upcoming
+   ============================================================ */
+
+.events-upcoming {
+	background: var(--wp--preset--color--surface);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	margin: var(--wp--preset--spacing--4) 0 0;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+}
+
+.events-upcoming h3,
+.events-upcoming .wp-block-heading {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	align-items: baseline;
+	gap: var(--wp--preset--spacing--2);
+	margin: 0 0 var(--wp--preset--spacing--2);
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--sm);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-weight: 500;
+	color: var(--wp--preset--color--text-faint);
+}
+
+.events-upcoming-title {
+	color: var(--wp--preset--color--text-faint);
+}
+
+.events-upcoming-link,
+a.events-upcoming-link {
+	font-size: var(--wp--preset--font-size--xs);
+	font-family: var(--wp--preset--font-family--mono);
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: 0;
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	opacity: 1;
+}
+
+.events-upcoming-link:hover,
+a.events-upcoming-link:hover {
+	color: var(--wp--preset--color--accent);
+	opacity: 1;
+}
+
+.event-row {
+	display: block;
+	padding: var(--wp--preset--spacing--3) 0;
+	border-bottom: 1px dashed var(--wp--preset--color--border);
+}
+
+.events-upcoming .entry-when {
+	color: var(--wp--preset--color--accent);
+	font-variant-numeric: tabular-nums;
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 500;
+}
+
+.events-upcoming .what {
+	font-size: var(--wp--preset--font-size--base);
+}
+
+.events-upcoming .what .wp-block-post-title,
+.events-upcoming .what .entry-title {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--base);
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.events-upcoming .what .wp-block-post-title a,
+.events-upcoming .what .entry-title a {
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+}
+
+.events-upcoming .what .wp-block-post-title a:is(:hover, :focus-visible),
+.events-upcoming .what .entry-title a:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--accent);
+}
+
+.events-upcoming .what .entry-loc {
+	color: var(--wp--preset--color--text-muted);
+	font-size: var(--wp--preset--font-size--sm);
+	display: inline;
+	margin-top: 0;
+}
+
+.events-upcoming .entry-meta-inline {
+	display: block;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+	margin-top: 0.15rem;
+}
+
+.events-upcoming .entry-meta-inline .entry-when {
+	color: var(--wp--preset--color--text-muted);
+}
+
+.events-upcoming .entry-meta-inline .entry-meta-sep {
+	opacity: 0.9;
+}
+
+.event-row + .event-row {
+	margin-top: 0;
+}
+
+.entry-when,
+.wp-block-post-date.entry-when {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-muted);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.events-upcoming-footer {
+	margin-top: var(--wp--preset--spacing--3);
+	padding-top: 0;
+	border-top: 0;
+	margin-bottom: 0;
+	font-size: var(--wp--preset--font-size--base);
+	font-style: italic;
+}
+
+.feed-header {
+	margin: var(--wp--preset--spacing--6) 0 var(--wp--preset--spacing--4);
+	padding-bottom: var(--wp--preset--spacing--3);
+	border-bottom: 1px solid var(--wp--preset--color--border);
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--4);
+	flex-wrap: wrap;
+}
+
+.feed-header h2 {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+/* ============================================================
+   Home — Feed (Mon flux)
+   ============================================================ */
+
+.feed-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--2);
+	align-items: center;
+}
+
+.ff-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	padding: 0.35rem 0.85rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	font-size: var(--wp--preset--font-size--sm);
+	font-family: var(--wp--preset--font-family--sans);
+	text-decoration: none;
+	color: var(--wp--preset--color--text-muted);
+	background: var(--wp--preset--color--surface);
+	cursor: pointer;
+	line-height: 1.4;
+	transition: color 0.15s ease, background 0.15s ease;
+}
+
+.ff-btn:hover {
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+.ff-btn.active {
+	border-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--accent-soft);
+}
+
+.ff-icon {
+	width: 0.85em;
+	height: 0.85em;
+	flex-shrink: 0;
+	vertical-align: -0.1em;
+}
+
+/* ============================================================
+   Home — Projects grid
+   ============================================================ */
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	gap: var(--wp--preset--spacing--4);
+	/* Même hauteur par ligne : étire chaque cellule sur la hauteur de la rangée */
+	align-items: stretch;
+}
+
+/* Query Loop : le bloc post-template peut imposer start ; on rétablit l’harmonie des lignes */
+.projects-grid.wp-block-post-template.is-layout-grid {
+	align-items: stretch;
+}
+
+/* Le li est l’item de grille ; il prend toute la hauteur de cellule pour pouvoir étirer la carte */
+.projects-grid:is(ul, ol) > li {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	height: 100%;
+}
+
+.project-card {
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	/* Remplit la cellule + colonne flex : même hauteur pour toutes les cartes d’une rangée */
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: clamp(11rem, 28vmin, 15rem);
+}
+
+.project-card .wp-block-post-excerpt {
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+/* Statut prévu : carte atténuée, lien titre désactivé (mockup planned). */
+.project-card.planned,
+.projects-grid .project-card:has(.status .term-planned),
+.projects-grid .project-card:has(.status a.term-planned) {
+	opacity: 0.72;
+	border-style: dashed;
+	cursor: default;
+}
+
+.project-card.planned .wp-block-post-title a,
+.projects-grid .project-card:has(.status .term-planned) .wp-block-post-title a,
+.projects-grid .project-card:has(.status a.term-planned) .wp-block-post-title a {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	color: inherit;
+}
+
+.project-card .pc-head {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: var(--wp--preset--spacing--2);
+}
+
+.project-card h3,
+.project-card .wp-block-post-title {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--md);
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: var(--wp--custom--leading--tight);
+	margin: 0;
+}
+
+.project-card .status {
+	display: inline-block;
+	font-size: var(--wp--preset--font-size--xs);
+	font-family: var(--wp--preset--font-family--mono);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: var(--wp--custom--tracking--wide);
+	color: var(--wp--preset--color--text-muted);
+	background: var(--wp--preset--color--border);
+	padding: 0.15rem 0.45rem;
+	border-radius: var(--wp--custom--radius--sharp);
+	margin-left: 0;
+}
+
+.project-card .status a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.project-card .status a:hover,
+.project-card .status a:focus-visible {
+	text-decoration: none;
+}
+
+.project-card .status .term-actif,
+.project-card .status .term-wip,
+.project-card .status .term-stable,
+.project-card .status .term-planned,
+.project-card .status .term-archived {
+	color: inherit;
+}
+
+.project-status.actif,
+.project-card .status .term-actif {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-note) 15%, transparent);
+	color: var(--wp--preset--color--pt-note);
+}
+
+.project-status.wip,
+.project-card .status .term-wip {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--accent);
+}
+
+.project-status.stable,
+.project-card .status .term-stable {
+	background: color-mix(in srgb, var(--wp--preset--color--pt-project) 15%, transparent);
+	color: var(--wp--preset--color--pt-project);
+}
+
+.project-status.planned,
+.project-card .status .term-planned {
+	background: var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.project-status.archived,
+.project-card .status .term-archived {
+	background: color-mix(in srgb, var(--wp--preset--color--text-muted) 16%, transparent);
+	color: var(--wp--preset--color--text-muted);
+}
+
+.project-card .desc {
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text-muted);
+	margin: 0;
+}
+
+.project-card .wp-block-post-excerpt__excerpt {
+	margin: 0;
+}
+
+.project-card .wp-block-post-title a {
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+}
+
+.project-card .wp-block-post-title a:hover,
+.project-card .wp-block-post-title a:focus-visible {
+	color: var(--wp--preset--color--accent);
+}
+
+.project-header-meta {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: var(--wp--preset--spacing--3);
+	padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--soft);
+	margin: 0 0 var(--wp--preset--spacing--6);
+}
+
+.project-stat {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--1);
+}
+
+.project-stat-label {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: var(--wp--custom--tracking--wide);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.project-stat-value {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--text);
+}
+
+.project-stat-value a {
+	color: var(--wp--preset--color--accent);
+	text-decoration: none;
+}
+
+.project-stat-value a:hover,
+.project-stat-value a:focus-visible {
+	text-decoration: underline;
+}
+
+.project-changelog {
+	margin-top: var(--wp--preset--spacing--6);
+	padding-top: var(--wp--preset--spacing--6);
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.project-changelog h2 {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--lg);
+	font-weight: 500;
+	text-transform: none;
+	margin: 0 0 var(--wp--preset--spacing--4);
+}
+
+.changelog-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.changelog-list li {
+	display: grid;
+	grid-template-columns: 6rem 8rem 1fr;
+	gap: var(--wp--preset--spacing--4);
+	padding: var(--wp--preset--spacing--3) 0;
+	border-bottom: 1px dashed var(--wp--preset--color--border);
+	align-items: baseline;
+}
+
+.changelog-list li:last-child {
+	border-bottom: 0;
+}
+
+.cl-version {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 500;
+	color: var(--wp--preset--color--accent);
+}
+
+.changelog-list time {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--text-faint);
+}
+
+.cl-summary {
+	font-size: var(--wp--preset--font-size--base);
+	color: var(--wp--preset--color--text);
+}
+
+@media (max-width: 48rem) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.changelog-list li {
+		grid-template-columns: 1fr;
+		gap: var(--wp--preset--spacing--2);
+	}
+}
+

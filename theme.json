@@ -181,7 +181,7 @@
 		}
 	},
 	"styles": {
-		"css": ":root{--pt-post:var(--wp--preset--color--pt-post);--pt-note:var(--wp--preset--color--pt-note);--pt-event:var(--wp--preset--color--pt-event);--pt-project:var(--wp--preset--color--pt-project);--pt-beer:var(--wp--preset--color--pt-beer)}",
+		"css": ":root{--pt-post:var(--wp--preset--color--pt-post);--pt-note:var(--wp--preset--color--pt-note);--pt-event:var(--wp--preset--color--pt-event);--pt-project:var(--wp--preset--color--pt-project);--pt-beer:var(--wp--preset--color--pt-beer);--jardin-site-gutter:var(--wp--preset--spacing--5)}",
 		"color": {
 			"background": "var(--wp--preset--color--bg)",
 			"text": "var(--wp--preset--color--text)"

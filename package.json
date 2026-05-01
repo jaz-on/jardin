@@ -4,6 +4,7 @@
 	"license": "GPL-2.0-or-later",
 	"description": "Jardin · thème bloc FSE : modèles, patterns et styles pour jasonrouet.com.",
 	"scripts": {
-		"hooks:install": "bash scripts/install-git-hooks.sh"
+		"hooks:install": "bash scripts/install-git-hooks.sh",
+		"css:bundle": "bash scripts/bundle-theme-css.sh"
 	}
 }
