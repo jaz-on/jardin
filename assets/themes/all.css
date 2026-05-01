@@ -2,6 +2,11 @@
  * Nine visual themes — overrides WP preset CSS variables (jardin-docs theme-system-runtime.md).
  * Official platform colors stay on dedicated presets and are re-set per theme where needed.
  *
+ * Sync points (modifier ensemble) :
+ * 1. theme.json → settings.color.palette
+ * 2. ce fichier → [data-theme="…"] et :root
+ * 3. inc/setup.php → jardin_get_theme_toggle_markup() swatches (aperçu UI)
+ *
  * @package Jardin_Theme
  */
 

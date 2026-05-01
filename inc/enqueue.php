@@ -20,6 +20,11 @@ function jardin_enqueue_assets(): void {
 		filemtime( $tpl_dir . '/assets/css/theme-base.css' ) ?: $ver
 	);
 
+	wp_add_inline_style(
+		'jardin-theme-base',
+		':root{--jardin-sticky-label:' . wp_json_encode( __( '★ épinglé', 'jardin-theme' ), JSON_UNESCAPED_UNICODE ) . ';}'
+	);
+
 	wp_enqueue_style(
 		'jardin-theme-all',
 		get_template_directory_uri() . '/assets/themes/all.css',

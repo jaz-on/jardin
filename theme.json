@@ -165,19 +165,26 @@
 		},
 		"custom": {
 			"transition": {
-				"fast": "all 200ms ease"
+				"fast": "color 200ms ease, background-color 200ms ease, border-color 200ms ease, opacity 200ms ease, box-shadow 200ms ease"
 			},
 			"opacity": {
 				"muted": "0.7",
 				"soft": "0.5"
 			},
-		"radius": {
-			"sharp": "2px",
-			"soft": "8px",
-			"md": "8px",
-			"pill": "999px",
-			"round": "999px"
-		}
+			"leading": {
+				"tight": "1.35",
+				"normal": "1.6"
+			},
+			"tracking": {
+				"wide": "0.04em"
+			},
+			"radius": {
+				"sharp": "2px",
+				"soft": "8px",
+				"md": "8px",
+				"pill": "999px",
+				"round": "999px"
+			}
 		}
 	},
 	"styles": {

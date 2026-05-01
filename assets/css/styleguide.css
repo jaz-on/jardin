@@ -100,7 +100,7 @@
 	margin-bottom: var(--wp--preset--spacing--5);
 }
 .sg-typo-specimen {
-	font-size: var(--wp--preset--font-size--2xl);
+	font-size: var(--wp--preset--font-size--2-xl);
 	margin: 0 0 var(--wp--preset--spacing--2);
 }
 .sg-typo-meta {

@@ -14,11 +14,6 @@
 	box-sizing: border-box;
 }
 
-a {
-	text-decoration-color: var(--wp--preset--color--border-strong);
-	text-underline-offset: 3px;
-}
-
 .jardin-theme-skip-link {
 	position: absolute;
 	left: -9999px;
@@ -170,7 +165,7 @@ a:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--text);
 	cursor: pointer;
 	text-align: left;
-	transition: all var(--wp--custom--transition--fast, 200ms ease);
+	transition: var(--wp--custom--transition--fast, color 200ms ease, background-color 200ms ease, border-color 200ms ease, opacity 200ms ease);
 	font-size: var(--wp--preset--font-size--sm);
 	font-family: inherit;
 }
@@ -234,7 +229,7 @@ a:is(:hover, :focus-visible) {
 	font-family: var(--wp--preset--font-family--mono);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	transition: all var(--wp--custom--transition--fast, 200ms ease);
+	transition: var(--wp--custom--transition--fast, color 200ms ease, background-color 200ms ease, border-color 200ms ease, opacity 200ms ease);
 }
 
 .jardin-theme-toggle__system:is(:hover, :focus-visible) {
@@ -310,7 +305,7 @@ a:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--accent);
 }
 
-/* Intro home — mockup .bio ~1343–1350 (corps global = sans ; bio = serif fs-md) */
+/* Home — bio (mockup ~1343–1350): serif, md — corps global reste sans. */
 p.bio,
 .bio {
 	font-family: var(--wp--preset--font-family--serif);
@@ -479,15 +474,6 @@ a.section-link {
 .section-link a:hover,
 a.section-link:hover {
 	opacity: 1;
-}
-
-/* ============================================================
-   Home — Bio
-   ============================================================ */
-
-.bio {
-	font-size: var(--wp--preset--font-size--md);
-	line-height: 1.5;
 }
 
 /* ============================================================
@@ -785,6 +771,10 @@ a.events-upcoming-link:hover {
 	text-decoration: none;
 }
 
+/*
+ * Statut projet : classes .term-* = suffixe du slug de terme (FR attendus : actif, wip, stable, planned, archived).
+ * Les cartes « prévu » plus haut dépendent de :has(.term-planned) / :has(a.term-planned) — garder ces slugs alignés.
+ */
 .project-card .status .term-actif,
 .project-card .status .term-wip,
 .project-card .status .term-stable,
@@ -955,7 +945,7 @@ a.events-upcoming-link:hover {
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	background: var(--wp--preset--color--bg, var(--wp--preset--color--base));
+	background: var(--wp--preset--color--bg);
 	border-bottom: 2px solid var(--wp--preset--color--accent);
 }
 
@@ -979,7 +969,7 @@ body.admin-bar .site-header-shell {
 }
 
 main#main.wp-block-group {
-	max-width: var(--wp--style--wide-size, 56rem);
+	max-width: var(--wp--style--global--wide-size, 56rem);
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: var(--wp--preset--spacing--6);
@@ -996,7 +986,7 @@ main#main.wp-block-group {
  */
 .site-inner.alignwide,
 .site-footer-inner.alignwide {
-	max-width: var(--wp--style--wide-size, 56rem);
+	max-width: var(--wp--style--global--wide-size, 56rem);
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
@@ -1881,6 +1871,7 @@ main#main.wp-block-group {
 
 /*
  * Hub templates: drop .page-intro's 42rem cap so intros align with query grids.
+ * main#main > … : direct children of main (or nested group) — hub intros align with query width.
  */
 .articles-page-shell > .page-intro,
 .articles-page-shell > .wp-block-post-content.page-intro,
@@ -2231,33 +2222,7 @@ main#main > .wp-block-group > .wp-block-post-content.page-intro {
 	}
 }
 
-/* -------------------------------------------------------------------------
- * Home feed — filter pills + entries (mockup parity)
- * ------------------------------------------------------------------------- */
-.home-feed-section .feed-filters[data-filter='post']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='post']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='note']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='note']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='event']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='event']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='all'] ~ .wp-block-query .entries .entry {
-	display: block !important;
-}
+/* Home feed filter visibility: handled in assets/js/filter-tabs.js via entry.hidden (no sibling-query CSS). */
 
 .entry[data-kind] {
 	border-left: 3px solid var(--wp--preset--color--border);
@@ -2532,6 +2497,7 @@ main#main > .wp-block-group > .wp-block-post-content.page-intro {
 	gap: 0.45rem;
 }
 
+/* main#main > … : direct children of main (or nested group) — title/query rhythm. */
 main#main > .wp-block-post-title,
 main#main > .wp-block-query-title,
 main#main > .wp-block-group > .wp-block-post-title,
@@ -2542,6 +2508,7 @@ main#main > .wp-block-group > .wp-block-query-title,
 	margin-bottom: var(--wp--preset--spacing--2);
 }
 
+/* main#main > … : direct children of main — query block spacing. */
 main#main > .wp-block-query,
 main#main > .wp-block-group > .wp-block-query,
 .articles-page-shell > .wp-block-query {
@@ -2683,7 +2650,7 @@ main#main > .wp-block-group > .wp-block-query,
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
 .wp-block-query .entries.is-articles .wp-block-post.sticky .entry-title::after {
-	content: "★ épinglé";
+	content: var(--jardin-sticky-label, "★ épinglé");
 	display: inline-block;
 	margin-left: var(--wp--preset--spacing--2);
 	padding: 1px 0.35rem;

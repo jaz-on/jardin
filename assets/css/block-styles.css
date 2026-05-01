@@ -197,8 +197,9 @@ li.is-style-bullet-row-solid {
 	}
 }
 
+/* !important retiré : rétablir si le noyau écrase flex-basis des colonnes (éditeur / front). */
 .is-style-3-cols .wp-block-column {
-	flex-basis: 33.33% !important;
+	flex-basis: 33.33%;
 }
 
 @media (max-width: 782px) {
@@ -207,7 +208,7 @@ li.is-style-bullet-row-solid {
 	}
 
 	.is-style-3-cols .wp-block-column {
-		flex-basis: 100% !important;
+		flex-basis: 100%;
 	}
 }
 

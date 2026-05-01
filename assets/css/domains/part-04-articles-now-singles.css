@@ -205,6 +205,7 @@
 	gap: 0.45rem;
 }
 
+/* main#main > … : direct children of main (or nested group) — title/query rhythm. */
 main#main > .wp-block-post-title,
 main#main > .wp-block-query-title,
 main#main > .wp-block-group > .wp-block-post-title,
@@ -215,6 +216,7 @@ main#main > .wp-block-group > .wp-block-query-title,
 	margin-bottom: var(--wp--preset--spacing--2);
 }
 
+/* main#main > … : direct children of main — query block spacing. */
 main#main > .wp-block-query,
 main#main > .wp-block-group > .wp-block-query,
 .articles-page-shell > .wp-block-query {
@@ -356,7 +358,7 @@ main#main > .wp-block-group > .wp-block-query,
 
 /* Sticky posts badge (native WP class on Query Loop post wrapper). */
 .wp-block-query .entries.is-articles .wp-block-post.sticky .entry-title::after {
-	content: "★ épinglé";
+	content: var(--jardin-sticky-label, "★ épinglé");
 	display: inline-block;
 	margin-left: var(--wp--preset--spacing--2);
 	padding: 1px 0.35rem;

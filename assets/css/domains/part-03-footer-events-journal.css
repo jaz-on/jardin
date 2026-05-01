@@ -349,6 +349,7 @@
 
 /*
  * Hub templates: drop .page-intro's 42rem cap so intros align with query grids.
+ * main#main > … : direct children of main (or nested group) — hub intros align with query width.
  */
 .articles-page-shell > .page-intro,
 .articles-page-shell > .wp-block-post-content.page-intro,
@@ -699,33 +700,7 @@ main#main > .wp-block-group > .wp-block-post-content.page-intro {
 	}
 }
 
-/* -------------------------------------------------------------------------
- * Home feed — filter pills + entries (mockup parity)
- * ------------------------------------------------------------------------- */
-.home-feed-section .feed-filters[data-filter='post']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='post']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='note']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='note']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='event']
-	~ .wp-block-query
-	.entries
-	.entry:not([data-kind='event']) {
-	display: none !important;
-}
-
-.home-feed-section .feed-filters[data-filter='all'] ~ .wp-block-query .entries .entry {
-	display: block !important;
-}
+/* Home feed filter visibility: handled in assets/js/filter-tabs.js via entry.hidden (no sibling-query CSS). */
 
 .entry[data-kind] {
 	border-left: 3px solid var(--wp--preset--color--border);
