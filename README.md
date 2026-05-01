@@ -30,8 +30,6 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 
 **Déploiement** : `./scripts/verify-header-deploy.sh` vérifie que les fichiers requis du bloc utilitaires sont présents dans ce dossier.
 
-**Block namespace migration:** on upgrade, `inc/content-migration.php` can rewrite stored markup from `jardin/…` to `jardin-theme/…` in post content (see `JARDIN_THEME_CONTENT_MIGRATION_VERSION`). Plugin blocks such as `jardin/lastfm-`* are not migrated.
-
 ## What it does
 
 - Default templates for single, archive, category, tag; one custom page template `page-journal.html` (Query Loop + filters).
@@ -64,7 +62,6 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 - Header deploy smoke: `./scripts/verify-header-deploy.sh` ; remote HTML smoke: `./scripts/smoke-header-remote.sh https://dev.example.com/` (expects toolbar + drawer markup in page source).
 - Default branch for day-to-day work: `**dev`**.
 - After pushing: refresh **Git Updater**, purge caches, spot-check key URLs (`/`, `/evenements/` when events are in use). Optional build markers in `assets/css/theme-base.css` and `assets/js/filter-tabs.js` for cache bust verification.
-- E2E: `npm ci`, `npx playwright install chromium`, copy `e2e/.env.example` → `.env` with `E2E_BASE_URL`, then `npm run e2e` ([tests strategy](../jardin-docs/tests-strategy.md)).
 - Optional (one-time per clone): install the local `pre-push` hook with `npm run hooks:install`.
 
 ## License

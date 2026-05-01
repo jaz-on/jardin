@@ -361,8 +361,6 @@ msgid "Search, theme, music, and support"
 msgstr ""
 
 #: inc/header-toolbar.php:91
-#: inc/search-block-i18n.php:22
-#: inc/search-block-i18n.php:24
 msgid "Search"
 msgstr ""
 
@@ -604,10 +602,6 @@ msgstr ""
 
 #: inc/projects.php:201
 msgid "archived"
-msgstr ""
-
-#: inc/search-block-i18n.php:23
-msgid "Search…"
 msgstr ""
 
 #: inc/setup.php:30

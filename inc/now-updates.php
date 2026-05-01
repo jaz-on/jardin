@@ -1,6 +1,6 @@
 <?php
 /**
- * Monthly /now hub: CPT `now` + migration helpers (legacy slug was `now_update`).
+ * Monthly /now hub: CPT `now`.
  *
  * @package Jardin_Theme
  */
@@ -9,37 +9,6 @@ defined( 'ABSPATH' ) || exit;
 
 /** Registered post type slug for monthly editions. */
 const JARDIN_NOW_POST_TYPE = 'now';
-
-/**
- * One-time DB migration: `now_update` → `now`.
- */
-function jardin_migrate_legacy_now_update_post_type_to_now(): void {
-	if ( wp_installing() ) {
-		return;
-	}
-	if ( get_option( 'jardin_now_post_type_v1_migrated', '' ) === '1' ) {
-		return;
-	}
-	global $wpdb;
-	$old   = 'now_update';
-	$table = $wpdb->posts;
-	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-	$count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE post_type = %s", $old ) );
-	if ( $count > 0 ) {
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-		$wpdb->update(
-			$table,
-			array( 'post_type' => JARDIN_NOW_POST_TYPE ),
-			array( 'post_type' => $old ),
-			array( '%s' ),
-			array( '%s' )
-		);
-		wp_cache_flush();
-		flush_rewrite_rules( false );
-	}
-	update_option( 'jardin_now_post_type_v1_migrated', '1', false );
-}
-add_action( 'init', 'jardin_migrate_legacy_now_update_post_type_to_now', 1 );
 
 /**
  * Register `now` custom post type.

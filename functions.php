@@ -8,17 +8,10 @@ defined( 'ABSPATH' ) || exit;
 
 $jardin_inc = get_template_directory() . '/inc/';
 
-require_once $jardin_inc . 'content-migration.php';
 require_once $jardin_inc . 'setup.php';
-require_once $jardin_inc . 'i18n-polylang-patterns.php';
 require_once $jardin_inc . 'header-toolbar.php';
 require_once $jardin_inc . 'blocks.php';
-$jardin_polylang_editor_compat = $jardin_inc . 'polylang-editor-compat.php';
-if ( is_readable( $jardin_polylang_editor_compat ) ) {
-	require_once $jardin_polylang_editor_compat;
-}
 require_once $jardin_inc . 'placeholder-copy.php';
-require_once $jardin_inc . 'search-block-i18n.php';
 require_once $jardin_inc . 'enqueue.php';
 require_once $jardin_inc . 'performance.php';
 require_once $jardin_inc . 'block-styles.php';
@@ -35,11 +28,9 @@ require_once $jardin_inc . 'project-helpers.php';
 require_once $jardin_inc . 'class-projects-sync.php';
 require_once $jardin_inc . 'projects.php';
 require_once $jardin_inc . 'projects-admin.php';
-require_once $jardin_inc . 'dlc-page.php';
 require_once $jardin_inc . 'feed-filters.php';
 require_once $jardin_inc . 'microformats.php';
 require_once $jardin_inc . 'breadcrumbs.php';
 require_once $jardin_inc . 'syndication-config.php';
 require_once $jardin_inc . 'rewrite-rules.php';
-require_once $jardin_inc . 'sitemap.php';
 require_once $jardin_inc . 'class-styleguide.php';
