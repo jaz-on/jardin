@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-01T12:23:51+00:00\n"
+"POT-Creation-Date: 2026-05-01T13:29:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin-theme\n"
@@ -23,7 +23,7 @@ msgid "https://github.com/jaz-on/jardin-theme"
 msgstr ""
 
 #. Description of the theme
-msgid "Full Site Editing theme for the jardin site. Product specs live in the local jardin-docs repository (not shipped with this theme)."
+msgid "Jardin · thème bloc FSE : modèles, patterns et styles pour jasonrouet.com."
 msgstr ""
 
 #. Author of the theme
@@ -257,7 +257,7 @@ msgid "Toasts"
 msgstr ""
 
 #: inc/entry-attributes.php:104
-msgid "Now"
+msgid "Update"
 msgstr ""
 
 #: inc/entry-attributes.php:111
@@ -347,23 +347,23 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: inc/journal-hub.php:382
+#: inc/journal-hub.php:400
 #: patterns/journal-hub-top.php:21
 msgid "Filter journal"
 msgstr ""
 
-#: inc/journal-hub.php:388
+#: inc/journal-hub.php:406
 #: patterns/activity-feed-header.php:12
 #: patterns/home-feed.php:34
 msgid "All"
 msgstr ""
 
-#: inc/journal-hub.php:389
+#: inc/journal-hub.php:407
 #: patterns/home-feed.php:36
 msgid "Posts"
 msgstr ""
 
-#: inc/journal-hub.php:391
+#: inc/journal-hub.php:409
 #: patterns/home-feed.php:42
 msgid "Events"
 msgstr ""
@@ -473,7 +473,7 @@ msgstr ""
 msgid "Match system"
 msgstr ""
 
-#: inc/syndication-config.php:47
+#: inc/syndication-config.php:48
 msgctxt "short label for the now journal format"
 msgid "now"
 msgstr ""
@@ -572,7 +572,7 @@ msgid "Footer heading — Explore"
 msgstr ""
 
 #: patterns/footer-heading-explore.php:12
-#: patterns/footer-main.php:58
+#: patterns/footer-main.php:65
 msgid "Explore"
 msgstr ""
 
@@ -595,39 +595,39 @@ msgctxt "Pattern description"
 msgid "Four-column mockup (.cols), hub links from page templates where possible. See mockup.html ~13315."
 msgstr ""
 
-#: patterns/footer-main.php:68
+#: patterns/footer-main.php:75
 msgid "More to explore"
 msgstr ""
 
-#: patterns/footer-main.php:77
+#: patterns/footer-main.php:84
 msgid "This site"
 msgstr ""
 
-#: patterns/footer-main.php:88
+#: patterns/footer-main.php:95
 msgid "Reach me"
 msgstr ""
 
-#: patterns/footer-main.php:92
+#: patterns/footer-main.php:99
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:93
+#: patterns/footer-main.php:100
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:94
+#: patterns/footer-main.php:101
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:101
+#: patterns/footer-main.php:108
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:104
+#: patterns/footer-main.php:111
 msgid "← previous site"
 msgstr ""
 
-#: patterns/footer-main.php:106
+#: patterns/footer-main.php:113
 msgid "next site →"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgctxt "Pattern description"
 msgid "Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card."
 msgstr ""
 
-#. translators: %s: link to /journal
+#. translators: %s: URL of the journal hub page
 #: patterns/home-feed.php:22
 msgid "My feed <a href=\"%s\" class=\"section-link\">see all →</a>"
 msgstr ""
@@ -723,7 +723,7 @@ msgstr ""
 
 #: patterns/journal-hub-top.php
 msgctxt "Pattern description"
-msgid "Intro, h2, primary ?kind= filters for /journal/."
+msgid "Intro, h2, primary ?kind= filters for the Journal hub page (template page-journal)."
 msgstr ""
 
 #: patterns/journal-hub-top.php:15

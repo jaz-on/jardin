@@ -48,7 +48,7 @@ if ( '' !== $at ) {
 ?>
 <div class="sj-single-listen">
 	<?php if ( '' !== $art ) : ?>
-		<img class="sj-listen-art" src="<?php echo $art; ?>" alt="<?php echo esc_attr( $album ); ?>" loading="lazy" width="120" height="120" />
+		<img class="sj-listen-art" src="<?php echo $art; ?>" alt="<?php echo esc_attr( $album ); ?>" width="120" height="120" decoding="async" fetchpriority="high" loading="eager" />
 	<?php endif; ?>
 	<div class="sj-listen-meta">
 		<p class="sj-listen-track"><?php echo $track; ?></p>

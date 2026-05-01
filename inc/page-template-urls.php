@@ -130,6 +130,24 @@ function jardin_get_page_post_for_theme_template( string $template_basename ): ?
 }
 
 /**
+ * Whether a page uses the given theme template (any accepted _wp_page_template variant).
+ *
+ * @param int    $post_id            Page ID.
+ * @param string $template_basename e.g. page-journal
+ */
+function jardin_post_has_theme_template_assigned( int $post_id, string $template_basename ): bool {
+	if ( $post_id <= 0 ) {
+		return false;
+	}
+	$variants = jardin_page_template_meta_variants( $template_basename );
+	if ( empty( $variants ) ) {
+		return false;
+	}
+	$assigned = (string) get_post_meta( $post_id, '_wp_page_template', true );
+	return in_array( $assigned, $variants, true );
+}
+
+/**
  * Permalink for the page assigned this theme template, or empty string.
  *
  * @param string $template_basename e.g. page-journal

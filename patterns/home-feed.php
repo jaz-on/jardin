@@ -18,7 +18,7 @@ $journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_
 		<h2 class="wp-block-heading alignwide section-with-link"><?php
 			echo wp_kses(
 				sprintf(
-					/* translators: %s: link to /journal/ */
+					/* translators: %s: URL of the journal hub page */
 					__( 'My feed <a href="%s" class="section-link">see all →</a>', 'jardin-theme' ),
 					esc_url( $journal_url )
 				),

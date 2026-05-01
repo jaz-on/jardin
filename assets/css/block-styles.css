@@ -222,7 +222,7 @@ li.is-style-bullet-row-solid {
 	opacity: 0.45;
 }
 
-/* Button */
+/* Button — default filled/hover/focus/active live in theme.json (core/button.elements.button). */
 .is-style-ghost .wp-block-button__link {
 	background: transparent;
 	color: var(--wp--preset--color--accent);

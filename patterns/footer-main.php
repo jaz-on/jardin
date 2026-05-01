@@ -51,6 +51,13 @@ $dlc_label = function_exists( 'jardin_dlc_hub_label' ) ? jardin_dlc_hub_label() 
 $blogroll_url   = function_exists( 'jardin_blogroll_hub_url' ) ? jardin_blogroll_hub_url() : $u( '/blogroll/' );
 $blogroll_label = function_exists( 'jardin_blogroll_hub_label' ) ? jardin_blogroll_hub_label() : '/blogroll';
 
+$sf_url = static function ( string $key ): string {
+	return function_exists( 'jardin_get_secondary_footer_url' ) ? jardin_get_secondary_footer_url( $key ) : esc_url( home_url( '/' ) );
+};
+$sf_lbl = static function ( string $key ): string {
+	return function_exists( 'jardin_get_secondary_footer_label' ) ? jardin_get_secondary_footer_label( $key ) : '/' . $key;
+};
+
 ?>
 <!-- wp:html -->
 <div class="cols">
@@ -76,19 +83,19 @@ $blogroll_label = function_exists( 'jardin_blogroll_hub_label' ) ? jardin_blogro
 	<div>
 		<h4><?php esc_html_e( 'This site', 'jardin-theme' ); ?></h4>
 		<ul>
-			<li><a href="<?php echo $u( '/index/' ); ?>"><?php echo esc_html( '/index' ); ?></a></li>
-			<li><a href="<?php echo $u( '/colophon/' ); ?>"><?php echo esc_html( '/colophon' ); ?></a></li>
-			<li><a href="<?php echo $u( '/flux/' ); ?>"><?php echo esc_html( '/flux' ); ?></a></li>
-			<li><a href="<?php echo $u( '/styleguide/' ); ?>"><?php echo esc_html( '/styleguide' ); ?></a></li>
-			<li><a href="<?php echo $u( '/ia/' ); ?>"><?php echo esc_html( '/ia' ); ?></a></li>
-			<li><a href="<?php echo $u( '/mentions-legales/' ); ?>"><?php echo esc_html( '/mentions-légales' ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'index' ); ?>"><?php echo esc_html( $sf_lbl( 'index' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'colophon' ); ?>"><?php echo esc_html( $sf_lbl( 'colophon' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'flux' ); ?>"><?php echo esc_html( $sf_lbl( 'flux' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'styleguide' ); ?>"><?php echo esc_html( $sf_lbl( 'styleguide' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'ia' ); ?>"><?php echo esc_html( $sf_lbl( 'ia' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'mentions_legales' ); ?>"><?php echo esc_html( $sf_lbl( 'mentions_legales' ) ); ?></a></li>
 		</ul>
 	</div>
 	<div>
 		<h4><?php esc_html_e( 'Reach me', 'jardin-theme' ); ?></h4>
 		<ul>
-			<li><a href="<?php echo $u( '/contact/' ); ?>"><?php echo esc_html( '/contact' ); ?></a></li>
-			<li><a href="<?php echo $u( '/social/' ); ?>"><?php echo esc_html( '/social' ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'contact' ); ?>"><?php echo esc_html( $sf_lbl( 'contact' ) ); ?></a></li>
+			<li><a href="<?php echo $sf_url( 'social' ); ?>"><?php echo esc_html( $sf_lbl( 'social' ) ); ?></a></li>
 			<li><a href="https://bsky.app/profile/jasonrouet.com" rel="me noopener" target="_blank"><?php esc_html_e( 'Bluesky', 'jardin-theme' ); ?></a></li>
 			<li><a href="https://www.linkedin.com/in/jasonrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'LinkedIn', 'jardin-theme' ); ?></a></li>
 			<li><a href="https://pouet.chapril.org/@jrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'Mastodon', 'jardin-theme' ); ?></a></li>

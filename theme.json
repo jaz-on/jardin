@@ -355,7 +355,31 @@
 					"textTransform": "lowercase"
 				},
 				"border": { "radius": "var(--wp--custom--radius--soft)" },
-				"spacing": { "padding": "0.5rem 1rem" }
+				"spacing": { "padding": "0.5rem 1rem" },
+				"elements": {
+					"button": {
+						":hover": {
+							"color": {
+								"text": "var(--wp--preset--color--bg)",
+								"background": "var(--wp--preset--color--border-strong)"
+							}
+						},
+						":focus": {
+							"outline": {
+								"color": "var(--wp--preset--color--accent)",
+								"width": "2px",
+								"style": "solid",
+								"offset": "2px"
+							}
+						},
+						":active": {
+							"color": {
+								"text": "var(--wp--preset--color--accent)",
+								"background": "var(--wp--preset--color--accent-soft)"
+							}
+						}
+					}
+				}
 			},
 			"core/details": {
 				"css": "& summary { font-weight: 600; cursor: pointer }"

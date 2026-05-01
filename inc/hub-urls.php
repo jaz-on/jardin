@@ -232,16 +232,20 @@ function jardin_event_archive_title_hub_page(): ?WP_Post {
 	if ( $post instanceof WP_Post ) {
 		return $post;
 	}
-	$slug = 'evenements';
-	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
-		$slug = 'events';
-	}
-	$page = jardin_get_hub_page_for_display( $slug );
-	if ( $page instanceof WP_Post ) {
-		return $page;
-	}
-	if ( 'events' === $slug ) {
-		return jardin_get_hub_page_for_display( 'evenements' );
+	// Ordered legacy page slugs when no page-events-hub template is assigned (first match wins); filter: jardin_event_archive_title_legacy_slugs.
+	$slugs = apply_filters(
+		'jardin_event_archive_title_legacy_slugs',
+		array( 'evenements', 'events' )
+	);
+	foreach ( array_map( 'strval', (array) $slugs ) as $slug ) {
+		$slug = trim( $slug );
+		if ( '' === $slug ) {
+			continue;
+		}
+		$page = jardin_get_hub_page_for_display( $slug );
+		if ( $page instanceof WP_Post ) {
+			return $page;
+		}
 	}
 	return null;
 }
