@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 function jardin_register_theme_blocks(): void {
 	$base     = get_template_directory() . '/blocks/';
 	$uri_base = get_template_directory_uri() . '/blocks/';
-	$slugs    = array( 'header-utilities', 'theme-toggle', 'copyright', 'post-engage', 'event-link-banner', 'project-inline-meta', 'project-header-meta', 'project-changelog' );
+	$slugs    = array( 'header-utilities', 'theme-toggle', 'copyright', 'post-engage', 'event-link-banner' );
 
 	$editor_deps = array(
 		'wp-blocks',
