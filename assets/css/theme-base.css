@@ -1542,7 +1542,7 @@ main#main.wp-block-group {
    ============================================================ */
 
 .site-footer-shell {
-	margin-top: 0;
+	margin-top: var(--wp--preset--spacing--8);
 	font-size: var(--wp--preset--font-size--sm);
 	color: var(--wp--preset--color--text-muted);
 	border-top: 1px solid var(--wp--preset--color--border);
