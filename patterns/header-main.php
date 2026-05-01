@@ -31,8 +31,8 @@ if ( '' === $events_label ) {
 $projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : home_url( '/projets/' );
 $projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
 
-$now_url   = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : home_url( '/maintenant/' );
-$now_label = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
+$now_url   = function_exists( 'jardin_updates_hub_url' ) ? jardin_updates_hub_url() : home_url( '/maintenant/' );
+$now_label = function_exists( 'jardin_updates_hub_label' ) ? jardin_updates_hub_label() : '/maintenant';
 
 $about_url   = function_exists( 'jardin_about_hub_url' ) ? jardin_about_hub_url() : home_url( '/a-propos/' );
 $about_label = function_exists( 'jardin_about_hub_label' ) ? jardin_about_hub_label() : '/a-propos';

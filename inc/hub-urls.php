@@ -54,20 +54,20 @@ function jardin_projects_hub_label(): string {
 }
 
 /**
- * Now hub page URL (template `page-now`).
+ * Updates hub page URL (template `page-now`).
  *
  * @return string
  */
-function jardin_now_hub_url(): string {
+function jardin_updates_hub_url(): string {
 	return jardin_get_hub_url_from_template_or_legacy( 'page-now', '/maintenant/' );
 }
 
 /**
- * Short path label for now hub nav.
+ * Short path label for updates hub nav.
  *
  * @return string
  */
-function jardin_now_hub_label(): string {
+function jardin_updates_hub_label(): string {
 	$url = jardin_get_page_url_for_theme_template( 'page-now' );
 	if ( '' !== $url ) {
 		$l = jardin_get_path_label_for_url( $url );

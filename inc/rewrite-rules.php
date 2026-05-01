@@ -11,13 +11,13 @@ defined( 'ABSPATH' ) || exit;
  * Register rewrite rules from jardin-docs integration/permalinks-rewrites.md.
  */
 function jardin_register_rewrite_rules(): void {
-	$target = 'index.php?post_type=' . JARDIN_NOW_POST_TYPE . '&name=$matches[1]';
+	$target = 'index.php?post_type=' . JARDIN_UPDATES_POST_TYPE . '&name=$matches[1]';
 
 	add_rewrite_rule( '^now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^maintenant/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^en/now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 
-	$legacy_cat = apply_filters( 'jardin_now_legacy_category_slug', '' );
+	$legacy_cat = apply_filters( 'jardin_updates_legacy_category_slug', '' );
 	if ( is_string( $legacy_cat ) && '' !== $legacy_cat ) {
 		$legacy_cat = sanitize_title( $legacy_cat );
 		if ( '' !== $legacy_cat ) {
@@ -35,7 +35,7 @@ add_action( 'init', 'jardin_register_rewrite_rules' );
  * Redirect legacy category singles to canonical `now` CPT URL when possible.
  */
 function jardin_redirect_legacy_now_post_urls(): void {
-	if ( ! defined( 'JARDIN_NOW_POST_TYPE' ) || ! post_type_exists( JARDIN_NOW_POST_TYPE ) ) {
+	if ( ! defined( 'JARDIN_UPDATES_POST_TYPE' ) || ! post_type_exists( JARDIN_UPDATES_POST_TYPE ) ) {
 		return;
 	}
 
@@ -44,7 +44,7 @@ function jardin_redirect_legacy_now_post_urls(): void {
 	}
 
 	$post = get_queried_object();
-	$legacy_cat = apply_filters( 'jardin_now_legacy_category_slug', '' );
+	$legacy_cat = apply_filters( 'jardin_updates_legacy_category_slug', '' );
 	if ( ! is_string( $legacy_cat ) || '' === $legacy_cat ) {
 		return;
 	}
@@ -53,12 +53,12 @@ function jardin_redirect_legacy_now_post_urls(): void {
 		return;
 	}
 
-	$migrated_id = (int) get_post_meta( (int) $post->ID, '_jardin_now_update_new_id', true );
+	$migrated_id = (int) get_post_meta( (int) $post->ID, '_jardin_updates_update_new_id', true );
 	$target      = $migrated_id > 0 ? get_post( $migrated_id ) : null;
-	if ( ! $target instanceof WP_Post || JARDIN_NOW_POST_TYPE !== $target->post_type ) {
-		$target = get_page_by_path( (string) $post->post_name, OBJECT, JARDIN_NOW_POST_TYPE );
+	if ( ! $target instanceof WP_Post || JARDIN_UPDATES_POST_TYPE !== $target->post_type ) {
+		$target = get_page_by_path( (string) $post->post_name, OBJECT, JARDIN_UPDATES_POST_TYPE );
 	}
-	if ( ! $target instanceof WP_Post || JARDIN_NOW_POST_TYPE !== $target->post_type ) {
+	if ( ! $target instanceof WP_Post || JARDIN_UPDATES_POST_TYPE !== $target->post_type ) {
 		return;
 	}
 

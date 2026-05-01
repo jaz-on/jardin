@@ -100,8 +100,8 @@ function jardin_get_note_kind_taxonomy_slug(): string {
  * @return string
  */
 function jardin_get_entry_kind_badge_label( WP_Post $post ): string {
-	if ( defined( 'JARDIN_NOW_POST_TYPE' ) && JARDIN_NOW_POST_TYPE === $post->post_type ) {
-		return __( 'Now', 'jardin-theme' );
+	if ( defined( 'JARDIN_UPDATES_POST_TYPE' ) && JARDIN_UPDATES_POST_TYPE === $post->post_type ) {
+		return __( 'Update', 'jardin-theme' );
 	}
 
 	$kind = jardin_get_entry_data_kind( $post );
