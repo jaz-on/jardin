@@ -1,6 +1,6 @@
 <?php
 /**
- * Hub page URLs (FR paths at site root vs EN via Polylang) and archive title overrides.
+ * Hub page URLs from FSE template assignment + CPT archive helpers + event archive title.
  *
  * @package Jardin_Theme
  */
@@ -8,52 +8,58 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Hub URL from FR and EN path segments (last segments only, no leading slashes).
+ * Journal hub page URL (template `page-journal`).
  *
- * @param string $fr_slug FR default path segment (e.g. projets).
- * @param string $en_slug EN path segment (e.g. projects).
- * @return string Permalink with trailing slash.
+ * @return string Trailing slash.
  */
-function jardin_hub_url_for_slug_pair( string $fr_slug, string $en_slug ): string {
-	$fr_slug = trim( $fr_slug, '/' );
-	$en_slug = trim( $en_slug, '/' );
-	if ( function_exists( 'pll_current_language' ) && function_exists( 'pll_home_url' ) ) {
-		$lang = (string) pll_current_language( 'slug' );
-		if ( 'en' === $lang ) {
-			return trailingslashit( untrailingslashit( pll_home_url( $lang ) ) . '/' . $en_slug );
-		}
-	}
-	return trailingslashit( home_url( '/' . $fr_slug . '/' ) );
+function jardin_journal_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-journal', '/journal/' );
 }
 
 /**
- * Projects hub page URL (matches CPT rewrite slug).
+ * Path label for journal hub nav.
+ *
+ * @return string e.g. /mon-journal
+ */
+function jardin_journal_hub_label(): string {
+	$url = jardin_get_page_url_for_theme_template( 'page-journal' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/journal/', 'page-journal' ), '/' );
+}
+
+/**
+ * Projects hub page URL (template `page-projects`).
  *
  * @return string
  */
 function jardin_projects_hub_url(): string {
-	return jardin_hub_url_for_slug_pair( 'projets', 'projects' );
+	return jardin_get_hub_url_from_template_or_legacy( 'page-projects', '/projets/' );
 }
 
 /**
- * Short path label for nav (leading slash, no trailing slash).
+ * Short path label for projects hub nav.
  *
- * @return string e.g. /projets or /projects
+ * @return string
  */
 function jardin_projects_hub_label(): string {
-	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
-		return '/projects';
+	$url = jardin_get_page_url_for_theme_template( 'page-projects' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
 	}
-	return '/projets';
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/projets/', 'page-projects' ), '/' );
 }
 
 /**
- * Now hub page URL (WordPress page; CPT singles may live under the same prefix).
+ * Now hub page URL (template `page-now`).
  *
  * @return string
  */
 function jardin_now_hub_url(): string {
-	return jardin_hub_url_for_slug_pair( 'maintenant', 'now' );
+	return jardin_get_hub_url_from_template_or_legacy( 'page-now', '/maintenant/' );
 }
 
 /**
@@ -62,31 +68,132 @@ function jardin_now_hub_url(): string {
  * @return string
  */
 function jardin_now_hub_label(): string {
-	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
-		return '/now';
+	$url = jardin_get_page_url_for_theme_template( 'page-now' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
 	}
-	return '/maintenant';
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/maintenant/', 'page-now' ), '/' );
 }
 
 /**
- * Toasts hub page URL (Untappd stats page; FR slug differs from EN).
+ * Toasts hub page URL (`page-toast`, then legacy `page-bieres`).
  *
  * @return string
  */
 function jardin_toasts_hub_url(): string {
-	return jardin_hub_url_for_slug_pair( 'toast', 'toasts' );
+	foreach ( array( 'page-toast', 'page-bieres' ) as $tpl ) {
+		$url = jardin_get_page_url_for_theme_template( $tpl );
+		if ( '' !== $url ) {
+			return trailingslashit( $url );
+		}
+	}
+	return jardin_get_hub_url_from_template_or_legacy( 'page-toast', '/toast/' );
 }
 
 /**
  * Short path label for toasts hub nav.
  *
- * @return string e.g. /toast or /toasts
+ * @return string
  */
 function jardin_toasts_hub_label(): string {
-	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
-		return '/toasts';
+	$post = jardin_get_page_post_for_theme_template( 'page-toast' );
+	if ( ! $post instanceof WP_Post ) {
+		$post = jardin_get_page_post_for_theme_template( 'page-bieres' );
 	}
-	return '/toast';
+	if ( $post instanceof WP_Post ) {
+		$url = get_permalink( $post );
+		if ( is_string( $url ) && '' !== $url ) {
+			$l = jardin_get_path_label_for_url( $url );
+			return '' !== $l ? $l : '/';
+		}
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/toast/', 'page-toast' ), '/' );
+}
+
+/**
+ * Articles hub (posts-only view page).
+ *
+ * @return string
+ */
+function jardin_articles_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-articles', '/articles/' );
+}
+
+/**
+ * @return string
+ */
+function jardin_articles_hub_label(): string {
+	$url = jardin_get_page_url_for_theme_template( 'page-articles' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/articles/', 'page-articles' ), '/' );
+}
+
+/**
+ * Event CPT archive URL (plugin rewrite), not a page template.
+ *
+ * @return string Empty if CPT missing.
+ */
+function jardin_get_event_archive_url(): string {
+	$pt = 'event';
+	if ( function_exists( 'jardin_events_get_post_type' ) ) {
+		$candidate = (string) jardin_events_get_post_type();
+		if ( '' !== $candidate && post_type_exists( $candidate ) ) {
+			$pt = $candidate;
+		}
+	}
+	if ( ! post_type_exists( $pt ) ) {
+		return '';
+	}
+	$link = get_post_type_archive_link( $pt );
+	return is_string( $link ) && '' !== $link ? trailingslashit( $link ) : '';
+}
+
+/**
+ * Path label for events archive link.
+ *
+ * @return string
+ */
+function jardin_get_event_archive_label(): string {
+	$url = jardin_get_event_archive_url();
+	if ( '' === $url ) {
+		return '';
+	}
+	$l = jardin_get_path_label_for_url( $url );
+	return '' !== $l ? $l : '/';
+}
+
+/**
+ * Support / “soutenir” page URL (`page-support` template).
+ *
+ * @return string
+ */
+function jardin_support_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-support', '/soutenir/' );
+}
+
+/**
+ * About page URL (`page-about` template).
+ *
+ * @return string
+ */
+function jardin_about_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-about', '/a-propos/' );
+}
+
+/**
+ * @return string
+ */
+function jardin_about_hub_label(): string {
+	$url = jardin_get_page_url_for_theme_template( 'page-about' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/a-propos/', 'page-about' ), '/' );
 }
 
 /**
@@ -116,11 +223,15 @@ function jardin_get_hub_page_for_display( string $slug ): ?WP_Post {
 }
 
 /**
- * Hub page whose title should replace the event CPT archive heading when URLs collide with that page slug.
+ * Page used to override event archive title (template `page-events-hub`, else legacy slug).
  *
  * @return \WP_Post|null
  */
 function jardin_event_archive_title_hub_page(): ?WP_Post {
+	$post = jardin_get_page_post_for_theme_template( 'page-events-hub' );
+	if ( $post instanceof WP_Post ) {
+		return $post;
+	}
 	$slug = 'evenements';
 	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
 		$slug = 'events';
@@ -145,7 +256,8 @@ function jardin_event_archive_title_hub_page(): ?WP_Post {
  */
 function jardin_filter_event_archive_title_use_hub_page( $title, $original_title = '', $prefix = '' ) {
 	unset( $original_title, $prefix );
-	if ( ! is_post_type_archive( 'event' ) ) {
+	$pt = function_exists( 'jardin_events_get_post_type' ) ? jardin_events_get_post_type() : 'event';
+	if ( ! is_post_type_archive( $pt ) ) {
 		return $title;
 	}
 	$page = jardin_event_archive_title_hub_page();
@@ -160,7 +272,8 @@ function jardin_filter_event_archive_title_use_hub_page( $title, $original_title
  * @return array<string, string>
  */
 function jardin_filter_event_archive_document_title( array $parts ): array {
-	if ( ! is_post_type_archive( 'event' ) ) {
+	$pt = function_exists( 'jardin_events_get_post_type' ) ? jardin_events_get_post_type() : 'event';
+	if ( ! is_post_type_archive( $pt ) ) {
 		return $parts;
 	}
 	$page = jardin_event_archive_title_hub_page();
@@ -173,3 +286,45 @@ function jardin_filter_event_archive_document_title( array $parts ): array {
 
 add_filter( 'get_the_archive_title', 'jardin_filter_event_archive_title_use_hub_page', 10, 3 );
 add_filter( 'document_title_parts', 'jardin_filter_event_archive_document_title', 20 );
+
+/**
+ * DLC hub page URL.
+ *
+ * @return string
+ */
+function jardin_dlc_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-dlc', '/dlc/' );
+}
+
+/**
+ * @return string
+ */
+function jardin_dlc_hub_label(): string {
+	$url = jardin_get_page_url_for_theme_template( 'page-dlc' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/dlc/', 'page-dlc' ), '/' );
+}
+
+/**
+ * Blogroll hub page URL.
+ *
+ * @return string
+ */
+function jardin_blogroll_hub_url(): string {
+	return jardin_get_hub_url_from_template_or_legacy( 'page-blogroll', '/blogroll/' );
+}
+
+/**
+ * @return string
+ */
+function jardin_blogroll_hub_label(): string {
+	$url = jardin_get_page_url_for_theme_template( 'page-blogroll' );
+	if ( '' !== $url ) {
+		$l = jardin_get_path_label_for_url( $url );
+		return '' !== $l ? $l : '/';
+	}
+	return '/' . trim( (string) apply_filters( 'jardin_hub_legacy_path', '/blogroll/', 'page-blogroll' ), '/' );
+}

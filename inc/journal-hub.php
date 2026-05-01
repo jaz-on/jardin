@@ -380,7 +380,7 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
  */
 function jardin_get_journal_filters_markup(): string {
 	$label = esc_attr__( 'Filter journal', 'jardin-theme' );
-	$base  = home_url( '/journal/' );
+	$base  = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : trailingslashit( home_url( '/' ) );
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only display filter.
 	$current = isset( $_GET['kind'] ) ? sanitize_key( wp_unslash( $_GET['kind'] ) ) : '';
 

@@ -8,6 +8,15 @@
  *
  * @package Jardin_Theme */
 
+$jardin_events_archive_url   = function_exists( 'jardin_get_event_archive_url' ) ? jardin_get_event_archive_url() : '';
+$jardin_events_archive_label = function_exists( 'jardin_get_event_archive_label' ) ? jardin_get_event_archive_label() : '';
+if ( '' === $jardin_events_archive_url ) {
+	$jardin_events_archive_url = trailingslashit( home_url( '/evenements/' ) );
+}
+if ( '' === $jardin_events_archive_label ) {
+	$jardin_events_archive_label = '/evenements';
+}
+
 ?>
 <!-- wp:group {"className":"events-upcoming","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 <div class="wp-block-group events-upcoming">
@@ -15,7 +24,7 @@
 	<!-- wp:heading {"level":3} -->
 	<h3>
 		<span class="events-upcoming-title"><?php esc_html_e( 'IRL', 'jardin-theme' ); ?></span>
-		<a href="<?php echo esc_url( home_url( '/evenements/' ) ); ?>" class="events-upcoming-link"><?php esc_html_e( '/evenements →', 'jardin-theme' ); ?></a>
+		<a href="<?php echo esc_url( $jardin_events_archive_url ); ?>" class="events-upcoming-link"><?php echo esc_html( $jardin_events_archive_label . ' →' ); ?></a>
 	</h3>
 	<!-- /wp:heading -->
 

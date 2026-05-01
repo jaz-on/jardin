@@ -462,7 +462,10 @@
 		{ "name": "page-toast", "title": "Toasts hub", "postTypes": [ "page" ] },
 		{ "name": "page-bieres", "title": "Toasts hub (legacy slug)", "postTypes": [ "page" ] },
 		{ "name": "page-projects", "title": "Projects hub", "postTypes": [ "page" ] },
-		{ "name": "page-now", "title": "Now hub", "postTypes": [ "page" ] }
+		{ "name": "page-now", "title": "Now hub", "postTypes": [ "page" ] },
+		{ "name": "page-about", "title": "About page", "postTypes": [ "page" ] },
+		{ "name": "page-support", "title": "Support page", "postTypes": [ "page" ] },
+		{ "name": "page-events-hub", "title": "Events hub (intro page)", "postTypes": [ "page" ] }
 	],
 	"templateParts": [
 		{ "name": "header", "title": "Header", "area": "header" },

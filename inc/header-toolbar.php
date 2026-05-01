@@ -76,7 +76,7 @@ function jardin_get_toolbar_burger_svg(): string {
 function jardin_get_toolbar_chrome_inner_markup( string $chrome_class, bool $wrap_group = false ): string {
 	$svgs        = jardin_get_toolbar_chrome_svgs();
 	$search_url  = home_url( '/?s=' );
-	$support_url = home_url( '/soutenir/' );
+	$support_url = function_exists( 'jardin_support_hub_url' ) ? jardin_support_hub_url() : trailingslashit( home_url( '/soutenir/' ) );
 	$theme       = function_exists( 'jardin_get_theme_toggle_markup' ) ? jardin_get_theme_toggle_markup() : '';
 
 	ob_start();

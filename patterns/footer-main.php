@@ -3,7 +3,7 @@
  * Title: Footer — 4 colonnes + webring
  * Slug: jardin-theme/footer-main
  * Categories: footer
- * Description: Four-column mockup (.cols), links via home_url, IndieWeb webring. See mockup.html ~13315.
+ * Description: Four-column mockup (.cols), hub links from page templates where possible. See mockup.html ~13315.
  * Inserter: no
  *
  * @package Jardin_Theme */
@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * @param string $path Path with leading slash.
+ * @param string $path Path with leading slash (fallback when no template page).
  * @return string
  */
 $u = static function ( string $path ): string {
@@ -21,12 +21,35 @@ $u = static function ( string $path ): string {
 $activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activites/' );
 $activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' );
 
+$journal_url   = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : $u( '/journal/' );
+$journal_label = function_exists( 'jardin_journal_hub_label' ) ? jardin_journal_hub_label() : '/journal';
+
+$articles_url   = function_exists( 'jardin_articles_hub_url' ) ? jardin_articles_hub_url() : $u( '/articles/' );
+$articles_label = function_exists( 'jardin_articles_hub_label' ) ? jardin_articles_hub_label() : '/articles';
+
+$events_url   = function_exists( 'jardin_get_event_archive_url' ) ? jardin_get_event_archive_url() : '';
+$events_label = function_exists( 'jardin_get_event_archive_label' ) ? jardin_get_event_archive_label() : '';
+if ( '' === $events_url ) {
+	$events_url = $u( '/evenements/' );
+}
+if ( '' === $events_label ) {
+	$events_label = '/evenements';
+}
+
 $projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : $u( '/projets/' );
 $projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
-$now_url        = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : $u( '/maintenant/' );
-$now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
-$toasts_url     = function_exists( 'jardin_toasts_hub_url' ) ? jardin_toasts_hub_url() : $u( '/toast/' );
-$toasts_label   = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_hub_label() : '/toast';
+
+$now_url   = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : $u( '/maintenant/' );
+$now_label = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
+
+$toasts_url   = function_exists( 'jardin_toasts_hub_url' ) ? jardin_toasts_hub_url() : $u( '/toast/' );
+$toasts_label = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_hub_label() : '/toast';
+
+$dlc_url   = function_exists( 'jardin_dlc_hub_url' ) ? jardin_dlc_hub_url() : $u( '/dlc/' );
+$dlc_label = function_exists( 'jardin_dlc_hub_label' ) ? jardin_dlc_hub_label() : '/dlc';
+
+$blogroll_url   = function_exists( 'jardin_blogroll_hub_url' ) ? jardin_blogroll_hub_url() : $u( '/blogroll/' );
+$blogroll_label = function_exists( 'jardin_blogroll_hub_label' ) ? jardin_blogroll_hub_label() : '/blogroll';
 
 ?>
 <!-- wp:html -->
@@ -34,10 +57,10 @@ $toasts_label   = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_h
 	<div>
 		<h4><?php esc_html_e( 'Explore', 'jardin-theme' ); ?></h4>
 		<ul>
-			<li><a href="<?php echo $u( '/journal/' ); ?>"><?php echo esc_html( '/journal' ); ?></a></li>
-			<li><a href="<?php echo $u( '/articles/' ); ?>"><?php echo esc_html( '/articles' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $journal_url ); ?>"><?php echo esc_html( $journal_label ); ?></a></li>
+			<li><a href="<?php echo esc_url( $articles_url ); ?>"><?php echo esc_html( $articles_label ); ?></a></li>
 			<li><a href="<?php echo esc_url( $activity_url ); ?>"><?php echo esc_html( $activity_label ); ?></a></li>
-			<li><a href="<?php echo $u( '/evenements/' ); ?>"><?php echo esc_html( '/evenements' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $events_url ); ?>"><?php echo esc_html( $events_label ); ?></a></li>
 			<li><a href="<?php echo esc_url( $projects_url ); ?>"><?php echo esc_html( $projects_label ); ?></a></li>
 		</ul>
 	</div>
@@ -45,9 +68,9 @@ $toasts_label   = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_h
 		<h4><?php esc_html_e( 'More to explore', 'jardin-theme' ); ?></h4>
 		<ul>
 			<li><a href="<?php echo esc_url( $now_url ); ?>"><?php echo esc_html( $now_label ); ?></a></li>
-			<li><a href="<?php echo $u( '/dlc/' ); ?>"><?php echo esc_html( '/dlc' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $dlc_url ); ?>"><?php echo esc_html( $dlc_label ); ?></a></li>
 			<li><a href="<?php echo esc_url( $toasts_url ); ?>"><?php echo esc_html( $toasts_label ); ?></a></li>
-			<li><a href="<?php echo $u( '/blogroll/' ); ?>"><?php echo esc_html( '/blogroll' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $blogroll_url ); ?>"><?php echo esc_html( $blogroll_label ); ?></a></li>
 		</ul>
 	</div>
 	<div>

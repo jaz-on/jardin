@@ -8,7 +8,7 @@
  *
  * @package Jardin_Theme */
 
-$journal_url = home_url( '/journal/' );
+$journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : trailingslashit( home_url( '/' ) );
 ?>
 <!-- wp:group {"className":"home-feed-section","style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"bottom":"var:preset|spacing|4"}}}} -->
 <div class="wp-block-group home-feed-section">

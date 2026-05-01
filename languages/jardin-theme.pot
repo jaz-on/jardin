@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-01T12:15:10+00:00\n"
+"POT-Creation-Date: 2026-05-01T12:23:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin-theme\n"
@@ -429,6 +429,11 @@ msgstr ""
 msgid "No now updates found in Trash."
 msgstr ""
 
+#. translators: %s: theme template basename
+#: inc/page-template-urls.php:90
+msgid "Multiple published pages use template %s; using the first match."
+msgstr ""
+
 #: inc/placeholder-copy.php:18
 msgid "Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content."
 msgstr ""
@@ -628,7 +633,7 @@ msgid "Footer heading — Explore"
 msgstr ""
 
 #: patterns/footer-heading-explore.php:12
-#: patterns/footer-main.php:35
+#: patterns/footer-main.php:58
 msgid "Explore"
 msgstr ""
 
@@ -648,42 +653,42 @@ msgstr ""
 
 #: patterns/footer-main.php
 msgctxt "Pattern description"
-msgid "Four-column mockup (.cols), links via home_url, IndieWeb webring. See mockup.html ~13315."
+msgid "Four-column mockup (.cols), hub links from page templates where possible. See mockup.html ~13315."
 msgstr ""
 
-#: patterns/footer-main.php:45
+#: patterns/footer-main.php:68
 msgid "More to explore"
 msgstr ""
 
-#: patterns/footer-main.php:54
+#: patterns/footer-main.php:77
 msgid "This site"
 msgstr ""
 
-#: patterns/footer-main.php:65
+#: patterns/footer-main.php:88
 msgid "Reach me"
 msgstr ""
 
-#: patterns/footer-main.php:69
+#: patterns/footer-main.php:92
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:70
+#: patterns/footer-main.php:93
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:71
+#: patterns/footer-main.php:94
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:78
+#: patterns/footer-main.php:101
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:81
+#: patterns/footer-main.php:104
 msgid "← previous site"
 msgstr ""
 
-#: patterns/footer-main.php:83
+#: patterns/footer-main.php:106
 msgid "next site →"
 msgstr ""
 
@@ -722,15 +727,11 @@ msgctxt "Pattern description"
 msgid "Upcoming events widget for the home page. Uses jardin-theme/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found."
 msgstr ""
 
-#: patterns/home-events-upcoming.php:17
+#: patterns/home-events-upcoming.php:26
 msgid "IRL"
 msgstr ""
 
-#: patterns/home-events-upcoming.php:18
-msgid "/evenements →"
-msgstr ""
-
-#: patterns/home-events-upcoming.php:44
+#: patterns/home-events-upcoming.php:53
 msgid "I live in Cognac — happy to grab coffee if you are passing through. ✌️"
 msgstr ""
 
@@ -1325,6 +1326,21 @@ msgstr ""
 #: theme.json
 msgctxt "Custom template name"
 msgid "Now hub"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "About page"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Support page"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Events hub (intro page)"
 msgstr ""
 
 #: theme.json
