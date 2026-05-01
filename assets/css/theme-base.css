@@ -989,6 +989,21 @@ main#main.wp-block-group {
 	padding-right: var(--wp--preset--spacing--5);
 	width: 100%;
 	box-sizing: border-box;
+	/* Clip any residual alignwide / layout math that still escapes the main column. */
+	overflow-x: clip;
+}
+
+/*
+ * Main column = same optical width as .site-inner / .site-footer-inner.
+ * With useRootPaddingAwareAlignments (or cached global styles), .alignwide
+ * inside a constrained main can get viewport-based side margins and look
+ * full-bleed while the header nav stays centered in max-width + padding.
+ */
+main#main.wp-block-group :where(.alignwide) {
+	margin-inline: 0 !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box;
 }
 
 /*
