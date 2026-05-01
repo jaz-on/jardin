@@ -7,6 +7,8 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 - WordPress **6.4+**
 - PHP **7.4+** (match your host; plugins in the stack may require **8.2+**)
 
+**Hub pages (journal, projects, now, toasts, etc.)** : assign the matching **custom page template** from the Site Editor (e.g. *Journal hub* on the journal page). Header/footer/patterns resolve URLs from `_wp_page_template`, not hard-coded slugs. If no page uses a template yet, the theme falls back to legacy paths; override with the `jardin_hub_legacy_path` filter. **Core UI language packs** (e.g. `fr_FR` for WordPress itself) are a site install concern, not bundled by the theme.
+
 ## Install
 
 1. Clone or copy into `wp-content/themes/jardin-theme` (recommended). Legacy folder name `jardin` is still supported or can symlink to `jardin-theme`.
@@ -47,13 +49,13 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 
 ## Jardin stack
 
-
-| Repository                                                     | Role                                                   |
-| -------------------------------------------------------------- | ------------------------------------------------------ |
-| **jardin-theme** (this repo)                                   | FSE theme, templates, patterns                         |
-| [jardin-events](https://github.com/jaz-on/jardin-events)       | `event` CPT, archive, Query Loop helpers, event blocks |
-| [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles) | Last.fm → `listen` CPT, `/listens/`, player blocks     |
-| [jardin-toasts](https://github.com/jaz-on/jardin-toasts)       | Untappd RSS + import → `beer_checkin` CPT              |
+| Repository | Role |
+|------------|------|
+| **jardin-theme** (this repo) | FSE theme, templates, patterns |
+| [jardin-projects](https://github.com/jaz-on/jardin-projects) | `project` CPT, GitHub changelog sync, project blocks |
+| [jardin-events](https://github.com/jaz-on/jardin-events) | `event` CPT, archive, Query Loop helpers, event blocks |
+| [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles) | Last.fm → `listen` CPT, `/listens/`, player blocks |
+| [jardin-toasts](https://github.com/jaz-on/jardin-toasts) | Untappd RSS + import → `beer_checkin` CPT |
 | [jardin-bookmarks](https://github.com/jaz-on/jardin-bookmarks) | Feedbin → `favorite` / `blogroll` CPTs, blogroll block |
 
 
@@ -66,4 +68,4 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 
 ## License
 
-GPL-2.0-or-later
+GPL-2.0-or-later — see [LICENSE](LICENSE). Sponsorship: [.github/FUNDING.yml](.github/FUNDING.yml).
