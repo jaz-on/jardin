@@ -11,10 +11,6 @@ defined( 'ABSPATH' ) || exit;
  * Register rewrite rules from jardin-docs integration/permalinks-rewrites.md.
  */
 function jardin_register_rewrite_rules(): void {
-	if ( ! defined( 'JARDIN_NOW_POST_TYPE' ) || ! post_type_exists( JARDIN_NOW_POST_TYPE ) ) {
-		return;
-	}
-
 	$target = 'index.php?post_type=' . JARDIN_NOW_POST_TYPE . '&name=$matches[1]';
 
 	add_rewrite_rule( '^now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
@@ -32,10 +28,6 @@ add_action( 'init', 'jardin_register_rewrite_rules' );
  * Redirect legacy category singles to canonical `now` CPT URL when possible.
  */
 function jardin_redirect_legacy_now_update_urls(): void {
-	if ( ! defined( 'JARDIN_NOW_POST_TYPE' ) || ! post_type_exists( JARDIN_NOW_POST_TYPE ) ) {
-		return;
-	}
-
 	if ( is_admin() || ! is_singular( 'post' ) ) {
 		return;
 	}
