@@ -13,8 +13,8 @@ $jardin_projects_hub_label = function_exists( 'jardin_projects_hub_label' ) ? ja
 ?>
 <!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
 <div class="wp-block-group home-featured-projects-wrap">
-<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
-<h2 class="wp-block-heading alignwide section-with-link"><?php
+<!-- wp:heading {"level":2,"className":"section-with-link"} -->
+<h2 class="wp-block-heading section-with-link"><?php
 	echo wp_kses(
 		sprintf(
 			/* translators: 1: projects hub URL, 2: path label e.g. /projets */
