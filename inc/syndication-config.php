@@ -38,10 +38,10 @@ add_filter( 'share_on_bluesky_enabled', 'jardin_mastodon_skip_raw_listens', 12, 
  */
 function jardin_mastodon_status( $text, $post ) {
 	$post = get_post( $post );
-	if ( ! $post || ! in_array( (string) $post->post_type, array( 'post', 'now_update' ), true ) ) {
+	if ( ! $post || ! in_array( (string) $post->post_type, array( 'post', JARDIN_NOW_POST_TYPE ), true ) ) {
 		return $text;
 	}
-	if ( 'now_update' !== (string) $post->post_type ) {
+	if ( JARDIN_NOW_POST_TYPE !== (string) $post->post_type ) {
 		return $text;
 	}
 	$prefix = '[' . get_bloginfo( 'name' ) . ' — ' . _x( 'now', 'short label for the now-updates format', 'jardin-theme' ) . "] \n\n";
@@ -57,7 +57,7 @@ add_filter( 'share_on_bluesky_status', 'jardin_mastodon_status', 8, 2 );
  * Enable webmention endpoints on all first-party public CPTs.
  */
 function jardin_webmention_post_types( array $types ): array {
-	$our = array( 'event', 'favorite', 'blogroll', 'beer_checkin', 'listen', 'iwcpt_note', 'iwcpt_like', 'now_update' );
+	$our = array( 'event', 'favorite', 'blogroll', 'beer_checkin', 'listen', 'iwcpt_note', 'iwcpt_like', JARDIN_NOW_POST_TYPE );
 	$out = array_merge( (array) $types, $our );
 	$out = array_values( array_unique( array_map( 'sanitize_key', $out ) ) );
 	return $out;

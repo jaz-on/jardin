@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  * Register rewrite rules from jardin-docs integration/permalinks-rewrites.md.
  */
 function jardin_register_rewrite_rules(): void {
-	$target = 'index.php?post_type=now_update&name=$matches[1]';
+	$target = 'index.php?post_type=' . JARDIN_NOW_POST_TYPE . '&name=$matches[1]';
 
 	add_rewrite_rule( '^now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
@@ -25,7 +25,7 @@ function jardin_register_rewrite_rules(): void {
 add_action( 'init', 'jardin_register_rewrite_rules' );
 
 /**
- * Redirect legacy category singles to canonical now_update URL when possible.
+ * Redirect legacy category singles to canonical `now` CPT URL when possible.
  */
 function jardin_redirect_legacy_now_update_urls(): void {
 	if ( is_admin() || ! is_singular( 'post' ) ) {
@@ -39,10 +39,10 @@ function jardin_redirect_legacy_now_update_urls(): void {
 
 	$migrated_id = (int) get_post_meta( (int) $post->ID, '_jardin_now_update_new_id', true );
 	$target      = $migrated_id > 0 ? get_post( $migrated_id ) : null;
-	if ( ! $target instanceof WP_Post || 'now_update' !== $target->post_type ) {
-		$target = get_page_by_path( (string) $post->post_name, OBJECT, 'now_update' );
+	if ( ! $target instanceof WP_Post || JARDIN_NOW_POST_TYPE !== $target->post_type ) {
+		$target = get_page_by_path( (string) $post->post_name, OBJECT, JARDIN_NOW_POST_TYPE );
 	}
-	if ( ! $target instanceof WP_Post || 'now_update' !== $target->post_type ) {
+	if ( ! $target instanceof WP_Post || JARDIN_NOW_POST_TYPE !== $target->post_type ) {
 		return;
 	}
 

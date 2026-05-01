@@ -314,7 +314,7 @@ function jardin_query_loop_block_query_vars( array $query, $block ): array {
 	}
 
 	if ( 'jardin-theme/now-updates-feed' === $namespace ) {
-		$query['post_type'] = 'now_update';
+		$query['post_type'] = JARDIN_NOW_POST_TYPE;
 		unset( $query['tax_query'] );
 	}
 

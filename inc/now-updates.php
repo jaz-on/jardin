@@ -1,22 +1,56 @@
 <?php
 /**
- * now_update CPT + migration helpers.
+ * Monthly /now hub: CPT `now` + migration helpers (legacy slug was `now_update`).
  *
  * @package Jardin_Theme
  */
 
 defined( 'ABSPATH' ) || exit;
 
+/** Registered post type slug for monthly editions. */
+const JARDIN_NOW_POST_TYPE = 'now';
+
 /**
- * Register now_update custom post type.
+ * One-time DB migration: `now_update` → `now`.
  */
-function jardin_register_now_update_cpt(): void {
+function jardin_migrate_legacy_now_update_post_type_to_now(): void {
+	if ( wp_installing() ) {
+		return;
+	}
+	if ( get_option( 'jardin_now_post_type_v1_migrated', '' ) === '1' ) {
+		return;
+	}
+	global $wpdb;
+	$old   = 'now_update';
+	$table = $wpdb->posts;
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+	$count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE post_type = %s", $old ) );
+	if ( $count > 0 ) {
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$wpdb->update(
+			$table,
+			array( 'post_type' => JARDIN_NOW_POST_TYPE ),
+			array( 'post_type' => $old ),
+			array( '%s' ),
+			array( '%s' )
+		);
+		wp_cache_flush();
+		flush_rewrite_rules( false );
+	}
+	update_option( 'jardin_now_post_type_v1_migrated', '1', false );
+}
+add_action( 'init', 'jardin_migrate_legacy_now_update_post_type_to_now', 1 );
+
+/**
+ * Register `now` custom post type.
+ */
+function jardin_register_now_cpt(): void {
 	$labels = array(
 		'name'               => _x( 'Now updates', 'post type general name', 'jardin-theme' ),
 		'singular_name'      => _x( 'Now update', 'post type singular name', 'jardin-theme' ),
 		'menu_name'          => _x( 'Now updates', 'admin menu', 'jardin-theme' ),
 		'name_admin_bar'     => _x( 'Now update', 'add new on admin bar', 'jardin-theme' ),
-		'add_new'            => _x( 'Add New', 'now_update', 'jardin-theme' ),
+		'add_new'            => _x( 'Add New', 'post type now', 'jardin-theme' ),
 		'add_new_item'       => __( 'Add new now', 'jardin-theme' ),
 		'new_item'           => __( 'New Now update', 'jardin-theme' ),
 		'edit_item'          => __( 'Edit Now update', 'jardin-theme' ),
@@ -29,27 +63,27 @@ function jardin_register_now_update_cpt(): void {
 	);
 
 	register_post_type(
-		'now_update',
+		JARDIN_NOW_POST_TYPE,
 		array(
-			'labels'            => $labels,
-			'public'            => true,
-			'publicly_queryable'=> true,
-			'show_ui'           => true,
-			'show_in_menu'      => true,
-			'show_in_rest'      => true,
-			'query_var'         => true,
-			'rewrite'           => false,
-			'has_archive'       => 'now-updates',
-			'menu_position'     => 22,
-			'menu_icon'         => 'dashicons-calendar-alt',
-			'supports'          => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author' ),
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'show_in_rest'       => true,
+			'query_var'          => true,
+			'rewrite'            => false,
+			'has_archive'        => 'now-updates',
+			'menu_position'      => 22,
+			'menu_icon'          => 'dashicons-calendar-alt',
+			'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author' ),
 		)
 	);
 }
-add_action( 'init', 'jardin_register_now_update_cpt', 5 );
+add_action( 'init', 'jardin_register_now_cpt', 5 );
 
 /**
- * Build canonical URL path segment for now update singles.
+ * Build canonical URL path segment for now singles.
  *
  * @param int $post_id Post ID.
  * @return string
@@ -72,14 +106,14 @@ function jardin_now_updates_path_for_post( int $post_id ): string {
 }
 
 /**
- * Canonical permalink for now_update.
+ * Canonical permalink for `now` CPT singles.
  *
  * @param string   $url  Permalink.
  * @param \WP_Post $post Post.
  * @return string
  */
-function jardin_filter_now_update_post_type_link( $url, $post ) {
-	if ( ! $post instanceof WP_Post || 'now_update' !== $post->post_type ) {
+function jardin_filter_now_post_type_link( $url, $post ) {
+	if ( ! $post instanceof WP_Post || JARDIN_NOW_POST_TYPE !== $post->post_type ) {
 		return $url;
 	}
 
@@ -91,22 +125,22 @@ function jardin_filter_now_update_post_type_link( $url, $post ) {
 	$base = jardin_now_updates_path_for_post( (int) $post->ID );
 	return home_url( user_trailingslashit( $base . '/' . $slug ) );
 }
-add_filter( 'post_type_link', 'jardin_filter_now_update_post_type_link', 20, 2 );
+add_filter( 'post_type_link', 'jardin_filter_now_post_type_link', 20, 2 );
 
 /**
- * Register WP-CLI command for posts -> now_update migration.
+ * Register WP-CLI command for posts -> now migration.
  */
-function jardin_register_now_update_cli_command(): void {
+function jardin_register_now_cli_command(): void {
 	if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 		return;
 	}
 
 	WP_CLI::add_command( 'jardin now-updates-migrate', 'jardin_cli_now_updates_migrate' );
 }
-add_action( 'init', 'jardin_register_now_update_cli_command', 30 );
+add_action( 'init', 'jardin_register_now_cli_command', 30 );
 
 /**
- * Run migration from `post + category now-updates` to `now_update`.
+ * Run migration from `post + category now-updates` to CPT `now`.
  *
  * ## OPTIONS
  *
@@ -123,9 +157,9 @@ add_action( 'init', 'jardin_register_now_update_cli_command', 30 );
  * @param array $assoc Assoc args.
  */
 function jardin_cli_now_updates_migrate( array $args, array $assoc ): void {
-	$dry_run   = \WP_CLI\Utils\get_flag_value( $assoc, 'dry-run', false );
-	$keep_old  = \WP_CLI\Utils\get_flag_value( $assoc, 'keep-old-published', false );
-	$limit     = isset( $assoc['limit'] ) ? max( 0, (int) $assoc['limit'] ) : 0;
+	$dry_run  = \WP_CLI\Utils\get_flag_value( $assoc, 'dry-run', false );
+	$keep_old = \WP_CLI\Utils\get_flag_value( $assoc, 'keep-old-published', false );
+	$limit    = isset( $assoc['limit'] ) ? max( 0, (int) $assoc['limit'] ) : 0;
 
 	$query = array(
 		'post_type'              => 'post',
@@ -150,30 +184,30 @@ function jardin_cli_now_updates_migrate( array $args, array $assoc ): void {
 	$skipped = 0;
 
 	foreach ( $source_posts as $source ) {
-		$source_id  = (int) $source->ID;
+		$source_id   = (int) $source->ID;
 		$source_slug = (string) $source->post_name;
 
 		$existing_id = (int) get_post_meta( $source_id, '_jardin_now_update_new_id', true );
 		$existing    = $existing_id > 0 ? get_post( $existing_id ) : null;
-		if ( $existing instanceof WP_Post && 'now_update' === $existing->post_type ) {
+		if ( $existing instanceof WP_Post && JARDIN_NOW_POST_TYPE === $existing->post_type ) {
 			++$mapped;
-			WP_CLI::log( "Mapped: post {$source_id} -> now_update {$existing_id}" );
+			WP_CLI::log( "Mapped: post {$source_id} -> " . JARDIN_NOW_POST_TYPE . " {$existing_id}" );
 			continue;
 		}
 
-		$target = get_page_by_path( $source_slug, OBJECT, 'now_update' );
+		$target = get_page_by_path( $source_slug, OBJECT, JARDIN_NOW_POST_TYPE );
 		if ( $target instanceof WP_Post ) {
 			if ( ! $dry_run ) {
 				update_post_meta( $source_id, '_jardin_now_update_new_id', (int) $target->ID );
 				update_post_meta( (int) $target->ID, '_jardin_now_update_source_post_id', $source_id );
 			}
 			++$mapped;
-			WP_CLI::log( "Reused slug match: post {$source_id} -> now_update {$target->ID}" );
+			WP_CLI::log( "Reused slug match: post {$source_id} -> " . JARDIN_NOW_POST_TYPE . " {$target->ID}" );
 			continue;
 		}
 
 		$insert = array(
-			'post_type'      => 'now_update',
+			'post_type'      => JARDIN_NOW_POST_TYPE,
 			'post_status'    => (string) $source->post_status,
 			'post_title'     => (string) $source->post_title,
 			'post_name'      => $source_slug,
@@ -189,7 +223,7 @@ function jardin_cli_now_updates_migrate( array $args, array $assoc ): void {
 
 		if ( $dry_run ) {
 			++$created;
-			WP_CLI::log( "Dry-run create: post {$source_id} -> now_update {$source_slug}" );
+			WP_CLI::log( 'Dry-run create: post ' . $source_id . ' -> ' . JARDIN_NOW_POST_TYPE . ' ' . $source_slug );
 			continue;
 		}
 
@@ -219,7 +253,7 @@ function jardin_cli_now_updates_migrate( array $args, array $assoc ): void {
 		}
 
 		++$created;
-		WP_CLI::log( "Created now_update {$new_id} from post {$source_id}" );
+		WP_CLI::log( 'Created ' . JARDIN_NOW_POST_TYPE . " {$new_id} from post {$source_id}" );
 	}
 
 	WP_CLI::success(

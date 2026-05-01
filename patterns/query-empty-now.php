@@ -9,5 +9,5 @@
 
 ?>
 <!-- wp:paragraph -->
-<p><?php echo esc_html_x( 'No now updates yet.', 'Empty query loop: Now hub monthly editions (now_update CPT)', 'jardin-theme' ); ?></p>
+<p><?php echo esc_html_x( 'No now updates yet.', 'Empty query loop: Now hub monthly editions (now CPT)', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->

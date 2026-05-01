@@ -2,20 +2,20 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: jardin-theme 0.1.2\n"
+"Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-30T18:40:16+00:00\n"
+"POT-Creation-Date: 2026-05-01T08:43:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin-theme\n"
 
 #. Theme Name of the theme
-msgid "jardin-theme"
+msgid "Jardin Theme"
 msgstr ""
 
 #. Theme URI of the theme
@@ -290,6 +290,42 @@ msgstr ""
 msgid "Release published on GitHub."
 msgstr ""
 
+#: inc/header-toolbar.php:38
+msgid "Language"
+msgstr ""
+
+#: inc/header-toolbar.php:87
+msgid "Search, theme, music, and support"
+msgstr ""
+
+#: inc/header-toolbar.php:92
+#: inc/search-block-i18n.php:22
+#: inc/search-block-i18n.php:24
+msgid "Search"
+msgstr ""
+
+#: inc/header-toolbar.php:98
+#: inc/header-toolbar.php:99
+msgid "Now playing"
+msgstr ""
+
+#: inc/header-toolbar.php:104
+#: inc/header-toolbar.php:105
+msgid "Support me"
+msgstr ""
+
+#: inc/header-toolbar.php:124
+msgid "Site utilities"
+msgstr ""
+
+#: inc/header-toolbar.php:133
+msgid "Menu"
+msgstr ""
+
+#: inc/header-toolbar.php:153
+msgid "Tools"
+msgstr ""
+
 #: inc/journal-hub.php:382
 #: patterns/journal-hub-top.php:21
 msgid "Filter journal"
@@ -311,64 +347,64 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: inc/now-updates.php:15
+#: inc/now-updates.php:49
 msgctxt "post type general name"
 msgid "Now updates"
 msgstr ""
 
-#: inc/now-updates.php:16
+#: inc/now-updates.php:50
 msgctxt "post type singular name"
 msgid "Now update"
 msgstr ""
 
-#: inc/now-updates.php:17
+#: inc/now-updates.php:51
 msgctxt "admin menu"
 msgid "Now updates"
 msgstr ""
 
-#: inc/now-updates.php:18
+#: inc/now-updates.php:52
 msgctxt "add new on admin bar"
 msgid "Now update"
 msgstr ""
 
-#: inc/now-updates.php:19
-msgctxt "now_update"
+#: inc/now-updates.php:53
+msgctxt "post type now"
 msgid "Add New"
 msgstr ""
 
-#: inc/now-updates.php:20
+#: inc/now-updates.php:54
 msgid "Add new now"
 msgstr ""
 
-#: inc/now-updates.php:21
+#: inc/now-updates.php:55
 msgid "New Now update"
 msgstr ""
 
-#: inc/now-updates.php:22
+#: inc/now-updates.php:56
 msgid "Edit Now update"
 msgstr ""
 
-#: inc/now-updates.php:23
+#: inc/now-updates.php:57
 msgid "View Now update"
 msgstr ""
 
-#: inc/now-updates.php:24
+#: inc/now-updates.php:58
 msgid "All Now updates"
 msgstr ""
 
-#: inc/now-updates.php:25
+#: inc/now-updates.php:59
 msgid "Search Now updates"
 msgstr ""
 
-#: inc/now-updates.php:26
+#: inc/now-updates.php:60
 msgid "Parent Now updates:"
 msgstr ""
 
-#: inc/now-updates.php:27
+#: inc/now-updates.php:61
 msgid "No now updates found."
 msgstr ""
 
-#: inc/now-updates.php:28
+#: inc/now-updates.php:62
 msgid "No now updates found in Trash."
 msgstr ""
 
@@ -510,13 +546,6 @@ msgstr ""
 
 #: inc/projects.php:201
 msgid "archived"
-msgstr ""
-
-#: inc/search-block-i18n.php:22
-#: inc/search-block-i18n.php:24
-#: patterns/header-main.php:50
-#: patterns/site-toolbar.php:62
-msgid "Search"
 msgstr ""
 
 #: inc/search-block-i18n.php:23
@@ -706,7 +735,7 @@ msgid "Footer heading — Explore"
 msgstr ""
 
 #: patterns/footer-heading-explore.php:12
-#: patterns/footer-main.php:28
+#: patterns/footer-main.php:33
 msgid "Explore"
 msgstr ""
 
@@ -729,39 +758,39 @@ msgctxt "Pattern description"
 msgid "Four-column mockup (.cols), links via home_url, IndieWeb webring. See mockup.html ~13315."
 msgstr ""
 
-#: patterns/footer-main.php:38
+#: patterns/footer-main.php:43
 msgid "More to explore"
 msgstr ""
 
-#: patterns/footer-main.php:47
+#: patterns/footer-main.php:52
 msgid "This site"
 msgstr ""
 
-#: patterns/footer-main.php:58
+#: patterns/footer-main.php:63
 msgid "Reach me"
 msgstr ""
 
-#: patterns/footer-main.php:62
+#: patterns/footer-main.php:67
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:63
+#: patterns/footer-main.php:68
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:64
+#: patterns/footer-main.php:69
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:71
+#: patterns/footer-main.php:76
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:74
+#: patterns/footer-main.php:79
 msgid "← previous site"
 msgstr ""
 
-#: patterns/footer-main.php:76
+#: patterns/footer-main.php:81
 msgid "next site →"
 msgstr ""
 
@@ -773,28 +802,6 @@ msgstr ""
 #: patterns/header-main.php
 msgctxt "Pattern description"
 msgid "Header content (brand row + toolbar, then nav) — same approach as jardin-theme/footer-main. See mockup.html header.site ~1005–1133."
-msgstr ""
-
-#: patterns/header-main.php:46
-msgid "Tools"
-msgstr ""
-
-#: patterns/header-main.php:47
-msgid "Search, theme, music, and support"
-msgstr ""
-
-#: patterns/header-main.php:58
-#: patterns/header-main.php:59
-#: patterns/site-toolbar.php:70
-#: patterns/site-toolbar.php:71
-msgid "Now playing"
-msgstr ""
-
-#: patterns/header-main.php:65
-#: patterns/header-main.php:66
-#: patterns/site-toolbar.php:77
-#: patterns/site-toolbar.php:78
-msgid "Support me"
 msgstr ""
 
 #: patterns/home-bio.php
@@ -844,12 +851,12 @@ msgctxt "Pattern description"
 msgid "Pinned projects grid sourced from the project CPT."
 msgstr ""
 
-#. translators: %s: link to /projects
-#: patterns/home-featured-projects.php:19
-msgid "Pinned projects <a href=\"%s\" class=\"section-link\">/projects →</a>"
+#. translators: 1: projects hub URL, 2: path label e.g. /projets
+#: patterns/home-featured-projects.php:21
+msgid "Pinned projects <a href=\"%1$s\" class=\"section-link\">%2$s →</a>"
 msgstr ""
 
-#: patterns/home-featured-projects.php:44
+#: patterns/home-featured-projects.php:47
 msgid "No pinned projects yet."
 msgstr ""
 
@@ -981,7 +988,7 @@ msgid "Now hub query — empty state"
 msgstr ""
 
 #: patterns/query-empty-now.php:12
-msgctxt "Empty query loop: Now hub monthly editions (now_update CPT)"
+msgctxt "Empty query loop: Now hub monthly editions (now CPT)"
 msgid "No now updates yet."
 msgstr ""
 
@@ -1028,19 +1035,7 @@ msgstr ""
 
 #: patterns/site-toolbar.php
 msgctxt "Pattern description"
-msgid "Header utilities — dedicated language block (.toolbar-lang), then segmented icons (.toolbar-chrome)."
-msgstr ""
-
-#: patterns/site-toolbar.php:29
-msgid "Language"
-msgstr ""
-
-#: patterns/site-toolbar.php:44
-msgid "Site utilities"
-msgstr ""
-
-#: patterns/site-toolbar.php:55
-msgid "Menu"
+msgid "Header utilities — language, burger, search, theme, music, support. Prefers the `header-utilities` block; falls back to core/html if the block is not registered (incomplete deploy)."
 msgstr ""
 
 #: assets/js/block-variations.js:28
@@ -1096,7 +1091,7 @@ msgid "Now updates"
 msgstr ""
 
 #: assets/js/block-variations.js:150
-msgid "Entries from the now_update post type."
+msgid "Entries from the now (monthly edition) post type."
 msgstr ""
 
 #: assets/js/project-editor-sidebar.js:57
@@ -1167,6 +1162,34 @@ msgstr ""
 msgid "Order in that grid follows the document “Order” field (menu_order), then publish date."
 msgstr ""
 
+#: blocks/header-utilities/index.js:20
+msgid "Placement"
+msgstr ""
+
+#: blocks/header-utilities/index.js:22
+msgid "Variant"
+msgstr ""
+
+#: blocks/header-utilities/index.js:25
+msgid "Header row (brand line)"
+msgstr ""
+
+#: blocks/header-utilities/index.js:26
+msgid "Mobile drawer tools"
+msgstr ""
+
+#: blocks/header-utilities/index.js:32
+msgid "Header utilities"
+msgstr ""
+
+#: blocks/header-utilities/index.js:37
+msgid "Drawer: same actions as the header chrome, shown inside the menu on small screens."
+msgstr ""
+
+#: blocks/header-utilities/index.js:38
+msgid "Renders language, menu, search, theme, music, and support on the live site."
+msgstr ""
+
 #: blocks/post-engage/index.js:16
 msgid "Post-engage (syndication + webmentions)"
 msgstr ""
@@ -1197,6 +1220,16 @@ msgstr ""
 #: blocks/event-link-banner/block.json
 msgctxt "block description"
 msgid "Shows a banner when this post is linked as recap from an event (jardin-events)."
+msgstr ""
+
+#: blocks/header-utilities/block.json
+msgctxt "block title"
+msgid "Header utilities"
+msgstr ""
+
+#: blocks/header-utilities/block.json
+msgctxt "block description"
+msgid "Language switcher, menu, search, theme, music, and support — header row or mobile drawer."
 msgstr ""
 
 #: blocks/post-engage/block.json
@@ -1491,17 +1524,7 @@ msgstr ""
 
 #: theme.json
 msgctxt "Custom template name"
-msgid "Projects hub (legacy page slug)"
-msgstr ""
-
-#: theme.json
-msgctxt "Custom template name"
 msgid "Now hub"
-msgstr ""
-
-#: theme.json
-msgctxt "Custom template name"
-msgid "Now hub (legacy page slug)"
 msgstr ""
 
 #: theme.json
