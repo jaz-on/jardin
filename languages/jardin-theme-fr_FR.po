@@ -37,11 +37,6 @@ msgstr ""
 msgid "https://jasonrouet.com"
 msgstr ""
 
-#. translators: 1: four-digit year, 2: site name
-#: blocks/copyright/render.php:12
-msgid "© %1$s %2$s"
-msgstr ""
-
 #: blocks/event-link-banner/render.php:31
 msgid "Linked event"
 msgstr ""
@@ -1089,16 +1084,6 @@ msgstr ""
 msgid ""
 "On the front, this block shows syndication out-links and webmention replies "
 "for this post."
-msgstr ""
-
-#: blocks/copyright/block.json
-msgctxt "block title"
-msgid "Copyright line"
-msgstr ""
-
-#: blocks/copyright/block.json
-msgctxt "block description"
-msgid "Site name and current year."
 msgstr ""
 
 #: blocks/event-link-banner/block.json
