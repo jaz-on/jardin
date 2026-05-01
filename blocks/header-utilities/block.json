@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jardin-theme/header-utilities",
+	"title": "Header utilities",
+	"category": "widgets",
+	"icon": "admin-customizer",
+	"description": "Language switcher, menu, search, theme, music, and support — header row or mobile drawer.",
+	"textdomain": "jardin-theme",
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"default": "header",
+			"enum": [ "header", "drawer" ]
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

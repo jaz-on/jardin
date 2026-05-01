@@ -15,7 +15,7 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 
 **Customized template parts:** if the header (or another part) ignores Git updates, reset it in the Site Editor (**Patterns / Template parts** → open part → clear customizations) so files from the theme load again.
 
-**Block namespace migration:** on upgrade, `inc/content-migration.php` can rewrite stored markup from `jardin/…` to `jardin-theme/…` in post content (see `JARDIN_THEME_CONTENT_MIGRATION_VERSION`). Plugin blocks such as `jardin/lastfm-*` are not migrated.
+**Block namespace migration:** on upgrade, `inc/content-migration.php` can rewrite stored markup from `jardin/…` to `jardin-theme/…` in post content (see `JARDIN_THEME_CONTENT_MIGRATION_VERSION`). Plugin blocks such as `jardin/lastfm-`* are not migrated.
 
 ## What it does
 

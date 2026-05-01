@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function jardin_register_theme_blocks(): void {
 	$base = get_template_directory() . '/blocks/';
-	foreach ( array( 'theme-toggle', 'copyright', 'post-engage', 'event-link-banner', 'project-inline-meta', 'project-header-meta', 'project-changelog' ) as $slug ) {
+	foreach ( array( 'header-utilities', 'theme-toggle', 'copyright', 'post-engage', 'event-link-banner', 'project-inline-meta', 'project-header-meta', 'project-changelog' ) as $slug ) {
 		$path = $base . $slug;
 		if ( is_readable( $path . '/block.json' ) ) {
 			register_block_type( $path );

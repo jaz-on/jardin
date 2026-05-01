@@ -974,8 +974,9 @@ main#main.wp-block-group {
 	align-items: center;
 }
 
-/* core/html wraps patterns : garder la rangée header sur une ligne (toolbar à droite) */
-.site-row-brand > .wp-block-html {
+/* core/html (site-brand) + dynamic header-utilities block : rangée header sur une ligne (toolbar à droite) */
+.site-row-brand > .wp-block-html,
+.site-row-brand > .wp-block-jardin-theme-header-utilities {
 	flex: 0 0 auto;
 	min-width: 0;
 }
@@ -984,7 +985,8 @@ main#main.wp-block-group {
 	flex-shrink: 0;
 }
 
-.site-row-brand > .wp-block-html:last-child {
+.site-row-brand > .wp-block-html:last-child,
+.site-row-brand > .wp-block-jardin-theme-header-utilities:last-child {
 	margin-left: auto;
 	min-width: 0;
 	flex: 1 1 auto;
