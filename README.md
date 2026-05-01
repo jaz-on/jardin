@@ -4,7 +4,7 @@ Jardin · thème bloc FSE : modèles, patterns et styles pour [jasonrouet.com](h
 
 ## Requirements
 
-- WordPress **6.4+**
+- WordPress **6.6+** (aligné sur `style.css`) ; thème déclaré **testé jusqu’à 7.0**
 - PHP **8.2+** (valider localement sous **8.4** ; la pile Jardin cible cette base)
 
 **Hub pages (journal, projects, now, toasts, etc.)** : assign the matching **custom page template** from the Site Editor (e.g. *Journal hub* on the journal page). Header/footer/patterns resolve URLs from `_wp_page_template`, not hard-coded slugs. If no page uses a template yet, the theme falls back to legacy paths; override with the `jardin_hub_legacy_path` filter. **Core UI language packs** (e.g. `fr_FR` for WordPress itself) are a site install concern, not bundled by the theme.
