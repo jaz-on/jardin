@@ -53,7 +53,7 @@ msgstr ""
 
 #: blocks/post-engage/render.php:81
 msgid "On the fediverse"
-msgstr "Sur le fédivers"
+msgstr "Sur le Fédivers"
 
 #: blocks/post-engage/render.php:92
 msgctxt "syndication card CTA"
