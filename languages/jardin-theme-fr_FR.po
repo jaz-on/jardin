@@ -366,67 +366,6 @@ msgstr "Billets"
 msgid "Events"
 msgstr "Événements"
 
-#: inc/now-updates.php:18
-msgctxt "post type general name"
-msgid "Now updates"
-msgstr ""
-
-#: inc/now-updates.php:19
-msgctxt "post type singular name"
-msgid "Now update"
-msgstr ""
-
-#: inc/now-updates.php:20
-msgctxt "admin menu"
-msgid "Now updates"
-msgstr ""
-
-#: inc/now-updates.php:21
-msgctxt "add new on admin bar"
-msgid "Now update"
-msgstr ""
-
-#: inc/now-updates.php:22
-msgctxt "post type now"
-msgid "Add New"
-msgstr ""
-
-#: inc/now-updates.php:23
-msgid "Add new now"
-msgstr ""
-
-#: inc/now-updates.php:24
-msgid "New Now update"
-msgstr ""
-
-#: inc/now-updates.php:25
-msgid "Edit Now update"
-msgstr ""
-
-#: inc/now-updates.php:26
-msgid "View Now update"
-msgstr ""
-
-#: inc/now-updates.php:27
-msgid "All Now updates"
-msgstr ""
-
-#: inc/now-updates.php:28
-msgid "Search Now updates"
-msgstr ""
-
-#: inc/now-updates.php:29
-msgid "Parent Now updates:"
-msgstr ""
-
-#: inc/now-updates.php:30
-msgid "No now updates found."
-msgstr ""
-
-#: inc/now-updates.php:31
-msgid "No now updates found in Trash."
-msgstr ""
-
 #: inc/placeholder-copy.php:18
 msgid ""
 "Live “now” summary blocks (for example Last.fm) will load here once the "
@@ -539,7 +478,7 @@ msgid "Match system"
 msgstr ""
 
 #: inc/syndication-config.php:47
-msgctxt "short label for the now-updates format"
+msgctxt "short label for the now journal format"
 msgid "now"
 msgstr ""
 
@@ -916,7 +855,7 @@ msgstr ""
 
 #: patterns/query-empty-now.php:12
 msgctxt "Empty query loop: Now hub monthly editions (now CPT)"
-msgid "No now updates yet."
+msgid "No Now entries yet."
 msgstr ""
 
 #: patterns/query-empty-search.php
@@ -1022,7 +961,7 @@ msgid "Blogroll CPT from jardin-bookmarks."
 msgstr "CPT blogroll (plugin jardin-bookmarks)."
 
 #: assets/js/block-variations.js:149
-msgid "Now updates"
+msgid "Now"
 msgstr ""
 
 #: assets/js/block-variations.js:150

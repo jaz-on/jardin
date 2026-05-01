@@ -1,6 +1,6 @@
 <?php
 /**
- * Optional rewrite rules (now-update monthly URLs).
+ * Optional rewrite rules (monthly `now` CPT URLs).
  *
  * @package Jardin_Theme
  */
@@ -13,27 +13,43 @@ defined( 'ABSPATH' ) || exit;
 function jardin_register_rewrite_rules(): void {
 	$target = 'index.php?post_type=' . JARDIN_NOW_POST_TYPE . '&name=$matches[1]';
 
-	add_rewrite_rule( '^now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^maintenant/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
-	add_rewrite_rule( '^en/now-updates/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
+	add_rewrite_rule( '^en/now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 
-	// Legacy category URLs retained for 301 canonical redirects.
-	add_rewrite_rule( '^category/now-updates/([0-9]{4}-[0-9]{2})/?$', 'index.php?category_name=now-updates&name=$matches[1]', 'top' );
-	add_rewrite_rule( '^categorie/maintenant/([0-9]{4}-[0-9]{2})/?$', 'index.php?category_name=now-updates&name=$matches[1]', 'top' );
+	$legacy_cat = apply_filters( 'jardin_now_legacy_category_slug', '' );
+	if ( is_string( $legacy_cat ) && '' !== $legacy_cat ) {
+		$legacy_cat = sanitize_title( $legacy_cat );
+		if ( '' !== $legacy_cat ) {
+			add_rewrite_rule(
+				'^category/' . $legacy_cat . '/([0-9]{4}-[0-9]{2})/?$',
+				'index.php?category_name=' . $legacy_cat . '&name=$matches[1]',
+				'top'
+			);
+		}
+	}
 }
 add_action( 'init', 'jardin_register_rewrite_rules' );
 
 /**
  * Redirect legacy category singles to canonical `now` CPT URL when possible.
  */
-function jardin_redirect_legacy_now_update_urls(): void {
+function jardin_redirect_legacy_now_post_urls(): void {
+	if ( ! defined( 'JARDIN_NOW_POST_TYPE' ) || ! post_type_exists( JARDIN_NOW_POST_TYPE ) ) {
+		return;
+	}
+
 	if ( is_admin() || ! is_singular( 'post' ) ) {
 		return;
 	}
 
 	$post = get_queried_object();
-	if ( ! $post instanceof WP_Post || ! is_object_in_term( (int) $post->ID, 'category', 'now-updates' ) ) {
+	$legacy_cat = apply_filters( 'jardin_now_legacy_category_slug', '' );
+	if ( ! is_string( $legacy_cat ) || '' === $legacy_cat ) {
+		return;
+	}
+	$legacy_cat = sanitize_title( $legacy_cat );
+	if ( '' === $legacy_cat || ! $post instanceof WP_Post || ! is_object_in_term( (int) $post->ID, 'category', $legacy_cat ) ) {
 		return;
 	}
 
@@ -54,7 +70,7 @@ function jardin_redirect_legacy_now_update_urls(): void {
 	wp_safe_redirect( $canonical, 301 );
 	exit;
 }
-add_action( 'template_redirect', 'jardin_redirect_legacy_now_update_urls', 1 );
+add_action( 'template_redirect', 'jardin_redirect_legacy_now_post_urls', 1 );
 
 /**
  * Flush rewrite rules when switching to this theme.

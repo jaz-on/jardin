@@ -1,7 +1,7 @@
 /**
  * Query Loop variations (jardin-docs theme/blocks_inventory.md § E).
  *
- * Namespace `jardin-theme/journal-mixed` (?kind=) plus `jardin-theme/now-updates-feed`,
+ * Namespace `jardin-theme/journal-mixed` (?kind=) plus `jardin-theme/now-feed`,
  * `jardin-theme/events-upcoming`, and `jardin-theme/events-past-by-role` are handled in PHP (`inc/journal-hub.php`).
  * Phase 2 shipped post + IndieBlocks only; Phase 4 extends journal-mixed with plugin CPTs.
  * Namespaces `jardin-theme/notes-by-kind` (activities archive /activites|/activities), `jardin-theme/articles-pinned`, and `jardin-theme/blogroll-grid`
@@ -145,12 +145,12 @@
 	} );
 
 	registerBlockVariation( 'core/query', {
-		name: 'now-updates-feed',
-		title: __( 'Now updates', 'jardin-theme' ),
+		name: 'now-feed',
+		title: __( 'Now', 'jardin-theme' ),
 		description: __( 'Entries from the now (monthly edition) post type.', 'jardin-theme' ),
 		category: 'theme',
 		attributes: {
-			namespace: 'jardin-theme/now-updates-feed',
+			namespace: 'jardin-theme/now-feed',
 			query: {
 				perPage: 12,
 				postType: 'now',

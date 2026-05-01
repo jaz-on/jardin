@@ -44,11 +44,11 @@ function jardin_mastodon_status( $text, $post ) {
 	if ( JARDIN_NOW_POST_TYPE !== (string) $post->post_type ) {
 		return $text;
 	}
-	$prefix = '[' . get_bloginfo( 'name' ) . ' — ' . _x( 'now', 'short label for the now-updates format', 'jardin-theme' ) . "] \n\n";
+	$prefix = '[' . get_bloginfo( 'name' ) . ' — ' . _x( 'now', 'short label for the now journal format', 'jardin-theme' ) . "] \n\n";
 	/**
-	 * Filter: jardin_mastodon_now_update_prefix
+	 * Filter: jardin_mastodon_now_prefix
 	 */
-	return apply_filters( 'jardin_mastodon_now_update_prefix', $prefix, $post ) . $text;
+	return apply_filters( 'jardin_mastodon_now_prefix', $prefix, $post ) . $text;
 }
 add_filter( 'share_on_mastodon_status', 'jardin_mastodon_status', 8, 2 );
 add_filter( 'share_on_bluesky_status', 'jardin_mastodon_status', 8, 2 );
