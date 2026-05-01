@@ -14,8 +14,8 @@ $journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_
 <div class="wp-block-group home-feed-section">
 	<!-- wp:group {"className":"feed-header","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 	<div class="wp-block-group feed-header">
-		<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
-		<h2 class="wp-block-heading alignwide section-with-link"><?php
+		<!-- wp:heading {"level":2,"className":"section-with-link"} -->
+		<h2 class="wp-block-heading section-with-link"><?php
 			echo wp_kses(
 				sprintf(
 					/* translators: %s: URL of the journal hub page */

@@ -2,11 +2,13 @@
 
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|6","margin":{"top":"0","bottom":"0"}}}} -->
 
-	<!-- wp:jardin-theme/breadcrumb /-->
-	<!-- wp:post-title {"level":1} /-->
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-	<!-- wp:pattern {"slug":"jardin-theme/journal-hub-top"} /-->
-	<!-- wp:query {"queryId":11,"namespace":"jardin-theme/journal-mixed","query":{"perPage":12,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|6"}},"className":"alignwide journal-page-shell"} -->
+	<div class="wp-block-group alignwide journal-page-shell">
+		<!-- wp:jardin-theme/breadcrumb /-->
+		<!-- wp:post-title {"level":1} /-->
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+		<!-- wp:pattern {"slug":"jardin-theme/journal-hub-top"} /-->
+		<!-- wp:query {"queryId":11,"namespace":"jardin-theme/journal-mixed","query":{"perPage":12,"pages":0,"offset":0,"postType":["post","iwcpt_note","iwcpt_like","favorite","event","beer_checkin","listen"],"order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
 			<!-- wp:pattern {"slug":"jardin-theme/entry-card"} /-->
@@ -34,6 +36,8 @@
 		<p>Cette vue mélange plusieurs CPT (articles, activités courtes, favoris, événements, check-ins bière, écoutes) dans une timeline unique via une variation <code>jardin-theme/journal-mixed</code> sur le bloc Query Loop. Les pilules <code>?kind=</code> filtrent côté navigateur à partir des attributs <code>data-kind</code> sur chaque entrée. Détails et périmètre dans <a href="/colophon/">/colophon</a>.</p>
 		<!-- /wp:html -->
 	</aside>
+	<!-- /wp:group -->
+	</div>
 	<!-- /wp:group -->
 <!-- /wp:group -->
 

@@ -9,7 +9,7 @@
  * @package Jardin_Theme */
 
 ?>
-<!-- wp:group {"className":"journal-hub-block","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
+<!-- wp:group {"className":"journal-hub-block","layout":{"type":"default"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
 <div class="wp-block-group journal-hub-block">
 	<!-- wp:paragraph {"fontSize":"sm","textColor":"text-muted"} -->
 	<p class="has-text-muted-color has-text-color has-sm-font-size"><?php echo esc_html__( 'A mixed timeline of long articles, short-form activities (bookmarks, likes, listens, beer check-ins, and more), events, and TIL—newest first. Raw scrobbles and tastings without a write-up stay in their own views; use the filters to narrow by type.', 'jardin-theme' ); ?></p>
