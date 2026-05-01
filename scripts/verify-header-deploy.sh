@@ -7,6 +7,7 @@ missing=0
 for f in \
 	inc/header-toolbar.php \
 	inc/header-template-fallback.php \
+	patterns/includes/header-nav-row.markup.html \
 	blocks/header-utilities/block.json \
 	blocks/header-utilities/render.php \
 	blocks/header-utilities/index.js \

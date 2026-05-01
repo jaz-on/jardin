@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
-"POT-Creation-Date: 2026-05-01T19:10:33+00:00\n"
+"POT-Creation-Date: 2026-05-01T19:17:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -372,13 +372,13 @@ msgid ""
 "content."
 msgstr ""
 
-#: inc/placeholder-copy.php:20
+#: inc/placeholder-copy.php:21
 msgid ""
 "Recent check-ins and beer grids from jardin-toasts will appear here in a "
 "later phase. Use the page content for any introductory copy."
 msgstr ""
 
-#: inc/placeholder-copy.php:22
+#: inc/placeholder-copy.php:23
 msgid ""
 "The blogroll grid powered by jardin-bookmarks will appear here in a later "
 "phase. Use the page content for notes in the meantime."
@@ -386,7 +386,7 @@ msgstr ""
 "La grille blogroll (plugin jardin-bookmarks) apparaîtra ici dans une phase "
 "ultérieure. En attendant, utilisez le corps de la page pour vos notes."
 
-#: inc/placeholder-copy.php:24
+#: inc/placeholder-copy.php:25
 msgid ""
 "Content for this section will appear here once the related features are "
 "connected."
@@ -693,8 +693,9 @@ msgstr ""
 #: patterns/header-nav-row.php
 msgctxt "Pattern description"
 msgid ""
-"Primary Navigation (starter links) and drawer utilities — edit links in Site "
-"Editor after inserting or reset template part."
+"Primary Navigation (starter links) and drawer utilities — block markup lives "
+"in `patterns/includes/header-nav-row.markup.html`; edit there or in Site "
+"Editor after inserting."
 msgstr ""
 
 #: patterns/home-bio.php
@@ -843,12 +844,14 @@ msgstr ""
 
 #: patterns/placeholder-beers.php
 msgctxt "Pattern title"
-msgid "Placeholder — Beers"
+msgid "Placeholder — Toasts (legacy slug)"
 msgstr ""
 
 #: patterns/placeholder-beers.php
 msgctxt "Pattern description"
-msgid "Temporary notice until jardin-toasts blocks are wired on this page."
+msgid ""
+"Same as `jardin-theme/placeholder-toasts`; slug kept for existing page "
+"content. Prefer the toasts pattern in new layouts."
 msgstr ""
 
 #: patterns/placeholder-blogroll.php
@@ -871,6 +874,16 @@ msgctxt "Pattern description"
 msgid ""
 "Temporary notice until jardin-scrobbler blocks are wired. Insert at the top "
 "of the Now page if needed."
+msgstr ""
+
+#: patterns/placeholder-toasts.php
+msgctxt "Pattern title"
+msgid "Placeholder — Toasts"
+msgstr ""
+
+#: patterns/placeholder-toasts.php
+msgctxt "Pattern description"
+msgid "Temporary notice until jardin-toasts blocks are wired on this page."
 msgstr ""
 
 #: patterns/post-meta-bar.php

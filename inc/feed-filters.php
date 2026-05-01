@@ -21,16 +21,17 @@ function jardin_get_main_feed_post_types(): array {
 
 /**
  * Let the theme’s feed query keep the `listen` CPT so we can still publish *jams*
- * (non-empty content). jardin-scrobbler would otherwise drop every listen from mixed feeds.
+ * (non-empty content). jardin-scrobbles excludes listens from the main feed when its option/filter say so; force both filter names off so the theme query + SQL can keep jams and drop only empty listens.
  */
 add_filter( 'jardin_scrobbler_exclude_from_main_feed', '__return_false' );
+add_filter( 'jardin_scrobbles_exclude_from_main_feed', '__return_false' );
 
 /**
  * Main feed: multi-CPT and flag for SQL filtering.
  *
  * @param \WP_Query $query Main query.
  */
-function jardin_feed_main_pre_get_posts( $query ): void {
+function jardin_theme_main_feed_pre_get_posts( $query ): void {
 	if ( is_admin() || ! $query->is_main_query() || ! $query->is_feed() || $query->is_comment_feed() ) {
 		return;
 	}
@@ -40,7 +41,7 @@ function jardin_feed_main_pre_get_posts( $query ): void {
 	$query->set( 'post_type', jardin_get_main_feed_post_types() );
 	$query->set( 'jardin_clauses', 'main_feed' );
 }
-add_action( 'pre_get_posts', 'jardin_feed_main_pre_get_posts', 3 );
+add_action( 'pre_get_posts', 'jardin_theme_main_feed_pre_get_posts', 3 );
 
 /**
  * Remove raw scrobbles and raw tastings from the main feed; keep everything else in the query.
@@ -49,7 +50,7 @@ add_action( 'pre_get_posts', 'jardin_feed_main_pre_get_posts', 3 );
  * @param \WP_Query $q       Query.
  * @return string
  */
-function jardin_feed_raw_content_clauses( $clauses, $q ) {
+function jardin_theme_main_feed_posts_clauses( $clauses, $q ) {
 	if ( ! $q->is_main_query() || ! $q->is_feed() || $q->is_comment_feed() ) {
 		return $clauses;
 	}
@@ -73,4 +74,4 @@ function jardin_feed_raw_content_clauses( $clauses, $q ) {
 	$clauses['where'] .= " AND ( ( {$wpdb->posts}.post_type != 'beer_checkin' ) OR ( {$wpdb->posts}.post_type = 'beer_checkin' AND {$filled} ) )";
 	return $clauses;
 }
-add_filter( 'posts_clauses', 'jardin_feed_raw_content_clauses', 24, 2 );
+add_filter( 'posts_clauses', 'jardin_theme_main_feed_posts_clauses', 24, 2 );

@@ -1,10 +1,9 @@
 <?php
 /**
- * Title: Placeholder — Toasts (legacy slug)
- * Slug: jardin-theme/placeholder-beers
+ * Title: Placeholder — Toasts
+ * Slug: jardin-theme/placeholder-toasts
  * Categories: text
- * Description: Same as `jardin-theme/placeholder-toasts`; slug kept for existing page content. Prefer the toasts pattern in new layouts.
- * Inserter: no
+ * Description: Temporary notice until jardin-toasts blocks are wired on this page.
  *
  * @package Jardin_Theme
  */
