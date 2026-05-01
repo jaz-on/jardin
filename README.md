@@ -1,6 +1,6 @@
 # jardin-theme
 
-WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Long-form specs and roadmap live in the local tree `[../jardin-docs](../jardin-docs)` (do not copy those `.md` files into this repo).
+Jardin · thème bloc FSE : modèles, patterns et styles pour [jasonrouet.com](https://jasonrouet.com). Specs longues et roadmap : dépôt local [jardin-docs](../jardin-docs) (non copiés dans ce dépôt).
 
 ## Requirements
 

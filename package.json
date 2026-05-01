@@ -2,7 +2,7 @@
 	"name": "jardin-theme",
 	"private": true,
 	"license": "GPL-2.0-or-later",
-	"description": "Thème bloc (FSE) jardin",
+	"description": "Jardin · thème bloc FSE : modèles, patterns et styles pour jasonrouet.com.",
 	"scripts": {
 		"hooks:install": "bash scripts/install-git-hooks.sh"
 	}
