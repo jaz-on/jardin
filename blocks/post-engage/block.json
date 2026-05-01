@@ -11,5 +11,12 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"displayMode": {
+			"type": "string",
+			"default": "full",
+			"enum": [ "full", "compact" ]
+		}
+	},
 	"render": "file:./render.php"
 }

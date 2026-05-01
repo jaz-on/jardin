@@ -22,5 +22,7 @@
 	<!-- wp:post-title {"isLink":true,"level":3,"className":"entry-title"} /-->
 
 	<!-- wp:post-excerpt {"moreText":"","className":"entry-excerpt"} /-->
+
+	<!-- wp:jardin-theme/post-engage {"displayMode":"compact"} /-->
 </div>
 <!-- /wp:group -->

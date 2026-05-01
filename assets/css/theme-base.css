@@ -390,6 +390,44 @@ p.bio,
 .jardin-theme-post-engage__cta:hover {
 	text-decoration: underline;
 }
+
+/* Post-engage compact: feed / archive cards (MOCKUP parity P5–P6) */
+.entry .jardin-theme-post-engage--compact {
+	margin-top: var(--wp--preset--spacing--2);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__teaser {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.15rem 0.35rem;
+	color: var(--wp--preset--color--text-muted);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__pill {
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: var(--wp--custom--radius--pill, 999px);
+	padding: 0.1rem 0.45rem;
+	border: 1px solid var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__pill:hover {
+	text-decoration: underline;
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse-link {
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+}
+.jardin-theme-post-engage--compact .jardin-theme-post-engage__posse-link:hover {
+	text-decoration: underline;
+}
+
 .jardin-theme-wm__list {
 	margin: 0;
 	padding: 0;

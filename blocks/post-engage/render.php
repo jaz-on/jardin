@@ -22,6 +22,8 @@ if ( ! $post ) {
 	return '';
 }
 
+$display_mode = ( isset( $attributes['displayMode'] ) && 'compact' === $attributes['displayMode'] ) ? 'compact' : 'full';
+
 $raw  = apply_filters( 'syndication_links', array(), $post->ID );
 $rows = is_array( $raw ) ? $raw : array();
 $out  = array( 'bluesky' => null, 'mastodon' => null );
@@ -54,28 +56,88 @@ foreach ( $rows as $k => $row ) {
 }
 $has_cards = ( null !== $out['bluesky'] || null !== $out['mastodon'] );
 
-$wm = get_comments(
+$wm_count = (int) get_comments(
 	array(
 		'post_id' => (int) $post->ID,
 		'status'  => 'approve',
 		'type'    => 'webmention',
-		'orderby' => 'comment_date_gmt',
-		'order'   => 'ASC',
-		'number'  => 40,
+		'count'   => true,
 	)
 );
-$wm     = is_array( $wm ) ? $wm : array();
-$has_wm = (bool) count( $wm );
 
-$editor_hint = ( ! $has_cards && ! empty( $rows ) && current_user_can( 'edit_post', (int) $post->ID ) );
+$wm = array();
+if ( 'full' === $display_mode && $wm_count > 0 ) {
+	$wm = get_comments(
+		array(
+			'post_id' => (int) $post->ID,
+			'status'  => 'approve',
+			'type'    => 'webmention',
+			'orderby' => 'comment_date_gmt',
+			'order'   => 'ASC',
+			'number'  => 40,
+		)
+	);
+	$wm = is_array( $wm ) ? $wm : array();
+}
+
+$has_wm = $wm_count > 0;
+
+$editor_hint = ( 'full' === $display_mode && ! $has_cards && ! empty( $rows ) && current_user_can( 'edit_post', (int) $post->ID ) );
 
 if ( ! $has_cards && ! $has_wm && ! $editor_hint ) {
 	return '';
 }
 
+$engage_id = 'jardin-post-engage-' . (int) $post->ID;
+$permalink = get_permalink( $post );
+$permalink = is_string( $permalink ) ? $permalink : '';
+
+if ( 'compact' === $display_mode ) {
+	$posse_parts = array();
+	$order       = array( 'bluesky' => _x( 'BS', 'abbrev syndication Bluesky', 'jardin-theme' ), 'mastodon' => _x( 'Fed', 'abbrev syndication fediverse', 'jardin-theme' ) );
+	foreach ( $order as $d => $abbr ) {
+		$row = $out[ $d ] ?? null;
+		if ( ! is_array( $row ) || empty( $row['url'] ) ) {
+			continue;
+		}
+		$posse_parts[] = sprintf(
+			'<a class="jardin-theme-post-engage__posse-link" rel="external noopener noreferrer" href="%1$s">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+			esc_url( (string) $row['url'] ),
+			esc_html( (string) $abbr ),
+			esc_html( 'bluesky' === $d ? _x( 'Bluesky', 'syndication service name', 'jardin-theme' ) : _x( 'Mastodon', 'syndication service name', 'jardin-theme' ) )
+		);
+	}
+	$has_posse = ! empty( $posse_parts );
+
+	ob_start();
+	?>
+<div class="jardin-theme-post-engage jardin-theme-post-engage--compact has-xs-font-size" data-post-engage id="<?php echo esc_attr( $engage_id ); ?>">
+	<p class="jardin-theme-post-engage__teaser">
+		<?php if ( $wm_count > 0 && '' !== $permalink ) : ?>
+			<?php
+			$wm_line = sprintf(
+				/* translators: %d: number of webmention comments */
+				_n( '%d reaction', '%d reactions', $wm_count, 'jardin-theme' ),
+				$wm_count
+			);
+			?>
+			<a class="jardin-theme-post-engage__pill" href="<?php echo esc_url( $permalink . '#' . $engage_id ); ?>"><?php echo esc_html( $wm_line ); ?></a>
+			<?php if ( $has_posse ) : ?>
+				<span class="jardin-theme-post-engage__sep" aria-hidden="true"> · </span>
+			<?php endif; ?>
+		<?php endif; ?>
+		<?php if ( $has_posse ) : ?>
+			<span class="jardin-theme-post-engage__posse" aria-label="<?php echo esc_attr__( 'Syndication', 'jardin-theme' ); ?>"><?php echo implode( '', $posse_parts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+		<?php endif; ?>
+	</p>
+</div>
+	<?php
+	return (string) ob_get_clean();
+}
+
 ob_start();
 ?>
-<section class="jardin-theme-post-engage" data-post-engage>
+<section class="jardin-theme-post-engage" data-post-engage id="<?php echo esc_attr( $engage_id ); ?>">
 	<?php if ( $has_cards ) : ?>
 	<header class="jardin-theme-post-engage__head">
 		<h2 class="jardin-theme-post-engage__title has-sm-font-size"><?php echo esc_html__( 'On the fediverse', 'jardin-theme' ); ?></h2>

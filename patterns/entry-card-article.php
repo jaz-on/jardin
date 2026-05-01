@@ -27,5 +27,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:post-excerpt {"moreText":"","className":"entry-excerpt"} /-->
+
+	<!-- wp:jardin-theme/post-engage {"displayMode":"compact"} /-->
 </div>
 <!-- /wp:group -->
