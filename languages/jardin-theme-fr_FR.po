@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
-"POT-Creation-Date: 2026-05-01T13:29:15+00:00\n"
+"POT-Creation-Date: 2026-05-01T18:49:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -116,7 +116,7 @@ msgstr "Mentions et réponses"
 msgid "Someone"
 msgstr "Quelqu’un"
 
-#: inc/activity-hub.php:65 patterns/home-feed.php:39
+#: inc/activity-hub.php:65 patterns/home-feed.php:41
 msgid "Activities"
 msgstr "Activités"
 
@@ -316,35 +316,35 @@ msgstr "Réponse"
 msgid "Activity"
 msgstr "Activité"
 
-#: inc/header-toolbar.php:37
+#: inc/header-toolbar.php:55
 msgid "Language"
 msgstr ""
 
-#: inc/header-toolbar.php:86
+#: inc/header-toolbar.php:105
 msgid "Search, theme, music, and support"
 msgstr ""
 
-#: inc/header-toolbar.php:91
+#: inc/header-toolbar.php:110
 msgid "Search"
 msgstr ""
 
-#: inc/header-toolbar.php:97 inc/header-toolbar.php:98
+#: inc/header-toolbar.php:116 inc/header-toolbar.php:117
 msgid "Now playing"
 msgstr ""
 
-#: inc/header-toolbar.php:103 inc/header-toolbar.php:104
+#: inc/header-toolbar.php:122 inc/header-toolbar.php:123
 msgid "Support me"
 msgstr ""
 
-#: inc/header-toolbar.php:123
+#: inc/header-toolbar.php:143
 msgid "Site utilities"
 msgstr ""
 
-#: inc/header-toolbar.php:132
+#: inc/header-toolbar.php:152
 msgid "Menu"
 msgstr ""
 
-#: inc/header-toolbar.php:152
+#: inc/header-toolbar.php:173
 msgid "Tools"
 msgstr ""
 
@@ -352,23 +352,18 @@ msgstr ""
 msgid "Filter journal"
 msgstr "Filtrer le journal"
 
-#: inc/journal-hub.php:406 patterns/activity-feed-header.php:12
-#: patterns/home-feed.php:34
+#: inc/journal-hub.php:406 patterns/activity-feed-header.php:15
+#: patterns/home-feed.php:36
 msgid "All"
 msgstr "Tous"
 
-#: inc/journal-hub.php:407 patterns/home-feed.php:36
+#: inc/journal-hub.php:407 patterns/home-feed.php:38
 msgid "Posts"
 msgstr "Billets"
 
-#: inc/journal-hub.php:409 patterns/home-feed.php:42
+#: inc/journal-hub.php:409 patterns/home-feed.php:44
 msgid "Events"
 msgstr "Événements"
-
-#. translators: %s: theme template basename
-#: inc/page-template-urls.php:90
-msgid "Multiple published pages use template %s; using the first match."
-msgstr ""
 
 #: inc/placeholder-copy.php:18
 msgid ""
@@ -507,52 +502,64 @@ msgstr ""
 #: patterns/activity-feed-header.php
 msgctxt "Pattern description"
 msgid ""
-"note_kind filter pills for the iwcpt_note archive (hub /activites/ or /"
-"activities/)."
+"note_kind filter pills; base URL starter /activites/ — edit archive slug in "
+"Site Editor if needed."
 msgstr ""
 
-#: patterns/activity-feed-header.php:13
+#: patterns/activity-feed-header.php:16
 msgid "bookmark"
 msgstr ""
 
-#: patterns/activity-feed-header.php:14
+#: patterns/activity-feed-header.php:17
 msgid "quote"
 msgstr ""
 
-#: patterns/activity-feed-header.php:15
+#: patterns/activity-feed-header.php:18
 msgid "listen"
 msgstr ""
 
-#: patterns/activity-feed-header.php:16 patterns/listen-single-header.php:83
+#: patterns/activity-feed-header.php:19 patterns/listen-single-header.php:83
 msgid "jam"
 msgstr ""
 
-#: patterns/activity-feed-header.php:17
+#: patterns/activity-feed-header.php:20
 msgid "tasting"
 msgstr ""
 
-#: patterns/activity-feed-header.php:18
+#: patterns/activity-feed-header.php:21
 msgid "review"
 msgstr ""
 
-#: patterns/activity-feed-header.php:19
+#: patterns/activity-feed-header.php:22
 msgid "reply"
 msgstr ""
 
-#: patterns/activity-feed-header.php:20
+#: patterns/activity-feed-header.php:23
 msgid "til"
 msgstr ""
 
-#: patterns/activity-feed-header.php:21
+#: patterns/activity-feed-header.php:24
 msgid "note"
 msgstr ""
 
-#: patterns/activity-feed-header.php:59
+#: patterns/activity-feed-header.php:54
 msgid "Filter activity feed"
 msgstr ""
 
-#: patterns/activity-feed-header.php:60
+#: patterns/activity-feed-header.php:55
 msgid "Filter by entry type"
+msgstr ""
+
+#: patterns/bookmarks-bindings-sample.php
+msgctxt "Pattern title"
+msgid "Bookmarks — favorite / blogroll meta (bindings sample)"
+msgstr ""
+
+#: patterns/bookmarks-bindings-sample.php
+msgctxt "Pattern description"
+msgid ""
+"Sample paragraphs for favorite source title and blogroll description "
+"(requires jardin-bookmarks)."
 msgstr ""
 
 #: patterns/entry-card-article.php
@@ -576,12 +583,24 @@ msgid ""
 "Entry row for Query Loop (.entry + server-side data-kind / data-note-kind)."
 msgstr ""
 
+#: patterns/event-bindings-sample.php
+msgctxt "Pattern title"
+msgid "Event — meta via block bindings (sample)"
+msgstr ""
+
+#: patterns/event-bindings-sample.php
+msgctxt "Pattern description"
+msgid ""
+"Sample group binding event date, location, and roles to core paragraphs "
+"(requires jardin-events)."
+msgstr ""
+
 #: patterns/footer-heading-explore.php
 msgctxt "Pattern title"
 msgid "Footer heading — Explore"
 msgstr ""
 
-#: patterns/footer-heading-explore.php:12 patterns/footer-main.php:65
+#: patterns/footer-heading-explore.php:12 patterns/footer-main.php:20
 msgid "Explore"
 msgstr "Explorer"
 
@@ -602,56 +621,80 @@ msgstr ""
 #: patterns/footer-main.php
 msgctxt "Pattern description"
 msgid ""
-"Four-column mockup (.cols), hub links from page templates where possible. See "
-"mockup.html ~13315."
+"Four columns with core Navigation blocks (starter links). Edit in Site "
+"Editor; webring block below."
 msgstr ""
 
-#: patterns/footer-main.php:75
+#: patterns/footer-main.php:34
 msgid "More to explore"
 msgstr "Pour aller plus loin"
 
-#: patterns/footer-main.php:84
+#: patterns/footer-main.php:47
 msgid "This site"
 msgstr "Ce site"
 
-#: patterns/footer-main.php:95
+#: patterns/footer-main.php:62
 msgid "Reach me"
 msgstr "Me joindre"
 
-#: patterns/footer-main.php:99
+#: patterns/footer-main.php:69
 msgid "Bluesky"
 msgstr ""
 
-#: patterns/footer-main.php:100
+#: patterns/footer-main.php:69
 msgid "LinkedIn"
 msgstr ""
 
-#: patterns/footer-main.php:101
+#: patterns/footer-main.php:69
 msgid "Mastodon"
 msgstr ""
 
-#: patterns/footer-main.php:108
+#: patterns/footer-main.php:79
 msgid "IndieWeb webring"
 msgstr ""
 
-#: patterns/footer-main.php:111
+#: patterns/footer-main.php:82
 msgid "← previous site"
 msgstr ""
 
-#: patterns/footer-main.php:113
+#: patterns/footer-main.php:84
 msgid "next site →"
+msgstr ""
+
+#: patterns/header-brand-row.php
+msgctxt "Pattern title"
+msgid "Header — brand row (logo + toolbar)"
+msgstr ""
+
+#: patterns/header-brand-row.php
+msgctxt "Pattern description"
+msgid ""
+"First header row: JR mark and header utilities. Edit the nested Site brand or "
+"Header utilities blocks; use together with Header — nav row."
 msgstr ""
 
 #: patterns/header-main.php
 msgctxt "Pattern title"
-msgid "Header — brand, toolbar, navigation"
+msgid "Header — full (brand + nav)"
 msgstr ""
 
 #: patterns/header-main.php
 msgctxt "Pattern description"
 msgid ""
-"Header content (brand row + toolbar, then nav) — same approach as jardin-"
-"theme/footer-main. See mockup.html header.site ~1005–1133."
+"Full header content: composes Header — brand row and Header — nav row. Prefer "
+"editing those two patterns or the header template part directly."
+msgstr ""
+
+#: patterns/header-nav-row.php
+msgctxt "Pattern title"
+msgid "Header — nav row (primary nav + mobile drawer tools)"
+msgstr ""
+
+#: patterns/header-nav-row.php
+msgctxt "Pattern description"
+msgid ""
+"Primary Navigation (starter links) and drawer utilities — edit links in Site "
+"Editor after inserting or reset template part."
 msgstr ""
 
 #: patterns/home-bio.php
@@ -679,16 +722,14 @@ msgstr ""
 #: patterns/home-events-upcoming.php
 msgctxt "Pattern description"
 msgid ""
-"Upcoming events widget for the home page. Uses jardin-theme/events-upcoming "
-"query namespace (event_date >= today, ASC). Displays nothing if no upcoming "
-"events are found."
+"Upcoming events; archive link starter /evenements/ — edit in Site Editor."
 msgstr ""
 
-#: patterns/home-events-upcoming.php:26
+#: patterns/home-events-upcoming.php:20
 msgid "IRL"
 msgstr ""
 
-#: patterns/home-events-upcoming.php:53
+#: patterns/home-events-upcoming.php:45
 msgid "I live in Cognac — happy to grab coffee if you are passing through. ✌️"
 msgstr ""
 
@@ -699,15 +740,16 @@ msgstr ""
 
 #: patterns/home-featured-projects.php
 msgctxt "Pattern description"
-msgid "Pinned projects grid sourced from the project CPT."
+msgid ""
+"Pinned projects grid; section link starter /projets/ — edit in Site Editor."
 msgstr ""
 
-#. translators: 1: projects hub URL, 2: path label e.g. /projets
-#: patterns/home-featured-projects.php:21
+#. translators: 1: projects hub URL (starter), 2: path label
+#: patterns/home-featured-projects.php:22
 msgid "Pinned projects <a href=\"%1$s\" class=\"section-link\">%2$s →</a>"
 msgstr ""
 
-#: patterns/home-featured-projects.php:47
+#: patterns/home-featured-projects.php:48
 msgid "No pinned projects yet."
 msgstr ""
 
@@ -719,20 +761,20 @@ msgstr ""
 #: patterns/home-feed.php
 msgctxt "Pattern description"
 msgid ""
-"Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-"
-"mixed query, entry-card."
+"Mixed journal feed with starter links to /journal/ — edit headings and "
+"filters in Site Editor."
 msgstr ""
 
-#. translators: %s: URL of the journal hub page
-#: patterns/home-feed.php:22
+#. translators: %s: URL path to journal hub (edit in Site Editor if needed)
+#: patterns/home-feed.php:24
 msgid "My feed <a href=\"%s\" class=\"section-link\">see all →</a>"
 msgstr "Mon fil <a href=\"%s\" class=\"section-link\">tout voir →</a>"
 
-#: patterns/home-feed.php:33
+#: patterns/home-feed.php:35
 msgid "Filter by type"
 msgstr "Filtrer par type"
 
-#: patterns/home-feed.php:64
+#: patterns/home-feed.php:66
 msgid "Full journal →"
 msgstr "Journal complet →"
 
@@ -759,6 +801,16 @@ msgstr ""
 "écoutes, check-ins bière, etc.), événements et micro-apprentissages — du plus "
 "récent au plus ancien. Les scrobbles bruts et dégustations sans texte restent "
 "dans leurs vues dédiées ; utilisez les filtres pour affiner par type."
+
+#: patterns/listen-bindings-sample.php
+msgctxt "Pattern title"
+msgid "Listen — track/artist via block bindings (sample)"
+msgstr ""
+
+#: patterns/listen-bindings-sample.php
+msgctxt "Pattern description"
+msgid "Sample paragraphs bound to listen post meta (requires jardin-scrobbles)."
+msgstr ""
 
 #: patterns/listen-single-header.php
 msgctxt "Pattern title"
@@ -969,33 +1021,43 @@ msgstr "Maintenant"
 msgid "Entries from the now (monthly edition) post type."
 msgstr ""
 
-#: blocks/header-utilities/index.js:20
+#: blocks/header-utilities/index.js:24
 msgid "Placement"
 msgstr ""
 
-#: blocks/header-utilities/index.js:22
+#: blocks/header-utilities/index.js:26
 msgid "Variant"
 msgstr ""
 
-#: blocks/header-utilities/index.js:25
+#: blocks/header-utilities/index.js:29
 msgid "Header row (brand line)"
 msgstr ""
 
-#: blocks/header-utilities/index.js:26
+#: blocks/header-utilities/index.js:30
 msgid "Mobile drawer tools"
 msgstr ""
 
-#: blocks/header-utilities/index.js:32
+#: blocks/header-utilities/index.js:35
+msgid "Support link"
+msgstr ""
+
+#: blocks/header-utilities/index.js:36
+msgid ""
+"Path from site root (e.g. /soutenir/) or full https URL. Used for the "
+"coffee / support icon."
+msgstr ""
+
+#: blocks/header-utilities/index.js:45
 msgid "Header utilities"
 msgstr ""
 
-#: blocks/header-utilities/index.js:37
+#: blocks/header-utilities/index.js:50
 msgid ""
 "Drawer: same actions as the header chrome, shown inside the menu on small "
 "screens."
 msgstr ""
 
-#: blocks/header-utilities/index.js:38
+#: blocks/header-utilities/index.js:51
 msgid ""
 "Renders language, menu, search, theme, music, and support on the live site."
 msgstr ""
@@ -1045,7 +1107,7 @@ msgstr ""
 msgctxt "block description"
 msgid ""
 "Language switcher, menu, search, theme, music, and support — header row or "
-"mobile drawer."
+"mobile drawer. Set Support link (supportUrl) in the block sidebar."
 msgstr ""
 
 #: blocks/post-engage/block.json

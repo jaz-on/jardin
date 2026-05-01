@@ -3,10 +3,13 @@
  * Title: Activity archive — filters
  * Slug: jardin-theme/activity-feed-header
  * Categories: text
- * Description: note_kind filter pills for the iwcpt_note archive (hub /activites/ or /activities/).
+ * Description: note_kind filter pills; base URL starter /activites/ — edit archive slug in Site Editor if needed.
  * Inserter: no
  *
- * @package Jardin_Theme */
+ * @package Jardin_Theme
+ */
+
+defined( 'ABSPATH' ) || exit;
 
 $kinds = array(
 	array( 'slug' => '', 'label' => __( 'All', 'jardin-theme' ) ),
@@ -21,15 +24,7 @@ $kinds = array(
 	array( 'slug' => 'note', 'label' => __( 'note', 'jardin-theme' ) ),
 );
 
-$base = '';
-if ( function_exists( 'jardin_get_activity_archive_url' ) ) {
-	$base = jardin_get_activity_archive_url();
-} elseif ( function_exists( 'get_post_type_archive_link' ) ) {
-	$base = (string) get_post_type_archive_link( 'iwcpt_note' );
-}
-if ( ! $base ) {
-	$base = trailingslashit( home_url( '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' ) ) );
-}
+$base = trailingslashit( home_url( '/activites/' ) );
 
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $current = isset( $_GET['note_kind'] ) ? sanitize_key( wp_unslash( $_GET['note_kind'] ) ) : '';

@@ -3,12 +3,14 @@
  * Title: Home — Feed
  * Slug: jardin-theme/home-feed
  * Categories: query
- * Description: Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card.
+ * Description: Mixed journal feed with starter links to /journal/ — edit headings and filters in Site Editor.
  * Inserter: no
  *
- * @package Jardin_Theme */
+ * @package Jardin_Theme
+ */
 
-$journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : trailingslashit( home_url( '/' ) );
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <!-- wp:group {"className":"home-feed-section","style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"bottom":"var:preset|spacing|4"}}}} -->
 <div class="wp-block-group home-feed-section">
@@ -18,9 +20,9 @@ $journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_
 		<h2 class="wp-block-heading section-with-link"><?php
 			echo wp_kses(
 				sprintf(
-					/* translators: %s: URL of the journal hub page */
+					/* translators: %s: URL path to journal hub (edit in Site Editor if needed) */
 					__( 'My feed <a href="%s" class="section-link">see all →</a>', 'jardin-theme' ),
-					esc_url( $journal_url )
+					esc_url( trailingslashit( home_url( '/journal/' ) ) )
 				),
 				array( 'a' => array( 'href' => true, 'class' => true ) )
 			);
@@ -61,5 +63,5 @@ $journal_url = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} -->
-<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--4)"><a href="<?php echo esc_url( $journal_url ); ?>"><?php esc_html_e( 'Full journal →', 'jardin-theme' ); ?></a></p>
+<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--4)"><a href="<?php echo esc_url( trailingslashit( home_url( '/journal/' ) ) ); ?>"><?php esc_html_e( 'Full journal →', 'jardin-theme' ); ?></a></p>
 <!-- /wp:paragraph -->

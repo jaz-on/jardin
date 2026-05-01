@@ -10,4 +10,4 @@
 
 defined( 'ABSPATH' ) || exit;
 
-echo '<!-- wp:jardin-theme/header-utilities {"variant":"header","className":"is-header-toolbar-slot"} /-->';
+echo '<!-- wp:jardin-theme/header-utilities {"variant":"header","className":"is-header-toolbar-slot","supportUrl":"/soutenir/"} /-->';

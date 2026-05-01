@@ -7,7 +7,7 @@ Jardin · thème bloc FSE : modèles, patterns et styles pour [jasonrouet.com](h
 - WordPress **6.6+** (aligné sur `style.css`) ; thème déclaré **testé jusqu’à 7.0**
 - PHP **8.2+** (valider localement sous **8.4** ; la pile Jardin cible cette base)
 
-**Hub pages (journal, projects, now, toasts, etc.)** : assign the matching **custom page template** from the Site Editor (e.g. *Journal hub* on the journal page). Header/footer/patterns resolve URLs from `_wp_page_template`, not hard-coded slugs. If no page uses a template yet, the theme falls back to legacy paths; override with the `jardin_hub_legacy_path` filter. **Core UI language packs** (e.g. `fr_FR` for WordPress itself) are a site install concern, not bundled by the theme.
+**Navigation & footer** : starter links live in **theme patterns** (`patterns/header-nav-row.php`, `patterns/footer-main.php`, etc.) as core `Navigation` blocks with example paths (`/journal/`, …). **Edit links in the Site Editor** (template parts Header/Footer — clear customizations to reload theme defaults). The **Support** icon URL is the block attribute `supportUrl` on `jardin-theme/header-utilities` (default `/soutenir/`). **Hub page templates** (`page-journal`, `page-projects`, …) still define **layout** (Query Loop, etc.), not automatic menu URLs. **Core UI language packs** are a site install concern, not bundled by the theme.
 
 ## Install
 
@@ -17,9 +17,9 @@ Jardin · thème bloc FSE : modèles, patterns et styles pour [jasonrouet.com](h
 
 **Customized template parts:** if the header (or another part) ignores Git updates, reset it in the Site Editor (**Patterns / Template parts** → open part → clear customizations) so files from the theme load again.
 
-### Header (logo, icônes, navigation) — réaligner après un changement de thème
+### Header / Footer (navigation, colonnes) — réaligner après un changement de thème
 
-Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème, musique, soutien) ou le **menu burger / zone Tools** sur mobile, le plus souvent la **partie de modèle Header** en base ne contient plus les patterns du fichier du thème.
+Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème, musique, soutien) ou le **menu burger / zone Tools** sur mobile, le plus souvent la **partie de modèle Header** en base ne contient plus les patterns du fichier du thème. Idem pour le **Footer** (4 colonnes + webring) : **Effacer les personnalisations** sur la partie **Footer** pour charger les `Navigation` du thème.
 
 1. **Apparence → Éditeur de site** → **Modèles** → **Parties de modèle** → **Header** (ou « En-tête »).
 2. Menu **⋮** sur la partie → **Effacer les personnalisations** (confirmer). Répéter sur **dev** et **prod** si besoin.

@@ -5,12 +5,16 @@
 	"title": "Header utilities",
 	"category": "widgets",
 	"icon": "admin-customizer",
-	"description": "Language switcher, menu, search, theme, music, and support — header row or mobile drawer.",
+	"description": "Language switcher, menu, search, theme, music, and support — header row or mobile drawer. Set Support link (supportUrl) in the block sidebar.",
 	"textdomain": "jardin-theme",
 	"attributes": {
 		"variant": {
 			"type": "string",
 			"default": "header"
+		},
+		"supportUrl": {
+			"type": "string",
+			"default": "/soutenir/"
 		}
 	},
 	"supports": {

@@ -10,6 +10,24 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Resolve support link from block attribute (path like /soutenir/ or full URL).
+ *
+ * @param string $raw Attribute value; empty defaults to /soutenir/.
+ * @return string Unescaped URL (pass through esc_url() in markup).
+ */
+function jardin_resolve_toolbar_support_url( string $raw ): string {
+	$raw = trim( $raw );
+	if ( '' === $raw ) {
+		$raw = '/soutenir/';
+	}
+	if ( preg_match( '#^https?://#i', $raw ) ) {
+		return $raw;
+	}
+	$path = '/' . trim( $raw, '/' ) . '/';
+	return trailingslashit( home_url( $path ) );
+}
+
+/**
  * Polylang language switcher markup (empty when Polylang is absent or has no languages).
  *
  * @return string
@@ -71,12 +89,13 @@ function jardin_get_toolbar_burger_svg(): string {
  *
  * @param string $chrome_class `toolbar-chrome--header` or `toolbar-chrome--drawer`.
  * @param bool   $wrap_group   When true, add role="group" and aria-label (drawer row).
+ * @param string $support_url_raw Support link path or URL (from block attribute); empty uses /soutenir/.
  * @return string
  */
-function jardin_get_toolbar_chrome_inner_markup( string $chrome_class, bool $wrap_group = false ): string {
+function jardin_get_toolbar_chrome_inner_markup( string $chrome_class, bool $wrap_group = false, string $support_url_raw = '' ): string {
 	$svgs        = jardin_get_toolbar_chrome_svgs();
 	$search_url  = home_url( '/?s=' );
-	$support_url = function_exists( 'jardin_support_hub_url' ) ? jardin_support_hub_url() : trailingslashit( home_url( '/soutenir/' ) );
+	$support_url = jardin_resolve_toolbar_support_url( $support_url_raw );
 	$theme       = function_exists( 'jardin_get_theme_toggle_markup' ) ? jardin_get_theme_toggle_markup() : '';
 
 	ob_start();
@@ -111,12 +130,13 @@ function jardin_get_toolbar_chrome_inner_markup( string $chrome_class, bool $wra
 /**
  * Header row: language, burger, chrome (desktop / collapsed chrome on small screens per CSS).
  *
+ * @param string $support_url_raw Support link (block attribute).
  * @return string
  */
-function jardin_get_header_utilities_header_markup(): string {
+function jardin_get_header_utilities_header_markup( string $support_url_raw = '' ): string {
 	$lang = jardin_get_toolbar_language_markup();
 	$svg_burger = jardin_get_toolbar_burger_svg();
-	$chrome     = jardin_get_toolbar_chrome_inner_markup( 'toolbar-chrome--header', false );
+	$chrome     = jardin_get_toolbar_chrome_inner_markup( 'toolbar-chrome--header', false, $support_url_raw );
 
 	ob_start();
 	?>
@@ -141,10 +161,11 @@ function jardin_get_header_utilities_header_markup(): string {
 /**
  * Mobile nav drawer: heading + same chrome actions as header.
  *
+ * @param string $support_url_raw Support link (block attribute).
  * @return string
  */
-function jardin_get_header_utilities_drawer_markup(): string {
-	$chrome = jardin_get_toolbar_chrome_inner_markup( 'toolbar-chrome--drawer', true );
+function jardin_get_header_utilities_drawer_markup( string $support_url_raw = '' ): string {
+	$chrome = jardin_get_toolbar_chrome_inner_markup( 'toolbar-chrome--drawer', true, $support_url_raw );
 
 	ob_start();
 	?>

@@ -3,106 +3,77 @@
  * Title: Footer — 4 colonnes + webring
  * Slug: jardin-theme/footer-main
  * Categories: footer
- * Description: Four-column mockup (.cols), hub links from page templates where possible. See mockup.html ~13315.
+ * Description: Four columns with core Navigation blocks (starter links). Edit in Site Editor; webring block below.
  * Inserter: no
  *
- * @package Jardin_Theme */
+ * @package Jardin_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
-/**
- * @param string $path Path with leading slash (fallback when no template page).
- * @return string
- */
-$u = static function ( string $path ): string {
-	return esc_url( home_url( $path ) );
-};
-
-$activity_url   = function_exists( 'jardin_get_activity_archive_url' ) ? jardin_get_activity_archive_url() : $u( '/activites/' );
-$activity_label = '/' . ( function_exists( 'jardin_get_activity_path_segment' ) ? jardin_get_activity_path_segment() : 'activites' );
-
-$journal_url   = function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : $u( '/journal/' );
-$journal_label = function_exists( 'jardin_journal_hub_label' ) ? jardin_journal_hub_label() : '/journal';
-
-$articles_url   = function_exists( 'jardin_articles_hub_url' ) ? jardin_articles_hub_url() : $u( '/articles/' );
-$articles_label = function_exists( 'jardin_articles_hub_label' ) ? jardin_articles_hub_label() : '/articles';
-
-$events_url   = function_exists( 'jardin_get_event_archive_url' ) ? jardin_get_event_archive_url() : '';
-$events_label = function_exists( 'jardin_get_event_archive_label' ) ? jardin_get_event_archive_label() : '';
-if ( '' === $events_url ) {
-	$events_url = $u( '/evenements/' );
-}
-if ( '' === $events_label ) {
-	$events_label = '/evenements';
-}
-
-$projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : $u( '/projets/' );
-$projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
-
-$now_url   = function_exists( 'jardin_updates_hub_url' ) ? jardin_updates_hub_url() : $u( '/maintenant/' );
-$now_label = function_exists( 'jardin_updates_hub_label' ) ? jardin_updates_hub_label() : '/maintenant';
-
-$toasts_url   = function_exists( 'jardin_toasts_hub_url' ) ? jardin_toasts_hub_url() : $u( '/toast/' );
-$toasts_label = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_hub_label() : '/toast';
-
-$dlc_url   = function_exists( 'jardin_dlc_hub_url' ) ? jardin_dlc_hub_url() : $u( '/dlc/' );
-$dlc_label = function_exists( 'jardin_dlc_hub_label' ) ? jardin_dlc_hub_label() : '/dlc';
-
-$blogroll_url   = function_exists( 'jardin_blogroll_hub_url' ) ? jardin_blogroll_hub_url() : $u( '/blogroll/' );
-$blogroll_label = function_exists( 'jardin_blogroll_hub_label' ) ? jardin_blogroll_hub_label() : '/blogroll';
-
-$sf_url = static function ( string $key ): string {
-	return function_exists( 'jardin_get_secondary_footer_url' ) ? jardin_get_secondary_footer_url( $key ) : esc_url( home_url( '/' ) );
-};
-$sf_lbl = static function ( string $key ): string {
-	return function_exists( 'jardin_get_secondary_footer_label' ) ? jardin_get_secondary_footer_label( $key ) : '/' . $key;
-};
-
 ?>
-<!-- wp:html -->
-<div class="cols">
-	<div>
-		<h4><?php esc_html_e( 'Explore', 'jardin-theme' ); ?></h4>
-		<ul>
-			<li><a href="<?php echo esc_url( $journal_url ); ?>"><?php echo esc_html( $journal_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $articles_url ); ?>"><?php echo esc_html( $articles_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $activity_url ); ?>"><?php echo esc_html( $activity_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $events_url ); ?>"><?php echo esc_html( $events_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $projects_url ); ?>"><?php echo esc_html( $projects_label ); ?></a></li>
-		</ul>
+<!-- wp:columns {"align":"wide","className":"cols","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|6","left":"var:preset|spacing|6"}}}} -->
+<div class="wp-block-columns alignwide cols">
+	<!-- wp:column -->
+	<div class="wp-block-column">
+		<!-- wp:heading {"level":4} -->
+		<h4 class="wp-block-heading"><?php esc_html_e( 'Explore', 'jardin-theme' ); ?></h4>
+		<!-- /wp:heading -->
+		<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical","justifyContent":"left","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
+			<!-- wp:navigation-link {"label":"/journal","type":"custom","url":"/journal/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/articles","type":"custom","url":"/articles/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/activites","type":"custom","url":"/activites/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/evenements","type":"custom","url":"/evenements/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/projets","type":"custom","url":"/projets/","kind":"custom"} /-->
+		<!-- /wp:navigation -->
 	</div>
-	<div>
-		<h4><?php esc_html_e( 'More to explore', 'jardin-theme' ); ?></h4>
-		<ul>
-			<li><a href="<?php echo esc_url( $now_url ); ?>"><?php echo esc_html( $now_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $dlc_url ); ?>"><?php echo esc_html( $dlc_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $toasts_url ); ?>"><?php echo esc_html( $toasts_label ); ?></a></li>
-			<li><a href="<?php echo esc_url( $blogroll_url ); ?>"><?php echo esc_html( $blogroll_label ); ?></a></li>
-		</ul>
+	<!-- /wp:column -->
+	<!-- wp:column -->
+	<div class="wp-block-column">
+		<!-- wp:heading {"level":4} -->
+		<h4 class="wp-block-heading"><?php esc_html_e( 'More to explore', 'jardin-theme' ); ?></h4>
+		<!-- /wp:heading -->
+		<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical","justifyContent":"left","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
+			<!-- wp:navigation-link {"label":"/maintenant","type":"custom","url":"/maintenant/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/dlc","type":"custom","url":"/dlc/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/toast","type":"custom","url":"/toast/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/blogroll","type":"custom","url":"/blogroll/","kind":"custom"} /-->
+		<!-- /wp:navigation -->
 	</div>
-	<div>
-		<h4><?php esc_html_e( 'This site', 'jardin-theme' ); ?></h4>
-		<ul>
-			<li><a href="<?php echo $sf_url( 'index' ); ?>"><?php echo esc_html( $sf_lbl( 'index' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'colophon' ); ?>"><?php echo esc_html( $sf_lbl( 'colophon' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'flux' ); ?>"><?php echo esc_html( $sf_lbl( 'flux' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'styleguide' ); ?>"><?php echo esc_html( $sf_lbl( 'styleguide' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'ia' ); ?>"><?php echo esc_html( $sf_lbl( 'ia' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'mentions_legales' ); ?>"><?php echo esc_html( $sf_lbl( 'mentions_legales' ) ); ?></a></li>
-		</ul>
+	<!-- /wp:column -->
+	<!-- wp:column -->
+	<div class="wp-block-column">
+		<!-- wp:heading {"level":4} -->
+		<h4 class="wp-block-heading"><?php esc_html_e( 'This site', 'jardin-theme' ); ?></h4>
+		<!-- /wp:heading -->
+		<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical","justifyContent":"left","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
+			<!-- wp:navigation-link {"label":"/index","type":"custom","url":"/index/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/colophon","type":"custom","url":"/colophon/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/flux","type":"custom","url":"/flux/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/styleguide","type":"custom","url":"/styleguide/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/ia","type":"custom","url":"/ia/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/mentions-légales","type":"custom","url":"/mentions-legales/","kind":"custom"} /-->
+		<!-- /wp:navigation -->
 	</div>
-	<div>
-		<h4><?php esc_html_e( 'Reach me', 'jardin-theme' ); ?></h4>
-		<ul>
-			<li><a href="<?php echo $sf_url( 'contact' ); ?>"><?php echo esc_html( $sf_lbl( 'contact' ) ); ?></a></li>
-			<li><a href="<?php echo $sf_url( 'social' ); ?>"><?php echo esc_html( $sf_lbl( 'social' ) ); ?></a></li>
-			<li><a href="https://bsky.app/profile/jasonrouet.com" rel="me noopener" target="_blank"><?php esc_html_e( 'Bluesky', 'jardin-theme' ); ?></a></li>
-			<li><a href="https://www.linkedin.com/in/jasonrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'LinkedIn', 'jardin-theme' ); ?></a></li>
-			<li><a href="https://pouet.chapril.org/@jrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'Mastodon', 'jardin-theme' ); ?></a></li>
-		</ul>
+	<!-- /wp:column -->
+	<!-- wp:column -->
+	<div class="wp-block-column">
+		<!-- wp:heading {"level":4} -->
+		<h4 class="wp-block-heading"><?php esc_html_e( 'Reach me', 'jardin-theme' ); ?></h4>
+		<!-- /wp:heading -->
+		<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical","justifyContent":"left","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0"}}} -->
+			<!-- wp:navigation-link {"label":"/contact","type":"custom","url":"/contact/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"/social","type":"custom","url":"/social/","kind":"custom"} /-->
+		<!-- /wp:navigation -->
+		<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|2"}}}} -->
+		<p style="margin-top:var(--wp--preset--spacing--2)"><a href="https://bsky.app/profile/jasonrouet.com" rel="me noopener" target="_blank"><?php esc_html_e( 'Bluesky', 'jardin-theme' ); ?></a><br /><a href="https://www.linkedin.com/in/jasonrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'LinkedIn', 'jardin-theme' ); ?></a><br /><a href="https://pouet.chapril.org/@jrouet" rel="me noopener" target="_blank"><?php esc_html_e( 'Mastodon', 'jardin-theme' ); ?></a></p>
+		<!-- /wp:paragraph -->
 	</div>
+	<!-- /wp:column -->
 </div>
+<!-- /wp:columns -->
 
+<!-- wp:html -->
 <div class="webring">
 	<span class="webring-label">
 		<a href="https://xn--sr8hvo.ws/" target="_blank" rel="noopener"><?php esc_html_e( 'IndieWeb webring', 'jardin-theme' ); ?> <span aria-hidden="true">🕸💍</span></a>

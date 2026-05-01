@@ -1,7 +1,7 @@
 ( function () {
 	const { registerBlockType } = wp.blocks;
 	const { useBlockProps, InspectorControls } = wp.blockEditor;
-	const { PanelBody, SelectControl } = wp.components;
+	const { PanelBody, SelectControl, TextControl } = wp.components;
 	const { createElement: el } = wp.element;
 	const { __ } = wp.i18n;
 
@@ -9,6 +9,10 @@
 		apiVersion: 3,
 		edit( { attributes, setAttributes } ) {
 			const variant = attributes.variant === 'drawer' ? 'drawer' : 'header';
+			const supportUrl =
+				typeof attributes.supportUrl === 'string' && attributes.supportUrl !== ''
+					? attributes.supportUrl
+					: '/soutenir/';
 			return el(
 				'div',
 				useBlockProps( { className: 'jardin-header-utilities-editor-note' } ),
@@ -26,6 +30,15 @@
 								{ label: __( 'Mobile drawer tools', 'jardin-theme' ), value: 'drawer' },
 							],
 							onChange: ( v ) => setAttributes( { variant: v } ),
+						} ),
+						el( TextControl, {
+							label: __( 'Support link', 'jardin-theme' ),
+							help: __(
+								'Path from site root (e.g. /soutenir/) or full https URL. Used for the coffee / support icon.',
+								'jardin-theme'
+							),
+							value: supportUrl,
+							onChange: ( v ) => setAttributes( { supportUrl: v } ),
 						} )
 					)
 				),

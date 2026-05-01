@@ -374,21 +374,21 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Base URL for journal ?kind= filter links: current page if it uses template page-journal, else hub URL (template or legacy).
+ * Base URL for journal ?kind= filter links (no template / permalink auto-resolution — edit hub URLs in Site Editor).
  *
  * @return string Trailing slash.
  */
 function jardin_get_journal_hub_filters_base_url(): string {
-	if ( is_singular( 'page' ) && function_exists( 'jardin_post_has_theme_template_assigned' ) ) {
+	if ( is_singular( 'page' ) ) {
 		$page_id = (int) get_queried_object_id();
-		if ( $page_id > 0 && jardin_post_has_theme_template_assigned( $page_id, 'page-journal' ) ) {
+		if ( $page_id > 0 ) {
 			$url = get_permalink( $page_id );
 			if ( is_string( $url ) && '' !== $url ) {
 				return trailingslashit( $url );
 			}
 		}
 	}
-	return function_exists( 'jardin_journal_hub_url' ) ? jardin_journal_hub_url() : trailingslashit( home_url( '/' ) );
+	return trailingslashit( home_url( '/' ) );
 }
 
 /**

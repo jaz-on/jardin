@@ -3,24 +3,25 @@
  * Title: Home — Featured projects
  * Slug: jardin-theme/home-featured-projects
  * Categories: text
- * Description: Pinned projects grid sourced from the project CPT.
+ * Description: Pinned projects grid; section link starter /projets/ — edit in Site Editor.
  * Inserter: no
  *
- * @package Jardin_Theme */
+ * @package Jardin_Theme
+ */
 
-$jardin_projects_hub_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : home_url( '/projets/' );
-$jardin_projects_hub_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
 <div class="wp-block-group home-featured-projects-wrap">
-<!-- wp:heading {"level":2,"className":"section-with-link"} -->
-<h2 class="wp-block-heading section-with-link"><?php
+<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
+<h2 class="wp-block-heading alignwide section-with-link"><?php
 	echo wp_kses(
 		sprintf(
-			/* translators: 1: projects hub URL, 2: path label e.g. /projets */
+			/* translators: 1: projects hub URL (starter), 2: path label */
 			__( 'Pinned projects <a href="%1$s" class="section-link">%2$s →</a>', 'jardin-theme' ),
-			esc_url( $jardin_projects_hub_url ),
-			esc_html( $jardin_projects_hub_label )
+			esc_url( trailingslashit( home_url( '/projets/' ) ) ),
+			esc_html( '/projets' )
 		),
 		array( 'a' => array( 'href' => true, 'class' => true ) )
 	);
