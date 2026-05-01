@@ -7,7 +7,7 @@ Jardin · thème bloc FSE : modèles, patterns et styles pour [jasonrouet.com](h
 - WordPress **6.6+** (aligné sur `style.css`) ; thème déclaré **testé jusqu’à 7.0**
 - PHP **8.2+** (valider localement sous **8.4** ; la pile Jardin cible cette base)
 
-**Navigation & footer** : starter links live in **theme patterns** (`patterns/header-nav-row.php` loads serialized markup from `patterns/includes/header-nav-row.markup.html`; `patterns/footer-main.php`, etc.) as core `Navigation` blocks with example paths (`/journal/`, …). **Edit links in the Site Editor** (template parts Header/Footer — clear customizations to reload theme defaults). The **Support** icon URL is the block attribute `supportUrl` on `jardin-theme/header-utilities` (default `/soutenir/`). **Hub page templates** (`page-journal`, `page-projects`, …) still define **layout** (Query Loop, etc.), not automatic menu URLs. **Core UI language packs** are a site install concern, not bundled by the theme.
+**Navigation & footer** : les patterns (`patterns/header-nav-row.php`, `patterns/footer-main.php`, …) exposent des blocs `Navigation` ; les liens **projets** et **événements** pointent vers les **archives CPT** (`get_post_type_archive_link`) pour coller aux permaliens réels (Polylang, filtres de slug). **Éditer les liens** dans l’éditeur de site si besoin. L’URL **Support** est l’attribut `supportUrl` du bloc `jardin-theme/header-utilities` (défaut `/soutenir/`). Les listes **projets** et **événements** vivent dans **`archive-project.html`** et **`archive-event.html`** (pas de modèles de page hub dédiés). D’autres hubs restent des modèles de page (`page-journal`, …). **Core UI language packs** : concernent l’installation WordPress, pas le paquet du thème.
 
 ## Install
 

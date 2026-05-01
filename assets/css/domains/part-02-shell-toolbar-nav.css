@@ -9,6 +9,7 @@
 	z-index: 100;
 	background: var(--wp--preset--color--bg);
 	border-bottom: 2px solid var(--wp--preset--color--accent);
+	margin-bottom: var(--wp--preset--spacing--8);
 }
 
 .site-header-shell.wp-block-group {

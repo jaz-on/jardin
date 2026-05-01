@@ -156,6 +156,49 @@ function jardin_inline_sprite(): void {
 }
 add_action( 'wp_body_open', 'jardin_inline_sprite', 1 );
 
+/**
+ * Canonical URL for a public CPT archive (Polylang-aware), or empty.
+ */
+function jardin_theme_get_post_type_archive_link( string $post_type ): string {
+	$post_type = sanitize_key( $post_type );
+	if ( '' === $post_type || ! post_type_exists( $post_type ) ) {
+		return '';
+	}
+	$link = get_post_type_archive_link( $post_type );
+	return is_string( $link ) && '' !== $link ? $link : '';
+}
+
+/**
+ * Short path label for nav (e.g. /projets, /en/projects) from the archive URL.
+ */
+function jardin_theme_archive_path_label( string $post_type ): string {
+	$link = jardin_theme_get_post_type_archive_link( $post_type );
+	if ( '' === $link ) {
+		return '';
+	}
+	$path = (string) wp_parse_url( $link, PHP_URL_PATH );
+	$path = trim( $path, '/' );
+	return '' !== $path ? '/' . $path : '/';
+}
+
+/**
+ * Serialized core/navigation-link block comment (theme patterns).
+ *
+ * @param string $label Visible label (often path-shaped).
+ * @param string $url   Absolute URL.
+ */
+function jardin_theme_navigation_link_block( string $label, string $url ): string {
+	return '<!-- wp:navigation-link ' . wp_json_encode(
+		array(
+			'label' => $label,
+			'type'  => 'custom',
+			'url'   => $url,
+			'kind'  => 'custom',
+		),
+		JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+	) . ' /-->';
+}
+
 /*
 |--------------------------------------------------------------------------
 | Rewrite flush (theme deploy / upgrade)

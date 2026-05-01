@@ -6,7 +6,7 @@ cd "$ROOT"
 missing=0
 for f in \
 	inc/header-toolbar.php \
-	patterns/includes/header-nav-row.markup.html \
+	patterns/header-nav-row.php \
 	blocks/header-utilities/block.json \
 	blocks/header-utilities/render.php \
 	blocks/header-utilities/index.js \

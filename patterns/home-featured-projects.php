@@ -3,7 +3,7 @@
  * Title: Home — Featured projects
  * Slug: jardin-theme/home-featured-projects
  * Categories: text
- * Description: Pinned projects grid; section link starter /projets/ — edit in Site Editor.
+ * Description: Pinned projects grid; section link targets the project CPT archive.
  * Inserter: no
  *
  * @package Jardin_Theme
@@ -11,8 +11,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$projects_section_url   = trailingslashit( home_url( '/projets/' ) );
-$projects_section_label = '/projets';
+$projects_section_url = jardin_theme_get_post_type_archive_link( 'project' );
+$projects_section_url = $projects_section_url ? trailingslashit( esc_url( $projects_section_url ) ) : trailingslashit( esc_url( home_url( '/projets/' ) ) );
+$projects_section_label = jardin_theme_archive_path_label( 'project' ) ?: '/projets';
 
 ?>
 <!-- wp:group {"align":"wide","className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
@@ -21,7 +22,7 @@ $projects_section_label = '/projets';
 <h2 class="wp-block-heading section-with-link"><?php
 	echo wp_kses(
 				sprintf(
-					/* translators: 1: projects section URL (starter /projets/), 2: path label shown in the link */
+					/* translators: 1: projects archive URL, 2: path label shown in the link */
 					__( 'Pinned projects <a href="%1$s" class="section-link">%2$s →</a>', 'jardin-theme' ),
 					esc_url( $projects_section_url ),
 					esc_html( $projects_section_label )

@@ -3,13 +3,17 @@
  * Title: Home — Events upcoming
  * Slug: jardin-theme/home-events-upcoming
  * Categories: query
- * Description: Upcoming events; archive link starter /evenements/ — edit in Site Editor.
+ * Description: Upcoming events; header link targets the event CPT archive.
  * Inserter: no
  *
  * @package Jardin_Theme
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$events_archive_url = jardin_theme_get_post_type_archive_link( 'event' );
+$events_archive_url = $events_archive_url ? trailingslashit( esc_url( $events_archive_url ) ) : trailingslashit( esc_url( home_url( '/evenements/' ) ) );
+$events_archive_label = jardin_theme_archive_path_label( 'event' ) ?: '/evenements';
 
 ?>
 <!-- wp:group {"align":"wide","className":"events-upcoming","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
@@ -18,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 	<!-- wp:heading {"level":3} -->
 	<h3 class="wp-block-heading">
 		<span class="events-upcoming-title"><?php esc_html_e( 'IRL', 'jardin-theme' ); ?></span>
-		<a href="<?php echo esc_url( trailingslashit( home_url( '/evenements/' ) ) ); ?>" class="events-upcoming-link"><?php echo esc_html( '/evenements →' ); ?></a>
+		<a href="<?php echo esc_url( $events_archive_url ); ?>" class="events-upcoming-link"><?php echo esc_html( $events_archive_label . ' →' ); ?></a>
 	</h3>
 	<!-- /wp:heading -->
 

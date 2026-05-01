@@ -11,6 +11,16 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$footer_home = static function ( string $path ): string {
+	return trailingslashit( esc_url( home_url( $path ) ) );
+};
+$footer_events_url   = jardin_theme_get_post_type_archive_link( 'event' );
+$footer_events_url   = $footer_events_url ? trailingslashit( esc_url( $footer_events_url ) ) : $footer_home( '/evenements/' );
+$footer_events_label = jardin_theme_archive_path_label( 'event' ) ?: '/evenements';
+$footer_projects_url   = jardin_theme_get_post_type_archive_link( 'project' );
+$footer_projects_url   = $footer_projects_url ? trailingslashit( esc_url( $footer_projects_url ) ) : $footer_home( '/projets/' );
+$footer_projects_label = jardin_theme_archive_path_label( 'project' ) ?: '/projets';
+
 ?>
 <!-- wp:columns {"className":"cols","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|6","left":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-columns cols">
@@ -23,8 +33,8 @@ defined( 'ABSPATH' ) || exit;
 			<!-- wp:navigation-link {"label":"/journal","type":"custom","url":"/journal/","kind":"custom"} /-->
 			<!-- wp:navigation-link {"label":"/articles","type":"custom","url":"/articles/","kind":"custom"} /-->
 			<!-- wp:navigation-link {"label":"/activites","type":"custom","url":"/activites/","kind":"custom"} /-->
-			<!-- wp:navigation-link {"label":"/evenements","type":"custom","url":"/evenements/","kind":"custom"} /-->
-			<!-- wp:navigation-link {"label":"/projets","type":"custom","url":"/projets/","kind":"custom"} /-->
+			<?php echo jardin_theme_navigation_link_block( $footer_events_label, $footer_events_url ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php echo jardin_theme_navigation_link_block( $footer_projects_label, $footer_projects_url ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<!-- /wp:navigation -->
 	</div>
 	<!-- /wp:column -->
