@@ -14,8 +14,8 @@ $journal_url = home_url( '/journal/' );
 <div class="wp-block-group home-feed-section">
 	<!-- wp:group {"className":"feed-header","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 	<div class="wp-block-group feed-header">
-		<!-- wp:heading {"level":2,"className":"section-with-link"} -->
-		<h2 class="section-with-link"><?php
+		<!-- wp:heading {"level":2,"align":"wide","className":"section-with-link"} -->
+		<h2 class="wp-block-heading alignwide section-with-link"><?php
 			echo wp_kses(
 				sprintf(
 					/* translators: %s: link to /journal/ */
@@ -48,7 +48,9 @@ $journal_url = home_url( '/journal/' );
 	<div class="wp-block-query">
 		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries"} -->
 			<!-- wp:pattern {"slug":"jardin-theme/entry-card"} /-->
-			<!-- wp:separator {"className":"is-style-dashed-faint"} /-->
+			<!-- wp:separator {"className":"is-style-dashed-faint"} -->
+			<hr class="wp-block-separator has-alpha-channel-opacity is-style-dashed-faint"/>
+			<!-- /wp:separator -->
 		<!-- /wp:post-template -->
 		<!-- wp:query-no-results -->
 			<!-- wp:pattern {"slug":"jardin-theme/query-empty-home"} /-->
