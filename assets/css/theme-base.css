@@ -982,6 +982,23 @@ main#main.wp-block-group {
 }
 
 /*
+ * FSE : blocs placés comme enfants directs de .wp-site-blocks (hors <main>, dérive
+ * d’éditeur / sync) — souvent des div.wp-block-group — reprennent la même colonne
+ * que le header (.site-inner) et main#main (largeur + gouttières). Exclut full-bleed.
+ */
+.wp-site-blocks > p.bio,
+.wp-site-blocks > .bio.wp-block-paragraph,
+.wp-site-blocks > .wp-block-group:not(.alignfull):not(.site-header-shell):not(.site-footer-shell) {
+	max-width: var(--wp--style--global--wide-size, 56rem);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/*
  * Header/footer inner column — same max-width + gutters as main#main.
  */
 .site-inner.alignwide,
