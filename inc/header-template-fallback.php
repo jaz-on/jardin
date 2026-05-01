@@ -12,6 +12,27 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Log header fallback decisions (debug).
+ *
+ * Enable either:
+ * - `define( 'JARDIN_DEBUG_HEADER_FALLBACK', true );` in `wp-config.php` (requires `WP_DEBUG_LOG` or server logging), or
+ * - `add_filter( 'jardin_header_template_fallback_debug', '__return_true' );` in a small MU-plugin / Code Snippets.
+ *
+ * Lines are prefixed with `[jardin header]` and JSON-encoded context.
+ *
+ * @param array<string, mixed> $context Context keys for support.
+ */
+function jardin_header_template_fallback_debug_log( array $context ): void {
+	$enabled = ( defined( 'JARDIN_DEBUG_HEADER_FALLBACK' ) && JARDIN_DEBUG_HEADER_FALLBACK )
+		|| (bool) apply_filters( 'jardin_header_template_fallback_debug', false );
+	if ( ! $enabled ) {
+		return;
+	}
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+	error_log( '[jardin header] ' . wp_json_encode( $context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
+}
+
+/**
  * Markers (legacy string check) — kept for filters and tooling; structure completeness uses
  * {@see jardin_header_template_structure_is_complete()} instead.
  *
@@ -131,27 +152,52 @@ function jardin_filter_header_template_part_fallback( $block_template, string $i
 	}
 
 	if ( ! apply_filters( 'jardin_header_template_fallback_enabled', true ) ) {
+		jardin_header_template_fallback_debug_log( array( 'event' => 'skip_filter_disabled' ) );
 		return $block_template;
 	}
 
 	if ( ! function_exists( 'get_block_file_template' ) ) {
+		jardin_header_template_fallback_debug_log( array( 'event' => 'skip_no_get_block_file_template' ) );
 		return $block_template;
 	}
 
 	if ( ! $block_template || ! isset( $block_template->content ) || ! is_string( $block_template->content ) ) {
+		jardin_header_template_fallback_debug_log( array( 'event' => 'empty_template_using_file_only' ) );
 		$file_only = get_block_file_template( $id, $template_type );
 		return $file_only instanceof WP_Block_Template ? $file_only : $block_template;
 	}
 
 	$source = isset( $block_template->source ) ? (string) $block_template->source : '';
+	$scan   = jardin_header_template_scan_blocks( parse_blocks( $block_template->content ) );
+	$ok     = jardin_header_template_structure_is_complete( $block_template->content, $source );
 
-	if ( jardin_header_template_structure_is_complete( $block_template->content, $source ) ) {
+	jardin_header_template_fallback_debug_log(
+		array(
+			'event'              => 'evaluated',
+			'template_id'        => $id,
+			'source'             => $source,
+			'structure_complete' => $ok,
+			'scan'               => $scan,
+			'content_length'     => strlen( $block_template->content ),
+		)
+	);
+
+	if ( $ok ) {
 		return $block_template;
 	}
 
 	$file_template = get_block_file_template( $id, $template_type );
+	$using_file    = $file_template instanceof WP_Block_Template;
 
-	return $file_template instanceof WP_Block_Template ? $file_template : $block_template;
+	jardin_header_template_fallback_debug_log(
+		array(
+			'event'       => 'fallback',
+			'using_file'  => $using_file,
+			'file_source' => $using_file && isset( $file_template->source ) ? (string) $file_template->source : null,
+		)
+	);
+
+	return $using_file ? $file_template : $block_template;
 }
 
 add_filter( 'get_block_template', 'jardin_filter_header_template_part_fallback', 5, 3 );
