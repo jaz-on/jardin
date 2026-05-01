@@ -4,13 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
+"POT-Creation-Date: 2026-05-01T09:13:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-01T09:13:23+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: jardin-theme\n"
 
@@ -23,7 +25,9 @@ msgid "https://github.com/jaz-on/jardin-theme"
 msgstr ""
 
 #. Description of the theme
-msgid "Full Site Editing theme for the jardin site. Product specs live in the local jardin-docs repository (not shipped with this theme)."
+msgid ""
+"Full Site Editing theme for the jardin site. Product specs live in the local "
+"jardin-docs repository (not shipped with this theme)."
 msgstr ""
 
 #. Author of the theme
@@ -49,36 +53,36 @@ msgstr ""
 
 #: blocks/post-engage/render.php:81
 msgid "On the fediverse"
-msgstr ""
+msgstr "Sur le fédivers"
 
 #: blocks/post-engage/render.php:92
 msgctxt "syndication card CTA"
 msgid "View on Bluesky"
-msgstr ""
+msgstr "Voir sur Bluesky"
 
 #: blocks/post-engage/render.php:93
 msgctxt "syndication card CTA"
 msgid "View on Mastodon"
-msgstr ""
+msgstr "Voir sur Mastodon"
 
 #: blocks/post-engage/render.php:104
 msgid "No Bluesky or Mastodon syndication link was auto-detected on this post."
-msgstr ""
+msgstr "Aucun lien de syndication Bluesky ou Mastodon n’a été détecté automatiquement sur ce contenu."
 
 #. translators: %d: number of webmention comments
 #: blocks/post-engage/render.php:112
 msgid "%d mention or reply"
 msgid_plural "%d mentions and replies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d mention ou réponse"
+msgstr[1] "%d mentions et réponses"
 
 #: blocks/post-engage/render.php:114
 msgid "Mentions and replies"
-msgstr ""
+msgstr "Mentions et réponses"
 
 #: blocks/post-engage/render.php:132
 msgid "Someone"
-msgstr ""
+msgstr "Quelqu’un"
 
 #: blocks/project-changelog/render.php:23
 msgid "Version history"
@@ -121,10 +125,9 @@ msgstr ""
 msgid "Updated %s"
 msgstr ""
 
-#: inc/activity-hub.php:65
-#: patterns/home-feed.php:39
+#: inc/activity-hub.php:65 patterns/home-feed.php:39
 msgid "Activities"
-msgstr ""
+msgstr "Activités"
 
 #: inc/block-styles.php:14
 msgid "Lead"
@@ -264,7 +267,7 @@ msgstr ""
 
 #: inc/breadcrumbs.php:42
 msgid "Toasts"
-msgstr ""
+msgstr "Toasts"
 
 #: inc/class-projects-sync.php:70
 msgid "Repository URL is missing."
@@ -302,19 +305,16 @@ msgstr ""
 msgid "Search, theme, music, and support"
 msgstr ""
 
-#: inc/header-toolbar.php:91
-#: inc/search-block-i18n.php:22
+#: inc/header-toolbar.php:91 inc/search-block-i18n.php:22
 #: inc/search-block-i18n.php:24
 msgid "Search"
 msgstr ""
 
-#: inc/header-toolbar.php:97
-#: inc/header-toolbar.php:98
+#: inc/header-toolbar.php:97 inc/header-toolbar.php:98
 msgid "Now playing"
 msgstr ""
 
-#: inc/header-toolbar.php:103
-#: inc/header-toolbar.php:104
+#: inc/header-toolbar.php:103 inc/header-toolbar.php:104
 msgid "Support me"
 msgstr ""
 
@@ -330,26 +330,22 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: inc/journal-hub.php:382
-#: patterns/journal-hub-top.php:21
+#: inc/journal-hub.php:382 patterns/journal-hub-top.php:21
 msgid "Filter journal"
-msgstr ""
+msgstr "Filtrer le journal"
 
-#: inc/journal-hub.php:388
-#: patterns/activity-feed-header.php:12
+#: inc/journal-hub.php:388 patterns/activity-feed-header.php:12
 #: patterns/home-feed.php:34
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
-#: inc/journal-hub.php:389
-#: patterns/home-feed.php:36
+#: inc/journal-hub.php:389 patterns/home-feed.php:36
 msgid "Posts"
-msgstr ""
+msgstr "Billets"
 
-#: inc/journal-hub.php:391
-#: patterns/home-feed.php:42
+#: inc/journal-hub.php:391 patterns/home-feed.php:42
 msgid "Events"
-msgstr ""
+msgstr "Événements"
 
 #: inc/now-updates.php:49
 msgctxt "post type general name"
@@ -413,23 +409,31 @@ msgid "No now updates found in Trash."
 msgstr ""
 
 #: inc/placeholder-copy.php:18
-msgid "Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content."
+msgid ""
+"Live “now” summary blocks (for example Last.fm) will load here once the "
+"listening plugin is connected. Page body below remains free for editorial "
+"content."
 msgstr ""
 
 #: inc/placeholder-copy.php:20
-msgid "Recent check-ins and beer grids from jardin-beer will appear here in a later phase. Use the page content for any introductory copy."
+msgid ""
+"Recent check-ins and beer grids from jardin-beer will appear here in a later "
+"phase. Use the page content for any introductory copy."
 msgstr ""
 
 #: inc/placeholder-copy.php:22
-msgid "The blogroll grid powered by jardin-feed will appear here in a later phase. Use the page content for notes in the meantime."
+msgid ""
+"The blogroll grid powered by jardin-feed will appear here in a later phase. "
+"Use the page content for notes in the meantime."
 msgstr ""
 
 #: inc/placeholder-copy.php:24
-msgid "Content for this section will appear here once the related features are connected."
+msgid ""
+"Content for this section will appear here once the related features are "
+"connected."
 msgstr ""
 
-#: inc/projects-admin.php:23
-#: assets/js/project-editor-sidebar.js:171
+#: inc/projects-admin.php:23 assets/js/project-editor-sidebar.js:171
 msgid "Sync changelog (GitHub)"
 msgstr ""
 
@@ -454,9 +458,7 @@ msgstr ""
 msgid "Sync changelog"
 msgstr ""
 
-#: inc/projects.php:33
-#: inc/projects.php:45
-#: inc/projects.php:49
+#: inc/projects.php:33 inc/projects.php:45 inc/projects.php:49
 msgid "Projects"
 msgstr ""
 
@@ -665,7 +667,9 @@ msgstr ""
 
 #: patterns/activity-feed-header.php
 msgctxt "Pattern description"
-msgid "note_kind filter pills for the iwcpt_note archive (hub /activites/ or /activities/)."
+msgid ""
+"note_kind filter pills for the iwcpt_note archive (hub /activites/ or /"
+"activities/)."
 msgstr ""
 
 #: patterns/activity-feed-header.php:13
@@ -680,8 +684,7 @@ msgstr ""
 msgid "listen"
 msgstr ""
 
-#: patterns/activity-feed-header.php:16
-#: patterns/listen-single-header.php:83
+#: patterns/activity-feed-header.php:16 patterns/listen-single-header.php:83
 msgid "jam"
 msgstr ""
 
@@ -730,7 +733,8 @@ msgstr ""
 
 #: patterns/entry-card.php
 msgctxt "Pattern description"
-msgid "Entry row for Query Loop (.entry + server-side data-kind / data-note-kind)."
+msgid ""
+"Entry row for Query Loop (.entry + server-side data-kind / data-note-kind)."
 msgstr ""
 
 #: patterns/footer-heading-explore.php
@@ -738,10 +742,9 @@ msgctxt "Pattern title"
 msgid "Footer heading — Explore"
 msgstr ""
 
-#: patterns/footer-heading-explore.php:12
-#: patterns/footer-main.php:35
+#: patterns/footer-heading-explore.php:12 patterns/footer-main.php:35
 msgid "Explore"
-msgstr ""
+msgstr "Explorer"
 
 #: patterns/footer-heading-site.php
 msgctxt "Pattern title"
@@ -750,7 +753,7 @@ msgstr ""
 
 #: patterns/footer-heading-site.php:12
 msgid "Site"
-msgstr ""
+msgstr "Site"
 
 #: patterns/footer-main.php
 msgctxt "Pattern title"
@@ -759,20 +762,22 @@ msgstr ""
 
 #: patterns/footer-main.php
 msgctxt "Pattern description"
-msgid "Four-column mockup (.cols), links via home_url, IndieWeb webring. See mockup.html ~13315."
+msgid ""
+"Four-column mockup (.cols), links via home_url, IndieWeb webring. See "
+"mockup.html ~13315."
 msgstr ""
 
 #: patterns/footer-main.php:45
 msgid "More to explore"
-msgstr ""
+msgstr "Pour aller plus loin"
 
 #: patterns/footer-main.php:54
 msgid "This site"
-msgstr ""
+msgstr "Ce site"
 
 #: patterns/footer-main.php:65
 msgid "Reach me"
-msgstr ""
+msgstr "Me joindre"
 
 #: patterns/footer-main.php:69
 msgid "Bluesky"
@@ -805,7 +810,9 @@ msgstr ""
 
 #: patterns/header-main.php
 msgctxt "Pattern description"
-msgid "Header content (brand row + toolbar, then nav) — same approach as jardin-theme/footer-main. See mockup.html header.site ~1005–1133."
+msgid ""
+"Header content (brand row + toolbar, then nav) — same approach as jardin-"
+"theme/footer-main. See mockup.html header.site ~1005–1133."
 msgstr ""
 
 #: patterns/home-bio.php
@@ -820,7 +827,9 @@ msgstr ""
 
 #. translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link
 #: patterns/home-bio.php:19
-msgid "Jason Rouet, WordPress product manager at %1$s%2$s, president of %3$s%4$s, open-web contributor for years. Here I tinker, jot notes, and tell stories."
+msgid ""
+"Jason Rouet, WordPress product manager at %1$s%2$s, president of %3$s%4$s, "
+"open-web contributor for years. Here I tinker, jot notes, and tell stories."
 msgstr ""
 
 #: patterns/home-events-upcoming.php
@@ -830,7 +839,10 @@ msgstr ""
 
 #: patterns/home-events-upcoming.php
 msgctxt "Pattern description"
-msgid "Upcoming events widget for the home page. Uses jardin-theme/events-upcoming query namespace (event_date >= today, ASC). Displays nothing if no upcoming events are found."
+msgid ""
+"Upcoming events widget for the home page. Uses jardin-theme/events-upcoming "
+"query namespace (event_date >= today, ASC). Displays nothing if no upcoming "
+"events are found."
 msgstr ""
 
 #: patterns/home-events-upcoming.php:17
@@ -871,21 +883,23 @@ msgstr ""
 
 #: patterns/home-feed.php
 msgctxt "Pattern description"
-msgid "Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-mixed query, entry-card."
+msgid ""
+"Mixed journal feed: heading, client-side filter pills + ?kind= URL, journal-"
+"mixed query, entry-card."
 msgstr ""
 
 #. translators: %s: link to /journal
 #: patterns/home-feed.php:22
 msgid "My feed <a href=\"%s\" class=\"section-link\">see all →</a>"
-msgstr ""
+msgstr "Mon fil <a href=\"%s\" class=\"section-link\">tout voir →</a>"
 
 #: patterns/home-feed.php:33
 msgid "Filter by type"
-msgstr ""
+msgstr "Filtrer par type"
 
 #: patterns/home-feed.php:62
 msgid "Full journal →"
-msgstr ""
+msgstr "Journal complet →"
 
 #: patterns/journal-hub-top.php
 msgctxt "Pattern title"
@@ -898,8 +912,17 @@ msgid "Intro, h2, primary ?kind= filters for /journal/."
 msgstr ""
 
 #: patterns/journal-hub-top.php:15
-msgid "A mixed timeline of long articles, short-form activities (bookmarks, likes, listens, beer check-ins, and more), events, and TIL—newest first. Raw scrobbles and tastings without a write-up stay in their own views; use the filters to narrow by type."
+msgid ""
+"A mixed timeline of long articles, short-form activities (bookmarks, likes, "
+"listens, beer check-ins, and more), events, and TIL—newest first. Raw "
+"scrobbles and tastings without a write-up stay in their own views; use the "
+"filters to narrow by type."
 msgstr ""
+"Fil chronologique mêlant articles de fond, activités courtes (favoris, "
+"likes, écoutes, check-ins bière, etc.), événements et micro-apprentissages — "
+"du plus récent au plus ancien. Les scrobbles bruts et dégustations sans "
+"texte restent dans leurs vues dédiées ; utilisez les filtres pour affiner "
+"par type."
 
 #: patterns/listen-single-header.php
 msgctxt "Pattern title"
@@ -955,7 +978,9 @@ msgstr ""
 
 #: patterns/placeholder-now.php
 msgctxt "Pattern description"
-msgid "Temporary notice until jardin-scrobbler blocks are wired. Insert at the top of the Now page if needed."
+msgid ""
+"Temporary notice until jardin-scrobbler blocks are wired. Insert at the top "
+"of the Now page if needed."
 msgstr ""
 
 #: patterns/post-meta-bar.php
@@ -965,7 +990,9 @@ msgstr ""
 
 #: patterns/post-meta-bar.php
 msgctxt "Pattern description"
-msgid "Published date, modified date, author, categories, and tags in one row. Insert in single templates or per-post in the editor."
+msgid ""
+"Published date, modified date, author, categories, and tags in one row. "
+"Insert in single templates or per-post in the editor."
 msgstr ""
 
 #: patterns/query-empty-home.php
@@ -1012,11 +1039,15 @@ msgstr ""
 
 #: patterns/single-footer-intro.php:12
 msgid "Reactions & discussion"
-msgstr ""
+msgstr "Réactions et discussion"
 
 #: patterns/single-footer-intro.php:16
-msgid "Comments and reactions from readers appear below when enabled for this content type."
+msgid ""
+"Comments and reactions from readers appear below when enabled for this "
+"content type."
 msgstr ""
+"Les commentaires et réactions des lecteurs apparaissent ci-dessous lorsque "
+"cette option est activée pour ce type de contenu."
 
 #: patterns/site-brand.php
 msgctxt "Pattern title"
@@ -1025,7 +1056,9 @@ msgstr ""
 
 #: patterns/site-brand.php
 msgctxt "Pattern description"
-msgid "JR boxed-serif mark SVG inside .site-brand, linked to home. Matches mockup header structure."
+msgid ""
+"JR boxed-serif mark SVG inside .site-brand, linked to home. Matches mockup "
+"header structure."
 msgstr ""
 
 #: patterns/site-brand.php:14
@@ -1039,7 +1072,9 @@ msgstr ""
 
 #: patterns/site-toolbar.php
 msgctxt "Pattern description"
-msgid "Header utilities — language, burger, search, theme, music, support via dynamic block `jardin-theme/header-utilities` (variant header)."
+msgid ""
+"Header utilities — language, burger, search, theme, music, support via "
+"dynamic block `jardin-theme/header-utilities` (variant header)."
 msgstr ""
 
 #: assets/js/block-variations.js:28
@@ -1163,7 +1198,9 @@ msgid "Show in the home “pinned projects” grid"
 msgstr ""
 
 #: assets/js/project-editor-sidebar.js:255
-msgid "Order in that grid follows the document “Order” field (menu_order), then publish date."
+msgid ""
+"Order in that grid follows the document “Order” field (menu_order), then "
+"publish date."
 msgstr ""
 
 #: blocks/header-utilities/index.js:20
@@ -1187,11 +1224,14 @@ msgid "Header utilities"
 msgstr ""
 
 #: blocks/header-utilities/index.js:37
-msgid "Drawer: same actions as the header chrome, shown inside the menu on small screens."
+msgid ""
+"Drawer: same actions as the header chrome, shown inside the menu on small "
+"screens."
 msgstr ""
 
 #: blocks/header-utilities/index.js:38
-msgid "Renders language, menu, search, theme, music, and support on the live site."
+msgid ""
+"Renders language, menu, search, theme, music, and support on the live site."
 msgstr ""
 
 #: blocks/post-engage/index.js:16
@@ -1203,7 +1243,9 @@ msgid "Preview uses the current post in the site editor when available."
 msgstr ""
 
 #: blocks/post-engage/index.js:22
-msgid "On the front, this block shows syndication out-links and webmention replies for this post."
+msgid ""
+"On the front, this block shows syndication out-links and webmention replies "
+"for this post."
 msgstr ""
 
 #: blocks/copyright/block.json
@@ -1223,7 +1265,9 @@ msgstr ""
 
 #: blocks/event-link-banner/block.json
 msgctxt "block description"
-msgid "Shows a banner when this post is linked as recap from an event (jardin-events)."
+msgid ""
+"Shows a banner when this post is linked as recap from an event (jardin-"
+"events)."
 msgstr ""
 
 #: blocks/header-utilities/block.json
@@ -1233,7 +1277,9 @@ msgstr ""
 
 #: blocks/header-utilities/block.json
 msgctxt "block description"
-msgid "Language switcher, menu, search, theme, music, and support — header row or mobile drawer."
+msgid ""
+"Language switcher, menu, search, theme, music, and support — header row or "
+"mobile drawer."
 msgstr ""
 
 #: blocks/post-engage/block.json

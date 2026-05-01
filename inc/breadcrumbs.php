@@ -26,6 +26,32 @@ function jardin_render_breadcrumb(): string {
 }
 
 /**
+ * Yoast often still shows “Bières” for the Untappd stats hub; align the last crumb with the product label.
+ *
+ * @param array<int, array<string, mixed>>|mixed $links Breadcrumb trail.
+ * @return array<int, array<string, mixed>>|mixed
+ */
+function jardin_filter_yoast_breadcrumb_toasts_hub( $links ) {
+	if ( ! is_array( $links ) || ! is_page() ) {
+		return $links;
+	}
+	$slug = (string) get_post_field( 'post_name', (int) get_queried_object_id(), 'raw' );
+	if ( ! in_array( $slug, array( 'toast', 'bieres', 'toasts', 'beers' ), true ) ) {
+		return $links;
+	}
+	$label = __( 'Toasts', 'jardin-theme' );
+	$last  = count( $links ) - 1;
+	if ( $last < 0 ) {
+		return $links;
+	}
+	if ( isset( $links[ $last ]['text'] ) ) {
+		$links[ $last ]['text'] = $label;
+	}
+	return $links;
+}
+add_filter( 'wpseo_breadcrumb_links', 'jardin_filter_yoast_breadcrumb_toasts_hub', 20 );
+
+/**
  * Server-side render callback for the breadcrumb block.
  *
  * @param array<string,mixed> $attributes Block attributes.

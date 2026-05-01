@@ -459,7 +459,8 @@
 		{ "name": "page-articles", "title": "Articles (posts only)", "postTypes": [ "page" ] },
 		{ "name": "page-blogroll", "title": "Blogroll hub", "postTypes": [ "page" ] },
 		{ "name": "page-dlc", "title": "DLC hub", "postTypes": [ "page" ] },
-		{ "name": "page-bieres", "title": "Bières hub", "postTypes": [ "page" ] },
+		{ "name": "page-toast", "title": "Toasts hub", "postTypes": [ "page" ] },
+		{ "name": "page-bieres", "title": "Toasts hub (legacy slug)", "postTypes": [ "page" ] },
 		{ "name": "page-projects", "title": "Projects hub", "postTypes": [ "page" ] },
 		{ "name": "page-now", "title": "Now hub", "postTypes": [ "page" ] }
 	],

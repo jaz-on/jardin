@@ -11,6 +11,5 @@
 	"supports": {
 		"html": false
 	},
-	"editorScript": "file:./index.js",
 	"render": "file:./render.php"
 }

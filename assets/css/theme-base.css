@@ -1988,6 +1988,7 @@ main#main.wp-block-group {
 
 .entries.is-events .entry-when.is-upcoming {
 	color: var(--wp--preset--color--accent);
+	font-weight: 500;
 }
 
 .entries.is-events .entry-when.is-fallback {
