@@ -79,10 +79,15 @@ function jardin_header_template_scan_blocks( array $blocks ): array {
  * Previously any substring match (e.g. `header-nav-row` alone) treated the part as "complete", so a customized
  * header without `jardin-theme/header-utilities` never fell back to `parts/header.html` and the toolbar disappeared.
  *
- * @param string $content Raw block markup from the template part.
+ * A customized header (`WP_Block_Template::$source` `custom`) can still reference `header-brand-row` + `header-nav-row`
+ * while synced/copied patterns in the DB omit the utilities block — so the pattern pair alone is only trusted when
+ * the template part is not a DB customization (`source` `custom`), where synced patterns may omit utilities.
+ *
+ * @param string $content          Raw block markup from the template part.
+ * @param string $template_source  `WP_Block_Template::$source` (e.g. `theme`, `custom`, `plugin`).
  * @return bool
  */
-function jardin_header_template_structure_is_complete( string $content ): bool {
+function jardin_header_template_structure_is_complete( string $content, string $template_source = '' ): bool {
 	$content = trim( $content );
 	if ( '' === $content ) {
 		return false;
@@ -98,7 +103,7 @@ function jardin_header_template_structure_is_complete( string $content ): bool {
 	if ( $scan['has_main_pattern'] ) {
 		return true;
 	}
-	if ( $scan['has_brand_row_pattern'] && $scan['has_nav_row_pattern'] ) {
+	if ( $scan['has_brand_row_pattern'] && $scan['has_nav_row_pattern'] && 'custom' !== $template_source ) {
 		return true;
 	}
 	if ( $scan['has_site_toolbar_pattern'] && $scan['has_nav_row_pattern'] ) {
@@ -138,7 +143,9 @@ function jardin_filter_header_template_part_fallback( $block_template, string $i
 		return $file_only instanceof WP_Block_Template ? $file_only : $block_template;
 	}
 
-	if ( jardin_header_template_structure_is_complete( $block_template->content ) ) {
+	$source = isset( $block_template->source ) ? (string) $block_template->source : '';
+
+	if ( jardin_header_template_structure_is_complete( $block_template->content, $source ) ) {
 		return $block_template;
 	}
 
