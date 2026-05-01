@@ -2,59 +2,55 @@
 
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 
-	<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
-	<div class="wp-block-group">
-		<!-- wp:jardin-theme/breadcrumb /-->
-		<!-- wp:query-title {"type":"archive","level":1,"showPrefix":false} /-->
-		<!-- wp:paragraph {"className":"page-intro"} -->
-		<p class="page-intro">Les fiches événements : conférences, meetups, ateliers. Utilise les filtres pour naviguer par rôle.</p>
-		<!-- /wp:paragraph -->
-		<!-- wp:group {"className":"feed-header","layout":{"type":"default"}} -->
-		<div class="wp-block-group feed-header">
-			<!-- wp:jardin-events/event-filter /-->
-		</div>
-		<!-- /wp:group -->
-		<!-- wp:query {"queryId":81,"query":{"perPage":24,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"date","inherit":true}} -->
-		<div class="wp-block-query">
-			<!-- wp:post-template {"layout":{"type":"default"},"className":"entries is-events"} -->
-				<!-- wp:group {"className":"entry","layout":{"type":"default"}} -->
-				<div class="wp-block-group entry">
-					<!-- wp:group {"className":"event-archive-row","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch"}} -->
-					<div class="wp-block-group event-archive-row">
-						<!-- wp:jardin-events/event-inline-date /-->
-						<!-- wp:group {"className":"entry-body","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
-						<div class="wp-block-group entry-body">
-							<!-- wp:post-title {"level":3,"isLink":true,"className":"entry-title"} /-->
-							<!-- wp:jardin-events/event-archive-meta /-->
-							<!-- wp:jardin-events/event-external-link /-->
-						</div>
-						<!-- /wp:group -->
+	<!-- wp:jardin-theme/breadcrumb /-->
+	<!-- wp:query-title {"type":"archive","level":1,"showPrefix":false} /-->
+	<!-- wp:paragraph {"className":"page-intro"} -->
+	<p class="page-intro">Les fiches événements : conférences, meetups, ateliers. Utilise les filtres pour naviguer par rôle.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"feed-header","layout":{"type":"default"}} -->
+	<div class="wp-block-group feed-header">
+		<!-- wp:jardin-events/event-filter /-->
+	</div>
+	<!-- /wp:group -->
+	<!-- wp:query {"queryId":81,"query":{"perPage":24,"pages":0,"offset":0,"postType":"event","order":"asc","orderBy":"date","inherit":true}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template {"layout":{"type":"default"},"className":"entries is-events"} -->
+			<!-- wp:group {"className":"entry","layout":{"type":"default"}} -->
+			<div class="wp-block-group entry">
+				<!-- wp:group {"className":"event-archive-row","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch"}} -->
+				<div class="wp-block-group event-archive-row">
+					<!-- wp:jardin-events/event-inline-date /-->
+					<!-- wp:group {"className":"entry-body","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
+					<div class="wp-block-group entry-body">
+						<!-- wp:post-title {"level":3,"isLink":true,"className":"entry-title"} /-->
+						<!-- wp:jardin-events/event-archive-meta /-->
+						<!-- wp:jardin-events/event-external-link /-->
 					</div>
 					<!-- /wp:group -->
 				</div>
 				<!-- /wp:group -->
-			<!-- /wp:post-template -->
-			<!-- wp:query-pagination -->
-				<!-- wp:query-pagination-previous /-->
-				<!-- wp:query-pagination-numbers /-->
-				<!-- wp:query-pagination-next /-->
-			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun événement pour l’instant.</p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
-		</div>
-		<!-- /wp:query -->
-		<!-- wp:group {"tagName":"aside","className":"page-techie","layout":{"type":"constrained"}} -->
-		<aside class="wp-block-group page-techie">
-			<!-- wp:html -->
-			<p class="page-techie-label"><svg class="techie-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg> comment c'est fait</p>
-			<p>Cette page est alimentée par mon plugin <a href="https://github.com/jaz-on/jardin-events" target="_blank" rel="noopener"><code>jardin-events</code></a>. CPT <code>event</code> avec les meta <code>event_date</code>, <code>event_location</code>, <code>event_link</code>, et un attribut filtre multi-valeur <code>event_role</code> (speaker / organizer / sponsor / attendee). Les filtres ci-dessus sont générés dynamiquement via Query Loop FSE. Détails sur <a href="/colophon/">/colophon</a>.</p>
-			<!-- /wp:html -->
-		</aside>
-		<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+		<!-- wp:query-pagination -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph -->
+			<p>Aucun événement pour l’instant.</p>
+			<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
 	</div>
+	<!-- /wp:query -->
+	<!-- wp:group {"tagName":"aside","className":"page-techie","layout":{"type":"constrained"}} -->
+	<aside class="wp-block-group page-techie">
+		<!-- wp:html -->
+		<p class="page-techie-label"><svg class="techie-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg> comment c'est fait</p>
+		<p>Cette page est alimentée par mon plugin <a href="https://github.com/jaz-on/jardin-events" target="_blank" rel="noopener"><code>jardin-events</code></a>. CPT <code>event</code> avec les meta <code>event_date</code>, <code>event_location</code>, <code>event_link</code>, et un attribut filtre multi-valeur <code>event_role</code> (speaker / organizer / sponsor / attendee). Les filtres ci-dessus sont générés dynamiquement via Query Loop FSE. Détails sur <a href="/colophon/">/colophon</a>.</p>
+		<!-- /wp:html -->
+	</aside>
 	<!-- /wp:group -->
 <!-- /wp:group -->
 

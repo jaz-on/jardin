@@ -2,9 +2,9 @@
 
 <!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 
+	<!-- wp:jardin-theme/breadcrumb /-->
 	<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}},"className":"articles-page-shell"} -->
 	<div class="wp-block-group articles-page-shell">
-		<!-- wp:jardin-theme/breadcrumb /-->
 		<!-- wp:post-title {"level":1} /-->
 		<!-- wp:paragraph {"className":"page-intro"} -->
 		<p class="page-intro">Les articles longs. La réflexion qui dépasse le paragraphe. Utilise les taxonomies pour naviguer par sujet.</p>
@@ -35,33 +35,33 @@
 		</details>
 		<!-- /wp:details -->
 		<!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"include","inherit":false}} -->
-	<div class="wp-block-query">
-		<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->
-			<!-- wp:pattern {"slug":"jardin-theme/entry-card-article"} /-->
-			<!-- wp:separator {"className":"is-style-dashed-faint"} -->
-			<hr class="wp-block-separator has-alpha-channel-opacity is-style-dashed-faint"/>
-			<!-- /wp:separator -->
-		<!-- /wp:post-template -->
-		<!-- wp:query-pagination -->
-			<!-- wp:query-pagination-previous /-->
-			<!-- wp:query-pagination-numbers /-->
-			<!-- wp:query-pagination-next /-->
-		<!-- /wp:query-pagination -->
-		<!-- wp:query-no-results -->
-			<!-- wp:paragraph -->
-			<p>Aucun article pour l’instant.</p>
-			<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
-	</div>
-	<!-- /wp:query -->
-	<!-- wp:group {"tagName":"aside","className":"page-techie","layout":{"type":"constrained"}} -->
-	<aside class="wp-block-group page-techie">
-		<!-- wp:html -->
-		<p class="page-techie-label"><svg class="techie-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg> historique</p>
-		<p>Une partie de ces contenus provient de mon précédent blog <a href="https://jasonna.de" target="_blank" rel="noopener">jasonna.de</a> (2019-2021, puis rapatrié ici en 2021). Avant ça, le blog tournait sur Ghost, puis sur WordPress à nouveau. L'histoire complète est dans <a href="/colophon/">/colophon</a>.</p>
-		<!-- /wp:html -->
-	</aside>
-	<!-- /wp:group -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries is-articles"} -->
+				<!-- wp:pattern {"slug":"jardin-theme/entry-card-article"} /-->
+				<!-- wp:separator {"className":"is-style-dashed-faint"} -->
+				<hr class="wp-block-separator has-alpha-channel-opacity is-style-dashed-faint"/>
+				<!-- /wp:separator -->
+			<!-- /wp:post-template -->
+			<!-- wp:query-pagination -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article pour l’instant.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+		<!-- wp:group {"tagName":"aside","className":"page-techie","layout":{"type":"constrained"}} -->
+		<aside class="wp-block-group page-techie">
+			<!-- wp:html -->
+			<p class="page-techie-label"><svg class="techie-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg> historique</p>
+			<p>Une partie de ces contenus provient de mon précédent blog <a href="https://jasonna.de" target="_blank" rel="noopener">jasonna.de</a> (2019-2021, puis rapatrié ici en 2021). Avant ça, le blog tournait sur Ghost, puis sur WordPress à nouveau. L'histoire complète est dans <a href="/colophon/">/colophon</a>.</p>
+			<!-- /wp:html -->
+		</aside>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 <!-- /wp:group -->

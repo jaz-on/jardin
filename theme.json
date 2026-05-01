@@ -194,9 +194,9 @@
 		"spacing": {
 			"padding": {
 				"top": "0",
-				"right": "var(--wp--preset--spacing--4)",
+				"right": "var(--jardin-site-gutter, var(--wp--preset--spacing--5))",
 				"bottom": "0",
-				"left": "var(--wp--preset--spacing--4)"
+				"left": "var(--jardin-site-gutter, var(--wp--preset--spacing--5))"
 			},
 			"blockGap": "var(--wp--preset--spacing--4)"
 		},

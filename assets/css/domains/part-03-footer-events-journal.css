@@ -352,6 +352,8 @@
  */
 .articles-page-shell > .page-intro,
 .articles-page-shell > .wp-block-post-content.page-intro,
+main#main > .page-intro,
+main#main > .wp-block-post-content.page-intro,
 main#main > .wp-block-group > .page-intro,
 main#main > .wp-block-group > .wp-block-post-content.page-intro {
 	max-width: none;

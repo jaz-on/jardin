@@ -205,6 +205,8 @@
 	gap: 0.45rem;
 }
 
+main#main > .wp-block-post-title,
+main#main > .wp-block-query-title,
 main#main > .wp-block-group > .wp-block-post-title,
 main#main > .wp-block-group > .wp-block-query-title,
 .articles-page-shell > .wp-block-post-title,
@@ -213,6 +215,7 @@ main#main > .wp-block-group > .wp-block-query-title,
 	margin-bottom: var(--wp--preset--spacing--2);
 }
 
+main#main > .wp-block-query,
 main#main > .wp-block-group > .wp-block-query,
 .articles-page-shell > .wp-block-query {
 	margin-top: var(--wp--preset--spacing--3);
