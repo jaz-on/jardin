@@ -10,6 +10,7 @@ $jardin_inc = get_template_directory() . '/inc/';
 
 require_once $jardin_inc . 'setup.php';
 require_once $jardin_inc . 'header-toolbar.php';
+require_once $jardin_inc . 'header-template-fallback.php';
 require_once $jardin_inc . 'blocks.php';
 require_once $jardin_inc . 'placeholder-copy.php';
 require_once $jardin_inc . 'enqueue.php';

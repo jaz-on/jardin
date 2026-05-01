@@ -6,6 +6,7 @@ cd "$ROOT"
 missing=0
 for f in \
 	inc/header-toolbar.php \
+	inc/header-template-fallback.php \
 	blocks/header-utilities/block.json \
 	blocks/header-utilities/render.php \
 	blocks/header-utilities/index.js \
@@ -19,6 +20,10 @@ do
 done
 if ! grep -q 'header-toolbar.php' functions.php; then
 	echo "ERROR: functions.php must require inc/header-toolbar.php" >&2
+	missing=1
+fi
+if ! grep -q 'header-template-fallback.php' functions.php; then
+	echo "ERROR: functions.php must require inc/header-template-fallback.php" >&2
 	missing=1
 fi
 if ! grep -q "header-utilities" inc/blocks.php; then
