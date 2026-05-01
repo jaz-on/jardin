@@ -974,9 +974,10 @@ main#main.wp-block-group {
 	align-items: center;
 }
 
-/* core/html (site-brand) + dynamic header-utilities block : rangée header sur une ligne (toolbar à droite) */
-.site-row-brand > .wp-block-html,
-.site-row-brand > .wp-block-jardin-theme-header-utilities {
+/* core/html (site-brand) + dynamic header-utilities : rangée header sur une ligne (toolbar à droite).
+ * Ne pas dépendre de :last-child sur header-utilities : en BDD un bloc ou wrapper peut être ajouté après,
+ * auquel cas les anciennes règles « last-child » ne s’appliquaient plus → flex réduisait la toolbar à ~0 (icônes invisibles). */
+.site-row-brand > .wp-block-html {
 	flex: 0 0 auto;
 	min-width: 0;
 }
@@ -985,8 +986,7 @@ main#main.wp-block-group {
 	flex-shrink: 0;
 }
 
-.site-row-brand > .wp-block-html:last-child,
-.site-row-brand > .wp-block-jardin-theme-header-utilities:last-child {
+.site-row-brand > .wp-block-html:last-child {
 	margin-left: auto;
 	min-width: 0;
 	flex: 1 1 auto;
@@ -995,8 +995,17 @@ main#main.wp-block-group {
 	justify-content: flex-end;
 }
 
+.site-row-brand > .wp-block-jardin-theme-header-utilities {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin-left: auto;
+	max-width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
 /* Dynamic block wrapper + .toolbar : éviter flex shrink → largeur ~0 (icônes « disparues ») */
-.site-row-brand > .wp-block-jardin-theme-header-utilities:last-child > .toolbar {
+.site-row-brand > .wp-block-jardin-theme-header-utilities > .toolbar {
 	min-width: min-content;
 	flex-shrink: 0;
 }
