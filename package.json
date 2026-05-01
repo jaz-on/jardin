@@ -1,6 +1,7 @@
 {
 	"name": "jardin-theme",
 	"private": true,
+	"license": "GPL-2.0-or-later",
 	"description": "Thème bloc (FSE) jardin",
 	"scripts": {
 		"hooks:install": "bash scripts/install-git-hooks.sh"
