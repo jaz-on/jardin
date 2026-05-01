@@ -39,14 +39,6 @@ $now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_lab
 		<!-- wp:navigation-link {"label":"/a-propos","type":"custom","url":"/a-propos/","kind":"custom"} /-->
 	<!-- /wp:navigation -->
 
-	<?php
-	if ( function_exists( 'jardin_is_header_utilities_block_registered' ) && jardin_is_header_utilities_block_registered() ) {
-		echo "\n\t<!-- wp:jardin-theme/header-utilities {\"variant\":\"drawer\"} /-->\n";
-	} elseif ( function_exists( 'jardin_get_header_utilities_drawer_markup' ) ) {
-		echo "\n\t<!-- wp:html -->";
-		echo jardin_get_header_utilities_drawer_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo "\n\t<!-- /wp:html -->\n";
-	}
-	?>
+	<!-- wp:jardin-theme/header-utilities {"variant":"drawer"} /-->
 </div>
 <!-- /wp:group -->

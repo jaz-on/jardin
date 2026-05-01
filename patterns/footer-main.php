@@ -25,6 +25,8 @@ $projects_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects
 $projects_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
 $now_url        = function_exists( 'jardin_now_hub_url' ) ? jardin_now_hub_url() : $u( '/maintenant/' );
 $now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_label() : '/maintenant';
+$toasts_url     = function_exists( 'jardin_toasts_hub_url' ) ? jardin_toasts_hub_url() : $u( '/toast/' );
+$toasts_label   = function_exists( 'jardin_toasts_hub_label' ) ? jardin_toasts_hub_label() : '/toast';
 
 ?>
 <!-- wp:html -->
@@ -44,7 +46,7 @@ $now_label      = function_exists( 'jardin_now_hub_label' ) ? jardin_now_hub_lab
 		<ul>
 			<li><a href="<?php echo esc_url( $now_url ); ?>"><?php echo esc_html( $now_label ); ?></a></li>
 			<li><a href="<?php echo $u( '/dlc/' ); ?>"><?php echo esc_html( '/dlc' ); ?></a></li>
-			<li><a href="<?php echo $u( '/bieres/' ); ?>"><?php echo esc_html( '/bieres' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $toasts_url ); ?>"><?php echo esc_html( $toasts_label ); ?></a></li>
 			<li><a href="<?php echo $u( '/blogroll/' ); ?>"><?php echo esc_html( '/blogroll' ); ?></a></li>
 		</ul>
 	</div>

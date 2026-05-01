@@ -15,6 +15,21 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 
 **Customized template parts:** if the header (or another part) ignores Git updates, reset it in the Site Editor (**Patterns / Template parts** → open part → clear customizations) so files from the theme load again.
 
+### Header (logo, icônes, navigation) — réaligner après un changement de thème
+
+Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème, musique, soutien) ou le **menu burger / zone Tools** sur mobile, le plus souvent la **partie de modèle Header** en base ne contient plus les patterns du fichier du thème.
+
+1. **Apparence → Éditeur de site** → **Modèles** → **Parties de modèle** → **Header** (ou « En-tête »).
+2. Menu **⋮** sur la partie → **Effacer les personnalisations** (confirmer). Répéter sur **dev** et **prod** si besoin.
+3. Vérifier les **templates** (Accueil, Page, etc.) : aucun ne doit référencer un **autre** en-tête personnalisé à la place du header du thème.
+4. **Afficher le code source** de la page d’accueil : chercher `toolbar` ou `wp-block-jardin-theme-header-utilities` et `site-nav-drawer-tools`. S’ils manquent encore, vider caches (plugin, CDN, OPcache) puis recharger.
+
+**Smoke (HTML)** : depuis la racine du thème, `./scripts/smoke-header-remote.sh https://example.com` (voir script).
+
+**Smoke (responsive, manuel)** : bureau — chrome visible à droite du logo ; mobile étroit — chrome masquée dans la première ligne, burger ouvert → navigation en colonne + zone « Tools » avec les mêmes icônes.
+
+**Déploiement** : `./scripts/verify-header-deploy.sh` vérifie que les fichiers requis du bloc utilitaires sont présents dans ce dossier.
+
 **Block namespace migration:** on upgrade, `inc/content-migration.php` can rewrite stored markup from `jardin/…` to `jardin-theme/…` in post content (see `JARDIN_THEME_CONTENT_MIGRATION_VERSION`). Plugin blocks such as `jardin/lastfm-`* are not migrated.
 
 ## What it does
@@ -46,6 +61,7 @@ WordPress **block theme** (FSE) for [jasonrouet.com](https://jasonrouet.com). Lo
 
 ## Development
 
+- Header deploy smoke: `./scripts/verify-header-deploy.sh` ; remote HTML smoke: `./scripts/smoke-header-remote.sh https://dev.example.com/` (expects toolbar + drawer markup in page source).
 - Default branch for day-to-day work: `**dev`**.
 - After pushing: refresh **Git Updater**, purge caches, spot-check key URLs (`/`, `/evenements/` when events are in use). Optional build markers in `assets/css/theme-base.css` and `assets/js/filter-tabs.js` for cache bust verification.
 - E2E: `npm ci`, `npx playwright install chromium`, copy `e2e/.env.example` → `.env` with `E2E_BASE_URL`, then `npm run e2e` ([tests strategy](../jardin-docs/tests-strategy.md)).

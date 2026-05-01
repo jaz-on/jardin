@@ -2,8 +2,7 @@
 /**
  * Header toolbar & mobile drawer utilities — single source of truth for markup.
  *
- * Rendered by the dynamic block {@see jardin_register_theme_blocks()} `jardin-theme/header-utilities`.
- * Avoids embedding dynamic blocks or PHP output inside `core/html`, which breaks across WP releases.
+ * Rendered by the dynamic block {@see jardin_register_theme_blocks()} `jardin-theme/header-utilities` (patterns emit only this block; no `core/html` fallback).
  *
  * @package Jardin_Theme
  */
@@ -155,12 +154,4 @@ function jardin_get_header_utilities_drawer_markup(): string {
 	</div>
 	<?php
 	return (string) ob_get_clean();
-}
-
-/**
- * Whether the dynamic block is registered (patterns can fall back to core/html if not).
- */
-function jardin_is_header_utilities_block_registered(): bool {
-	return class_exists( 'WP_Block_Type_Registry' )
-		&& WP_Block_Type_Registry::get_instance()->is_registered( 'jardin-theme/header-utilities' );
 }

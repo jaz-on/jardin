@@ -69,6 +69,27 @@ function jardin_now_hub_label(): string {
 }
 
 /**
+ * Toasts hub page URL (Untappd stats page; FR slug differs from EN).
+ *
+ * @return string
+ */
+function jardin_toasts_hub_url(): string {
+	return jardin_hub_url_for_slug_pair( 'toast', 'toasts' );
+}
+
+/**
+ * Short path label for toasts hub nav.
+ *
+ * @return string e.g. /toast or /toasts
+ */
+function jardin_toasts_hub_label(): string {
+	if ( function_exists( 'pll_current_language' ) && 'en' === pll_current_language( 'slug' ) ) {
+		return '/toasts';
+	}
+	return '/toast';
+}
+
+/**
  * Find a published page by path slug, respecting Polylang current language when available.
  *
  * @param string $slug Page slug (non-hierarchical).
