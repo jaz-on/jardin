@@ -54,6 +54,7 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 | **jardin-theme** (this repo) | FSE theme, templates, patterns |
 | [jardin-projects](https://github.com/jaz-on/jardin-projects) | `project` CPT, GitHub changelog sync, project blocks |
 | [jardin-events](https://github.com/jaz-on/jardin-events) | `event` CPT, archive, Query Loop helpers, event blocks |
+| [jardin-updates](https://github.com/jaz-on/jardin-updates) | `now` CPT (hub mensuel), permaliens, migrations |
 | [jardin-scrobbles](https://github.com/jaz-on/jardin-scrobbles) | Last.fm → `listen` CPT, `/listens/`, player blocks |
 | [jardin-toasts](https://github.com/jaz-on/jardin-toasts) | Untappd RSS + import → `beer_checkin` CPT |
 | [jardin-bookmarks](https://github.com/jaz-on/jardin-bookmarks) | Feedbin → `favorite` / `blogroll` CPTs, blogroll block |
