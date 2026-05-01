@@ -8,7 +8,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$variant = isset( $attributes['variant'] ) && 'drawer' === $attributes['variant'] ? 'drawer' : 'header';
+$variant = isset( $attributes['variant'] ) ? (string) $attributes['variant'] : 'header';
+if ( 'drawer' !== $variant ) {
+	$variant = 'header';
+}
 
 return 'drawer' === $variant
 	? jardin_get_header_utilities_drawer_markup()

@@ -10,8 +10,7 @@
 	"attributes": {
 		"variant": {
 			"type": "string",
-			"default": "header",
-			"enum": [ "header", "drawer" ]
+			"default": "header"
 		}
 	},
 	"supports": {

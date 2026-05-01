@@ -156,3 +156,11 @@ function jardin_get_header_utilities_drawer_markup(): string {
 	<?php
 	return (string) ob_get_clean();
 }
+
+/**
+ * Whether the dynamic block is registered (patterns can fall back to core/html if not).
+ */
+function jardin_is_header_utilities_block_registered(): bool {
+	return class_exists( 'WP_Block_Type_Registry' )
+		&& WP_Block_Type_Registry::get_instance()->is_registered( 'jardin-theme/header-utilities' );
+}

@@ -11,19 +11,34 @@ Desktop.ini
 *.swo
 .directory
 
-# macOS Finder duplicate filenames (e.g. copy conflict → "file 2.ext")
+# macOS Finder / manual duplicate debris — names look like "original 2.ext"
+# (there is a LITERAL SPACE before the digit 2). Finder never produces "file2.ext"
+# here; that would be a different file and is not ignored by these rules.
+* 2/
 * 2.php
 * 2.css
 * 2.html
 * 2.js
+* 2.mjs
+* 2.ts
+* 2.jsx
+* 2.tsx
+* 2.cjs
+* 2.mts
+* 2.cts
 * 2.json
+* 2.lock
 * 2.svg
 * 2.txt
 * 2.woff2
 * 2.md
 * 2.pot
-* 2.cjs
+* 2.map
 * 2.example
+* 2.yml
+* 2.yaml
+# Extensionless dupes (e.g. "LICENSE 2", "NOTICE 2") — rare real filenames; un-ignore if needed
+* 2
 
 # Env
 .env

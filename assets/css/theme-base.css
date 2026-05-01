@@ -995,6 +995,12 @@ main#main.wp-block-group {
 	justify-content: flex-end;
 }
 
+/* Dynamic block wrapper + .toolbar : éviter flex shrink → largeur ~0 (icônes « disparues ») */
+.site-row-brand > .wp-block-jardin-theme-header-utilities:last-child > .toolbar {
+	min-width: min-content;
+	flex-shrink: 0;
+}
+
 /* Rangée marque + utilitaires : forcer space-between (au cas où le JSON bloc est surchargé) */
 .site-header-shell .wp-block-group.site-row.site-row-brand.is-layout-flex {
 	display: flex;
