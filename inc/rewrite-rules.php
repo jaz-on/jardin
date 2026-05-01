@@ -11,7 +11,12 @@ defined( 'ABSPATH' ) || exit;
  * Register rewrite rules from jardin-docs integration/permalinks-rewrites.md.
  */
 function jardin_register_rewrite_rules(): void {
-	$target = 'index.php?post_type=' . JARDIN_UPDATES_POST_TYPE . '&name=$matches[1]';
+	if ( ! defined( 'JARDIN_UPDATES_POST_TYPE' ) || ! post_type_exists( JARDIN_UPDATES_POST_TYPE ) ) {
+		return;
+	}
+
+	$pt     = JARDIN_UPDATES_POST_TYPE;
+	$target = 'index.php?post_type=' . $pt . '&name=$matches[1]';
 
 	add_rewrite_rule( '^now/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
 	add_rewrite_rule( '^maintenant/([0-9]{4}-[0-9]{2})/?$', $target, 'top' );
