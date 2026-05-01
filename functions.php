@@ -10,8 +10,10 @@ $jardin_inc = get_template_directory() . '/inc/';
 
 require_once $jardin_inc . 'content-migration.php';
 require_once $jardin_inc . 'setup.php';
+require_once $jardin_inc . 'i18n-polylang-patterns.php';
 require_once $jardin_inc . 'header-toolbar.php';
 require_once $jardin_inc . 'blocks.php';
+require_once $jardin_inc . 'polylang-editor-compat.php';
 require_once $jardin_inc . 'placeholder-copy.php';
 require_once $jardin_inc . 'search-block-i18n.php';
 require_once $jardin_inc . 'enqueue.php';
