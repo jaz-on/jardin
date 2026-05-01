@@ -49,11 +49,13 @@ $nav_inner = implode( '', $buttons );
 $dfilter   = '' === $current ? 'all' : $current;
 
 ?>
-<!-- wp:html -->
-<div class="feed-header">
+<!-- wp:group {"align":"wide","className":"feed-header","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide feed-header">
+	<!-- wp:html -->
 	<h2 class="wp-block-heading"><?php esc_html_e( 'Filter activity feed', 'jardin-theme' ); ?></h2>
 	<nav class="feed-filters notes-filters activity-archive-filters notes-archive-filters" role="navigation" aria-label="<?php echo esc_attr__( 'Filter by entry type', 'jardin-theme' ); ?>" data-filter="<?php echo esc_attr( $dfilter ); ?>">
 		<?php echo $nav_inner; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</nav>
+	<!-- /wp:html -->
 </div>
-<!-- /wp:html -->
+<!-- /wp:group -->

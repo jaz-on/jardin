@@ -164,11 +164,6 @@
 	transform: rotate(-90deg);
 }
 
-.articles-page-shell > .page-intro {
-	margin-left: 0;
-	margin-right: 0;
-}
-
 .articles-taxo-mix-flow {
 	width: 100%;
 	display: flex;

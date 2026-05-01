@@ -15,8 +15,8 @@ $projects_section_url   = trailingslashit( home_url( '/projets/' ) );
 $projects_section_label = '/projets';
 
 ?>
-<!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
-<div class="wp-block-group home-featured-projects-wrap">
+<!-- wp:group {"align":"wide","className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide home-featured-projects-wrap">
 <!-- wp:heading {"level":2,"className":"section-with-link"} -->
 <h2 class="wp-block-heading section-with-link"><?php
 	echo wp_kses(

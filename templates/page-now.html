@@ -1,12 +1,12 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
+<!-- wp:group {"align":"full","anchor":"main","tagName":"main","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|5","margin":{"top":"0","bottom":"0"}}}} -->
 
 	<!-- wp:jardin-theme/breadcrumb /-->
 	<!-- wp:post-title {"level":1} /-->
 	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"top":"var:preset|spacing|6"}}},"className":"now-hub-current"} -->
-	<div class="wp-block-group now-hub-current" style="margin-top:var(--wp--preset--spacing--6)">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"top":"var:preset|spacing|6"}}},"className":"now-hub-current","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide now-hub-current" style="margin-top:var(--wp--preset--spacing--6)">
 		<!-- wp:query {"queryId":21,"query":{"perPage":1,"pages":0,"offset":0,"postType":"now","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template {"layout":{"type":"default","columnCount":1}} -->
@@ -27,8 +27,8 @@
 		<!-- /wp:query -->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"top":"var:preset|spacing|6"}}},"className":"now-hub-archive"} -->
-	<div class="wp-block-group now-hub-archive" style="margin-top:var(--wp--preset--spacing--6)">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"top":"var:preset|spacing|6"}}},"className":"now-hub-archive","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide now-hub-archive" style="margin-top:var(--wp--preset--spacing--6)">
 		<!-- wp:query {"queryId":22,"query":{"perPage":12,"pages":0,"offset":1,"postType":"now","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template {"layout":{"type":"default","columnCount":1},"className":"entries now-archive"} -->

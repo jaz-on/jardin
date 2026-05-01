@@ -39,6 +39,26 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 - Self-hosted fonts (`assets/fonts/`, `theme.json` `fontFace`); details in `assets/fonts/README.txt`.
 - Translation template: `languages/jardin-theme.pot` (text domain `**jardin-theme`**). Bundled `.mo` files are optional per site.
 
+## Layout — convention `align`
+
+Le thème délègue la cascade de largeurs au moteur FSE (Core layout + `theme.json`). Les templates et patterns expriment **uniquement** un alignement par bloc :
+
+| Align          | Largeur                | Usage                                                                          |
+|----------------|------------------------|--------------------------------------------------------------------------------|
+| *(défaut)*     | `contentSize` (42rem)  | Lecture : breadcrumb, `post-title`, `post-content`, paragraphes d'intro, asides `page-techie`. |
+| `align: wide`  | `wideSize` (56rem)     | Hubs : `wp:query`, grilles de cartes, filtres, sections `feed-header`, `articles-page-shell`. |
+| `align: full`  | 100 % viewport         | `<main>` lui-même, `parts/header`, `parts/footer`, covers / featured-image full-bleed. |
+
+Conséquences :
+
+- `<main>` est toujours `align: full` + `layout: constrained` (+ `tagName: main`, `anchor: main`). Core ajoute `.has-global-padding` et applique la **gouttière** `--jardin-site-gutter` (= `styles.spacing.padding` dans `theme.json`).
+- Les enfants directs sans `align` héritent du `contentSize` (42rem) — colonne de lecture.
+- Les blocs hub (queries, grilles, filtres) doivent porter `"align":"wide"` pour passer en `wideSize` (56rem).
+- Pour ajouter une nouvelle page hub : marquer la query / la grille `align: wide`. Pour une page de lecture : ne rien marquer.
+- Les images full-bleed dans un single passent en `align: full` ; elles cassent la gouttière via le mécanisme Core `useRootPaddingAwareAlignments`.
+
+CSS thème : **aucune** règle `max-width` sur `main#main`, `.wp-site-blocks > *`, `.site-inner.alignwide` — Core gère seul (cf. [`assets/css/domains/part-02-shell-toolbar-nav.css`](assets/css/domains/part-02-shell-toolbar-nav.css)). Sur mobile (≤ 782 px), `--jardin-site-gutter` est rétréci globalement : la gouttière Core suit automatiquement.
+
 ## Doc entry points
 
 - [roadmap.md](../jardin-docs/roadmap.md)

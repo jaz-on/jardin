@@ -3,9 +3,9 @@
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
-		"useRootPaddingAwareAlignments": false,
+		"useRootPaddingAwareAlignments": true,
 		"layout": {
-			"contentSize": "56rem",
+			"contentSize": "42rem",
 			"wideSize": "56rem"
 		},
 		"color": {

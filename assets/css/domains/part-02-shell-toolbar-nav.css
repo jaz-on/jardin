@@ -30,48 +30,24 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 }
 
+/*
+ * Layout : entièrement délégué au moteur FSE (theme.json + alignements).
+ * - `useRootPaddingAwareAlignments: true` → padding root via `styles.spacing.padding`,
+ *   `align: full` rompt la gouttière, `align: wide`/default reste contraint.
+ * - Largeurs : `contentSize` (lecture) vs `wideSize` (hubs).
+ *
+ * On rétrécit simplement la gouttière sur petits écrans en surchargeant la variable.
+ */
+@media (max-width: 782px) {
+	:root {
+		--jardin-site-gutter: var(--wp--preset--spacing--4);
+	}
+}
+
+/* `<main>` : on garantit un padding-top vertical (Core ne pose pas de padding-block). */
 main#main.wp-block-group {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
 	padding-top: var(--wp--preset--spacing--6);
 	padding-bottom: 0;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
-	overflow-x: clip;
-}
-
-/*
- * FSE : blocs placés comme enfants directs de .wp-site-blocks (hors <main>, dérive
- * d’éditeur / sync) — souvent des div.wp-block-group — reprennent la même colonne
- * que le header (.site-inner) et main#main (largeur + gouttières). Exclut full-bleed.
- */
-.wp-site-blocks > p.bio,
-.wp-site-blocks > .bio.wp-block-paragraph,
-.wp-site-blocks > .wp-block-group:not(.alignfull):not(.site-header-shell):not(.site-footer-shell) {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
-}
-
-/*
- * Header/footer inner column — same max-width + gutters as main#main.
- */
-.site-inner.alignwide,
-.site-footer-inner.alignwide {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
 }
 
 .site-row.site-row-brand,

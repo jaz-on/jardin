@@ -968,48 +968,24 @@ body.admin-bar .site-header-shell {
 	min-width: 0;
 }
 
+/*
+ * Layout : entièrement délégué au moteur FSE (theme.json + alignements).
+ * - `useRootPaddingAwareAlignments: true` → padding root via `styles.spacing.padding`,
+ *   `align: full` rompt la gouttière, `align: wide`/default reste contraint.
+ * - Largeurs : `contentSize` (lecture) vs `wideSize` (hubs).
+ *
+ * On rétrécit simplement la gouttière sur petits écrans en surchargeant la variable.
+ */
+@media (max-width: 782px) {
+	:root {
+		--jardin-site-gutter: var(--wp--preset--spacing--4);
+	}
+}
+
+/* `<main>` : on garantit un padding-top vertical (Core ne pose pas de padding-block). */
 main#main.wp-block-group {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
 	padding-top: var(--wp--preset--spacing--6);
 	padding-bottom: 0;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
-	overflow-x: clip;
-}
-
-/*
- * FSE : blocs placés comme enfants directs de .wp-site-blocks (hors <main>, dérive
- * d’éditeur / sync) — souvent des div.wp-block-group — reprennent la même colonne
- * que le header (.site-inner) et main#main (largeur + gouttières). Exclut full-bleed.
- */
-.wp-site-blocks > p.bio,
-.wp-site-blocks > .bio.wp-block-paragraph,
-.wp-site-blocks > .wp-block-group:not(.alignfull):not(.site-header-shell):not(.site-footer-shell) {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
-}
-
-/*
- * Header/footer inner column — same max-width + gutters as main#main.
- */
-.site-inner.alignwide,
-.site-footer-inner.alignwide {
-	max-width: var(--wp--style--global--wide-size, 56rem);
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	padding-right: var(--jardin-site-gutter, var(--wp--preset--spacing--5));
-	width: 100%;
-	box-sizing: border-box;
 }
 
 .site-row.site-row-brand,
@@ -1841,19 +1817,11 @@ main#main.wp-block-group {
 }
 
 @media (max-width: 782px) {
-	main#main.wp-block-group,
-	.site-inner.alignwide,
-	.site-footer-inner.alignwide {
-		padding-left: var(--wp--preset--spacing--4);
-		padding-right: var(--wp--preset--spacing--4);
-	}
-
-	main#main.wp-block-group {
-		margin-left: var(--wp--preset--spacing--4);
-		margin-right: var(--wp--preset--spacing--4);
-		width: auto;
-	}
-
+	/*
+	 * Gouttière mobile : la variable `--jardin-site-gutter` est rétrécie globalement
+	 * dans part-02 ; Core la propage via theme.json `styles.spacing.padding`.
+	 * On ne garde ici que les surcharges UI propres au header.
+	 */
 	.site-header-shell.wp-block-group {
 		padding-top: var(--wp--preset--spacing--3) !important;
 		padding-bottom: var(--wp--preset--spacing--2) !important;
@@ -1877,26 +1845,16 @@ main#main.wp-block-group {
    Events archive + singles (mockup parity)
    ============================================================ */
 
+/*
+ * `.page-intro` : largeur déléguée au layout WP (contentSize ou wideSize selon `align`).
+ * On ne fixe ici que la typographie / espacement vertical.
+ */
 .page-intro {
 	font-size: var(--wp--preset--font-size--md);
 	color: var(--wp--preset--color--text-muted);
-	max-width: 42rem;
 	margin-top: 0;
 	margin-bottom: var(--wp--preset--spacing--3);
 	line-height: 1.5;
-}
-
-/*
- * Hub templates: drop .page-intro's 42rem cap so intros align with query grids.
- * main#main > … : direct children of main (or nested group) — hub intros align with query width.
- */
-.articles-page-shell > .page-intro,
-.articles-page-shell > .wp-block-post-content.page-intro,
-main#main > .page-intro,
-main#main > .wp-block-post-content.page-intro,
-main#main > .wp-block-group > .page-intro,
-main#main > .wp-block-group > .wp-block-post-content.page-intro {
-	max-width: none;
 }
 
 /* Hub footnotes — mockup .page-techie */
@@ -2471,11 +2429,6 @@ main#main > .wp-block-group > .wp-block-post-content.page-intro {
 
 .articles-taxo-toggle:not([open]) > summary::before {
 	transform: rotate(-90deg);
-}
-
-.articles-page-shell > .page-intro {
-	margin-left: 0;
-	margin-right: 0;
 }
 
 .articles-taxo-mix-flow {

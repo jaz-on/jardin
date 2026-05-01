@@ -12,8 +12,8 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<!-- wp:group {"className":"events-upcoming","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
-<div class="wp-block-group events-upcoming">
+<!-- wp:group {"align":"wide","className":"events-upcoming","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
+<div class="wp-block-group alignwide events-upcoming">
 
 	<!-- wp:heading {"level":3} -->
 	<h3 class="wp-block-heading">

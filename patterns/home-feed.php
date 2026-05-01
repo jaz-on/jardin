@@ -12,8 +12,8 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<!-- wp:group {"className":"home-feed-section","style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"bottom":"var:preset|spacing|4"}}}} -->
-<div class="wp-block-group home-feed-section">
+<!-- wp:group {"align":"wide","className":"home-feed-section","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|4","margin":{"bottom":"var:preset|spacing|4"}}}} -->
+<div class="wp-block-group alignwide home-feed-section">
 	<!-- wp:group {"className":"feed-header","style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
 	<div class="wp-block-group feed-header">
 		<!-- wp:heading {"level":2,"className":"section-with-link"} -->

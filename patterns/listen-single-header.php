@@ -46,6 +46,9 @@ if ( '' !== $at ) {
 	);
 }
 ?>
+<!-- wp:group {"className":"sj-single-listen-shell","layout":{"type":"constrained"}} -->
+<div class="wp-block-group sj-single-listen-shell">
+<!-- wp:html -->
 <div class="sj-single-listen">
 	<?php if ( '' !== $art ) : ?>
 		<img class="sj-listen-art" src="<?php echo $art; ?>" alt="<?php echo esc_attr( $album ); ?>" width="120" height="120" decoding="async" fetchpriority="high" loading="eager" />
@@ -84,3 +87,6 @@ if ( '' !== $at ) {
 		<?php endif; ?>
 	</div>
 </div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
