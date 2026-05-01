@@ -26,7 +26,9 @@ Si la page n’affiche plus la **barre d’icônes** (langue, recherche, thème,
 3. Vérifier les **templates** (Accueil, Page, etc.) : aucun ne doit référencer un **autre** en-tête personnalisé à la place du header du thème.
 4. **Afficher le code source** de la page d’accueil : chercher `toolbar` ou `wp-block-jardin-theme-header-utilities` et `site-nav-drawer-tools`. S’ils manquent encore, vider caches (plugin, CDN, OPcache) puis recharger.
 
-**Debug (logs)** : le thème remplace le Header en base par `parts/header.html` si la structure est incomplète (filtre `get_block_template`, priorité **999**). Pour tracer les décisions dans `debug.log` : `define( 'JARDIN_DEBUG_HEADER_FALLBACK', true );` dans `wp-config.php` (avec `WP_DEBUG_LOG` activé), ou le filtre `jardin_header_template_fallback_debug` à `true`. Les lignes commencent par `[jardin header]` (JSON).
+**Debug (logs)** : le thème remplace le Header en base par `parts/header.html` si la structure est incomplète (filtre `get_block_template`, priorité **999**) : au moins un bloc `header-utilities`, ou le duo pattern `site-toolbar` + `header-nav-row`, ou `header-main` ; sinon comparaison exacte au fichier `parts/header.html` du thème (= OK). Pour tracer dans `debug.log` : `define( 'JARDIN_DEBUG_HEADER_FALLBACK', true );` (avec `WP_DEBUG_LOG`), ou le filtre `jardin_header_template_fallback_debug` à `true`. Lignes préfixées `[jardin header]` (JSON).
+
+**Journal hub — URLs des filtres `?kind=`** : si les liens pointent vers `/` au lieu de `/journal/`, vérifier **Réglages → Lecture** (page des articles). Le thème utilise aussi `get_queried_object()` et le filtre `jardin_journal_hub_filters_base_url_fallback` pour un dernier recours (ex. Polylang).
 
 **Smoke (HTML)** : depuis la racine du thème, `./scripts/smoke-header-remote.sh https://example.com` (voir script).
 

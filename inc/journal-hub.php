@@ -374,7 +374,11 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Base URL for journal ?kind= filter links. Navigation and hub paths are not resolved from PHP; edit starter links in theme patterns or customized template parts in the Site Editor.
+ * Base URL for journal ?kind= filter links.
+ *
+ * `is_singular( 'page' )` is false on the « posts page » (blog index) and in some block-render timing, so we also use
+ * `page_for_posts`, then `get_queried_object()` when it is a Page, then `/journal/` under `home_url` (Polylang: filter
+ * `jardin_journal_hub_filters_base_url_fallback`).
  *
  * @return string Trailing slash.
  */
@@ -388,7 +392,33 @@ function jardin_get_journal_hub_filters_base_url(): string {
 			}
 		}
 	}
-	return trailingslashit( home_url( '/' ) );
+
+	if ( is_home() && ! is_front_page() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+		if ( $posts_page_id > 0 ) {
+			$url = get_permalink( $posts_page_id );
+			if ( is_string( $url ) && '' !== $url ) {
+				return trailingslashit( $url );
+			}
+		}
+	}
+
+	$qo = get_queried_object();
+	if ( $qo instanceof WP_Post && 'page' === $qo->post_type ) {
+		$url = get_permalink( $qo );
+		if ( is_string( $url ) && '' !== $url ) {
+			return trailingslashit( $url );
+		}
+	}
+
+	$fallback = trailingslashit( home_url( '/journal/' ) );
+
+	/**
+	 * Last-resort base URL for journal hub filter links (e.g. Polylang prefix or custom journal path).
+	 *
+	 * @param string $fallback Default `home_url( '/journal/' )` with trailing slash.
+	 */
+	return trailingslashit( (string) apply_filters( 'jardin_journal_hub_filters_base_url_fallback', $fallback ) );
 }
 
 /**

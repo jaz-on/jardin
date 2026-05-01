@@ -101,8 +101,9 @@ function jardin_header_template_scan_blocks( array $blocks ): array {
  * header without `jardin-theme/header-utilities` never fell back to `parts/header.html` and the toolbar disappeared.
  *
  * A customized header (`WP_Block_Template::$source` `custom`) can still reference `header-brand-row` + `header-nav-row`
- * while synced/copied patterns in the DB omit the utilities block — so the pattern pair alone is only trusted when
- * the template part is not a DB customization (`source` `custom`), where synced patterns may omit utilities.
+ * while synced patterns or stale DB markup omit the utilities block. The **theme** file `parts/header.html` also only
+ * references those patterns (no literal `header-utilities` in the serialized part), so we **never** treat
+ * « brand pattern + nav pattern » alone as sufficient — otherwise the fallback never runs and a broken DB header sticks.
  *
  * @param string $content          Raw block markup from the template part.
  * @param string $template_source  `WP_Block_Template::$source` (e.g. `theme`, `custom`, `plugin`).
@@ -113,18 +114,28 @@ function jardin_header_template_structure_is_complete( string $content, string $
 	if ( '' === $content ) {
 		return false;
 	}
+
+	// Canonical `parts/header.html`: only `core/pattern` refs — no literal `header-utilities` in serialized markup.
+	// Read from disk (not `get_block_file_template`) to avoid re-entering `get_block_template` from this filter.
+	$header_path = trailingslashit( get_stylesheet_directory() ) . 'parts/header.html';
+	if ( is_readable( $header_path ) ) {
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local theme file, small.
+		$file_markup = file_get_contents( $header_path );
+		if ( is_string( $file_markup ) && trim( $file_markup ) === $content ) {
+			return true;
+		}
+	}
+
 	$blocks = parse_blocks( $content );
 	if ( ! is_array( $blocks ) ) {
 		return false;
 	}
 	$scan = jardin_header_template_scan_blocks( $blocks );
-	if ( $scan['utilities'] >= 2 ) {
+	// Header + drawer = two instances when both rows are expanded; a single block still proves utilities exist.
+	if ( $scan['utilities'] >= 1 ) {
 		return true;
 	}
 	if ( $scan['has_main_pattern'] ) {
-		return true;
-	}
-	if ( $scan['has_brand_row_pattern'] && $scan['has_nav_row_pattern'] && 'custom' !== $template_source ) {
 		return true;
 	}
 	if ( $scan['has_site_toolbar_pattern'] && $scan['has_nav_row_pattern'] ) {
