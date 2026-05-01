@@ -374,7 +374,7 @@ function jardin_filter_hub_query( array $query, string $kind ): array {
 }
 
 /**
- * Base URL for journal ?kind= filter links (no template / permalink auto-resolution — edit hub URLs in Site Editor).
+ * Base URL for journal ?kind= filter links. Navigation and hub paths are not resolved from PHP; edit starter links in theme patterns or customized template parts in the Site Editor.
  *
  * @return string Trailing slash.
  */

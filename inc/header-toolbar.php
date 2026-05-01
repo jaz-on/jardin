@@ -96,7 +96,7 @@ function jardin_get_toolbar_chrome_inner_markup( string $chrome_class, bool $wra
 	$svgs        = jardin_get_toolbar_chrome_svgs();
 	$search_url  = home_url( '/?s=' );
 	$support_url = jardin_resolve_toolbar_support_url( $support_url_raw );
-	$theme       = function_exists( 'jardin_get_theme_toggle_markup' ) ? jardin_get_theme_toggle_markup() : '';
+	$theme       = jardin_get_theme_toggle_markup();
 
 	ob_start();
 	?>

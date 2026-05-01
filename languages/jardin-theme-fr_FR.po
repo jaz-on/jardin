@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
-"POT-Creation-Date: 2026-05-01T18:49:00+00:00\n"
+"POT-Creation-Date: 2026-05-01T19:10:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -98,8 +98,8 @@ msgstr "Voir sur Mastodon"
 #: blocks/post-engage/render.php:166
 msgid "No Bluesky or Mastodon syndication link was auto-detected on this post."
 msgstr ""
-"Aucun lien de syndication Bluesky ou Mastodon n’a été détecté automatiquement "
-"sur ce contenu."
+"Aucun lien de syndication Bluesky ou Mastodon n’a été détecté "
+"automatiquement sur ce contenu."
 
 #. translators: %d: number of webmention comments
 #: blocks/post-engage/render.php:174
@@ -116,7 +116,7 @@ msgstr "Mentions et réponses"
 msgid "Someone"
 msgstr "Quelqu’un"
 
-#: inc/activity-hub.php:65 patterns/home-feed.php:41
+#: inc/activity-hub.php:65
 msgid "Activities"
 msgstr "Activités"
 
@@ -374,8 +374,8 @@ msgstr ""
 
 #: inc/placeholder-copy.php:20
 msgid ""
-"Recent check-ins and beer grids from jardin-beer will appear here in a later "
-"phase. Use the page content for any introductory copy."
+"Recent check-ins and beer grids from jardin-toasts will appear here in a "
+"later phase. Use the page content for any introductory copy."
 msgstr ""
 
 #: inc/placeholder-copy.php:22
@@ -669,8 +669,8 @@ msgstr ""
 #: patterns/header-brand-row.php
 msgctxt "Pattern description"
 msgid ""
-"First header row: JR mark and header utilities. Edit the nested Site brand or "
-"Header utilities blocks; use together with Header — nav row."
+"First header row: JR mark and header utilities. Edit the nested Site brand "
+"or Header utilities blocks; use together with Header — nav row."
 msgstr ""
 
 #: patterns/header-main.php
@@ -681,8 +681,8 @@ msgstr ""
 #: patterns/header-main.php
 msgctxt "Pattern description"
 msgid ""
-"Full header content: composes Header — brand row and Header — nav row. Prefer "
-"editing those two patterns or the header template part directly."
+"Full header content: composes Header — brand row and Header — nav row. "
+"Prefer editing those two patterns or the header template part directly."
 msgstr ""
 
 #: patterns/header-nav-row.php
@@ -707,11 +707,11 @@ msgctxt "Pattern description"
 msgid "Introductory bio paragraph for the home page."
 msgstr ""
 
-#. translators: 1: Mediapapa icon 2: Mediapapa link 3: WP icon 4: WP Francophone link
-#: patterns/home-bio.php:19
+#. translators: 1: Mediapapa link 2: WordPress Francophone link
+#: patterns/home-bio.php:17
 msgid ""
-"Jason Rouet, WordPress product manager at %1$s%2$s, president of %3$s%4$s, "
-"open-web contributor for years. Here I tinker, jot notes, and tell stories."
+"Jason Rouet, WordPress product manager at %1$s, president of %2$s, open-web "
+"contributor for years. Here I tinker, jot notes, and tell stories."
 msgstr ""
 
 #: patterns/home-events-upcoming.php
@@ -744,12 +744,12 @@ msgid ""
 "Pinned projects grid; section link starter /projets/ — edit in Site Editor."
 msgstr ""
 
-#. translators: 1: projects hub URL (starter), 2: path label
-#: patterns/home-featured-projects.php:22
+#. translators: 1: projects section URL (starter /projets/), 2: path label shown in the link
+#: patterns/home-featured-projects.php:25
 msgid "Pinned projects <a href=\"%1$s\" class=\"section-link\">%2$s →</a>"
 msgstr ""
 
-#: patterns/home-featured-projects.php:48
+#: patterns/home-featured-projects.php:51
 msgid "No pinned projects yet."
 msgstr ""
 
@@ -797,10 +797,11 @@ msgid ""
 "scrobbles and tastings without a write-up stay in their own views; use the "
 "filters to narrow by type."
 msgstr ""
-"Fil chronologique mêlant articles de fond, activités courtes (favoris, likes, "
-"écoutes, check-ins bière, etc.), événements et micro-apprentissages — du plus "
-"récent au plus ancien. Les scrobbles bruts et dégustations sans texte restent "
-"dans leurs vues dédiées ; utilisez les filtres pour affiner par type."
+"Fil chronologique mêlant articles de fond, activités courtes (favoris, "
+"likes, écoutes, check-ins bière, etc.), événements et micro-apprentissages — "
+"du plus récent au plus ancien. Les scrobbles bruts et dégustations sans "
+"texte restent dans leurs vues dédiées ; utilisez les filtres pour affiner "
+"par type."
 
 #: patterns/listen-bindings-sample.php
 msgctxt "Pattern title"
@@ -809,7 +810,8 @@ msgstr ""
 
 #: patterns/listen-bindings-sample.php
 msgctxt "Pattern description"
-msgid "Sample paragraphs bound to listen post meta (requires jardin-scrobbles)."
+msgid ""
+"Sample paragraphs bound to listen post meta (requires jardin-scrobbles)."
 msgstr ""
 
 #: patterns/listen-single-header.php
@@ -846,7 +848,7 @@ msgstr ""
 
 #: patterns/placeholder-beers.php
 msgctxt "Pattern description"
-msgid "Temporary notice until jardin-beer blocks are wired."
+msgid "Temporary notice until jardin-toasts blocks are wired on this page."
 msgstr ""
 
 #: patterns/placeholder-blogroll.php

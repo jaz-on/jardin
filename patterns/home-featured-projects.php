@@ -11,8 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$jardin_projects_hub_url   = function_exists( 'jardin_projects_hub_url' ) ? jardin_projects_hub_url() : trailingslashit( home_url( '/projets/' ) );
-$jardin_projects_hub_label = function_exists( 'jardin_projects_hub_label' ) ? jardin_projects_hub_label() : '/projets';
+$projects_section_url   = trailingslashit( home_url( '/projets/' ) );
+$projects_section_label = '/projets';
 
 ?>
 <!-- wp:group {"className":"home-featured-projects-wrap","layout":{"type":"constrained"}} -->
@@ -20,12 +20,12 @@ $jardin_projects_hub_label = function_exists( 'jardin_projects_hub_label' ) ? ja
 <!-- wp:heading {"level":2,"className":"section-with-link"} -->
 <h2 class="wp-block-heading section-with-link"><?php
 	echo wp_kses(
-		sprintf(
-			/* translators: 1: projects hub URL, 2: path label */
-			__( 'Pinned projects <a href="%1$s" class="section-link">%2$s →</a>', 'jardin-theme' ),
-			esc_url( $jardin_projects_hub_url ),
-			esc_html( $jardin_projects_hub_label )
-		),
+				sprintf(
+					/* translators: 1: projects section URL (starter /projets/), 2: path label shown in the link */
+					__( 'Pinned projects <a href="%1$s" class="section-link">%2$s →</a>', 'jardin-theme' ),
+					esc_url( $projects_section_url ),
+					esc_html( $projects_section_label )
+				),
 		array( 'a' => array( 'href' => true, 'class' => true ) )
 	);
 ?></h2>
