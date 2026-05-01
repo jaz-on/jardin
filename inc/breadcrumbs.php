@@ -1,6 +1,6 @@
 <?php
 /**
- * Breadcrumb rendering.
+ * Ajustements du fil d’Ariane Yoast (bloc `yoast-seo/breadcrumbs` dans les modèles HTML).
  *
  * @package Jardin_Theme
  */
@@ -8,27 +8,9 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Render Yoast breadcrumb markup for theme templates.
+ * Yoast affiche parfois « Bières » sur le hub Toasts ; on aligne le dernier maillon sur le libellé produit.
  *
- * @return string HTML breadcrumb.
- */
-function jardin_render_breadcrumb(): string {
-	if ( is_admin() || is_front_page() ) {
-		return '';
-	}
-
-	if ( function_exists( 'yoast_breadcrumb' ) ) {
-		$html = yoast_breadcrumb( '<p class="breadcrumb">', '</p>', false );
-		return is_string( $html ) ? $html : '';
-	}
-
-	return '';
-}
-
-/**
- * Yoast often still shows “Bières” for the Untappd stats hub; align the last crumb with the product label.
- *
- * @param array<int, array<string, mixed>>|mixed $links Breadcrumb trail.
+ * @param array<int, array<string, mixed>>|mixed $links Maillons du fil.
  * @return array<int, array<string, mixed>>|mixed
  */
 function jardin_filter_yoast_breadcrumb_toasts_hub( $links ) {
@@ -52,29 +34,19 @@ function jardin_filter_yoast_breadcrumb_toasts_hub( $links ) {
 add_filter( 'wpseo_breadcrumb_links', 'jardin_filter_yoast_breadcrumb_toasts_hub', 20 );
 
 /**
- * Server-side render callback for the breadcrumb block.
+ * Comme l’ancien bloc thème : pas de fil d’Ariane sur la page d’accueil.
  *
- * @param array<string,mixed> $attributes Block attributes.
- * @param string              $content Block content.
+ * @param string               $block_content Sortie du bloc.
+ * @param array<string, mixed> $block         Bloc parsé.
  * @return string
  */
-function jardin_render_breadcrumb_block( array $attributes = array(), string $content = '' ): string {
-	unset( $attributes, $content );
-	return jardin_render_breadcrumb();
+function jardin_hide_yoast_breadcrumbs_on_front_page( string $block_content, array $block ): string {
+	if ( 'yoast-seo/breadcrumbs' !== ( $block['blockName'] ?? '' ) ) {
+		return $block_content;
+	}
+	if ( ! is_admin() && is_front_page() ) {
+		return '';
+	}
+	return $block_content;
 }
-
-/**
- * Register the breadcrumb block for template usage.
- *
- * @return string
- */
-function jardin_register_breadcrumb_block(): void {
-	register_block_type(
-		'jardin-theme/breadcrumb',
-		array(
-			'api_version'     => 2,
-			'render_callback' => 'jardin_render_breadcrumb_block',
-		)
-	);
-}
-add_action( 'init', 'jardin_register_breadcrumb_block' );
+add_filter( 'render_block', 'jardin_hide_yoast_breadcrumbs_on_front_page', 10, 2 );

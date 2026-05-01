@@ -7,7 +7,9 @@
  *
  * @package Jardin_Theme */
 
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->
-<p class="has-text-muted-color has-text-color"><?php echo esc_html( jardin_get_placeholder_message( 'now' ) ); ?></p>
+<p class="has-text-muted-color has-text-color"><?php echo esc_html__( 'Live “now” summary blocks (for example Last.fm) will load here once the listening plugin is connected. Page body below remains free for editorial content.', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->

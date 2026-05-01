@@ -7,7 +7,9 @@
  *
  * @package Jardin_Theme */
 
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->
-<p class="has-text-muted-color has-text-color"><?php echo esc_html( jardin_get_placeholder_message( 'blogroll' ) ); ?></p>
+<p class="has-text-muted-color has-text-color"><?php echo esc_html__( 'The blogroll grid powered by jardin-bookmarks will appear here in a later phase. Use the page content for notes in the meantime.', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->

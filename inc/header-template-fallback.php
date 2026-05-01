@@ -200,4 +200,8 @@ function jardin_filter_header_template_part_fallback( $block_template, string $i
 	return $using_file ? $file_template : $block_template;
 }
 
-add_filter( 'get_block_template', 'jardin_filter_header_template_part_fallback', 5, 3 );
+/*
+ * Run late so another `get_block_template` callback cannot re-introduce an incomplete
+ * header from the DB after we substitute `parts/header.html`.
+ */
+add_filter( 'get_block_template', 'jardin_filter_header_template_part_fallback', 999, 3 );

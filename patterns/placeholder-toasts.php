@@ -12,5 +12,5 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <!-- wp:paragraph {"textColor":"text-muted"} -->
-<p class="has-text-muted-color has-text-color"><?php echo esc_html( jardin_get_placeholder_message( 'toasts' ) ); ?></p>
+<p class="has-text-muted-color has-text-color"><?php echo esc_html__( 'Recent check-ins and beer grids from jardin-toasts will appear here in a later phase. Use the page content for any introductory copy.', 'jardin-theme' ); ?></p>
 <!-- /wp:paragraph -->
