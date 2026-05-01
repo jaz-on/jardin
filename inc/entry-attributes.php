@@ -94,6 +94,51 @@ function jardin_get_note_kind_taxonomy_slug(): string {
 }
 
 /**
+ * Short type label for feed / journal entry cards (translated).
+ *
+ * @param \WP_Post $post Post.
+ * @return string
+ */
+function jardin_get_entry_kind_badge_label( WP_Post $post ): string {
+	if ( defined( 'JARDIN_NOW_POST_TYPE' ) && JARDIN_NOW_POST_TYPE === $post->post_type ) {
+		return __( 'Now', 'jardin-theme' );
+	}
+
+	$kind = jardin_get_entry_data_kind( $post );
+	if ( 'post' === $kind ) {
+		$nk = jardin_get_entry_note_kind( $post );
+		if ( 'til' === $nk ) {
+			return __( 'TIL', 'jardin-theme' );
+		}
+		return __( 'Article', 'jardin-theme' );
+	}
+	if ( 'event' === $kind ) {
+		return __( 'Event', 'jardin-theme' );
+	}
+	if ( 'project' === $kind ) {
+		return __( 'Project', 'jardin-theme' );
+	}
+
+	$nk = jardin_get_entry_note_kind( $post );
+	$labels = array(
+		'like'     => __( 'Like', 'jardin-theme' ),
+		'bookmark' => __( 'Bookmark', 'jardin-theme' ),
+		'quote'    => __( 'Quote', 'jardin-theme' ),
+		'tasting'  => __( 'Tasting', 'jardin-theme' ),
+		'review'   => __( 'Beer review', 'jardin-theme' ),
+		'listen'   => __( 'Listen', 'jardin-theme' ),
+		'jam'      => __( 'Jam', 'jardin-theme' ),
+		'reply'    => __( 'Reply', 'jardin-theme' ),
+		'note'     => __( 'Activity', 'jardin-theme' ),
+	);
+	if ( '' !== $nk && isset( $labels[ $nk ] ) ) {
+		return $labels[ $nk ];
+	}
+
+	return __( 'Activity', 'jardin-theme' );
+}
+
+/**
  * Add data-* attributes to rendered `.entry` group blocks (post context).
  *
  * @param string       $block_content Block HTML.
@@ -134,9 +179,18 @@ function jardin_render_block_entry_data_attrs( string $block_content, array $blo
 				$tags->set_attribute( 'data-note-kind', $note_kind );
 			}
 		}
-		return $tags->get_updated_html();
+		$html = $tags->get_updated_html();
+	} else {
+		$html = $block_content;
 	}
 
-	return $block_content;
+	$label = jardin_get_entry_kind_badge_label( $post );
+	$badge = '<span class="entry-kind-badge">' . esc_html( $label ) . '</span>';
+	if ( preg_match( '/(<div\b[^>]*\bwp-block-group\b[^>]*\bentry\b[^>]*>)/i', $html, $m, PREG_OFFSET_CAPTURE ) ) {
+		$at = $m[0][1] + strlen( $m[0][0] );
+		return substr_replace( $html, $badge, $at, 0 );
+	}
+
+	return $html;
 }
 add_filter( 'render_block', 'jardin_render_block_entry_data_attrs', 10, 2 );

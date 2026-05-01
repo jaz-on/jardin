@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jardin Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jardin-theme\n"
-"POT-Creation-Date: 2026-05-01T09:13:23+00:00\n"
+"POT-Creation-Date: 2026-05-01T09:14:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -67,7 +67,9 @@ msgstr "Voir sur Mastodon"
 
 #: blocks/post-engage/render.php:104
 msgid "No Bluesky or Mastodon syndication link was auto-detected on this post."
-msgstr "Aucun lien de syndication Bluesky ou Mastodon n’a été détecté automatiquement sur ce contenu."
+msgstr ""
+"Aucun lien de syndication Bluesky ou Mastodon n’a été détecté "
+"automatiquement sur ce contenu."
 
 #. translators: %d: number of webmention comments
 #: blocks/post-engage/render.php:112
@@ -297,6 +299,62 @@ msgstr ""
 msgid "Release published on GitHub."
 msgstr ""
 
+#: inc/entry-attributes.php:104
+msgid "Now"
+msgstr "Maintenant"
+
+#: inc/entry-attributes.php:111
+msgid "TIL"
+msgstr "TIL"
+
+#: inc/entry-attributes.php:113
+msgid "Article"
+msgstr "Article"
+
+#: inc/entry-attributes.php:116
+msgid "Event"
+msgstr "Événement"
+
+#: inc/entry-attributes.php:119 inc/projects.php:34
+msgid "Project"
+msgstr "Projet"
+
+#: inc/entry-attributes.php:124
+msgid "Like"
+msgstr "Like"
+
+#: inc/entry-attributes.php:125
+msgid "Bookmark"
+msgstr "Signet"
+
+#: inc/entry-attributes.php:126
+msgid "Quote"
+msgstr "Citation"
+
+#: inc/entry-attributes.php:127
+msgid "Tasting"
+msgstr "Dégustation"
+
+#: inc/entry-attributes.php:128
+msgid "Beer review"
+msgstr "Critique bière"
+
+#: inc/entry-attributes.php:129
+msgid "Listen"
+msgstr "Écoute"
+
+#: inc/entry-attributes.php:130
+msgid "Jam"
+msgstr "Jam"
+
+#: inc/entry-attributes.php:131
+msgid "Reply"
+msgstr "Réponse"
+
+#: inc/entry-attributes.php:132 inc/entry-attributes.php:138
+msgid "Activity"
+msgstr "Activité"
+
 #: inc/header-toolbar.php:37
 msgid "Language"
 msgstr ""
@@ -460,10 +518,6 @@ msgstr ""
 
 #: inc/projects.php:33 inc/projects.php:45 inc/projects.php:49
 msgid "Projects"
-msgstr ""
-
-#: inc/projects.php:34
-msgid "Project"
 msgstr ""
 
 #: inc/projects.php:35

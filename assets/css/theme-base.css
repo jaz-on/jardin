@@ -2225,6 +2225,17 @@ main#main.wp-block-group {
 	padding-left: var(--wp--preset--spacing--3);
 }
 
+.entry-kind-badge {
+	display: inline-block;
+	margin: 0 0 var(--wp--preset--spacing--1);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--text-muted);
+}
+
 .entry[data-kind='post'] {
 	border-left-color: var(--pt-post, var(--wp--preset--color--pt-post));
 }
